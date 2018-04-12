@@ -301,7 +301,7 @@ class Questionnaire extends PcBase
         $insert['number'] = self::$number;
         $insert['endtime'] = $data['endtime'];
         $insert['time'] = formatTime(time());
-        $isnert['maximum'] = $data['maximum'];
+        $insert['maximum'] = $data['maximum'];
         $option = json_decode($data['option'],true);
         Db::startTrans();
         try {
