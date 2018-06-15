@@ -1,0 +1,2278 @@
+---------------------------------------------------------------
+[ 2018-04-25T10:01:06+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/editRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/editRemittance [运行时间：7.121102s][吞吐率：0.14req/s] [内存消耗：2,132.73kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1438',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------711272738868520861546245',
+  'postman-token' => '9a9bf0ec-43ef-44db-946e-1fc562dd323c',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.021012s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.026305s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'english' in 'field list'[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2018-04-25T10:02:17+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/editRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/editRemittance [运行时间：7.068866s][吞吐率：0.14req/s] [内存消耗：2,132.79kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1438',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------930494191796322583727240',
+  'postman-token' => '75970c5e-53ec-4ff8-900d-174891ea8db7',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007238s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.029955s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'english' in 'field list'[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2018-04-25T10:07:05+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/editRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/editRemittance [运行时间：7.098965s][吞吐率：0.14req/s] [内存消耗：2,147.85kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1438',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------323203524768537530564500',
+  'postman-token' => '30444e01-4454-48e9-b7a2-170eafc8ee2b',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008035s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.025701s ]
+[ sql ] [ SQL ] SELECT `english` FROM `sino_user` WHERE  `id_number` = '421121199401062412' LIMIT 1 [ RunTime:0.002835s ]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:713]
+---------------------------------------------------------------
+[ 2018-04-25T10:07:48+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/editRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/editRemittance [运行时间：7.063634s][吞吐率：0.14req/s] [内存消耗：2,107.01kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1438',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------526091629793199960520960',
+  'postman-token' => '2ddba254-122b-4595-86a4-7a962bcf2da2',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016948s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.021553s ]
+[ sql ] [ SQL ] SELECT `english` FROM `sino_user` WHERE  `id_number` = '421121199401062412' LIMIT 1 [ RunTime:0.001720s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:08:48+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/editRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/editRemittance [运行时间：7.148184s][吞吐率：0.14req/s] [内存消耗：2,117.76kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1438',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------187343166609210730525724',
+  'postman-token' => '8d555478-7026-44a6-b808-922f43123558',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.014307s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.040604s ]
+[ sql ] [ SQL ] SELECT `english` FROM `sino_user` WHERE  `id_number` = '421121199401062412' LIMIT 1 [ RunTime:0.001430s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.019408s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国招商银行',`short_name`='招行',`english`='China Merchants Bank',`number`='6217211107001880725',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-24',`relation`='父子',`telnumber`='13314526589',`swift`='',`line_number`='989584027708',`changer`='Zhang San',`change_time`='2018-04-25'  WHERE  `pid` = 2 [ RunTime:0.044749s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:15:15+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/importRemittance [运行时间：7.233918s][吞吐率：0.14req/s] [内存消耗：5,299.50kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13085',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------153015713909794098201936',
+  'postman-token' => 'c7d35a63-3636-4873-9732-fc5de19816ea',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.026963s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.035468s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.002619s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.018397s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.002876s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.001857s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' [ RunTime:0.002550s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241002' [ RunTime:0.002751s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241003' [ RunTime:0.001988s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241004' [ RunTime:0.002676s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241005' [ RunTime:0.001852s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006' [ RunTime:0.001938s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007' [ RunTime:0.002748s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:15:48+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/importRemittance [运行时间：7.188698s][吞吐率：0.14req/s] [内存消耗：5,299.45kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13084',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------389227260076366840537812',
+  'postman-token' => 'f8a287d9-a390-4960-8526-85aae31abea8',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015619s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.023557s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.001554s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.018260s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.001587s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.003245s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' [ RunTime:0.002361s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241002' [ RunTime:0.001699s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241003' [ RunTime:0.001097s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241004' [ RunTime:0.001099s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241005' [ RunTime:0.001720s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006' [ RunTime:0.003034s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007' [ RunTime:0.001545s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:17:14+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/importRemittance [运行时间：7.227211s][吞吐率：0.14req/s] [内存消耗：5,304.36kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13158',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------719548064215600232776580',
+  'postman-token' => 'b48ae89c-d80a-4811-9824-db9119487659',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.009624s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.040480s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.002612s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.021280s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.003020s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.001653s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' [ RunTime:0.001615s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241002' [ RunTime:0.001707s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241003' [ RunTime:0.001590s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241004' [ RunTime:0.002711s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241005' [ RunTime:0.003112s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006' [ RunTime:0.002298s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007' [ RunTime:0.002662s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:17:51+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/importRemittance [运行时间：7.160257s][吞吐率：0.14req/s] [内存消耗：5,304.36kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13158',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------574819571939256187752187',
+  'postman-token' => '596494e9-0f80-4fb8-91b3-aefbc4716aac',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008374s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.022700s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.001545s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.021223s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.001631s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.002415s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' [ RunTime:0.003027s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241002' [ RunTime:0.001909s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241003' [ RunTime:0.002555s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241004' [ RunTime:0.002002s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241005' [ RunTime:0.003083s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006' [ RunTime:0.001268s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007' [ RunTime:0.002755s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:18:31+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/importRemittance [运行时间：7.200455s][吞吐率：0.14req/s] [内存消耗：5,304.58kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13158',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------946535535599601121861250',
+  'postman-token' => 'f573bbe5-9bd9-4975-bcbb-240169e1646e',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008968s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.026946s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.001917s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.020288s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.002142s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.002271s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' [ RunTime:0.002151s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241002' [ RunTime:0.002030s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241003' [ RunTime:0.001856s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241004' [ RunTime:0.003059s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241005' [ RunTime:0.002412s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006' [ RunTime:0.002107s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007' [ RunTime:0.001993s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:19:08+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/importRemittance [运行时间：7.180355s][吞吐率：0.14req/s] [内存消耗：5,324.09kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13158',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------985148708398157151836998',
+  'postman-token' => 'be58b24e-9b49-46e2-87a3-0cf3f94dc294',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017597s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.022467s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.001630s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.019787s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.001382s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.002070s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' [ RunTime:0.002232s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241002' [ RunTime:0.002154s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241003' [ RunTime:0.002832s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241004' [ RunTime:0.002484s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241005' [ RunTime:0.002131s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006' [ RunTime:0.001395s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007' [ RunTime:0.002795s ]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'pid' doesn't have a default value[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-25T10:20:29+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/importRemittance [运行时间：7.162940s][吞吐率：0.14req/s] [内存消耗：5,283.16kb] [文件加载：106]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13158',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------691013219800946696770755',
+  'postman-token' => 'b2d525e3-3edb-496e-a249-898c54e75c0a',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.004303s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.024438s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.002772s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.020143s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.002683s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.001734s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' [ RunTime:0.001617s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241002' [ RunTime:0.002025s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241003' [ RunTime:0.002822s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241004' [ RunTime:0.003019s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241005' [ RunTime:0.003070s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006' [ RunTime:0.001804s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007' [ RunTime:0.001653s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:21:16+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/importRemittance [运行时间：7.147648s][吞吐率：0.14req/s] [内存消耗：5,287.33kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13158',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------850134676159973230115805',
+  'postman-token' => 'b67a2462-06c2-41e0-83e1-069f229c1f03',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.009537s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.021196s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.001394s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.019172s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.001944s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.002525s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' [ RunTime:0.001971s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241002' [ RunTime:0.002027s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241003' [ RunTime:0.001336s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241004' [ RunTime:0.002015s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241005' [ RunTime:0.001167s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006' [ RunTime:0.002313s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007' [ RunTime:0.001918s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:21:41+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/importRemittance [运行时间：7.177824s][吞吐率：0.14req/s] [内存消耗：5,287.36kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13158',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------938321485427445329779081',
+  'postman-token' => 'bca916c7-1a5c-4be8-be9d-51fc4528c894',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.012198s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.023467s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.001435s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.017946s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.001406s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.001190s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' [ RunTime:0.002612s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241002' [ RunTime:0.001477s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241003' [ RunTime:0.001394s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241004' [ RunTime:0.001646s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241005' [ RunTime:0.001647s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006' [ RunTime:0.001779s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007' [ RunTime:0.001327s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:22:46+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/importRemittance [运行时间：7.159830s][吞吐率：0.14req/s] [内存消耗：5,287.36kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13158',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------557627154626084817435658',
+  'postman-token' => '6644dd37-6a08-4368-8a65-1ba03ed5f07d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.006137s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.022028s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.002230s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.021239s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.001546s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' [ RunTime:0.002703s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' [ RunTime:0.002113s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241002' [ RunTime:0.002982s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241003' [ RunTime:0.002507s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241004' [ RunTime:0.002051s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241005' [ RunTime:0.003281s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006' [ RunTime:0.001819s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007' [ RunTime:0.001962s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:23:09+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/importRemittance [运行时间：7.173259s][吞吐率：0.14req/s] [内存消耗：5,287.82kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13158',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------983743686953732692779902',
+  'postman-token' => '546e4045-336a-4bfd-998d-18023e206943',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016645s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.022405s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.002061s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.022274s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' LIMIT 1 [ RunTime:0.002861s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' LIMIT 1 [ RunTime:0.001604s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' LIMIT 1 [ RunTime:0.001717s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241002' LIMIT 1 [ RunTime:0.002285s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241003' LIMIT 1 [ RunTime:0.002080s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241004' LIMIT 1 [ RunTime:0.002709s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241005' LIMIT 1 [ RunTime:0.001253s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006' LIMIT 1 [ RunTime:0.002609s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007' LIMIT 1 [ RunTime:0.001292s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:23:32+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/importRemittance [运行时间：7.231559s][吞吐率：0.14req/s] [内存消耗：5,292.14kb] [文件加载：106]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13158',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------609053511588983407872417',
+  'postman-token' => 'aaba8cb3-9d70-49fd-acf5-98a3004e182f',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017811s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.039788s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.002147s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.022574s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' LIMIT 1 [ RunTime:0.001211s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' LIMIT 1 [ RunTime:0.001597s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' LIMIT 1 [ RunTime:0.001356s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241002' LIMIT 1 [ RunTime:0.002068s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241003' LIMIT 1 [ RunTime:0.002928s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241004' LIMIT 1 [ RunTime:0.002354s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241005' LIMIT 1 [ RunTime:0.002617s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006' LIMIT 1 [ RunTime:0.001910s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007' LIMIT 1 [ RunTime:0.001265s ]
+[ sql ] [ SQL ] INSERT INTO `sino_remittance` (`pid` , `bank` , `short_name` , `english` , `number` , `name_cn` , `name_en` , `birthday` , `relation` , `telnumber` , `swift` , `line_number` , `changer` , `change_time`) VALUES ( 6,'中国建设银行','建行','bank for construction','6217002710000684871','李爸','Li Ba','1975/02/23','母子','13164627140','',' 989584027708','Codeyi','2018-04-25' ) , ( 6,'中国建设银行','建行','bank for construction','6217002710000684872','李爸','Li Ba','1975/02/24','母子','13164627141','',' 989584027708','Codeyi','2018-04-25' ) , ( 8,'中国建设银行','建行','bank for construction','6217002710000684873','李爸','Li Ba','1975/02/25','母子','13164627142','',' 989584027708','Codeyi','2018-04-25' ) , ( 9,'中国建设银行','建行','bank for construction','6217002710000684875','李爸','Li Ba','1975/02/26','母子','13164627143','',' 989584027708','Codeyi','2018-04-25' ) , ( 10,'中国建设银行','建行','bank for construction','6217002710000684876','李爸','Li Ba','1975/02/27','母子','13164627144','',' 989584027708','Codeyi','2018-04-25' ) , ( 11,'中国建设银行','建行','bank for construction','6217002710000684877','李爸','Li Ba','1975/02/28','父子','13164627145','',' 989584027708','Codeyi','2018-04-25' ) , ( 12,'中国建设银行','建行','bank for construction','6217002710000684878','李爸','Li Ba','1975/02/29','父子','13164627146','',' 989584027708','Codeyi','2018-04-25' ) , ( 13,'中国建设银行','建行','bank for construction','6217002710000684879','李爸','Li Ba','1975/02/30','父子','13164627147','',' 989584027708','Codeyi','2018-04-25' ) , ( 14,'中国建设银行','建行','bank for construction','6217002710000684870','李爸','Li Ba','1975/02/30','父子','13164627148','',' 989584027708','Codeyi','2018-04-25' ) [ RunTime:0.028522s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:24:08+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/importRemittance [运行时间：7.438017s][吞吐率：0.13req/s] [内存消耗：5,306.64kb] [文件加载：106]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13160',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------655450201818212564965707',
+  'postman-token' => '69a4318c-d405-4e96-9a2d-ddc0c26b602b',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007675s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.044465s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.001174s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.020309s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' LIMIT 1 [ RunTime:0.002271s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' LIMIT 1 [ RunTime:0.002410s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' LIMIT 1 [ RunTime:0.001958s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241002' LIMIT 1 [ RunTime:0.001202s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241003' LIMIT 1 [ RunTime:0.001893s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241004' LIMIT 1 [ RunTime:0.002943s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241005' LIMIT 1 [ RunTime:0.002819s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006' LIMIT 1 [ RunTime:0.001998s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007' LIMIT 1 [ RunTime:0.002029s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684870',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-23',`relation`='母子',`telnumber`='13164627140',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 6 [ RunTime:0.026219s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684872',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-24',`relation`='母子',`telnumber`='13164627141',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 6 [ RunTime:0.026605s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684873',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-25',`relation`='母子',`telnumber`='13164627142',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 8 [ RunTime:0.024782s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684875',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-26',`relation`='母子',`telnumber`='13164627143',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 9 [ RunTime:0.024448s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684876',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-27',`relation`='母子',`telnumber`='13164627144',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 10 [ RunTime:0.048064s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684877',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-28',`relation`='父子',`telnumber`='13164627145',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 11 [ RunTime:0.034607s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684878',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-29',`relation`='父子',`telnumber`='13164627146',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 12 [ RunTime:0.022334s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684879',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-30',`relation`='父子',`telnumber`='13164627147',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 13 [ RunTime:0.026700s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684870',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-30',`relation`='父子',`telnumber`='13164627148',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 14 [ RunTime:0.024493s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:24:50+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/importRemittance [运行时间：7.168019s][吞吐率：0.14req/s] [内存消耗：5,288.27kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13160',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------518715978051451983590781',
+  'postman-token' => '6df9bde3-0b29-44de-89ed-a978320e33f4',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016320s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.020473s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.001349s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.031585s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' LIMIT 1 [ RunTime:0.002135s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' LIMIT 1 [ RunTime:0.001696s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' LIMIT 1 [ RunTime:0.001183s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241002' LIMIT 1 [ RunTime:0.001309s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241003' LIMIT 1 [ RunTime:0.001475s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241004' LIMIT 1 [ RunTime:0.001499s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241005' LIMIT 1 [ RunTime:0.002107s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006' LIMIT 1 [ RunTime:0.002506s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007' LIMIT 1 [ RunTime:0.002261s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:25:27+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/importRemittance [运行时间：7.160232s][吞吐率：0.14req/s] [内存消耗：5,288.27kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13154',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------162758555294771861955544',
+  'postman-token' => '07db1173-3dae-48c9-9674-9f9db735c8b6',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016715s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.024983s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.003390s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.020563s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' LIMIT 1 [ RunTime:0.002390s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' LIMIT 1 [ RunTime:0.002425s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' LIMIT 1 [ RunTime:0.002016s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241002' LIMIT 1 [ RunTime:0.001899s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241003' LIMIT 1 [ RunTime:0.001817s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241004' LIMIT 1 [ RunTime:0.001715s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241005' LIMIT 1 [ RunTime:0.002410s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006' LIMIT 1 [ RunTime:0.001977s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007' LIMIT 1 [ RunTime:0.002292s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:25:44+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/importRemittance [运行时间：7.402136s][吞吐率：0.14req/s] [内存消耗：5,306.64kb] [文件加载：106]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13154',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------330934129795121877216383',
+  'postman-token' => '23696939-1830-4fd2-8f54-cd5556f71c4b',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.009544s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.024283s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.002166s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.018690s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' LIMIT 1 [ RunTime:0.002060s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' LIMIT 1 [ RunTime:0.002183s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' LIMIT 1 [ RunTime:0.002399s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241002' LIMIT 1 [ RunTime:0.002949s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241003' LIMIT 1 [ RunTime:0.002390s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241004' LIMIT 1 [ RunTime:0.001717s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241005' LIMIT 1 [ RunTime:0.001857s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006' LIMIT 1 [ RunTime:0.002585s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007' LIMIT 1 [ RunTime:0.001898s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684870',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-23',`relation`='亲戚',`telnumber`='13164627140',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 6 [ RunTime:0.033279s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684872',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-24',`relation`='亲戚',`telnumber`='13164627141',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 6 [ RunTime:0.024730s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684873',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-25',`relation`='亲戚',`telnumber`='13164627142',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 8 [ RunTime:0.022458s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684875',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-26',`relation`='亲戚',`telnumber`='13164627143',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 9 [ RunTime:0.026445s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684876',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-27',`relation`='亲戚',`telnumber`='13164627144',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 10 [ RunTime:0.020613s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684877',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-28',`relation`='亲戚',`telnumber`='13164627145',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 11 [ RunTime:0.026289s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684878',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-29',`relation`='亲戚',`telnumber`='13164627146',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 12 [ RunTime:0.022644s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684879',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-30',`relation`='亲戚',`telnumber`='13164627147',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 13 [ RunTime:0.026821s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684870',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-30',`relation`='父子',`telnumber`='13164627148',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 14 [ RunTime:0.022587s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:26:30+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/importRemittance [运行时间：7.201326s][吞吐率：0.14req/s] [内存消耗：5,307.59kb] [文件加载：106]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13153',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------552055836440856438516249',
+  'postman-token' => '0094eece-c1ab-4951-8db4-a409805473ab',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.014463s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.023696s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.001390s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.019712s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' LIMIT 1 [ RunTime:0.003125s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241000' LIMIT 1 [ RunTime:0.002351s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' LIMIT 1 [ RunTime:0.001591s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241002' LIMIT 1 [ RunTime:0.001977s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241003' LIMIT 1 [ RunTime:0.002315s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241004' LIMIT 1 [ RunTime:0.003249s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241005' LIMIT 1 [ RunTime:0.001715s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006' LIMIT 1 [ RunTime:0.001748s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007' LIMIT 1 [ RunTime:0.002087s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684870',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-23',`relation`='父子',`telnumber`='13164627140',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 6 [ RunTime:0.002960s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684872',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-24',`relation`='父子',`telnumber`='13164627141',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 6 [ RunTime:0.001081s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684873',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-25',`relation`='父子',`telnumber`='13164627142',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 8 [ RunTime:0.000972s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684875',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-26',`relation`='父子',`telnumber`='13164627143',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 9 [ RunTime:0.000863s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684876',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-27',`relation`='父子',`telnumber`='13164627144',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 10 [ RunTime:0.000928s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684877',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-28',`relation`='父子',`telnumber`='13164627145',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 11 [ RunTime:0.000778s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684878',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-29',`relation`='父子',`telnumber`='13164627146',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 12 [ RunTime:0.000876s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684879',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-30',`relation`='父子',`telnumber`='13164627147',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 13 [ RunTime:0.000848s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684870',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-30',`relation`='父子',`telnumber`='13164627148',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-25'  WHERE  `pid` = 14 [ RunTime:0.000970s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:29:20+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/exportMariner
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/exportMariner [运行时间：7.085741s][吞吐率：0.14req/s] [内存消耗：2,131.40kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13153',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------372474077886530488456356',
+  'postman-token' => '0b5d4f4f-70a3-4019-9c90-f041f05c1399',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.013701s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.036922s ]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in where clause is ambiguous[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2018-04-25T10:29:42+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/exportMariner
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/exportMariner [运行时间：7.076731s][吞吐率：0.14req/s] [内存消耗：2,104.77kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13153',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------237530061271903004491976',
+  'postman-token' => '6abbe993-229d-4248-9a3c-bb068050f5de',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'bank' => '中国招商银行',
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017307s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.033101s ]
+[ sql ] [ SQL ] SELECT `a`.`id`,`a`.`cid`,`a`.`name`,`a`.`id_number`,`a`.`duty`,`a`.`manning_office`,`a`.`fleet`,`a`.`time`,b.title ownerPool,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` WHERE  `a`.`id` = '2' ORDER BY `duty` [ RunTime:0.003725s ]
+---------------------------------------------------------------
+[ 2018-04-25T10:30:14+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/exportMariner
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/exportMariner [运行时间：7.083245s][吞吐率：0.14req/s] [内存消耗：2,148.44kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '917ed60a-6bf6-4935-8798-5691d5a0fe36',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:472]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.021780s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.024472s ]
+[ sql ] [ SQL ] SELECT `a`.`id`,`a`.`cid`,`a`.`name`,`a`.`id_number`,`a`.`duty`,`a`.`manning_office`,`a`.`fleet`,`a`.`time`,b.title ownerPool,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` ORDER BY `duty` [ RunTime:0.013859s ]
+---------------------------------------------------------------
+[ 2018-04-25T11:15:56+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/exportRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/exportRemittance [运行时间：7.089962s][吞吐率：0.14req/s] [内存消耗：2,161.00kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '8e315d72-90a6-4624-86cd-a7c3adf1865f',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:802]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.025576s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.026613s ]
+[ sql ] [ SQL ] SELECT `a`.`name`,`a`.`id_number`,`a`.`duty`,`d`.`number`,`d`.`name_cn`,`d`.`line_number`,`d`.`bank`,`d`.`short_name`,`b`.`alias`,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` LEFT JOIN `sino_remittance` `d` ON `d`.`pid`=`a`.`id` ORDER BY `duty` [ RunTime:0.004760s ]
+---------------------------------------------------------------
+[ 2018-04-25T11:18:04+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/exportRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/exportRemittance [运行时间：7.080215s][吞吐率：0.14req/s] [内存消耗：2,160.95kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => 'cdcc4504-9c9f-4add-b3b8-26b4a7fe87d3',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:802]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.018070s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.023179s ]
+[ sql ] [ SQL ] SELECT `a`.`name`,`a`.`id_number`,`a`.`duty`,`d`.`number`,`d`.`name_cn`,`d`.`line_number`,`d`.`bank`,`d`.`short_name`,`b`.`alias`,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` LEFT JOIN `sino_remittance` `d` ON `d`.`pid`=`a`.`id` ORDER BY `duty` [ RunTime:0.003857s ]
+---------------------------------------------------------------
+[ 2018-04-25T11:25:18+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/exportRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/exportRemittance [运行时间：7.100908s][吞吐率：0.14req/s] [内存消耗：2,157.57kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '3fbc0450-daa5-42f7-8bc2-13fb2d3284fd',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:802]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.044078s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.023540s ]
+[ sql ] [ SQL ] SELECT `a`.`name`,`a`.`id_number`,`a`.`duty`,`d`.`number`,`d`.`name_cn`,`d`.`line_number`,`d`.`bank`,`d`.`short_name`,`b`.`alias`,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` LEFT JOIN `sino_remittance` `d` ON `d`.`pid`=`a`.`id` ORDER BY `duty` [ RunTime:0.003376s ]
+---------------------------------------------------------------
+[ 2018-04-25T11:25:40+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/exportRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/exportRemittance [运行时间：7.067180s][吞吐率：0.14req/s] [内存消耗：2,157.48kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => 'e3512e78-4914-487c-9f45-0a4abff6582e',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:802]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017270s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.023587s ]
+[ sql ] [ SQL ] SELECT `a`.`name`,`a`.`id_number`,`a`.`duty`,`d`.`number`,`d`.`name_cn`,`d`.`line_number`,`d`.`bank`,`d`.`short_name`,`b`.`alias`,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` LEFT JOIN `sino_remittance` `d` ON `d`.`pid`=`a`.`id` ORDER BY `duty` [ RunTime:0.003301s ]
+---------------------------------------------------------------
+[ 2018-04-25T11:30:31+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/exportRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/exportRemittance [运行时间：7.089355s][吞吐率：0.14req/s] [内存消耗：2,162.69kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => 'c282cd38-10b2-4b78-825d-334f66296905',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:802]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.027674s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.027682s ]
+[ sql ] [ SQL ] SELECT `a`.`name`,`a`.`id_number`,`a`.`duty`,`d`.`number`,`d`.`name_cn`,`d`.`line_number`,`d`.`bank`,`d`.`short_name`,`b`.`alias`,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` LEFT JOIN `sino_remittance` `d` ON `d`.`pid`=`a`.`id` ORDER BY `duty` [ RunTime:0.003225s ]
+---------------------------------------------------------------
+[ 2018-04-25T11:31:40+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/exportRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/exportRemittance [运行时间：7.075012s][吞吐率：0.14req/s] [内存消耗：2,162.70kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '9a04d539-3178-4873-9b10-425acfe7fe5e',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:802]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015983s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.031364s ]
+[ sql ] [ SQL ] SELECT `a`.`name`,`a`.`id_number`,`a`.`duty`,`d`.`number`,`d`.`name_cn`,`d`.`line_number`,`d`.`bank`,`d`.`short_name`,`b`.`alias`,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` LEFT JOIN `sino_remittance` `d` ON `d`.`pid`=`a`.`id` ORDER BY `duty` [ RunTime:0.004054s ]
+---------------------------------------------------------------
+[ 2018-04-25T11:36:00+08:00 ] 192.168.10.107 GET /public/index.php/api/Mariner/exportRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/exportRemittance [运行时间：7.500673s][吞吐率：0.13req/s] [内存消耗：5,924.72kb] [文件加载：115]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'socketlog' => 'SocketLog(tabid=51&client_id=slog_47cf86)',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '192.168.10.107:807',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:802]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.112323s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.025062s ]
+[ sql ] [ SQL ] SELECT `a`.`name`,`a`.`id_number`,`a`.`duty`,`d`.`number`,`d`.`name_cn`,`d`.`line_number`,`d`.`bank`,`d`.`short_name`,`b`.`alias`,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` LEFT JOIN `sino_remittance` `d` ON `d`.`pid`=`a`.`id` ORDER BY `duty` [ RunTime:0.003176s ]
+---------------------------------------------------------------
+[ 2018-04-25T11:45:08+08:00 ] 192.168.10.107 GET /public/index.php/api/Mariner/exportRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/exportRemittance [运行时间：7.203876s][吞吐率：0.14req/s] [内存消耗：5,944.08kb] [文件加载：115]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'socketlog' => 'SocketLog(tabid=53&client_id=slog_47cf86)',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '192.168.10.107:807',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:802]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.036932s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.036438s ]
+[ sql ] [ SQL ] SELECT `a`.`name`,`a`.`id_number`,`a`.`duty`,`d`.`number`,`d`.`name_cn`,`d`.`line_number`,`d`.`bank`,`d`.`short_name`,`b`.`alias`,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` LEFT JOIN `sino_remittance` `d` ON `d`.`pid`=`a`.`id` ORDER BY `duty` [ RunTime:0.004839s ]
+---------------------------------------------------------------
+[ 2018-04-25T11:48:04+08:00 ] 192.168.10.107 GET /public/index.php/api/Mariner/exportRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/exportRemittance [运行时间：7.207024s][吞吐率：0.14req/s] [内存消耗：5,970.70kb] [文件加载：116]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'socketlog' => 'SocketLog(tabid=53&client_id=slog_47cf86)',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '192.168.10.107:807',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:811]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016845s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.036987s ]
+[ sql ] [ SQL ] SELECT `a`.`name`,`a`.`id_number`,`a`.`duty`,`d`.`number`,`d`.`name_cn`,`d`.`line_number`,`d`.`bank`,`d`.`short_name`,`b`.`alias`,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` LEFT JOIN `sino_remittance` `d` ON `d`.`pid`=`a`.`id` ORDER BY `duty` [ RunTime:0.004253s ]
+---------------------------------------------------------------
+[ 2018-04-25T11:52:43+08:00 ] 192.168.10.107 GET /public/index.php/api/Mariner/exportRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/exportRemittance [运行时间：7.156258s][吞吐率：0.14req/s] [内存消耗：5,971.08kb] [文件加载：116]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'socketlog' => 'SocketLog(tabid=53&client_id=slog_47cf86)',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '192.168.10.107:807',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:811]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.019936s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.023269s ]
+[ sql ] [ SQL ] SELECT `a`.`name`,`a`.`id_number`,`a`.`duty`,`d`.`number`,`d`.`name_cn`,`d`.`line_number`,`d`.`bank`,`d`.`short_name`,`b`.`alias`,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` LEFT JOIN `sino_remittance` `d` ON `d`.`pid`=`a`.`id` ORDER BY `duty` [ RunTime:0.003365s ]
+---------------------------------------------------------------
+[ 2018-04-25T11:55:18+08:00 ] 192.168.10.107 POST /public/index.php/api/Mariner/exportRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/exportRemittance [运行时间：7.114776s][吞吐率：0.14req/s] [内存消耗：4,536.28kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => 'f81e2c29-bfb7-4b40-a3a8-790504f09718',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:811]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.024345s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.022726s ]
+[ sql ] [ SQL ] SELECT `a`.`name`,`a`.`id_number`,`a`.`duty`,`d`.`number`,`d`.`name_cn`,`d`.`line_number`,`d`.`bank`,`d`.`short_name`,`b`.`alias`,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` LEFT JOIN `sino_remittance` `d` ON `d`.`pid`=`a`.`id` ORDER BY `duty` [ RunTime:0.003307s ]
+---------------------------------------------------------------
+[ 2018-04-25T11:56:22+08:00 ] 192.168.10.107 GET /public/index.php/api/Mariner/exportRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/exportRemittance [运行时间：7.137078s][吞吐率：0.14req/s] [内存消耗：5,971.12kb] [文件加载：116]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'socketlog' => 'SocketLog(tabid=51&client_id=slog_47cf86)',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '192.168.10.107:807',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:811]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017245s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.025130s ]
+[ sql ] [ SQL ] SELECT `a`.`name`,`a`.`id_number`,`a`.`duty`,`d`.`number`,`d`.`name_cn`,`d`.`line_number`,`d`.`bank`,`d`.`short_name`,`b`.`alias`,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` LEFT JOIN `sino_remittance` `d` ON `d`.`pid`=`a`.`id` ORDER BY `duty` [ RunTime:0.003074s ]
+---------------------------------------------------------------
+[ 2018-04-25T11:56:45+08:00 ] 192.168.10.107 GET /public/index.php/api/Mariner/exportRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/exportRemittance [运行时间：7.149082s][吞吐率：0.14req/s] [内存消耗：5,971.12kb] [文件加载：116]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'socketlog' => 'SocketLog(tabid=51&client_id=slog_47cf86)',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '192.168.10.107:807',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:811]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.009553s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.036533s ]
+[ sql ] [ SQL ] SELECT `a`.`name`,`a`.`id_number`,`a`.`duty`,`d`.`number`,`d`.`name_cn`,`d`.`line_number`,`d`.`bank`,`d`.`short_name`,`b`.`alias`,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` LEFT JOIN `sino_remittance` `d` ON `d`.`pid`=`a`.`id` ORDER BY `duty` [ RunTime:0.003606s ]
+---------------------------------------------------------------
+[ 2018-04-25T11:58:36+08:00 ] 192.168.10.107 GET /public/index.php/api/Mariner/exportRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/exportRemittance [运行时间：7.147840s][吞吐率：0.14req/s] [内存消耗：5,970.92kb] [文件加载：116]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'socketlog' => 'SocketLog(tabid=63&client_id=slog_47cf86)',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '192.168.10.107:807',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:811]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015384s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.024235s ]
+[ sql ] [ SQL ] SELECT `a`.`name`,`a`.`id_number`,`a`.`duty`,`d`.`number`,`d`.`name_cn`,`d`.`line_number`,`d`.`bank`,`d`.`short_name`,`b`.`alias`,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` LEFT JOIN `sino_remittance` `d` ON `d`.`pid`=`a`.`id` ORDER BY `duty` [ RunTime:0.004277s ]
+---------------------------------------------------------------
+[ 2018-04-25T12:02:08+08:00 ] 192.168.10.107 GET /public/index.php/api/Mariner/exportRemittance
+[ info ] 192.168.10.107:807/public/index.php/api/Mariner/exportRemittance [运行时间：7.180995s][吞吐率：0.14req/s] [内存消耗：5,946.27kb] [文件加载：115]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'socketlog' => 'SocketLog(tabid=63&client_id=slog_47cf86)',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => '192.168.10.107:807',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:811]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.021971s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.066677s ]
+[ sql ] [ SQL ] SELECT `a`.`name`,`a`.`id_number`,`a`.`duty`,`d`.`number`,`d`.`name_cn`,`d`.`line_number`,`d`.`bank`,`d`.`short_name`,`b`.`alias`,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` LEFT JOIN `sino_remittance` `d` ON `d`.`pid`=`a`.`id` ORDER BY `duty` [ RunTime:0.003179s ]
+---------------------------------------------------------------
+[ 2018-04-25T15:32:08+08:00 ] 192.168.10.107 POST /public/index.php/api/SocialSecurity/addArea
+[ info ] 192.168.10.107:807/public/index.php/api/SocialSecurity/addArea [运行时间：0.033109s][吞吐率：30.20req/s] [内存消耗：1,120.12kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'SocialSecurity',
+    2 => 'addArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => 'ff0681ee-1549-45ef-b2b8-738ed94bc57a',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-25T15:33:01+08:00 ] 192.168.10.107 POST /public/index.php/api/SocialSecurity/addArea
+[ info ] 192.168.10.107:807/public/index.php/api/SocialSecurity/addArea [运行时间：0.015756s][吞吐率：63.47req/s] [内存消耗：1,120.14kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'SocialSecurity',
+    2 => 'addArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '8fa596b6-3705-41ae-b9dd-9456347528c0',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-25T15:35:19+08:00 ] 192.168.10.107 POST /public/index.php/api/Social/addArea
+[ info ] 192.168.10.107:807/public/index.php/api/Social/addArea [运行时间：7.112133s][吞吐率：0.14req/s] [内存消耗：2,029.27kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '287aeacf-3545-4bb8-8bf5-961fa3029777',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->addArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:21]
+[ error ] [1]Call to a member function find() on integer[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:21]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.034415s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_social_security` [ RunTime:0.034034s ]
+[ sql ] [ SQL ] SELECT MAX(endtime) AS tp_max FROM `sino_social_security` WHERE  `area` IS NULL LIMIT 1 [ RunTime:0.002087s ]
+---------------------------------------------------------------
+[ 2018-04-25T15:35:41+08:00 ] 192.168.10.107 POST /public/index.php/api/Social/addArea
+[ info ] 192.168.10.107:807/public/index.php/api/Social/addArea [运行时间：7.069574s][吞吐率：0.14req/s] [内存消耗：2,022.09kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => 'f1ed6e1c-9ccb-48b0-bd92-68fdf3cc7cb2',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->addArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:21]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015518s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_social_security` [ RunTime:0.024384s ]
+[ sql ] [ SQL ] SELECT MAX(endtime) AS tp_max FROM `sino_social_security` WHERE  `area` IS NULL LIMIT 1 [ RunTime:0.001903s ]
+---------------------------------------------------------------
+[ 2018-04-25T15:36:01+08:00 ] 192.168.10.107 POST /public/index.php/api/Social/addArea
+[ info ] 192.168.10.107:807/public/index.php/api/Social/addArea [运行时间：7.089663s][吞吐率：0.14req/s] [内存消耗：1,983.62kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'content-type' => 'multipart/form-data; boundary=--------------------------248380121947488381059222',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '2d07560a-7648-4b32-84a6-d0c18ff195fa',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'area' => '北京',
+)
+[ info ] [ RUN ] app\api\controller\Social->addArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.014987s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_social_security` [ RunTime:0.023772s ]
+[ sql ] [ SQL ] SELECT MAX(endtime) AS tp_max FROM `sino_social_security` WHERE  `area` = '北京' LIMIT 1 [ RunTime:0.028042s ]
+---------------------------------------------------------------
+[ 2018-04-25T15:37:05+08:00 ] 192.168.10.107 POST /public/index.php/api/Social/addArea
+[ info ] 192.168.10.107:807/public/index.php/api/Social/addArea [运行时间：0.026384s][吞吐率：37.90req/s] [内存消耗：1,965.45kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'content-type' => 'multipart/form-data; boundary=--------------------------545658757523229499370003',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '9b1ec1ff-2357-4ba2-a4fd-5c678dc574d5',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'area' => '北京',
+)
+[ info ] [ RUN ] app\api\controller\Social->addArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-25T15:37:23+08:00 ] 192.168.10.107 POST /public/index.php/api/Social/addArea
+[ info ] 192.168.10.107:807/public/index.php/api/Social/addArea [运行时间：7.068671s][吞吐率：0.14req/s] [内存消耗：1,986.79kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'content-type' => 'multipart/form-data; boundary=--------------------------999907139931531455096067',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => 'bb953d5c-30a2-4c11-8f2d-8e9ad932c7bb',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'area' => '北京',
+)
+[ info ] [ RUN ] app\api\controller\Social->addArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015033s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_social_security` [ RunTime:0.024739s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_social_security` WHERE  `area` = '北京' ORDER BY `endtime` LIMIT 1 [ RunTime:0.002761s ]
+---------------------------------------------------------------
+[ 2018-04-25T15:37:54+08:00 ] 192.168.10.107 POST /public/index.php/api/Social/addArea
+[ info ] 192.168.10.107:807/public/index.php/api/Social/addArea [运行时间：7.056320s][吞吐率：0.14req/s] [内存消耗：1,986.82kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'content-type' => 'multipart/form-data; boundary=--------------------------682302025674720041028906',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => 'b36ec3c3-5836-4f45-a2f8-0630374e7525',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'area' => '北京',
+)
+[ info ] [ RUN ] app\api\controller\Social->addArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007773s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_social_security` [ RunTime:0.023614s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_social_security` WHERE  `area` = '北京' ORDER BY endtime desc LIMIT 1 [ RunTime:0.002503s ]
+---------------------------------------------------------------
+[ 2018-04-25T15:42:41+08:00 ] 192.168.10.107 POST /public/index.php/api/Social/addArea
+[ info ] 192.168.10.107:807/public/index.php/api/Social/addArea [运行时间：0.057921s][吞吐率：17.26req/s] [内存消耗：1,139.66kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'content-type' => 'multipart/form-data; boundary=--------------------------963791703391742236355362',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => 'e9ae62fb-1bbd-4667-9293-87eef679ea6d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'area' => '北京',
+)
+[ info ] [ LOG ] INIT File
+[ error ] [4]语法错误: unexpected ')'[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:22]
+---------------------------------------------------------------
+[ 2018-04-25T15:48:33+08:00 ] 192.168.10.107 POST /public/index.php/api/Social/addArea
+[ info ] 192.168.10.107:807/public/index.php/api/Social/addArea [运行时间：7.067073s][吞吐率：0.14req/s] [内存消耗：1,987.69kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'content-type' => 'multipart/form-data; boundary=--------------------------790817296945771891817671',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '8d849bb5-47fe-4715-aaed-3e59d2e54d72',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'area' => '北京',
+)
+[ info ] [ RUN ] app\api\controller\Social->addArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.012757s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_social_security` [ RunTime:0.025923s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_social_security` WHERE  `area` = '北京' ORDER BY endtime desc LIMIT 1 [ RunTime:0.001681s ]
+---------------------------------------------------------------
+[ 2018-04-25T15:49:31+08:00 ] 192.168.10.107 POST /public/index.php/api/Social/addArea
+[ info ] 192.168.10.107:807/public/index.php/api/Social/addArea [运行时间：7.071844s][吞吐率：0.14req/s] [内存消耗：1,987.91kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'content-type' => 'multipart/form-data; boundary=--------------------------664812208312526422977766',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '06b67d33-517e-469b-83e1-710cabd78d2a',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'area' => '北京',
+)
+[ info ] [ RUN ] app\api\controller\Social->addArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.021322s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_social_security` [ RunTime:0.022398s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_social_security` WHERE  `area` = '北京' ORDER BY endtime desc LIMIT 1 [ RunTime:0.002560s ]
+---------------------------------------------------------------
+[ 2018-04-25T15:49:48+08:00 ] 192.168.10.107 POST /public/index.php/api/Social/addArea
+[ info ] 192.168.10.107:807/public/index.php/api/Social/addArea [运行时间：7.076313s][吞吐率：0.14req/s] [内存消耗：2,017.02kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'content-type' => 'multipart/form-data; boundary=--------------------------965310541123004707035587',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '6a0b849c-a279-4f2b-b181-ca84bcaed9f7',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'area' => '北京',
+)
+[ info ] [ RUN ] app\api\controller\Social->addArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.018067s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_social_security` [ RunTime:0.021969s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_social_security` WHERE  `area` = '北京' ORDER BY endtime desc LIMIT 1 [ RunTime:0.002596s ]
+[ error ] [2]sprintf(): Too few arguments[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:23]
+---------------------------------------------------------------
+[ 2018-04-25T16:03:26+08:00 ] 192.168.10.107 POST /public/index.php/api/Social/addArea
+[ info ] 192.168.10.107:807/public/index.php/api/Social/addArea [运行时间：7.096111s][吞吐率：0.14req/s] [内存消耗：1,987.92kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'content-type' => 'multipart/form-data; boundary=--------------------------510656676133695231839086',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '6e93b34b-fffc-40b2-ac2a-062586f8f662',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'area' => '北京',
+)
+[ info ] [ RUN ] app\api\controller\Social->addArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.018524s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_social_security` [ RunTime:0.039436s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_social_security` WHERE  `area` = '北京' ORDER BY endtime desc LIMIT 1 [ RunTime:0.002641s ]
+---------------------------------------------------------------
+[ 2018-04-25T16:21:44+08:00 ] 192.168.10.107 POST /public/index.php/api/Social/addArea
+[ info ] 192.168.10.107:807/public/index.php/api/Social/addArea [运行时间：7.107979s][吞吐率：0.14req/s] [内存消耗：2,023.75kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'content-type' => 'multipart/form-data; boundary=--------------------------310512829903558149386825',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '605c1ae0-73fd-49b9-b691-dab23a3b459b',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'area' => '北京',
+)
+[ info ] [ RUN ] app\api\controller\Social->addArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.037420s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_social_security` [ RunTime:0.023037s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_social_security` WHERE  `area` = '北京' ORDER BY endtime desc LIMIT 1 [ RunTime:0.002091s ]
+[ error ] [8]未定义数组索引: starttime[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:25]
+---------------------------------------------------------------
+[ 2018-04-25T16:21:58+08:00 ] 192.168.10.107 POST /public/index.php/api/Social/addArea
+[ info ] 192.168.10.107:807/public/index.php/api/Social/addArea [运行时间：7.062701s][吞吐率：0.14req/s] [内存消耗：1,988.45kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'content-type' => 'multipart/form-data; boundary=--------------------------905779539598633419535240',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '658cf50a-1115-4a37-89e2-ea1885a69c2b',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'area' => '北京',
+)
+[ info ] [ RUN ] app\api\controller\Social->addArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008975s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_social_security` [ RunTime:0.026904s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_social_security` WHERE  `area` = '北京' ORDER BY endtime desc LIMIT 1 [ RunTime:0.002783s ]
+---------------------------------------------------------------
+[ 2018-04-25T19:54:25+08:00 ] 192.168.10.107 POST /public/index.php/api/Social/addArea
+[ info ] 192.168.10.107:807/public/index.php/api/Social/addArea [运行时间：7.123707s][吞吐率：0.14req/s] [内存消耗：1,987.92kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'content-type' => 'multipart/form-data; boundary=--------------------------672615104014795041306581',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.107:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '3c42adab-7a86-496b-b592-b1603db9f3a6',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'area' => '北京',
+)
+[ info ] [ RUN ] app\api\controller\Social->addArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.059813s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_social_security` [ RunTime:0.033670s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_social_security` WHERE  `area` = '北京' ORDER BY endtime desc LIMIT 1 [ RunTime:0.002500s ]

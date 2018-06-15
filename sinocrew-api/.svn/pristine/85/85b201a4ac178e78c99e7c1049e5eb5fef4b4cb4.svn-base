@@ -1,0 +1,2679 @@
+---------------------------------------------------------------
+[ 2018-04-17T12:04:19+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.327455s][吞吐率：3.05req/s] [内存消耗：1,370.42kb] [文件加载：44]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------597075149673257320321813',
+  'postman-token' => '3a6ba656-fd1e-409b-827e-c1b70ee28cac',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T12:04:29+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.019492s][吞吐率：51.30req/s] [内存消耗：1,370.40kb] [文件加载：44]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------391466384762034557415734',
+  'postman-token' => '4325cb25-82e9-476f-8f7c-adc0b592b157',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T12:04:33+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.071599s][吞吐率：13.97req/s] [内存消耗：1,412.25kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '15130',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------126695075142110669919730',
+  'postman-token' => 'b89d99f1-2ebd-434b-b63c-84f221cb223f',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [1]Class 'PHPExcel_Reader_Excel5' not found[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:77]
+---------------------------------------------------------------
+[ 2018-04-17T12:06:07+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.395546s][吞吐率：2.53req/s] [内存消耗：4,830.56kb] [文件加载：98]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '15130',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------295175974422809461957832',
+  'postman-token' => '8238739a-7e7d-4992-9ff8-e9f1f8c477d7',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T12:08:41+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.099622s][吞吐率：10.04req/s] [内存消耗：4,846.57kb] [文件加载：98]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '15130',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------548452031395637666034992',
+  'postman-token' => '1f9ef6bd-fdbd-4035-a56f-036f811175c5',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T12:09:25+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.104606s][吞吐率：9.56req/s] [内存消耗：4,832.18kb] [文件加载：98]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '15130',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------471353460551675823466798',
+  'postman-token' => '0b98bdbb-09ba-4060-9bfe-39fdcb3ce437',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T12:09:51+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.293292s][吞吐率：3.41req/s] [内存消耗：12,870.65kb] [文件加载：103]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '38703',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------917873861740631930465311',
+  'postman-token' => '4561ad08-7f62-402f-b2b9-ac920dbf1920',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T12:11:43+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.075328s][吞吐率：13.28req/s] [内存消耗：4,534.80kb] [文件加载：98]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10129',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------874056643960088845896882',
+  'postman-token' => '4775a02f-bf6c-404d-ad95-c7f0f401231c',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T12:12:31+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.109429s][吞吐率：9.14req/s] [内存消耗：4,535.54kb] [文件加载：98]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10186',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------212879908210118540943659',
+  'postman-token' => '6beb0633-7bf7-4d5d-b22b-2e974861d6f2',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T12:20:30+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.085621s][吞吐率：11.68req/s] [内存消耗：4,553.04kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11155',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------619864548275233301996266',
+  'postman-token' => '1b30080b-02ed-4033-aab8-e2e4b21c19da',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T14:13:22+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.073368s][吞吐率：13.63req/s] [内存消耗：4,554.41kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11155',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------607291956370402939369099',
+  'postman-token' => 'a50a496a-7e97-48e0-8e90-464a82b7dd67',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T14:13:41+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.077347s][吞吐率：12.93req/s] [内存消耗：4,554.47kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11155',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------980419676565254788179221',
+  'postman-token' => '95b9ca25-5515-44f2-bdb9-0cbddb0e834a',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T14:13:59+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.087083s][吞吐率：11.48req/s] [内存消耗：4,554.52kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11155',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------092874851840549510394187',
+  'postman-token' => 'fb86da20-cbb5-4fb3-8193-4a5f7443c1b8',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T14:15:44+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.076570s][吞吐率：13.06req/s] [内存消耗：4,554.52kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11139',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------767613967312676489095120',
+  'postman-token' => '1ba464ef-273e-4335-a8cb-03fe6e2adbeb',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T14:18:18+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.072439s][吞吐率：13.80req/s] [内存消耗：4,556.75kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11138',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------594262433410188197045679',
+  'postman-token' => '3680f199-1db3-4dfd-beab-744389a03496',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T14:19:34+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.072597s][吞吐率：13.77req/s] [内存消耗：4,556.75kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11140',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------912033533624032012782662',
+  'postman-token' => '488485ef-a2c5-4745-b795-417ec5dd7e65',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T14:24:28+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.072740s][吞吐率：13.75req/s] [内存消耗：4,556.79kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11140',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------191930611902706113732848',
+  'postman-token' => '03b97f8f-b7ed-43aa-98ca-fdf6757bc0a2',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T14:25:20+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.100378s][吞吐率：9.96req/s] [内存消耗：4,556.59kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11140',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------769071894208348252603204',
+  'postman-token' => '7897eca0-7445-46df-bb9a-9f74fdf453c7',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T14:26:19+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.074830s][吞吐率：13.36req/s] [内存消耗：4,556.59kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11140',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------302006457167993933691664',
+  'postman-token' => 'b24a49fb-89d0-49e0-8c6f-a42dc99e422f',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T14:26:20+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.076349s][吞吐率：13.10req/s] [内存消耗：4,556.59kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11140',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------047629042113260636310866',
+  'postman-token' => 'd40cd4ec-b2ff-469a-863e-a21f4998385e',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T14:26:21+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.075468s][吞吐率：13.25req/s] [内存消耗：4,556.59kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11140',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------253749596661997427923797',
+  'postman-token' => '0acf8a68-f1a3-4a52-b5bb-9528c2d6cb31',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T14:26:51+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.079494s][吞吐率：12.58req/s] [内存消耗：4,556.87kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11140',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------838398971500478744095817',
+  'postman-token' => 'bc9f868a-378c-4535-9ca8-1888f272c55e',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T14:27:29+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.069743s][吞吐率：14.34req/s] [内存消耗：4,556.26kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11140',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------913040448085240056314337',
+  'postman-token' => '51984b8c-0462-4301-b9c8-cef3491a7634',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T14:27:36+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.071203s][吞吐率：14.04req/s] [内存消耗：4,556.08kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11140',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------501368545728345042004165',
+  'postman-token' => '979409ff-7410-4b51-8681-f3b1ee8cbb50',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T15:40:05+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.080343s][吞吐率：12.45req/s] [内存消耗：4,556.22kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11140',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------287623716564339196526065',
+  'postman-token' => 'c6e755aa-a930-49c7-abda-d0e09f906984',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T15:46:07+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.102023s][吞吐率：9.80req/s] [内存消耗：4,556.59kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11140',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------787050174927291945120407',
+  'postman-token' => '62bfd61a-4647-46b2-be2e-b19f18ed9b99',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T15:48:25+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.079481s][吞吐率：12.58req/s] [内存消耗：4,557.14kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11140',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------892586856526664807402615',
+  'postman-token' => '108fc36f-29d4-429b-a012-093c2ec9a7d6',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T15:48:50+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.089285s][吞吐率：11.20req/s] [内存消耗：4,557.04kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11142',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------460450323871133374945093',
+  'postman-token' => '1b14f3b7-d0b0-403d-abd4-7743111ac409',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T15:49:10+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.087346s][吞吐率：11.45req/s] [内存消耗：4,557.04kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11142',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------745220941021159731275058',
+  'postman-token' => 'f1e7b6ae-bb38-4ee5-8ae6-29d563384b70',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T15:56:32+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.085894s][吞吐率：11.64req/s] [内存消耗：4,561.04kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11142',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------087020739077348912405084',
+  'postman-token' => '0ee53482-533a-4477-8caa-893848a3c626',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T15:58:58+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.201509s][吞吐率：4.96req/s] [内存消耗：5,139.34kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11142',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------942664861833650601988705',
+  'postman-token' => '3b0ffbd7-0ee3-4e35-9ead-fc84630afbe0',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [4096]Argument 1 passed to think\db\Query::insertAll() must be of the type array, none given, called in D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php on line 153 and defined[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Query.php:2237]
+[ error ] [2]reset() expects parameter 1 to be array, null given[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Query.php:2241]
+---------------------------------------------------------------
+[ 2018-04-17T15:59:19+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.083512s][吞吐率：11.97req/s] [内存消耗：4,561.68kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11142',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------644779638638269622273567',
+  'postman-token' => '096a10df-c069-4f47-b3ec-b7658bb0a9b6',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T15:59:55+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：7.175760s][吞吐率：0.14req/s] [内存消耗：5,199.34kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11142',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------968786711558638891826064',
+  'postman-token' => '84997137-59f0-441d-8472-632661004cc6',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.023567s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.038551s ]
+[ error ] [0]数据表字段不存在:[gender][D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\builder\Mysql.php:48]
+---------------------------------------------------------------
+[ 2018-04-17T16:01:00+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：7.159295s][吞吐率：0.14req/s] [内存消耗：5,199.98kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11142',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------051436945187211690688322',
+  'postman-token' => '4e1ef444-34fd-4a93-ab4f-59f1c8f9dfeb',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017604s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.056301s ]
+[ error ] [0]数据表字段不存在:[political_status ][D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\builder\Mysql.php:48]
+---------------------------------------------------------------
+[ 2018-04-17T16:01:56+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：7.165942s][吞吐率：0.14req/s] [内存消耗：5,200.78kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11142',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------103311830963173135344136',
+  'postman-token' => 'e0cc36f4-f9ac-40ca-9d19-91d95e9cf46b',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007188s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.022555s ]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-17T16:02:23+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：7.161076s][吞吐率：0.14req/s] [内存消耗：5,200.84kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11142',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------860035201374606004552876',
+  'postman-token' => '18251e00-acf2-43ef-a9a1-af6147e83e81',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.006907s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.042844s ]
+[ error ] [10501]SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'gender' at row 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-17T16:02:53+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：7.193107s][吞吐率：0.14req/s] [内存消耗：5,201.05kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11150',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------336876047705961149862425',
+  'postman-token' => '217ac4c2-420b-4d7c-bdf8-9b36a939750b',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.011484s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.083060s ]
+[ error ] [10501]SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: '1.3' for column 'assume_office_date' at row 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-17T16:04:11+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：7.131115s][吞吐率：0.14req/s] [内存消耗：5,200.99kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11150',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------882226698793059938779547',
+  'postman-token' => '99947989-def2-40df-b5be-f2a9bb9d5692',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.006472s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.019460s ]
+[ error ] [10501]SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: '1.3' for column 'assume_office_date' at row 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-17T16:06:21+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：7.165730s][吞吐率：0.14req/s] [内存消耗：5,200.90kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11150',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------363523433937117199385220',
+  'postman-token' => '89fdde79-5fb7-47c5-9194-52541be861c2',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008199s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.043422s ]
+[ error ] [10501]SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: 'birthday' for column 'birthday' at row 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-17T16:07:00+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：7.139098s][吞吐率：0.14req/s] [内存消耗：5,201.31kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11150',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------780383131835305490707755',
+  'postman-token' => '476488ed-6756-4b99-a369-b7cf8e2845b5',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.014909s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.026384s ]
+[ error ] [10501]SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'political_status' at row 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-17T16:08:03+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：7.163514s][吞吐率：0.14req/s] [内存消耗：5,166.65kb] [文件加载：104]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11150',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------314472234668847346165624',
+  'postman-token' => '3344051a-1899-4c19-970d-ce7fe6c2e937',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015550s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.023027s ]
+[ sql ] [ SQL ] INSERT INTO `sino_user` (`fn` , `username` , `password` , `gender` , `department` , `shipowner` , `duty` , `appoint_duty` , `appoint_date` , `assume_office_date` , `working_date` , `dimission_date` , `id_number` , `birthday` , `edu_background` , `degree` , `major` , `school` , `graduation_date` , `sign_start` , `sign_end` , `professional_skill` , `qualification` , `residence` , `political_status` , `marry` , `work_date` , `birthplace` , `regular_date` , `address` , `phone_number` , `telnumber` , `email` , `remark`) VALUES ( 'fn','name','77422dca997ebc1588629d1c4deb5466','女','department','shipowner','duty','appoint_duty','2017-01-02 00:00:00',1.3,'2017-01-08 00:00:00','2018-03-24 00:00:00','421121199405062412',0,'edu_background','degree','major','school',0,0,0,'professional_skill','qualification','residence ','political_status','marry',0,'birthplace',0,'address','phone_number','telnumber','email','remark' ) , ( 'XYS00001','张三','77422dca997ebc1588629d1c4deb5466','男','技术部','COOK','财务','财务','2018-02-02 00:00:00',0.2,'2018-02-02 00:00:00',0,'421121199405062412','1994-05-06 00:00:00','本科','硕士','机电一体化','武汉科技大学','2016-07-01 00:00:00','2016-02-03 00:00:00','2019-02-03 00:00:00','高级电工','无','湖北武汉','中共党员','已婚','2016-09-21 00:00:00','湖北','2016-12-21 00:00:00','湖北省武汉市洪山区关南街道光谷理想城5栋1单元','027-36556555',13164627120,'yolo_me@qq.com','培养员工' ) [ RunTime:0.042214s ]
+---------------------------------------------------------------
+[ 2018-04-17T16:08:33+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：7.161854s][吞吐率：0.14req/s] [内存消耗：5,166.65kb] [文件加载：104]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11150',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------914608934610935654532169',
+  'postman-token' => '18b4f431-2315-4b46-832e-2b412fa05095',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007080s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.022950s ]
+[ sql ] [ SQL ] INSERT INTO `sino_user` (`fn` , `username` , `password` , `gender` , `department` , `shipowner` , `duty` , `appoint_duty` , `appoint_date` , `assume_office_date` , `working_date` , `dimission_date` , `id_number` , `birthday` , `edu_background` , `degree` , `major` , `school` , `graduation_date` , `sign_start` , `sign_end` , `professional_skill` , `qualification` , `residence` , `political_status` , `marry` , `work_date` , `birthplace` , `regular_date` , `address` , `phone_number` , `telnumber` , `email` , `remark`) VALUES ( 'fn','name','77422dca997ebc1588629d1c4deb5466','女','department','shipowner','duty','appoint_duty','2017-01-02 00:00:00',1.3,'2017-01-08 00:00:00','2018-03-24 00:00:00','421121199405062412',0,'edu_background','degree','major','school',0,0,0,'professional_skill','qualification','residence ','political_status','marry',0,'birthplace',0,'address','phone_number','telnumber','email','remark' ) , ( 'XYS00001','张三','77422dca997ebc1588629d1c4deb5466','男','技术部','COOK','财务','财务','2018-02-02 00:00:00',0.2,'2018-02-02 00:00:00',0,'421121199405062412','1994-05-06 00:00:00','本科','硕士','机电一体化','武汉科技大学','2016-07-01 00:00:00','2016-02-03 00:00:00','2019-02-03 00:00:00','高级电工','无','湖北武汉','中共党员','已婚','2016-09-21 00:00:00','湖北','2016-12-21 00:00:00','湖北省武汉市洪山区关南街道光谷理想城5栋1单元','027-36556555',13164627120,'yolo_me@qq.com','培养员工' ) [ RunTime:0.032857s ]
+---------------------------------------------------------------
+[ 2018-04-17T16:08:53+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：7.214685s][吞吐率：0.14req/s] [内存消耗：5,212.02kb] [文件加载：104]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11638',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------509806897068703598795136',
+  'postman-token' => 'fa534a2e-ded7-417e-b4e8-f99d861d1546',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.011921s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.022771s ]
+[ sql ] [ SQL ] INSERT INTO `sino_user` (`fn` , `username` , `password` , `gender` , `department` , `shipowner` , `duty` , `appoint_duty` , `appoint_date` , `assume_office_date` , `working_date` , `dimission_date` , `id_number` , `birthday` , `edu_background` , `degree` , `major` , `school` , `graduation_date` , `sign_start` , `sign_end` , `professional_skill` , `qualification` , `residence` , `political_status` , `marry` , `work_date` , `birthplace` , `regular_date` , `address` , `phone_number` , `telnumber` , `email` , `remark`) VALUES ( 'XYS00001','张三','77422dca997ebc1588629d1c4deb5466','男','技术部','COOK','财务','财务','2018-02-02 00:00:00',0.2,'2018-02-02 00:00:00',0,'421121199405062412','1994-05-06 00:00:00','本科','硕士','机电一体化','武汉科技大学','2016-07-01 00:00:00','2016-02-03 00:00:00','2019-02-03 00:00:00','高级电工','无','湖北武汉','中共党员','已婚','2016-09-21 00:00:00','湖北','2016-12-21 00:00:00','湖北省武汉市洪山区关南街道光谷理想城5栋1单元','027-36556555',13164627120,'yolo_me@qq.com','培养员工' ) , ( 'XYS00002','张三','77422dca997ebc1588629d1c4deb5466','男','技术部','COOK','财务','财务','2018-02-03 00:00:00',0.2,'2018-02-03 00:00:00',0,'421121199405062412','1994-05-07 00:00:00','本科','硕士','机电一体化','武汉科技大学',0,'2016-02-04 00:00:00','2019-02-04 00:00:00','高级电工','无','湖北武汉','中共党员','已婚','2016-09-22 00:00:00','湖北','2016-12-22 00:00:00','湖北省武汉市洪山区关南街道光谷理想城5栋2单元','027-36556556',13164627121,'yolo_me@qq.com','培养员工' ) , ( 'XYS00003','张三','77422dca997ebc1588629d1c4deb5466','男','技术部','COOK','财务','财务','2018-02-04 00:00:00',0.2,'2018-02-04 00:00:00',0,'421121199405062412','1994-05-08 00:00:00','本科','硕士','机电一体化','武汉科技大学',0,'2016-02-05 00:00:00','2019-02-05 00:00:00','高级电工','无','湖北武汉','中共党员','已婚','2016-09-23 00:00:00','湖北','2016-12-23 00:00:00','湖北省武汉市洪山区关南街道光谷理想城5栋3单元','027-36556557',13164627122,'yolo_me@qq.com','培养员工' ) , ( 'XYS00004','张三','77422dca997ebc1588629d1c4deb5466','男','技术部','COOK','财务','财务','2018-02-05 00:00:00',0.2,'2018-02-05 00:00:00',0,'421121199405062412','1994-05-09 00:00:00','本科','硕士','机电一体化','武汉科技大学',0,'2016-02-06 00:00:00','2019-02-06 00:00:00','高级电工','无','湖北武汉','中共党员','已婚','2016-09-24 00:00:00','湖北','2016-12-24 00:00:00','湖北省武汉市洪山区关南街道光谷理想城5栋4单元','027-36556558',13164627123,'yolo_me@qq.com','培养员工' ) , ( 'XYS00005','张三','77422dca997ebc1588629d1c4deb5466','男','技术部','COOK','财务','财务','2018-02-06 00:00:00',0.2,'2018-02-06 00:00:00',0,'421121199405062412','1994-05-10 00:00:00','本科','硕士','机电一体化','武汉科技大学',0,'2016-02-07 00:00:00','2019-02-07 00:00:00','高级电工','无','湖北武汉','中共党员','已婚','2016-09-25 00:00:00','湖北','2016-12-25 00:00:00','湖北省武汉市洪山区关南街道光谷理想城5栋5单元','027-36556559',13164627124,'yolo_me@qq.com','培养员工' ) , ( 'XYS00006','张三','77422dca997ebc1588629d1c4deb5466','男','技术部','COOK','财务','财务','2018-02-07 00:00:00',0.2,'2018-02-07 00:00:00',0,'421121199405062412','1994-05-11 00:00:00','本科','硕士','机电一体化','武汉科技大学',0,'2016-02-08 00:00:00','2019-02-08 00:00:00','高级电工','无','湖北武汉','中共党员','已婚','2016-09-26 00:00:00','湖北','2016-12-26 00:00:00','湖北省武汉市洪山区关南街道光谷理想城5栋6单元','027-36556560',13164627125,'yolo_me@qq.com','培养员工' ) [ RunTime:0.047908s ]
+---------------------------------------------------------------
+[ 2018-04-17T16:12:50+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.087411s][吞吐率：11.44req/s] [内存消耗：4,595.11kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11638',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------635165931517659360215760',
+  'postman-token' => '9892ebcd-1075-4950-80bd-594ac78cb9f3',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T16:18:30+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：0.084436s][吞吐率：11.84req/s] [内存消耗：4,596.92kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11638',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------133228668809833951504934',
+  'postman-token' => '0a4cf931-24e9-4e4c-a268-d6c1768c52d8',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-17T16:25:11+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：7.177121s][吞吐率：0.14req/s] [内存消耗：5,196.16kb] [文件加载：104]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11611',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------746461400473596679177370',
+  'postman-token' => 'bcf412ea-a35d-4efe-bef3-146f7ab46059',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.021450s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.068121s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_user` [ RunTime:0.001532s ]
+---------------------------------------------------------------
+[ 2018-04-17T16:25:50+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：7.179159s][吞吐率：0.14req/s] [内存消耗：5,204.30kb] [文件加载：104]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11612',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------003092338741413368921429',
+  'postman-token' => '1380bda9-558f-4345-bee7-5f69902a29ed',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017999s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.025371s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_user` [ RunTime:0.001432s ]
+[ sql ] [ SQL ] INSERT INTO `sino_user` (`fn` , `username` , `password` , `gender` , `department` , `shipowner` , `duty` , `appoint_duty` , `appoint_date` , `assume_office_date` , `working_date` , `dimission_date` , `id_number` , `birthday` , `age` , `edu_background` , `degree` , `major` , `school` , `graduation_date` , `sign_start` , `sign_end` , `professional_skill` , `qualification` , `residence` , `political_status` , `marry` , `work_date` , `birthplace` , `regular_date` , `address` , `phone_number` , `telnumber` , `email` , `remark`) VALUES ( 'XYS00005','张三','77422dca997ebc1588629d1c4deb5466','男','技术部','COOK','财务','财务','2018-02-06 00:00:00',0.2,'2018-02-06 00:00:00',0,'421121199405062412','1994-05-10 00:00:00',23.9,'本科','硕士','机电一体化','武汉科技大学',0,'2016-02-07 00:00:00','2019-02-07 00:00:00','高级电工','无','湖北武汉','中共党员','已婚','2016-09-25 00:00:00','湖北','2016-12-25 00:00:00','湖北省武汉市洪山区关南街道光谷理想城5栋5单元','027-36556559','13164627124','yolo_me@qq.com','培养员工' ) , ( 'XYS00006','张三','77422dca997ebc1588629d1c4deb5466','男','技术部','COOK','财务','财务','2018-02-07 00:00:00',0.2,'2018-02-07 00:00:00',0,'421121199405062412','1994-05-11 00:00:00',23.9,'本科','硕士','机电一体化','武汉科技大学',0,'2016-02-08 00:00:00','2019-02-08 00:00:00','高级电工','无','湖北武汉','中共党员','已婚','2016-09-26 00:00:00','湖北','2016-12-26 00:00:00','湖北省武汉市洪山区关南街道光谷理想城5栋6单元','027-36556560','13164627125','yolo_me@qq.com','培养员工' ) [ RunTime:0.041121s ]
+---------------------------------------------------------------
+[ 2018-04-17T16:27:28+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：7.135391s][吞吐率：0.14req/s] [内存消耗：5,196.63kb] [文件加载：104]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11612',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------601430171712253904211085',
+  'postman-token' => 'c7551eee-7462-4bfb-aae6-813df3f976a7',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015251s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.021435s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_user` [ RunTime:0.002049s ]
+---------------------------------------------------------------
+[ 2018-04-17T16:36:24+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/listStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/listStaff [运行时间：7.157357s][吞吐率：0.14req/s] [内存消耗：2,041.90kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'listStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13237',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------863271062070668333716721',
+  'postman-token' => '0ed9303d-9220-490f-a6e7-c6f2fc217e4f',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->listStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: search[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:29]
+[ error ] [8]未定义数组索引: department[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:30]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:41]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.*' in 'field list'[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:388]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.030081s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.022100s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_user` WHERE  ( `username` LIKE '%%' OR `abbreviation` LIKE '%%' )  AND `department` IS NULL LIMIT 1 [ RunTime:0.002597s ]
+---------------------------------------------------------------
+[ 2018-04-17T16:46:37+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/listStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/listStaff [运行时间：7.091178s][吞吐率：0.14req/s] [内存消耗：2,041.89kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'listStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13237',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------781986895601814896839435',
+  'postman-token' => '19749e0e-5a04-47f0-b882-fbbec220548e',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->listStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: search[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:29]
+[ error ] [8]未定义数组索引: department[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:30]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:41]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column '*' in 'field list'[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:388]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.026886s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.024888s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_user` WHERE  ( `username` LIKE '%%' OR `abbreviation` LIKE '%%' )  AND `department` IS NULL LIMIT 1 [ RunTime:0.001621s ]
+---------------------------------------------------------------
+[ 2018-04-17T16:48:27+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/listStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/listStaff [运行时间：7.067970s][吞吐率：0.14req/s] [内存消耗：2,064.32kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'listStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13237',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------230238713106448098651035',
+  'postman-token' => '662244a3-3b96-4afa-9676-8b1c8e5bbe39',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->listStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: search[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:29]
+[ error ] [8]未定义数组索引: department[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:30]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:41]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.006915s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.032731s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_user` WHERE  ( `username` LIKE '%%' OR `abbreviation` LIKE '%%' )  AND `department` IS NULL LIMIT 1 [ RunTime:0.001457s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_user` `a` LEFT JOIN `sino_role_user` `b` ON `a`.`id`=`b`.`user_id` LEFT JOIN `sino_role` `c` ON `b`.`role_id`=`c`.`id` WHERE  ( `username` LIKE '%%' OR `abbreviation` LIKE '%%' )  AND `department` IS NULL ORDER BY `department` desc LIMIT 0,15 [ RunTime:0.003029s ]
+---------------------------------------------------------------
+[ 2018-04-17T16:50:54+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/listStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/listStaff [运行时间：7.094953s][吞吐率：0.14req/s] [内存消耗：2,095.04kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'listStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13237',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------657716007707260322741784',
+  'postman-token' => '00756dd7-5ddf-41cd-9828-ce9a64bb88a0',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->listStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: search[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:29]
+[ error ] [8]未定义数组索引: department[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:30]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:41]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008312s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.036158s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_user` WHERE  ( `username` LIKE '%%' OR `abbreviation` LIKE '%%' ) LIMIT 1 [ RunTime:0.002188s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_user` `a` LEFT JOIN `sino_role_user` `b` ON `a`.`id`=`b`.`user_id` LEFT JOIN `sino_role` `c` ON `b`.`role_id`=`c`.`id` WHERE  ( `username` LIKE '%%' OR `abbreviation` LIKE '%%' ) ORDER BY `department` desc LIMIT 0,15 [ RunTime:0.017561s ]
+---------------------------------------------------------------
+[ 2018-04-17T16:53:27+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/listStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/listStaff [运行时间：7.078054s][吞吐率：0.14req/s] [内存消耗：2,041.65kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'listStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13237',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------468200189339086438315028',
+  'postman-token' => '1f10f9ab-616e-4c69-a78e-6c64e99943fd',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->listStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: search[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:29]
+[ error ] [8]未定义数组索引: department[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:30]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:41]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column '*' in 'field list'[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:388]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007926s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.034371s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_user` WHERE  ( `username` LIKE '%%' OR `abbreviation` LIKE '%%' ) LIMIT 1 [ RunTime:0.002047s ]
+---------------------------------------------------------------
+[ 2018-04-17T16:53:45+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/listStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/listStaff [运行时间：7.066265s][吞吐率：0.14req/s] [内存消耗：2,041.66kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'listStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13237',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------498811481718387290680885',
+  'postman-token' => '1d025234-7590-4b35-a910-0aeff2470b5b',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->listStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: search[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:29]
+[ error ] [8]未定义数组索引: department[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:30]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:41]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.*' in 'field list'[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:388]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015192s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.022201s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_user` WHERE  ( `username` LIKE '%%' OR `abbreviation` LIKE '%%' ) LIMIT 1 [ RunTime:0.002088s ]
+---------------------------------------------------------------
+[ 2018-04-17T16:54:20+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/listStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/listStaff [运行时间：7.129475s][吞吐率：0.14req/s] [内存消耗：2,041.91kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'listStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13237',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------530173045370373742138557',
+  'postman-token' => 'b1b6021f-e62c-4714-b943-7e54a1142a5b',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->listStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: search[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:29]
+[ error ] [8]未定义数组索引: department[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:30]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:41]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.' in 'field list'[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:388]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.020312s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.060519s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_user` WHERE  ( `username` LIKE '%%' OR `abbreviation` LIKE '%%' ) LIMIT 1 [ RunTime:0.001476s ]
+---------------------------------------------------------------
+[ 2018-04-17T16:57:37+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/listStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/listStaff [运行时间：7.091023s][吞吐率：0.14req/s] [内存消耗：2,041.66kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'listStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13237',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------881503466428316837779514',
+  'postman-token' => '4307d705-87b6-4fe4-b169-99d982d2a10f',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->listStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: search[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:29]
+[ error ] [8]未定义数组索引: department[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:30]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:41]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.*' in 'field list'[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:388]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.019043s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.032721s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_user` WHERE  ( `username` LIKE '%%' OR `abbreviation` LIKE '%%' ) LIMIT 1 [ RunTime:0.001655s ]
+---------------------------------------------------------------
+[ 2018-04-17T17:06:40+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/listStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/listStaff [运行时间：7.094209s][吞吐率：0.14req/s] [内存消耗：2,056.86kb] [文件加载：56]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'listStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13237',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------585537355412743095067955',
+  'postman-token' => 'ab980974-381f-4a4e-baf3-b89f6ca52607',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->listStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: search[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:29]
+[ error ] [8]未定义数组索引: department[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:30]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:41]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.010342s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.033319s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_user` WHERE  ( `username` LIKE '%%' OR `abbreviation` LIKE '%%' ) LIMIT 1 [ RunTime:0.002606s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`name` FROM `sino_user` `a` LEFT JOIN `sino_role_user` `b` ON `a`.`id`=`b`.`user_id` LEFT JOIN `sino_role` `c` ON `b`.`role_id`=`c`.`id` WHERE  ( `username` LIKE '%%' OR `abbreviation` LIKE '%%' ) ORDER BY department desc LIMIT 0,15 [ RunTime:0.003297s ]
+---------------------------------------------------------------
+[ 2018-04-17T17:10:27+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/listStaff?department=%E8%B4%A2%E5%8A%A1
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/listStaff?department=%E8%B4%A2%E5%8A%A1 [运行时间：7.107761s][吞吐率：0.14req/s] [内存消耗：2,029.88kb] [文件加载：56]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'listStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13237',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------644180564271534132856310',
+  'postman-token' => '626911e4-2c3f-4ea7-9816-5a978eb1d43e',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'department' => '财务',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->listStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: search[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:29]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:41]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015154s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.024768s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_user` WHERE  ( `username` LIKE '%%' OR `abbreviation` LIKE '%%' )  AND `department` = '财务' LIMIT 1 [ RunTime:0.002411s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`name` FROM `sino_user` `a` LEFT JOIN `sino_role_user` `b` ON `a`.`id`=`b`.`user_id` LEFT JOIN `sino_role` `c` ON `b`.`role_id`=`c`.`id` WHERE  ( `username` LIKE '%%' OR `abbreviation` LIKE '%%' )  AND `department` = '财务' ORDER BY department desc LIMIT 0,15 [ RunTime:0.003993s ]
+---------------------------------------------------------------
+[ 2018-04-17T17:11:12+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/listStaff?department=%E8%B4%A2%E5%8A%A1
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/listStaff?department=%E8%B4%A2%E5%8A%A1 [运行时间：7.059871s][吞吐率：0.14req/s] [内存消耗：2,032.54kb] [文件加载：56]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'listStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13237',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------092470025126639444631295',
+  'postman-token' => '7e669801-782a-455f-81dd-c9fe19f58235',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'department' => '财务',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->listStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: search[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:29]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:41]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.006478s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.023977s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_user` WHERE  ( `username` LIKE '%%' OR `abbreviation` LIKE '%%' )  AND `department` = '财务' LIMIT 1 [ RunTime:0.001954s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`name` FROM `sino_user` `a` LEFT JOIN `sino_role_user` `b` ON `a`.`id`=`b`.`user_id` LEFT JOIN `sino_role` `c` ON `b`.`role_id`=`c`.`id` WHERE  ( `username` LIKE '%%' OR `abbreviation` LIKE '%%' )  AND `department` = '财务' ORDER BY department desc LIMIT 0,15 [ RunTime:0.002901s ]
+---------------------------------------------------------------
+[ 2018-04-17T17:16:09+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：7.154667s][吞吐率：0.14req/s] [内存消耗：5,241.43kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13237',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------131950519087012956502568',
+  'postman-token' => 'b80a372f-dea7-4e55-b4d2-81eec3fa3c6d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.018897s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.025557s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_user` [ RunTime:0.004191s ]
+---------------------------------------------------------------
+[ 2018-04-17T17:16:34+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：7.149881s][吞吐率：0.14req/s] [内存消耗：5,241.34kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13237',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------625089229197687940463415',
+  'postman-token' => '0b1446b6-5623-4afe-85e9-32cc85dad7d5',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015478s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.026615s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_user` [ RunTime:0.002231s ]
+---------------------------------------------------------------
+[ 2018-04-17T17:17:03+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/importStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/importStaff [运行时间：7.173883s][吞吐率：0.14req/s] [内存消耗：5,252.78kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'importStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13268',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------088255491170198058166831',
+  'postman-token' => '9e666a03-be4b-4979-9fef-76b46884469b',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->importStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007278s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.033403s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_user` [ RunTime:0.003106s ]
+[ sql ] [ SQL ] INSERT INTO `sino_user` (`fn` , `username` , `password` , `abbreviation` , `gender` , `department` , `shipowner` , `duty` , `appoint_duty` , `appoint_date` , `assume_office_date` , `working_date` , `dimission_date` , `id_number` , `birthday` , `age` , `edu_background` , `degree` , `major` , `school` , `graduation_date` , `sign_start` , `sign_end` , `professional_skill` , `qualification` , `residence` , `political_status` , `marry` , `work_date` , `birthplace` , `regular_date` , `address` , `phone_number` , `telnumber` , `email` , `remark`) VALUES ( 'XYS00006','张三','77422dca997ebc1588629d1c4deb5466','zs','男','技术部','COOK','财务','财务','2018-02-02 00:00:00',0.2,'2018-02-02 00:00:00',0,'421121199605062412','1994-05-06 00:00:00',23.9,'本科','硕士','机电一体化','武汉科技大学','2016-07-01 00:00:00','2016-02-03 00:00:00','2019-02-03 00:00:00','高级电工','无','湖北武汉','中共党员','已婚','2016-09-21 00:00:00','湖北','2016-12-21 00:00:00','湖北省武汉市洪山区关南街道光谷理想城5栋1单元','027-36556555','13164627120','yolo_me@qq.com','培养员工' ) , ( 'XYS00006','张三','e55c21d223b3ab5919c31fdaf98bf09d','zs','男','技术部','COOK','财务','财务','2018-02-03 00:00:00',0.2,'2018-02-03 00:00:00',0,'421121199402062413','1994-05-07 00:00:00',23.9,'本科','硕士','机电一体化','武汉科技大学',0,'2016-02-04 00:00:00','2019-02-04 00:00:00','高级电工','无','湖北武汉','中共党员','已婚','2016-09-22 00:00:00','湖北','2016-12-22 00:00:00','湖北省武汉市洪山区关南街道光谷理想城5栋2单元','027-36556556','13164627121','yolo_me@qq.com','培养员工' ) , ( 'XYS00005','张三','77422dca997ebc1588629d1c4deb5466','zs','男','技术部','COOK','财务','财务','2018-02-06 00:00:00',0.2,'2018-02-06 00:00:00',0,'421121199401062412','1994-05-10 00:00:00',23.9,'本科','硕士','机电一体化','武汉科技大学',0,'2016-02-07 00:00:00','2019-02-07 00:00:00','高级电工','无','湖北武汉','中共党员','已婚','2016-09-25 00:00:00','湖北','2016-12-25 00:00:00','湖北省武汉市洪山区关南街道光谷理想城5栋5单元','027-36556559','13164627124','yolo_me@qq.com','培养员工' ) [ RunTime:0.026938s ]
+---------------------------------------------------------------
+[ 2018-04-17T17:18:17+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/listStaff
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/listStaff [运行时间：7.096217s][吞吐率：0.14req/s] [内存消耗：2,059.57kb] [文件加载：56]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'listStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13268',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------010445573612078870543167',
+  'postman-token' => '1f6972f3-ba3d-4ede-8c4c-83b8d1d4f919',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->listStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: search[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:29]
+[ error ] [8]未定义数组索引: department[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:30]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:41]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016532s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.022857s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_user` WHERE  ( `username` LIKE '%%' OR `abbreviation` LIKE '%%' ) LIMIT 1 [ RunTime:0.001928s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`name` FROM `sino_user` `a` LEFT JOIN `sino_role_user` `b` ON `a`.`id`=`b`.`user_id` LEFT JOIN `sino_role` `c` ON `b`.`role_id`=`c`.`id` WHERE  ( `username` LIKE '%%' OR `abbreviation` LIKE '%%' ) ORDER BY department desc LIMIT 0,15 [ RunTime:0.005077s ]
+---------------------------------------------------------------
+[ 2018-04-17T17:22:02+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/detailStaff?id=2
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/detailStaff?id=2 [运行时间：7.073323s][吞吐率：0.14req/s] [内存消耗：1,987.32kb] [文件加载：53]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'detailStaff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13268',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------464236504555631478987368',
+  'postman-token' => '11304b89-0eed-4bc2-b289-e7d3ddfc1225',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '2',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->detailStaff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017007s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.022664s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_user` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.002951s ]
+---------------------------------------------------------------
+[ 2018-04-17T17:22:29+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/department
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/department [运行时间：7.064749s][吞吐率：0.14req/s] [内存消耗：1,966.74kb] [文件加载：53]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'department',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13268',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------998980251298188619293155',
+  'postman-token' => '4177524c-8db5-4339-9d63-3b818fd28c07',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->department[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.006268s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.021782s ]
+[ sql ] [ SQL ] SELECT `department` FROM `sino_user` [ RunTime:0.002296s ]
+---------------------------------------------------------------
+[ 2018-04-17T17:22:58+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/department
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/department [运行时间：7.066507s][吞吐率：0.14req/s] [内存消耗：1,966.91kb] [文件加载：53]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'department',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13268',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------863802125249652353236126',
+  'postman-token' => '90e017c9-0899-4e40-99f8-45a126ad5d18',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->department[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.009885s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.026990s ]
+[ sql ] [ SQL ] SELECT `department` FROM `sino_user` [ RunTime:0.002850s ]
+---------------------------------------------------------------
+[ 2018-04-17T17:23:20+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/department
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/department [运行时间：7.053155s][吞吐率：0.14req/s] [内存消耗：1,966.93kb] [文件加载：53]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'department',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13268',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------659003550670763515671779',
+  'postman-token' => '01aea6f8-f058-4f0d-9d19-8c60f46e4066',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->department[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.006943s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.022856s ]
+[ sql ] [ SQL ] SELECT `department` FROM `sino_user` [ RunTime:0.001446s ]
+---------------------------------------------------------------
+[ 2018-04-17T17:23:52+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/department
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/department [运行时间：7.089360s][吞吐率：0.14req/s] [内存消耗：1,966.84kb] [文件加载：53]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'department',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13268',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------258890683943491042256158',
+  'postman-token' => '9af6549c-b681-410d-8ef2-ef11a2c62190',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->department[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015666s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.046122s ]
+[ sql ] [ SQL ] SELECT `department` FROM `sino_user` [ RunTime:0.002176s ]
+---------------------------------------------------------------
+[ 2018-04-17T17:24:16+08:00 ] 192.168.10.105 POST /public/index.php/api/Privilege/department
+[ info ] 192.168.10.105:807/public/index.php/api/Privilege/department [运行时间：7.056390s][吞吐率：0.14req/s] [内存消耗：1,966.74kb] [文件加载：53]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Privilege',
+    2 => 'department',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13268',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------252822731795203215268582',
+  'postman-token' => '06ff3fdd-6ce5-43f8-baaa-e52d42d10790',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->department[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008115s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.021277s ]
+[ sql ] [ SQL ] SELECT `department` FROM `sino_user` [ RunTime:0.002276s ]

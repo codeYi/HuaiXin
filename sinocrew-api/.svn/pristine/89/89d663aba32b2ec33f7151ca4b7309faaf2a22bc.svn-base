@@ -1,0 +1,365 @@
+<?php
+/**
+ * @desc Created by PhpStorm.
+ * @author: CodeYi
+ * @since: 2018-04-16 11:43
+ */
+namespace app\api\controller;
+use app\api\common\Base;
+use think\Db;
+use think\Loader;
+
+/**
+ * 权限控制器
+ * Class Privilege
+ * @package app\api\controller
+ */
+class Privilege extends Base
+{
+    /**
+     *员工列表
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function listStaff()
+    {
+        $data = $this->request->param();
+        $where['username'] = ['LIKE',"%".$data['search']."%"];
+        if($data['department']) $where['department']  = $data['department'] ;
+        $list = Db::name('user')
+            ->where($where)
+            ->count();
+        $info = Db::name('user')
+            ->alias('a')
+            ->field("a.*,c.name")
+            ->join('role_user b','a.id = b.user_id','LEFT')
+            ->join('role c','b.role_id = c.id','LEFT')
+            ->where($where)
+            ->order('department desc')
+            ->page($data['page'],self::$listRows)
+            ->select();
+        $res = [
+            'data'=>$info,
+            'list'=>$list
+        ];
+        return json($res);
+    }
+
+    /**
+     * 员工详情
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function detailStaff()
+    {
+        $id = input('id');
+        $info = Db::name('user')->where(['id'=>$id])->find();
+        $res = [
+            'data'=>$info
+        ];
+        return json($res);
+    }
+
+    /**
+     * 批量上传员工
+     * @return \think\response\Json
+     * @throws \PHPExcel_Exception
+     * @throws \PHPExcel_Reader_Exception
+     */
+    public function importStaff()
+    {
+        if (!$_FILES) return error_data('请选择文件');
+        $key = array_keys($_FILES);
+        $file = $_FILES[$key[0]]["tmp_name"];
+        Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
+        $PHPReader = new \PHPExcel_Reader_Excel5();
+        if (!$PHPReader->canRead($file)) {
+            $PHPReader = new \PHPExcel_Reader_Excel2007();
+            if (!$PHPReader->canRead($file)) {
+                return error_data('文件类型不符');
+            }
+        }
+        $E = $PHPReader->load($file);
+        $cur = $E->getSheet(0);  // 读取第一个表
+        $end = $cur->getHighestColumn(); // 获得最大的列数
+        $line = $cur->getHighestRow(); // 获得最大总行数
+        //将最大列转换为数字
+        $length = strlen($end);
+        if (strlen($end) > 1) {
+            $single = ord(substr($end, $length - 1)) - 64;
+            $end = ($length - 1) * 26 + $single;
+        } else {
+            $end = ord($end) - 65;
+        }
+        $info = [];
+        $i = 0;
+        for ($row = 2; $row <= $line; $row++) {
+            for ($column = 1; $column < $end; $column++) {
+                $val = $cur->getCellByColumnAndRow($column, $row)->getValue();
+                if(is_object($val)){
+                    $info[$i][] = $val->__toString();
+                }else{
+                    $info[$i][] = $val;
+                }
+            }
+            $i++;
+        }
+        $idNumber = Db::name('user')->column('id_number');
+        $info_ = [];
+        foreach ($info as $key => $value) {
+            if (!in_array((string)$value[10], $idNumber, true)) $info_[] = $value;
+        }
+        if (!$info_) return error_data('请勿重复导入员工');
+        $insert = [];
+        foreach ($info_ as $k=>$v){
+            //缺少必要信息
+            if(empty($v[0]) || empty($v[1]) || empty($v[3]) || empty($v[5]) || empty($v[10])) continue;
+            $data['fn'] = $v[0];
+            $data['username'] = $v[1];
+            $data['password'] = md5(substr($v[10],-6));
+            $data['abbreviation'] = $this->staffList($v[1]);
+            $str = encode($v[1],true);
+            $str = explode(' ',$str);
+            if($str[0]) $str[0] = ucfirst($str[0]);
+            if($str[1]) $str[1] = " ".ucfirst($str[1]);
+            $data['english'] = implode('',$str);
+            $data['gender'] = $v[2];
+            $data['department'] = $v[3];
+            $data['shipowner'] = $v[4];
+            $data['duty'] = $v[5];
+            $data['appoint_duty'] = $v[6];
+            $data['appoint_date'] = formatTime(strtotime((string)$v[7]));
+            $time = (time()-strtotime((string)$v[8]))/31566000;
+            if($time)  $data['assume_office_date'] = round($time,1);
+            $data['working_date'] = formatTime(strtotime((string)$v[8]));
+            $data['dimission_date'] = formatTime(strtotime((string)$v[9]));
+            $data['id_number'] = $v[10];
+            $data['birthday'] = formatTime(strtotime((string)$v[11]));
+            $age = (time()-strtotime((string)$v[11]))/31566000;
+            $data['age'] = round($age,1);
+            $data['edu_background'] = $v[12];
+            $data['degree'] = $v[13];
+            $data['major'] = $v[14];
+            $data['school'] = $v[15];
+            $data['graduation_date'] = formatTime(strtotime((string)$v[16]));
+            $data['sign_start'] = formatTime(strtotime((string)$v[17]));
+            $data['sign_end'] = formatTime(strtotime((string)$v[18]));
+            $data['professional_skill'] = $v[19];
+            $data['qualification'] = $v[20];
+            $data['residence'] = $v[21];
+            $data['political_status'] = $v[22];
+            $data['marry'] = $v[23];
+            $data['work_date'] = formatTime(strtotime((string)$v[24]));
+            $data['birthplace'] = $v[25];
+            $data['regular_date'] = formatTime(strtotime((string)$v[26]));
+            $data['address'] = $v[27];
+            $data['phone_number'] = (string)$v[28];
+            $data['telnumber'] = (string)$v[29];
+            $data['email'] = $v[30];
+            $data['remark'] = $v[31];
+            $insert[] = $data;
+        }
+       $res = Db::name('user')->insertAll($insert);
+        if($res) return ok_data();
+        return error_data();
+    }
+
+    /**
+     * 编辑员工
+     */
+    public function editStaff()
+    {
+
+    }
+
+    /**
+     * 获取员工的英文姓名
+     * @return \think\response\Json
+     */
+    public function zw2py()
+    {
+        $chinese = input('chinese');
+        $str = encode($chinese,true);
+        $str = explode(' ',$str);
+        if($str[0]) $str[0] = ucfirst($str[0]);
+        if($str[1]) $str[1] = " ".ucfirst($str[1]);
+        $str = implode('',$str);
+        $res = [
+            'english'=>$str
+        ];
+        return json($res);
+    }
+
+    /**
+     * 所有的部门
+     * @return \think\response\Json
+     */
+    public function department()
+    {
+       $info = Db::name('user')->column('department');
+       if(empty($info)) return error_data("暂无数据");
+       $info = array_values(array_unique($info));
+       array_push($info,'crew');
+       $res = [
+           'data'=>$info
+       ];
+       return json($res);
+    }
+
+    /**
+     * 禁用/启用操作
+     * @return \think\response\Json
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     */
+    public function forbidden()
+    {
+        $id = input('id/a');
+        $value = input('value');
+        $res = Db::name('user')->where(['id'=>['IN',$id]])->update(['status'=>$value]);
+        if($res) return ok_data();
+        return error_data("设置失败");
+    }
+
+    /**
+     * 添加角色
+     * @return \think\response\Json
+     */
+    public function addRole()
+    {
+        $roleName = input('roleName');
+        $remark = input('remark');
+        if(empty($roleName) || empty($remark)) return error_data("所填信息不能为空");
+        $res = Db::name('role')->insert(['name'=>$roleName,'remark'=>$remark,'time'=>formatTime(time())]);
+        if($res) return ok_data();
+        return error_data();
+    }
+
+    /**
+     * 角色列表
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function listRole()
+    {
+        $page = input('page');
+        $listRows = input('row');
+        $listRows = empty($listRows)?self::$listRows:$listRows;
+        $sort = input('sort');
+        if(empty($sort)){
+            $sort = "id asc";
+        }else{
+            $sort = "$sort desc";
+        }
+       $info = Db::name('role')
+            ->alias('a')
+            ->field('name,remark,time,status')
+            ->order($sort)
+            ->page($page,$listRows)
+            ->select();
+        foreach ($info as $k=>$v){
+         $info[$k]['number'] = Db::name('role_user')->where(['role_id'=>$v['id']])->count();
+        }
+        return json($info);
+    }
+
+    /**
+     * 角色详情
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function detailRole()
+    {
+        $id = input('id');
+        $info = Db::name('role')
+            ->field('id,name,remark')
+            ->where(['id'=>$id])
+            ->find();
+        $res = [
+            'data'=>$info
+        ];
+        return json($res);
+    }
+
+    /**
+     * 编辑角色
+     * @return \think\response\Json
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     */
+    public function editRole()
+    {
+        $id = input('id');
+        $roleName = input('roleName');
+        $remark = input('remark');
+        if(empty($roleName) || empty($remark)) return error_data("所填信息不能为空");
+        $update = [
+            'name'=>$roleName,
+            'remark'=>$remark,
+        ];
+        $res = Db::name('role')->where(['id'=>$id])->update($update);
+        if($res) return ok_data("更新成功");
+        error_data("更新失败");
+    }
+
+    /**
+     * 删除角色
+     * @return \think\response\Json
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     */
+    public function delRole()
+    {
+        $table = "role";
+       return $this->delete($table);
+    }
+
+    /**
+     * 权限列表
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function listPrivilege()
+    {
+        $info = Db::name('node')->where(['status'=>1])->order('sort')->select();
+        //格式化数据
+        $data = getCateTree($info);
+        //获取当前用户的权限数据
+        $privilegeInfo = Db::name('role_user')
+            ->alias('a')
+            ->join('access b','a.role_id=b.role_id','LEFT')
+            ->where(['user_id'=>self::$id])
+            ->select();
+        $res = [
+            'data'=>$data,
+            'info'=>$privilegeInfo
+        ];
+        return json($res);
+    }
+
+    /**
+     * 添加权限
+     * @return \think\response\Json
+     */
+    public function addPrivilege()
+    {
+        $data = input("post.");
+        //判断权限是否重复
+        $nameInfo = Db::name('node')->where(['name'=>$data['name']])->value('id');
+        $titleInfo = Db::name('node')->where(['title'=>$data['title']])->value('id');
+        if($nameInfo || $titleInfo) return error_data("权限名或权限页面重复");
+        $res = Db::name('node')->insert($data);
+        if(!$res) return error_data('添加失败');
+        return ok_data('添加成功');
+    }
+}

@@ -1,0 +1,899 @@
+<?php
+/**
+ * @desc Created by PhpStorm.
+ * @author: CodeYi
+ * @since: 2018-04-19 16:36
+ */
+namespace app\api\controller;
+use app\api\common\Base;
+use think\Db;
+use think\Loader;
+/**
+ * 船员控制器
+ * Class Mariner
+ * @package app\api\controller
+ */
+class Mariner extends Base
+{
+    /**
+     * 添加船东
+     * @return \think\response\Json
+     */
+    public function addShipowner()
+    {
+        $data = input('post.');
+        if(empty($data['title']) || empty($data['alias'])) return error_data('客户名称不能为空');
+        $id = Db::name('shipowner')->where(['title'=>$data['title']])->value('id');
+        if($id) return error_data('请勿重复添加客户');
+        if($data['developDate']){
+            $data['developDate'] = formatTime($data['developDate'],'Y-m-d');
+        }else{
+            $data['developDate'] = null;
+        }
+        $insert = [
+            'title'=>$data['title'],
+            'alias'=>$data['alias'],
+            'attribute'=>$data['attribute'],
+            'develop_date'=>$data['developDate'],
+            'group'=>$data['group'],
+            'time'=>formatTime(time(),'Y-m-d')
+        ];
+        $res = Db::name('shipowner')->insert($insert);
+        if($res) return ok_data('添加成功');
+        return error_data('添加失败');
+    }
+
+    /**
+     * 船东列表
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function listShipowner()
+    {
+        $search = input('title');
+        $page = input('page');
+        $startTime = input('time')[0];
+        $endtTime = input('time')[1];
+        $listRows = input('listRows')?input('listRows'):self::$listRows;
+        $where['title'] = ['LIKE',"%$search%"];
+        if(input('attribute')) $where['attribute'] = input('attribute');
+        if(input('group')) $where['group'] = input('group');
+        if($startTime && $endtTime) $where['develop_date'] = ['BETWEEN TIME',[$startTime,$endtTime]];
+        $list = Db::name('shipowner')
+            ->where($where)
+            ->order('develop_date')
+            ->count();
+        $info = Db::name('shipowner')
+            ->where($where)
+            ->order('develop_date')
+            ->page($page,$listRows)
+            ->select();
+        $res = [
+            'list'=>$list,
+            'data'=>$info
+        ];
+        return json($res);
+    }
+
+    /**
+     * 船东详情
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function detailShipowner()
+    {
+        $id = input('id');
+        $info = Db::name('shipowner')->find($id);
+        $res = [
+            'data'=>$info
+        ];
+        return json($res);
+    }
+
+    /**
+     * 船东更新
+     * @return \think\response\Json
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     */
+    public function editShipowner()
+    {
+        $data = input('post.');
+        if(empty($data['title'])) return error_data('客户名称不能为空');
+        $id = Db::name('shipowner')->where(['title'=>$data['title'],'id'=>['NEQ',$data['id']]])->value('id');
+        if($id) return error_data('请勿重复添加客户');
+        if($data['developDate']){
+            $data['developDate'] = formatTime($data['developDate'],'Y-m-d');
+        }else{
+            $data['developDate'] = null;
+        }
+        $update = [
+            'id'=>$data['id'],
+            'title'=>$data['title'],
+            'alias'=>$data['alias'],
+            'attribute'=>$data['attribute'],
+            'develop_date'=>$data['developDate'],
+            'group'=>$data['group'],
+            'time'=>formatTime(time(),'Y-m-d')
+        ];
+        $res = Db::name('shipowner')->update($update);
+        if($res) return ok_data('更新成功');
+        return error_data('更新失败');
+    }
+
+    /**
+     * 导入船东
+     * @return \think\response\Json
+     * @throws \PHPExcel_Exception
+     * @throws \PHPExcel_Reader_Exception
+     */
+    public function importShipowner()
+    {
+        if (!$_FILES) return error_data('请选择文件');
+        $key = array_keys($_FILES);
+        $file = $_FILES[$key[0]]["tmp_name"];
+        Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
+        $PHPReader = new \PHPExcel_Reader_Excel5();
+        if (!$PHPReader->canRead($file)) {
+            $PHPReader = new \PHPExcel_Reader_Excel2007();
+            if (!$PHPReader->canRead($file)) {
+                return error_data('文件类型不符');
+            }
+        }
+        $E = $PHPReader->load($file);
+        $cur = $E->getSheet(0);  // 读取第一个表
+        $end = $cur->getHighestColumn(); // 获得最大的列数
+        $line = $cur->getHighestRow(); // 获得最大总行数
+        //将最大列转换为数字
+        $length = strlen($end);
+        if (strlen($end) > 1) {
+            $single = ord(substr($end, $length - 1)) - 64;
+            $end = ($length - 1) * 26 + $single;
+        } else {
+            $end = ord($end) - 64;
+        }
+        $info = [];
+        $i = 0;
+        for ($row = 2; $row <= $line; $row++) {
+            for ($column = 1; $column < $end; $column++) {
+                $val = $cur->getCellByColumnAndRow($column, $row)->getValue();
+                if(is_object($val)){
+                    $info[$i][] = $val->__toString();
+                }else{
+                    $info[$i][] = $val;
+                }
+            }
+            $i++;
+        }
+        $insert = [];
+        foreach ($info as $k=>$v){
+            $data['title'] = (string)$v[0];
+            $data['alias'] = (string)$v[1];
+            $data['attribute'] = (string)$v[2];
+            $result =  Db::name('supplier')->where(['title'=>$data['title'],'attribute'=>$data['attribute']])->value('id');
+            if($result || empty($v[0])) continue;
+            $data['group'] = (string)$v[3];
+            $data['develop_date'] = formatTime(strtotime((string)$v[4]),'Y-m-d');
+            $data['time'] = formatTime(time());
+            $insert[] = $data;
+        }
+        $res = Db::name('shipowner')->insertAll($insert);
+        if($res) return ok_data();
+        return error_data();
+    }
+
+    /**
+     * 简称查询船员
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function getMariner()
+    {
+        $abbreviation = input('abbreviation');
+        $info = Db::name('mariner')->where(['abbreviation'=>['LIKE',"$abbreviation%"]])->limit(10)->select();
+        if(!$info) return error_data('查无此人');
+        $query = [];
+        foreach ($info as $k=>$v){
+            $query = [
+                'id'=>$v['id'],
+               'info'=> $v['name']."/".$v['duty']."/".substr($v['id_number'],6,4)."-".substr($v['id_number'],10,2)."-".substr($v['id_number'],12,2)
+            ];
+        }
+        return json($query);
+    }
+
+    /**
+     * 添加船名
+     * @return \think\response\Json
+     */
+    public function addVessel()
+    {
+        $data = input('post.');
+        if(empty($data['title'])) return error_data('船名不能为空');
+        //判断船名是否重复
+        $id = Db::name('vessel')->where(['title'=>$data['title']])->value('id');
+        if($id) return error_data('船名已经存在');
+        $insert = [
+            'title'=>$data['title'],
+            'attribute'=>$data['attribute'],
+            'fleet'=>$data['fleet'],
+            'develop_date'=>strtotime($data['developDate']),
+            'time'=>formatTime(time())
+        ];
+        $res = Db::name('vessel')->insert($insert);
+        if($res) return ok_data();
+        return error_data();
+    }
+
+    /**
+     * 船名列表
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function listVessel()
+    {
+        $vessel = input('vessel');
+        $attribute = input('attribute');
+        $page = input('page')?input('page'):1;
+        $listRows = input('listRows')?input('listRows'):self::$listRows;
+        $fleet = input('fleet');
+        $startTime = input('time')[0];
+        $endTime = input('time')[1];
+        $where['title'] = ['LIKE',"%$vessel%"];
+        if($attribute) $where['attribute'] = $attribute;
+        if($fleet) $where['fleet'] = $fleet;
+        if($startTime && $endTime) $where['develop_date'] = ['BETWEEN TIME',[$startTime,$endTime]];
+        $list = Db::name('vessel')
+            ->where($where)
+            ->order('develop_date')
+            ->count();
+        $info = Db::name('vessel')
+            ->where($where)
+           ->order('develop_date')
+            ->page($page,$listRows)
+            ->select();
+        $res = [
+            'list'=>$list,
+            'data'=>$info
+        ];
+        return json($res);
+    }
+
+    /**
+     * 船名详情
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function detailVessel()
+    {
+        $id = input('id');
+        $info = Db::name('vessel')->find($id);
+        $res = [
+            'info'=>$info
+        ];
+        return json($res);
+    }
+
+    /**
+     * 船名更新
+     * @return \think\response\Json
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     */
+    public function editVessel()
+    {
+        $data = input('post.');
+        if(empty($data['title'])) return error_data('船名不能为空');
+        //判断船名是否重复
+        $id = Db::name('vessel')->where(['title'=>$data['title'],'id'=>['NEQ',$data['id']]])->value('id');
+        if($id) return error_data('船名已经存在');
+        $update = [
+            'title'=>$data['title'],
+            'attribute'=>$data['attribute'],
+            'fleet'=>$data['fleet'],
+            'develop_date'=>formatTime(strtotime($data['developDate']),"Y-m-d"),
+        ];
+        $res = Db::name('vessel')->where(['id'=>$data['id']])->update($update);
+        if($res) return ok_data();
+        return error_data();
+
+
+    }
+
+    /**
+     * 导入船名
+     * @return \think\response\Json
+     * @throws \PHPExcel_Exception
+     * @throws \PHPExcel_Reader_Exception
+     */
+    public function importVessel()
+    {
+        if (!$_FILES) return error_data('请选择文件');
+        $key = array_keys($_FILES);
+        $file = $_FILES[$key[0]]["tmp_name"];
+        Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
+        $PHPReader = new \PHPExcel_Reader_Excel5();
+        if (!$PHPReader->canRead($file)) {
+            $PHPReader = new \PHPExcel_Reader_Excel2007();
+            if (!$PHPReader->canRead($file)) {
+                return error_data('文件类型不符');
+            }
+        }
+        $E = $PHPReader->load($file);
+        $cur = $E->getSheet(0);  // 读取第一个表
+        $end = $cur->getHighestColumn(); // 获得最大的列数
+        $line = $cur->getHighestRow(); // 获得最大总行数
+        //将最大列转换为数字
+        $length = strlen($end);
+        if (strlen($end) > 1) {
+            $single = ord(substr($end, $length - 1)) - 64;
+            $end = ($length - 1) * 26 + $single;
+        } else {
+            $end = ord($end) - 64;
+        }
+        $info = [];
+        $i = 0;
+        for ($row = 2; $row <= $line; $row++) {
+            for ($column = 1; $column < $end; $column++) {
+                $val = $cur->getCellByColumnAndRow($column, $row)->getValue();
+                if(is_object($val)){
+                    $info[$i][] = $val->__toString();
+                }else{
+                    $info[$i][] = $val;
+                }
+            }
+            $i++;
+        }
+        $vesselInfo = Db::name('vessel')->column('title');
+        $info_ = [];
+        foreach ($info as $k=>$v){
+            if (!in_array((string)$v[1],$vesselInfo,true)) $info_[] = $v;
+        }
+        if(empty($info_)) return error_data("请勿重复导入");
+        $insert = [];
+        foreach ($info_ as $k=>$v){
+            $data['title'] = (string)$v[0];
+            $data['attribute'] = (string)$v[1];
+            $data['fleet'] = (string)$v[2];
+            $data['develop_date'] = formatTime(strtotime((string)$v[3]),'Y-m-d');
+            $data['time'] = formatTime(time());
+            $insert[] = $data;
+        }
+        $res = Db::name('vessel')->insertAll($insert);
+        if($res) return ok_data();
+        return error_data();
+    }
+
+    /**
+     * 添加船员
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function addMariner()
+    {
+        $data = input('post.');
+        if(empty($data['idNumber']) || empty($data['name']) || empty($data['cid'])) return error_data('身份证、CID、姓名均不能为空');
+        //判断是否重复添加
+        $repeat = Db::name('mariner')->where(['id_number'=>$data['idNumber']])->value('id');
+        if($repeat) return error_data('该身份证号已存在船员');
+        //船东是否存在
+        $shipperId = Db::name('shipowner')->find($data['ownerPool']);
+        //船名是否存在
+        $vesselId = Db::name('vessel')->find($data['vessel']);
+        if(empty($shipperId)) return error_data('船东不存在');
+        if(empty($vesselId)) return error_data('船名不存在');
+        $insert = [
+            'id_number'=>$data['idNumber'],
+            'cid'=>$data['cid'],
+            'name'=>$data['name'],
+            'password'=>md5(substr($data['idNumber'],-6)),
+            'abbreviation'=>abbreviation($data['name']),
+            'english'=>$data['english'],
+            'duty'=>$data['duty'],
+            'vessel'=>$vesselId,
+            'fleet'=>$data['fleet'],
+            'owner_pool'=>$shipperId,
+            'manning_office'=>$data['manningOffice'],
+            'time'=>formatTime(time())
+        ];
+        $res = Db::name('mariner')->insert($insert);
+        if($res) return ok_data();
+        return error_data();
+    }
+
+    /**
+     * 船员列表
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function listMariner()
+    {
+        $page = input('page')?input('page'):1;
+        $listRows = input('listRows')?input('listRows'):self::$listRows;
+        if(input('id')) $where['a.id'] = input('id');
+        if(input('idNumber')) $where['id_number'] = input('idNumber');
+        if(input('cid')) $where['cid'] = input('cid');
+        if (input('fleet')) $where['a.fleet'] = ['LIKE',"%".input('fleet')."%"];
+        if (input('ownerPool')) $where['owner_pool'] = input('ownerPool');
+        if (input('vessel')) $where['a.vessel'] = input('vessel');
+        if (input('manningOffice')) $where['manning_office'] = input('manningOffice');
+        $list = Db::name('mariner')
+            ->where($where)
+            ->order('duty')
+            ->count();
+        $info = Db::name('mariner')
+            ->alias('a')
+            ->field('a.id,a.cid,a.name,a.id_number,a.duty,a.manning_office,a.fleet,a.time,b.title ownerPool,c.title vessel')
+            ->join('shipowner b','a.owner_pool = b.id','LEFT')
+            ->join('vessel c','c.id=a.vessel','LEFT')
+            ->where($where)
+            ->order('duty')
+            ->page($page,$listRows)
+            ->select();
+        $res = [
+            'list'=>$list,
+            'data'=>$info
+        ];
+        return json($res);
+    }
+
+    /**
+     * 导出船员数据
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function exportMariner()
+    {
+        if(input('id')) $where['a.id'] = input('id');
+        if(input('idNumber')) $where['id_number'] = input('idNumber');
+        if(input('cid')) $where['cid'] = input('cid');
+        if (input('fleet')) $where['a.fleet'] = ['LIKE',"%".input('fleet')."%"];
+        if (input('ownerPool')) $where['owner_pool'] = input('ownerPool');
+        if (input('vessel')) $where['a.vessel'] = input('vessel');
+        if (input('manningOffice')) $where['manning_office'] = input('manningOffice');
+        $info = Db::name('mariner')
+            ->alias('a')
+            ->field('a.id,a.cid,a.name,a.id_number,a.duty,a.manning_office,a.fleet,a.time,b.title ownerPool,c.title vessel')
+            ->join('shipowner b','a.owner_pool = b.id','LEFT')
+            ->join('vessel c','c.id=a.vessel','LEFT')
+            ->where($where)
+            ->order('duty')
+            ->select();
+        $res = [
+            'data'=>$info
+        ];
+        return json($res);
+    }
+
+    /**
+     * 船员职务
+     * @return \think\response\Json
+     */
+    public function dutyMariner()
+    {
+        $info = Db::name('mariner')->column('duty');
+        $info = array_filter($info);
+        $res = [
+            'data'=>$info
+        ];
+        return json($res);
+    }
+
+    /**
+     * 船员详情
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function  detailMariner()
+    {
+        $id = input('id');
+       $info =  Db::name('mariner')
+           ->alias('a')
+           ->field('a.id,a.cid,a.name,a.id_number,a.duty,a.manning_office,a.fleet,a.time,b.title ownerPool,c.title vessel')
+           ->join('shipowner b','a.owner_pool = b.id','LEFT')
+           ->join('vessel c','c.id=a.vessel','LEFT')
+           ->find($id);
+       $res = [
+           'data'=>$info
+       ];
+       return json($res);
+    }
+
+    /**
+     * 船员编辑
+     * @return \think\response\Json
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     */
+    public function editMariner()
+    {
+        $data = input('post.');
+        if(empty($data['idNumber']) || empty($data['name']) || empty($data['cid'])) return error_data('身份证、CID、姓名均不能为空');
+        //船东是否存在
+        $shipperId = Db::name('shipowner')->find($data['ownerPool']);
+        //船名是否存在
+        $vesselId = Db::name('vessel')->find($data['vessel']);
+        if(empty($shipperId)) return error_data('船东不存在');
+        if(empty($vesselId)) return error_data('船名不存在');
+        $update = [
+            'id'=>$data['id'],
+            'id_number'=>$data['idNumber'],
+            'cid'=>$data['cid'],
+            'name'=>$data['name'],
+            'abbreviation'=>abbreviation($data['name']),
+            'english'=>$data['english'],
+            'duty'=>$data['duty'],
+            'vessel'=>$vesselId,
+            'fleet'=>$data['fleet'],
+            'owner_pool'=>$shipperId,
+            'manning_office'=>$data['manningOffice'],
+        ];
+        $res = Db::name('mariner')->update($update);
+        if($res) return ok_data();
+        return error_data();
+    }
+
+    /**
+     * 批量导入船员
+     * @return \think\response\Json
+     * @throws \PHPExcel_Exception
+     * @throws \PHPExcel_Reader_Exception
+     */
+    public function importMariner()
+    {
+        if (!$_FILES) return error_data('请选择文件');
+        $key = array_keys($_FILES);
+        $file = $_FILES[$key[0]]["tmp_name"];
+        Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
+        $PHPReader = new \PHPExcel_Reader_Excel5();
+        if (!$PHPReader->canRead($file)) {
+            $PHPReader = new \PHPExcel_Reader_Excel2007();
+            if (!$PHPReader->canRead($file)) {
+                return error_data('文件类型不符');
+            }
+        }
+        $E = $PHPReader->load($file);
+        $cur = $E->getSheet(0);  // 读取第一个表
+        $end = $cur->getHighestColumn(); // 获得最大的列数
+        $line = $cur->getHighestRow(); // 获得最大总行数
+        //将最大列转换为数字
+        $length = strlen($end);
+        if (strlen($end) > 1) {
+            $single = ord(substr($end, $length - 1)) - 64;
+            $end = ($length - 1) * 26 + $single;
+        } else {
+            $end = ord($end) - 64;
+        }
+        $info = [];
+        $i = 0;
+        for ($row = 2; $row <= $line; $row++) {
+            for ($column = 1; $column < $end; $column++) {
+                $val = $cur->getCellByColumnAndRow($column, $row)->getValue();
+                if(is_object($val)){
+                    $info[$i][] = $val->__toString();
+                }else{
+                    $info[$i][] = $val;
+                }
+            }
+            $i++;
+        }
+        $vesselInfo = Db::name('mariner')->column('id_number');
+        $info_ = [];
+        foreach ($info as $k=>$v){
+            if (!in_array((string)$v[2],$vesselInfo,true)) $info_[] = $v;
+        }
+        if(empty($info_)) return error_data("请勿重复导入");
+        $insert = [];
+        foreach ($info_ as $k=>$v){
+            $data['cid'] = (string)$v[0];
+            $data['name'] = (string)$v[1];
+            $data['id_number'] = (string)$v[2];
+            $data['password'] = md5(substr($data['id_number'],-6));
+            //别名和英文名
+            $data['abbreviation'] = abbreviation($data['name']);
+            $str = encode($data['name'],true);
+            $str = explode(' ',$str);
+            if($str[0]) $str[0] = ucfirst($str[0]);
+            if($str[1]) $str[1] = " ".ucfirst($str[1]);
+            $data['english'] = implode('',$str);
+            $data['duty'] = (string)$v[3];
+            $data['manning_office'] = (string)$v[4];
+            $data['fleet'] = (string)$v[5];
+            $shipperId = Db::name('shipowner')->where(['title'=>(string)$v[6]])->value('id');
+            $vesselId = Db::name('vessel')->where(['title'=>(string)$v[7]])->value('id');
+            if(!$shipperId || !$vesselId) continue;
+            $data['owner_pool'] = $shipperId;
+            $data['vessel'] = $vesselId;
+            $data['time'] = formatTime(time());
+            $insert[] = $data;
+        }
+        $res = Db::name('mariner')->insertAll($insert);
+        if($res) return ok_data();
+        return error_data();
+    }
+
+    /**
+     *家汇信息导入
+     * @return \think\response\Json
+     * @throws \PHPExcel_Exception
+     * @throws \PHPExcel_Reader_Exception
+     */
+    public function importRemittance()
+    {
+        if (!$_FILES) return error_data('请选择文件');
+        $key = array_keys($_FILES);
+        $file = $_FILES[$key[0]]["tmp_name"];
+        Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
+        $PHPReader = new \PHPExcel_Reader_Excel5();
+        if (!$PHPReader->canRead($file)) {
+            $PHPReader = new \PHPExcel_Reader_Excel2007();
+            if (!$PHPReader->canRead($file)) {
+                return error_data('文件类型不符');
+            }
+        }
+        $E = $PHPReader->load($file);
+        $cur = $E->getSheet(0);  // 读取第一个表
+        $end = $cur->getHighestColumn(); // 获得最大的列数
+        $line = $cur->getHighestRow(); // 获得最大总行数
+        //将最大列转换为数字
+        $length = strlen($end);
+        if (strlen($end) > 1) {
+            $single = ord(substr($end, $length - 1)) - 64;
+            $end = ($length - 1) * 26 + $single;
+        } else {
+            $end = ord($end) - 64;
+        }
+        $info = [];
+        $i = 0;
+        for ($row = 2; $row <= $line; $row++) {
+            for ($column = 1; $column < $end; $column++) {
+                $val = $cur->getCellByColumnAndRow($column, $row)->getValue();
+                if(is_object($val)){
+                    $info[$i][] = $val->__toString();
+                }else{
+                    $info[$i][] = $val;
+                }
+            }
+            $i++;
+        }
+        $vesselInfo = Db::name('remittance')->column('pid');
+        $info_ = [];
+        $updateInfo = [];
+        foreach ($info as $k=>$v){
+            //用身份证获取船员id
+            $id =  Db::name('mariner')->where(['id_number'=>$v[1]])->value('id');
+            if(!$id) continue;
+            $v['pid'] = $id;
+            if (!in_array($id,$vesselInfo,true)){
+                $info_[] = $v;
+            }else{
+                $updateInfo[] = $v;
+            }
+        }
+        $insert = [];
+        foreach ($info_ as $k=>$v){
+            $data['pid'] = $v['pid'];
+            $data['bank'] = (string)$v[2];
+            $data['short_name'] = (string)$v[3];
+            $data['english'] = (string)$v[4];
+            $data['number'] = (string)$v[5];
+            $data['name_cn'] = (string)$v[6];
+            $data['name_en'] = (string)$v[7];
+            $data['birthday'] = (string)$v[8];
+            $data['relation'] = (string)$v[9];
+            $data['telnumber'] = (string)$v[10];
+            $data['swift'] = (string)$v[11];
+            $data['line_number'] = (string)$v[12];
+            $data['changer'] = (string)$v[13];
+            $data['change_time'] = formatTime(time(),'Y-m-d');
+            $insert[] = $data;
+        }
+        Db::startTrans();
+        try{
+            $res = Db::name('remittance')->insertAll($insert);
+            if($updateInfo){
+                $update = [];
+                foreach ($updateInfo as $k=>$v){
+                    $update['bank'] = (string)$v[2];
+                    $update['short_name'] = (string)$v[3];
+                    $update['english'] = (string)$v[4];
+                    $update['number'] = (string)$v[5];
+                    $update['name_cn'] = (string)$v[6];
+                    $update['name_en'] = (string)$v[7];
+                    $update['birthday'] = str_replace('/','-',(string)$v[8]);
+                    $update['relation'] = (string)$v[9];
+                    $update['telnumber'] = (string)$v[10];
+                    $update['swift'] = (string)$v[11];
+                    $update['line_number'] = (string)$v[12];
+                    $update['changer'] = (string)$v[13];
+                    $update['change_time'] = formatTime(time(),'Y-m-d');
+                    Db::name('remittance')->where(['pid'=>$v['pid']])->update($update);
+                }
+            }
+            Db::commit();
+            return ok_data();
+        }catch (\Exception $e){
+            return error_data();
+        }
+    }
+
+    /**
+     * 编辑家汇
+     * @return \think\response\Json
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     */
+    public function editRemittance()
+    {
+        $data = input('post.');
+        //操作人信息
+        $english = Db::name('user')->where(['id_number'=>self::$idnumber])->value('english');
+        $update['bank'] = $data['bank'];
+        $update['short_name'] = $data['shortName'];
+        $update['english'] = $data['english'];
+        $update['number'] = $data['number'];
+        $update['name_cn'] = $data['nameCn'];
+        $update['name_en'] = $data['nameEn'];
+        $update['birthday'] = $data['birthday'];
+        $update['relation'] = $data['relation'];
+        $update['telnumber'] = $data['telnumber'];
+        $update['swift'] = $data['swift'];
+        $update['line_number'] = $data['lineNumber'];
+        $update['changer'] = $english;
+        $update['change_time'] = formatTime(time(),'Y-m-d');
+        $res = Db::name('remittance')->where(['pid'=>$data['id']])->update($update);
+        if($res) return ok_data();
+        return error_data();
+    }
+
+    /**
+     * 家汇详情
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function detailRemittance()
+    {
+        $idNumber = input('idNumber');
+        $info = Db::name('remittance')->where(['id_number'=>$idNumber])->find();
+        $info['operate'] = $info['changer']."/".formatTime(strtotime($info['change_time']),"Y-m-d");
+        $res = [
+            'data'=>$info
+        ];
+        return json($res);
+    }
+
+    /**
+     * 导出人民币汇款单
+     * @throws \PHPExcel_Exception
+     * @throws \PHPExcel_Reader_Exception
+     * @throws \PHPExcel_Writer_Exception
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function exportRemittanceCn()
+    {
+        $fileName = "人民币汇款单";
+        $header = ["序号","船员姓名","出生日期","职务","收款账号","收款人姓名","金额","用途","收款行行号","收款行名称","银行简称","船东（简称）","船名","汇款日期"
+];
+        if(input('id')) $where['a.id'] = input('id');
+        if(input('idNumber')) $where['id_number'] = input('idNumber');
+        if(input('cid')) $where['cid'] = input('cid');
+        if (input('fleet')) $where['a.fleet'] = ['LIKE',"%".input('fleet')."%"];
+        if (input('ownerPool')) $where['owner_pool'] = input('ownerPool');
+        if (input('vessel')) $where['a.vessel'] = input('vessel');
+        if (input('manningOffice')) $where['manning_office'] = input('manningOffice');
+        $info = Db::name('mariner')
+            ->alias('a')
+            ->field('a.name,a.id_number,a.duty,d.number,d.name_cn,d.line_number,d.bank,d.short_name,b.alias,c.title vessel')
+            ->join('shipowner b','a.owner_pool = b.id','LEFT')
+            ->join('vessel c','c.id=a.vessel','LEFT')
+            ->join('remittance d','d.pid= a.id','LEFT')
+            ->where($where)
+            ->order('duty')
+            ->select();
+        $data = [];
+        $i = 1;
+       foreach ($info as $k=>&$v){
+           $v['id_number'] = substr($v['id_number'],6,4)."/".substr($v['id_number'],10,2)."/".substr($v['id_number'],12,2);
+               $v['money'] = "";
+               $v['use']  = "家汇";
+               $v['time'] = date("Y-m-d",strtotime("+1 day"));
+               $insert = [
+                   'order'=>$i++,
+                   'name'=>$v['name'],
+                   'birthday'=>$v['id_number'],
+                   'duty'=>$v['duty'],
+                   'number'=>$v['number'],
+                   'nameCn'=>$v['name_cn'],
+                   'money'=>"",
+                   "use"=>"家汇",
+                   "lineNumber"=>$v['line_number'],
+                    "bank"=>$v['bank'],
+                   "shortName"=>$v['short_name'],
+                   "alias"=>$v['alias'],
+                   "vessel"=>$v['vessel'],
+                   "time"=>date("Y-m-d",strtotime("+1 day"))
+               ];
+               $data[] = $insert;
+
+       }
+        $this->excelExport($fileName,$header,$data);
+    }
+
+    /**
+     * 导出外币汇款单
+     * @throws \PHPExcel_Exception
+     * @throws \PHPExcel_Reader_Exception
+     * @throws \PHPExcel_Writer_Exception
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function exportRemittanceEn()
+    {
+        $fileName = "英文汇款单";
+        $header = ["序号","船员姓名","出生日期","职务","收款人","收款行名称","账号","Swift Code","金额(USD)","船东+职务+船员姓名"	,"收款人生日","收款人联系电话","船东","船名","收款人与船员关系","汇款日期"];
+        if(input('id')) $where['a.id'] = input('id');
+        if(input('idNumber')) $where['id_number'] = input('idNumber');
+        if(input('cid')) $where['cid'] = input('cid');
+        if (input('fleet')) $where['a.fleet'] = ['LIKE',"%".input('fleet')."%"];
+        if (input('ownerPool')) $where['owner_pool'] = input('ownerPool');
+        if (input('vessel')) $where['a.vessel'] = input('vessel');
+        if (input('manningOffice')) $where['manning_office'] = input('manningOffice');
+        $info = Db::name('mariner')
+            ->alias('a')
+            ->field('a.name,a.id_number,a.duty,d.english,d.name_en,d.number,d.swift,b.title ownerPool,c.title vessel,d.telnumber,d.relation,d.birthday')
+            ->join('shipowner b','a.owner_pool = b.id','LEFT')
+            ->join('vessel c','c.id=a.vessel','LEFT')
+            ->join('remittance d','d.pid= a.id','LEFT')
+            ->where($where)
+            ->order('duty')
+            ->select();
+        $data = [];
+        $i = 1;
+        foreach ($info as $k=>&$v){
+            $v['id_number'] = substr($v['id_number'],6,4)."/".substr($v['id_number'],10,2)."/".substr($v['id_number'],12,2);
+            $insert = [
+                'order'=>$i++,
+                'name'=>$v['name'],
+                'birthday'=>$v['id_number'],
+                'duty'=>$v['duty'],
+                'nameEn'=>$v['name_en'],
+                "bank"=>$v['english'],
+                'number'=>$v['number'],
+                'swift'=>$v['swift'],
+                'money'=>"",
+                "userInfo"=>$v['ownerPool']."/".$v['duty']."/".$v['name'],
+                'receiverBirth'=>$v['birthday'],
+                "telnumber"=>$v['telnumber'],
+                "ownerPool"=>$v['ownerPool'],
+                "vessel"=>$v['vessel'],
+                "relation"=>$v['relation'],
+                "time"=>date("Y-m-d",strtotime("+1 day"))
+            ];
+            $data[] = $insert;
+        }
+        $this->excelExport($fileName,$header,$data);
+    }
+}

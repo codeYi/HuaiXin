@@ -1,0 +1,1201 @@
+---------------------------------------------------------------
+[ 2018-04-18T14:15:58+08:00 ] 192.168.10.105 POST /public/index.php/index/privilege/listPrivilege
+[ info ] 192.168.10.105:807/public/index.php/index/privilege/listPrivilege [运行时间：0.260609s][吞吐率：3.84req/s] [内存消耗：1,056.73kb] [文件加载：38]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'privilege',
+    2 => 'listPrivilege',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '293',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------832392279777086863834111',
+  'postman-token' => 'eaa575e1-6214-40a6-9b71-759222497362',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'account_name' => 'admin',
+  'account_password' => '123456',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T14:16:11+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/listPrivilege
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/listPrivilege [运行时间：8.023799s][吞吐率：0.12req/s] [内存消耗：2,002.17kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'listPrivilege',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '293',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------069100866180490612486220',
+  'postman-token' => '820ed5cc-7603-4087-973b-01abd1b10647',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'account_name' => 'admin',
+  'account_password' => '123456',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->listPrivilege[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.862985s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ error ] [10501]SQLSTATE[42S02]: Base table or view not found: 1146 Table 'sinocrew.sino_privilege' doesn't exist[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2018-04-18T14:16:35+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/listPrivilege
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/listPrivilege [运行时间：7.099359s][吞吐率：0.14req/s] [内存消耗：1,999.53kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'listPrivilege',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '293',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------776751902934317016704596',
+  'postman-token' => 'bedd36ef-6653-4dfe-b8ee-8d54e5d71b92',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'account_name' => 'admin',
+  'account_password' => '123456',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->listPrivilege[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008253s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_node` [ RunTime:0.040151s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'stauts' in 'where clause'[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2018-04-18T14:16:57+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/listPrivilege
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/listPrivilege [运行时间：7.104118s][吞吐率：0.14req/s] [内存消耗：1,980.16kb] [文件加载：53]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'listPrivilege',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '293',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------230625696277360581148087',
+  'postman-token' => 'd848639b-349d-48e4-bf4b-cacb6a97557f',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'account_name' => 'admin',
+  'account_password' => '123456',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->listPrivilege[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016928s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_node` [ RunTime:0.034733s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_node` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.002554s ]
+---------------------------------------------------------------
+[ 2018-04-18T14:18:42+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/listPrivilege
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/listPrivilege [运行时间：7.070711s][吞吐率：0.14req/s] [内存消耗：1,981.45kb] [文件加载：53]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'listPrivilege',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '293',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------852104553686317580411185',
+  'postman-token' => '71122616-84e2-40da-925b-2426f0e13302',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'account_name' => 'admin',
+  'account_password' => '123456',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->listPrivilege[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.018284s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_node` [ RunTime:0.020181s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_node` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.002630s ]
+---------------------------------------------------------------
+[ 2018-04-18T14:19:48+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/listPrivilege
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/listPrivilege [运行时间：7.057991s][吞吐率：0.14req/s] [内存消耗：1,981.67kb] [文件加载：53]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'listPrivilege',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '293',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------623589395190063424478565',
+  'postman-token' => '8a557533-a26a-4d04-9657-d5fd863bb39c',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'account_name' => 'admin',
+  'account_password' => '123456',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->listPrivilege[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.006628s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_node` [ RunTime:0.020015s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_node` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.001918s ]
+---------------------------------------------------------------
+[ 2018-04-18T16:03:48+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.047736s][吞吐率：20.95req/s] [内存消耗：1,410.25kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------420691502223646687248537',
+  'postman-token' => 'a62b82d5-7fbf-494f-b9a6-bb3b995c2e14',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:04:05+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.020999s][吞吐率：47.62req/s] [内存消耗：1,410.24kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------881627792511443384900129',
+  'postman-token' => '4d3cc41a-78ff-4420-b02c-e58311087c09',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:05:32+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.019763s][吞吐率：50.60req/s] [内存消耗：1,410.24kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------092355318031423748498537',
+  'postman-token' => '35a64fb0-690d-40cf-97e8-8488440c0173',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:06:02+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.024672s][吞吐率：40.53req/s] [内存消耗：1,410.43kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------630593524049042712024261',
+  'postman-token' => 'ce7a6f35-78e3-493d-8635-c3cc91f502b9',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:06:03+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.019822s][吞吐率：50.45req/s] [内存消耗：1,410.43kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------240793508066170421967303',
+  'postman-token' => '975e7cfe-01e1-4428-8a64-3c90945b59db',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:06:03+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.024012s][吞吐率：41.65req/s] [内存消耗：1,410.43kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------050334499370312423590983',
+  'postman-token' => '7c399f87-8e7d-4bf0-9ebb-f7406421d3ac',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:06:10+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.018199s][吞吐率：54.95req/s] [内存消耗：1,410.38kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------376957793704488298441855',
+  'postman-token' => '28736f28-31e9-4d15-a3b8-f91bbc333e48',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:06:25+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.022696s][吞吐率：44.06req/s] [内存消耗：1,410.38kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '171',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------412775303272191908288830',
+  'postman-token' => 'd61f081c-3626-4fce-ae02-8b2c2df0e5a6',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四二',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:13:50+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.021029s][吞吐率：47.55req/s] [内存消耗：1,411.79kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '171',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------693197114081743061406546',
+  'postman-token' => '64aad64b-94c2-4a6c-b146-0b5c4fac3906',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四二',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:14:01+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.018335s][吞吐率：54.54req/s] [内存消耗：1,411.89kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------250934097318777224869002',
+  'postman-token' => '501a6f53-5566-43eb-82bb-d5394b27c16a',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:14:20+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.031155s][吞吐率：32.10req/s] [内存消耗：1,411.96kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------274494462046358013962057',
+  'postman-token' => '0aa92dbd-e987-42ba-bb7e-4efa10cafca4',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:14:33+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.032688s][吞吐率：30.59req/s] [内存消耗：1,434.04kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------874986087656237737880607',
+  'postman-token' => '4aa4c2db-3b8b-4896-8d2a-1093ccfff313',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:14:49+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.022908s][吞吐率：43.65req/s] [内存消耗：1,434.21kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------981775004425237815598081',
+  'postman-token' => 'e2ff0b3a-8274-45d7-8229-7fb5598b113c',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:15:16+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.019079s][吞吐率：52.41req/s] [内存消耗：1,434.21kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------012172207289642999571833',
+  'postman-token' => '48ebcadc-1f4f-43ac-a8aa-ce93cafc06c0',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:15:25+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.017186s][吞吐率：58.19req/s] [内存消耗：1,434.21kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------154281429896175407548062',
+  'postman-token' => '7a207485-b6f7-4fff-a954-ab4696e4b65c',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:15:48+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.018620s][吞吐率：53.71req/s] [内存消耗：1,434.16kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------494504204154716465449006',
+  'postman-token' => 'bbb7ed6c-f228-46d3-99e7-bc3c0a163154',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:16:06+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.025646s][吞吐率：38.99req/s] [内存消耗：1,434.22kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------303271616890174716625681',
+  'postman-token' => '3eb72a3c-37cb-46e2-a87f-e4a00f0b3851',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:16:23+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.021193s][吞吐率：47.19req/s] [内存消耗：1,434.16kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------023333701937807807225191',
+  'postman-token' => 'c82db4a3-9c4f-4cd4-a4dc-b75ba36acad7',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:16:54+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.018345s][吞吐率：54.51req/s] [内存消耗：1,434.21kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------885909332444595715700636',
+  'postman-token' => '6b8c28e0-15ed-4e09-9141-afdf91172ff8',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:17:02+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.019213s][吞吐率：52.05req/s] [内存消耗：1,434.21kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------524884520866170492702498',
+  'postman-token' => '75e099c4-b168-4961-8084-39c5e7420f8e',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:17:15+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.017585s][吞吐率：56.87req/s] [内存消耗：1,434.21kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------996125768990760015363918',
+  'postman-token' => '48afcb34-dc9e-40fe-9dc5-74ae25310a5f',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:18:30+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.023310s][吞吐率：42.90req/s] [内存消耗：1,433.90kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------116758338094036322757628',
+  'postman-token' => 'dead5e2c-8da6-4362-8988-bed6fed10c99',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:19:08+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.017973s][吞吐率：55.64req/s] [内存消耗：1,433.90kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------630682773883536484835825',
+  'postman-token' => '32a0ef5f-ca5c-4543-8e12-e5f780d03464',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:19:19+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.017900s][吞吐率：55.87req/s] [内存消耗：1,433.99kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------997801101632012356774072',
+  'postman-token' => '403dde9d-d134-4122-9ef4-a3204fe097b8',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:19:27+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.019777s][吞吐率：50.56req/s] [内存消耗：1,411.74kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------821900927148046673181552',
+  'postman-token' => 'b605cf06-caee-4e28-bddf-29d1d3c34094',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-18T16:19:38+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.018901s][吞吐率：52.91req/s] [内存消耗：1,411.78kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '171',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------910722866500682885165062',
+  'postman-token' => 'a7f42ddc-87b6-47ca-803a-73e8b428e592',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四光',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File

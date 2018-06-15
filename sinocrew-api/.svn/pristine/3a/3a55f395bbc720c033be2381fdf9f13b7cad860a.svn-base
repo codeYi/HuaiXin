@@ -1,0 +1,58 @@
+<?php
+/**
+ * @desc Created by PhpStorm.
+ * @author: 蒹葭苍苍
+ * @since: 2018-04-12 18:59
+ */
+namespace app\api\controller;
+use app\api\common\Base;
+use think\Db;
+
+/**
+ * 首页控制器
+ * Class Index
+ * @package app\api\controller
+ */
+class Index extends Base
+{
+    /**
+     * 添加常用
+     * @return \think\response\Json
+     * @throws \Exception
+     */
+    public function menuAdd()
+    {
+        $data = input('title/a');
+        if($this->isMariner) return error_data('船员无权限进行此操作');
+        $insert = [];
+        $result = [];
+        Db::startTrans();
+        try{
+            Db::name('menu')->where(['user_id'=>self::$id])->delete();
+            foreach ($data as $k=>$v){
+                $insert['user_id'] = self::$id;
+                $insert['title'] = $v;
+                $result[] = $insert;
+            }
+            Db::name('menu')->insertAll($result);
+            Db::commit();
+            return ok_data();
+        }catch (\Exception $e){
+            Db::rollback();
+            return error_data();
+        }
+    }
+
+    /**
+     * 常用功能列表
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function menuList()
+    {
+        $info = Db::name('menu')->where(['user_id'=>self::$id])->select();
+        return json($info);
+    }
+}

@@ -1,0 +1,2005 @@
+---------------------------------------------------------------
+[ 2018-04-19T14:25:42+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.368933s][吞吐率：2.71req/s] [内存消耗：1,421.88kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '171',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------980620759773638752462638',
+  'postman-token' => '5125fd3f-a3d0-43d0-b410-46c9f0e347c5',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四光',
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T14:25:54+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.016496s][吞吐率：60.62req/s] [内存消耗：1,409.05kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '171',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------183333956517403957181762',
+  'postman-token' => 'c54280f0-55be-4f9f-bfde-5cdc67e6caaa',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '李四光',
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T14:26:00+08:00 ] 192.168.10.105 GET /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.016932s][吞吐率：59.06req/s] [内存消耗：1,384.86kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'postman-token' => '5ea60a08-d155-4d5e-a730-f9f7b805a445',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T14:34:51+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.521035s][吞吐率：1.92req/s] [内存消耗：4,711.98kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13268',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------301028271371285467059542',
+  'postman-token' => '57c143ce-1d8f-42cc-a4e2-174bb64ece7f',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T14:35:22+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.084333s][吞吐率：11.86req/s] [内存消耗：4,712.32kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '13268',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------353999798708666929291536',
+  'postman-token' => '5b3ca45d-b483-4cdb-bbde-662c105c2705',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T15:25:49+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.071918s][吞吐率：13.90req/s] [内存消耗：4,549.46kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10563',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------985161693507377011792671',
+  'postman-token' => '8d8de3ef-ab7b-44b1-ae42-891d71695807',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T15:30:44+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：7.231102s][吞吐率：0.14req/s] [内存消耗：5,133.63kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10563',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------418628157060341013396511',
+  'postman-token' => '02b2a720-2937-432c-adca-68ad4a13453d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.039871s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_supplier` [ RunTime:0.040990s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '北京平安'  AND `attribute` = '飞机票代理' LIMIT 1 [ RunTime:0.002664s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '北京人和'  AND `attribute` = '服饰代理' LIMIT 1 [ RunTime:0.002441s ]
+---------------------------------------------------------------
+[ 2018-04-19T15:31:13+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：7.128559s][吞吐率：0.14req/s] [内存消耗：5,133.73kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10563',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------666102338009788000445635',
+  'postman-token' => '529a5d78-85c2-43c0-8d23-e47d37e9ca2d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007117s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_supplier` [ RunTime:0.044089s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '北京平安'  AND `attribute` = '飞机票代理' LIMIT 1 [ RunTime:0.002230s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '北京人和'  AND `attribute` = '服饰代理' LIMIT 1 [ RunTime:0.001619s ]
+---------------------------------------------------------------
+[ 2018-04-19T15:31:48+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：7.135719s][吞吐率：0.14req/s] [内存消耗：5,133.84kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10563',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------755734423900892166497865',
+  'postman-token' => '86a9d53a-f030-4a2c-8960-ff712d7ced88',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015969s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_supplier` [ RunTime:0.027407s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '北京平安'  AND `attribute` = '飞机票代理' LIMIT 1 [ RunTime:0.002294s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '北京人和'  AND `attribute` = '服饰代理' LIMIT 1 [ RunTime:0.002969s ]
+---------------------------------------------------------------
+[ 2018-04-19T15:35:12+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：7.194732s][吞吐率：0.14req/s] [内存消耗：5,126.50kb] [文件加载：106]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10563',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------750220187591842029625515',
+  'postman-token' => 'a5714b3e-20d4-4b1b-8a67-b6ab3651e7e3',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.022399s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_supplier` [ RunTime:0.036323s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '北京平安'  AND `attribute` = '飞机票代理' LIMIT 1 [ RunTime:0.002806s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '北京人和'  AND `attribute` = '服饰代理' LIMIT 1 [ RunTime:0.002786s ]
+[ sql ] [ SQL ] INSERT INTO `sino_supplier` (`title` , `attribute` , `develop_date` , `time`) VALUES ( '北京平安','飞机票代理','2018-04-19','2018-04-19 15:35:12' ) , ( '北京人和','服饰代理','2018-04-20','2018-04-19 15:35:12' ) [ RunTime:0.045620s ]
+---------------------------------------------------------------
+[ 2018-04-19T15:35:27+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.089073s][吞吐率：11.23req/s] [内存消耗：4,549.91kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10563',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------660651969957515337643014',
+  'postman-token' => 'f855dbed-ec7e-4aec-8e58-65b7b8e8c00f',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T15:35:48+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.078908s][吞吐率：12.67req/s] [内存消耗：4,549.92kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10524',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------187023797683577955900565',
+  'postman-token' => 'c321ee79-4032-4ca6-abe2-14e7bb8c00a0',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T15:35:55+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.073388s][吞吐率：13.63req/s] [内存消耗：4,549.92kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10524',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------379881819448512660398338',
+  'postman-token' => '9c03e873-572a-452c-a0a4-0d52b283d960',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T15:36:00+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.078049s][吞吐率：12.81req/s] [内存消耗：4,549.92kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10524',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------297003447212325532433296',
+  'postman-token' => '8b4a4320-8b45-4153-bd7f-fdcb6a045941',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T15:36:01+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.077771s][吞吐率：12.86req/s] [内存消耗：4,549.92kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10524',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------983148959769779414438965',
+  'postman-token' => '3e55d85f-3aa2-4f4f-a9d0-ffbc011a371d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T15:36:39+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.095741s][吞吐率：10.44req/s] [内存消耗：4,549.91kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10524',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------644290990090822754153426',
+  'postman-token' => '268775f8-15f6-40f1-8885-82bd70dd13dd',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T15:37:05+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.082846s][吞吐率：12.07req/s] [内存消耗：4,549.19kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10497',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------361404652943868402672652',
+  'postman-token' => '11afe381-8981-448d-bc92-a6bc564fa006',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T15:37:26+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.072211s][吞吐率：13.85req/s] [内存消耗：4,549.08kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10497',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------142422368097364663808039',
+  'postman-token' => '8b6765f8-252e-4b92-96ee-aad318efbc44',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T15:38:24+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.089580s][吞吐率：11.16req/s] [内存消耗：4,549.08kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10497',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------207709443296804715326444',
+  'postman-token' => '68766e4f-1a9d-4f23-85df-fd588944879d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T15:38:58+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.076540s][吞吐率：13.07req/s] [内存消耗：4,549.08kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10497',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------265588820116381406023236',
+  'postman-token' => 'a7a2f0d2-15e8-4603-bcc8-1ee68d2edf30',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T15:39:17+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.074025s][吞吐率：13.51req/s] [内存消耗：4,549.08kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10497',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------972949625748034628249111',
+  'postman-token' => '514e658e-8c50-4c78-86a4-e1137595dc78',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T15:39:39+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.083812s][吞吐率：11.93req/s] [内存消耗：4,549.19kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10497',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------769119366113200994020236',
+  'postman-token' => '1af4bcad-e856-480a-a93f-1f4d4d2184b1',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T15:40:31+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.068571s][吞吐率：14.58req/s] [内存消耗：4,549.80kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10497',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------174531741244597058117698',
+  'postman-token' => '788e92da-1c0f-4768-8417-afb2f60be4af',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T15:40:43+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.063436s][吞吐率：15.76req/s] [内存消耗：4,549.20kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10497',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------877779015354218508820042',
+  'postman-token' => '3d75e626-3d79-453f-a1c1-6152c8ba4878',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T15:41:09+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.093819s][吞吐率：10.66req/s] [内存消耗：4,550.01kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10523',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------957857643046677289000092',
+  'postman-token' => 'c4d5208b-9275-4674-aa7c-93645ea35c89',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T15:41:19+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：0.077972s][吞吐率：12.83req/s] [内存消耗：4,549.92kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10523',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------823697603368506310557598',
+  'postman-token' => '95b6667f-27e8-48f7-bd42-d95ea4054c25',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T15:42:44+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：7.124164s][吞吐率：0.14req/s] [内存消耗：5,130.01kb] [文件加载：106]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10523',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------477387821060506851287842',
+  'postman-token' => '47b5b338-7ff7-4265-93ff-bb9c44f3932c',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.019885s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_supplier` [ RunTime:0.022242s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '北京平安'  AND `attribute` = '飞机票代理' LIMIT 1 [ RunTime:0.002100s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '北京人和'  AND `attribute` = '服饰代理' LIMIT 1 [ RunTime:0.002315s ]
+---------------------------------------------------------------
+[ 2018-04-19T15:44:40+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：7.183959s][吞吐率：0.14req/s] [内存消耗：5,128.36kb] [文件加载：106]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10584',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------696873209510896728000464',
+  'postman-token' => 'c1564ff7-8e26-4e55-9ea2-ae7ad35927d7',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.006695s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_supplier` [ RunTime:0.024039s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '北京平安'  AND `attribute` = '飞机票代理' LIMIT 1 [ RunTime:0.001967s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '北京人和'  AND `attribute` = '服饰代理' LIMIT 1 [ RunTime:0.002133s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '天津权健'  AND `attribute` = '保健品' LIMIT 1 [ RunTime:0.002522s ]
+[ sql ] [ SQL ] INSERT INTO `sino_supplier` (`title` , `attribute` , `develop_date` , `time` , `remark`) VALUES ( '天津权健','保健品','2018-04-21','2018-04-19 15:44:40','备注' ) [ RunTime:0.046983s ]
+---------------------------------------------------------------
+[ 2018-04-19T15:45:15+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：7.131079s][吞吐率：0.14req/s] [内存消耗：5,136.45kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10584',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------096061341914684039213460',
+  'postman-token' => 'b9aff60c-b5a3-4024-8410-bc8696c6203b',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008664s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_supplier` [ RunTime:0.037732s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '北京平安'  AND `attribute` = '飞机票代理' LIMIT 1 [ RunTime:0.001705s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '北京人和'  AND `attribute` = '服饰代理' LIMIT 1 [ RunTime:0.002885s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '天津权健'  AND `attribute` = '保健品' LIMIT 1 [ RunTime:0.002954s ]
+---------------------------------------------------------------
+[ 2018-04-19T15:45:31+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：7.124871s][吞吐率：0.14req/s] [内存消耗：5,136.29kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10584',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------573546603994108921101068',
+  'postman-token' => '3aa7dcc0-018d-4712-81ab-dac1a3b72d34',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016493s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_supplier` [ RunTime:0.027432s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '北京平安'  AND `attribute` = '飞机票代理' LIMIT 1 [ RunTime:0.001284s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '北京人和'  AND `attribute` = '服饰代理' LIMIT 1 [ RunTime:0.002974s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '天津权健'  AND `attribute` = '保健品' LIMIT 1 [ RunTime:0.002008s ]
+---------------------------------------------------------------
+[ 2018-04-19T15:45:56+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：7.164903s][吞吐率：0.14req/s] [内存消耗：5,133.81kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10584',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------752586394539347853394443',
+  'postman-token' => '7c26e95e-c4e3-4e36-879a-ee3d2db2aed5',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015023s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_supplier` [ RunTime:0.071594s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_supplier` WHERE  `title` = '北京平安'  AND `attribute` = '飞机票代理' LIMIT 1 [ RunTime:0.003012s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_supplier` WHERE  `title` = '北京人和'  AND `attribute` = '服饰代理' LIMIT 1 [ RunTime:0.001733s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_supplier` WHERE  `title` = '天津权健'  AND `attribute` = '保健品' LIMIT 1 [ RunTime:0.002933s ]
+---------------------------------------------------------------
+[ 2018-04-19T15:50:38+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/importSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/importSupplier [运行时间：7.138734s][吞吐率：0.14req/s] [内存消耗：5,129.69kb] [文件加载：106]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'importSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10584',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------244849631161515731333117',
+  'postman-token' => '0b116207-c6dd-48fd-be91-464a5db11022',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->importSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015988s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_supplier` [ RunTime:0.034256s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_supplier` WHERE  `title` = '北京平安'  AND `attribute` = '飞机票代理' LIMIT 1 [ RunTime:0.002172s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_supplier` WHERE  `title` = '北京人和'  AND `attribute` = '服饰代理' LIMIT 1 [ RunTime:0.002942s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_supplier` WHERE  `title` = '天津权健'  AND `attribute` = '保健品' LIMIT 1 [ RunTime:0.001259s ]
+---------------------------------------------------------------
+[ 2018-04-19T15:51:49+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/exportSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/exportSupplier [运行时间：7.080009s][吞吐率：0.14req/s] [内存消耗：2,007.16kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'exportSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10584',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------092261171238027244809237',
+  'postman-token' => '4ab5c1a4-87f7-4385-b7f8-48fe4bab6912',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Supplier->exportSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007872s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_supplier` [ RunTime:0.024061s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` LIKE '%%' ORDER BY `time` [ RunTime:0.001784s ]
+---------------------------------------------------------------
+[ 2018-04-19T15:53:12+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/detailSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/detailSupplier [运行时间：7.088711s][吞吐率：0.14req/s] [内存消耗：2,006.56kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'detailSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10686',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------350124102708445763248321',
+  'postman-token' => '7bde824d-72c0-4f27-bcbf-b11ed1dbbed3',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ RUN ] app\api\controller\Supplier->detailSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.018688s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_supplier` [ RunTime:0.024428s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.002527s ]
+---------------------------------------------------------------
+[ 2018-04-19T15:55:21+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/listSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/listSupplier [运行时间：7.068218s][吞吐率：0.14req/s] [内存消耗：2,008.80kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'listSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10686',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------241555318489565329806294',
+  'postman-token' => 'a4b99680-d542-4204-a352-155cec8b72a0',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ RUN ] app\api\controller\Supplier->listSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007647s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_supplier` [ RunTime:0.022756s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_supplier` WHERE  `title` LIKE '%%' ORDER BY `time` LIMIT 1 [ RunTime:0.002762s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` LIKE '%%' ORDER BY `time` LIMIT 0,15 [ RunTime:0.002531s ]
+---------------------------------------------------------------
+[ 2018-04-19T16:25:39+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/addSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/addSupplier [运行时间：7.123871s][吞吐率：0.14req/s] [内存消耗：2,007.61kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'addSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '523',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------526204013749611849681886',
+  'postman-token' => '025a52eb-7f5a-4df2-b395-5129ac145e5b',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '武汉卓尔',
+  'attribute' => '运动设备',
+  'developDate' => '2018-04-12',
+  'remark' => '备注',
+)
+[ info ] [ RUN ] app\api\controller\Supplier->addSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.020013s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_supplier` [ RunTime:0.038953s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '武汉卓尔'  AND `attribute` = '运动设备' LIMIT 1 [ RunTime:0.002485s ]
+[ sql ] [ SQL ] INSERT INTO `sino_supplier` (`title` , `attribute` , `develop_date` , `remark` , `time`) VALUES ('武汉卓尔' , '运动设备' , '2018-04-12' , '备注' , '2018-04-19 16:25:39') [ RunTime:0.032427s ]
+---------------------------------------------------------------
+[ 2018-04-19T16:29:36+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/editSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/editSupplier [运行时间：7.121277s][吞吐率：0.14req/s] [内存消耗：2,008.02kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'editSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '523',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------060095609826162250424917',
+  'postman-token' => 'bca1c07b-9d50-4c6f-9189-9af08ab3ae54',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '武汉卓尔',
+  'attribute' => '运动设备',
+  'developDate' => '2018-04-12',
+  'remark' => '备注',
+)
+[ info ] [ RUN ] app\api\controller\Supplier->editSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008021s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_supplier` [ RunTime:0.081388s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '武汉卓尔'  AND `attribute` = '运动设备' LIMIT 1 [ RunTime:0.002385s ]
+---------------------------------------------------------------
+[ 2018-04-19T16:32:16+08:00 ] 192.168.10.105 POST /public/index.php/api/supplier/editSupplier
+[ info ] 192.168.10.105:807/public/index.php/api/supplier/editSupplier [运行时间：7.174081s][吞吐率：0.14req/s] [内存消耗：2,077.66kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'supplier',
+    2 => 'editSupplier',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '626',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------036291561235939287803540',
+  'postman-token' => '9a40282b-f46f-4a6b-9cae-63bfcdf5cc2e',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+  'title' => '武汉卓尔1',
+  'attribute' => '运动设备',
+  'developDate' => '2018-04-12',
+  'remark' => '备注',
+)
+[ info ] [ RUN ] app\api\controller\Supplier->editSupplier[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Supplier.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.010658s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_supplier` [ RunTime:0.044307s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_supplier` WHERE  `title` = '武汉卓尔1'  AND `attribute` = '运动设备' LIMIT 1 [ RunTime:0.003283s ]
+[ sql ] [ SQL ] UPDATE `sino_supplier`  SET `title`='武汉卓尔1',`attribute`='运动设备',`develop_date`='2018-04-12',`remark`='备注'  WHERE  `id` = 1 [ RunTime:0.034636s ]
+---------------------------------------------------------------
+[ 2018-04-19T16:58:48+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.048127s][吞吐率：20.78req/s] [内存消耗：1,461.84kb] [文件加载：50]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '171',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------239314558724607638027104',
+  'postman-token' => '399d8d8c-8dfb-4aa3-a6fa-7e8efec7b2bd',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'Chinese' => '王二狗',
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组下标: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php:184]
+---------------------------------------------------------------
+[ 2018-04-19T16:59:13+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.017137s][吞吐率：58.35req/s] [内存消耗：1,451.16kb] [文件加载：49]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '171',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------518546505765039534855075',
+  'postman-token' => 'a5123b25-0c38-405a-ba35-883ecaa59761',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'Chinese' => '王二狗',
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T16:59:26+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.017303s][吞吐率：57.79req/s] [内存消耗：1,451.19kb] [文件加载：49]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '171',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------225056183850204213290993',
+  'postman-token' => '6bc259a8-7cbd-4060-9caa-ad992bca2f97',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '王二狗',
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T16:59:34+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.020458s][吞吐率：48.88req/s] [内存消耗：1,421.95kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '171',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------756337295064536549686924',
+  'postman-token' => 'aa59a0bc-3ed5-4bcf-8f1b-c9605f2a2a3d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '王二狗',
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T17:00:40+08:00 ] 192.168.10.105 POST /public/index.php/api/privilege/zw2py
+[ info ] 192.168.10.105:807/public/index.php/api/privilege/zw2py [运行时间：0.020176s][吞吐率：49.56req/s] [内存消耗：1,422.00kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'zw2py',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '171',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------688566996422628056094332',
+  'postman-token' => '0937400c-c0e7-4940-8606-d2b80620da86',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '王二狗',
+)
+[ info ] [ RUN ] app\api\controller\Privilege->zw2py[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-19T17:45:19+08:00 ] 192.168.10.105 POST /public/index.php/api/Mariner/listShipowner
+[ info ] 192.168.10.105:807/public/index.php/api/Mariner/listShipowner [运行时间：7.086974s][吞吐率：0.14req/s] [内存消耗：1,990.09kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listShipowner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '171',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------991971251984160166312143',
+  'postman-token' => '72ea1f85-0e52-4de4-8bd0-064ad563052d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'chinese' => '王二狗',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listShipowner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.014808s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.041129s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_shipowner` WHERE  `title` LIKE '%%' ORDER BY `develop_date` LIMIT 1 [ RunTime:0.001682s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_shipowner` WHERE  `title` LIKE '%%' ORDER BY `develop_date` LIMIT 0,15 [ RunTime:0.002170s ]
+---------------------------------------------------------------
+[ 2018-04-19T17:46:32+08:00 ] 192.168.10.105 POST /public/index.php/api/Mariner/addShipowner
+[ info ] 192.168.10.105:807/public/index.php/api/Mariner/addShipowner [运行时间：7.105709s][吞吐率：0.14req/s] [内存消耗：1,988.68kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addShipowner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '402',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------371089517662476304375149',
+  'postman-token' => '848974e4-b3e6-443b-8114-9ad8339edfa7',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '武汉怀信广志',
+  'attribute' => '境内客户',
+  'group' => '',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addShipowner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007195s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.024720s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = '武汉怀信广志' LIMIT 1 [ RunTime:0.002350s ]
+[ sql ] [ SQL ] INSERT INTO `sino_shipowner` (`title` , `attribute` , `group` , `time`) VALUES ('武汉怀信广志' , '境内客户' , '' , '2018-04-19') [ RunTime:0.048586s ]
+---------------------------------------------------------------
+[ 2018-04-19T17:49:02+08:00 ] 192.168.10.105 POST /public/index.php/api/Mariner/listShipowner
+[ info ] 192.168.10.105:807/public/index.php/api/Mariner/listShipowner [运行时间：7.124653s][吞吐率：0.14req/s] [内存消耗：1,992.07kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listShipowner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '512',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------286882971130724145678189',
+  'postman-token' => 'd5532bbb-3475-41a7-9165-f355843c18a4',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '武汉怀信广志',
+  'attribute' => '境内客户',
+  'group' => '',
+  'developDate' => '',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listShipowner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007412s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.084694s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_shipowner` WHERE  `title` LIKE '%武汉怀信广志%'  AND `attribute` = '境内客户' ORDER BY `develop_date` LIMIT 1 [ RunTime:0.002313s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_shipowner` WHERE  `title` LIKE '%武汉怀信广志%'  AND `attribute` = '境内客户' ORDER BY `develop_date` LIMIT 0,15 [ RunTime:0.002475s ]
+---------------------------------------------------------------
+[ 2018-04-19T17:49:22+08:00 ] 192.168.10.105 POST /public/index.php/api/Mariner/listShipowner
+[ info ] 192.168.10.105:807/public/index.php/api/Mariner/listShipowner [运行时间：7.073739s][吞吐率：0.14req/s] [内存消耗：1,992.10kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listShipowner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '500',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------095084540735466477227587',
+  'postman-token' => '74369a1b-e954-4a7d-a8de-1c8713ba8da9',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '武汉',
+  'attribute' => '境内客户',
+  'group' => '',
+  'developDate' => '',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listShipowner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007518s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.039864s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_shipowner` WHERE  `title` LIKE '%武汉%'  AND `attribute` = '境内客户' ORDER BY `develop_date` LIMIT 1 [ RunTime:0.001725s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_shipowner` WHERE  `title` LIKE '%武汉%'  AND `attribute` = '境内客户' ORDER BY `develop_date` LIMIT 0,15 [ RunTime:0.002094s ]
+---------------------------------------------------------------
+[ 2018-04-19T17:49:35+08:00 ] 192.168.10.105 POST /public/index.php/api/Mariner/listShipowner
+[ info ] 192.168.10.105:807/public/index.php/api/Mariner/listShipowner [运行时间：7.068695s][吞吐率：0.14req/s] [内存消耗：1,990.23kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listShipowner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '166',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------697893033044120673458068',
+  'postman-token' => '22524d66-4a2f-44a4-8997-e2115d733714',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '北京',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listShipowner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016391s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.022724s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_shipowner` WHERE  `title` LIKE '%北京%' ORDER BY `develop_date` LIMIT 1 [ RunTime:0.002393s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_shipowner` WHERE  `title` LIKE '%北京%' ORDER BY `develop_date` LIMIT 0,15 [ RunTime:0.002107s ]
+---------------------------------------------------------------
+[ 2018-04-19T17:50:22+08:00 ] 192.168.10.105 POST /public/index.php/api/Mariner/addShipowner
+[ info ] 192.168.10.105:807/public/index.php/api/Mariner/addShipowner [运行时间：7.116932s][吞吐率：0.14req/s] [内存消耗：2,015.29kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addShipowner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '528',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------941441901676664303492463',
+  'postman-token' => 'e4db031e-6476-4470-a531-44e01a3b0392',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '北京中科院',
+  'attribute' => '境内客户',
+  'group' => '北京组',
+  'developDate' => '2018-04-18',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addShipowner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016901s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.034956s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = '北京中科院' LIMIT 1 [ RunTime:0.002165s ]
+[ error ] [0]数据表字段不存在:[developDate][D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Builder.php:109]
+---------------------------------------------------------------
+[ 2018-04-19T17:52:51+08:00 ] 192.168.10.105 POST /public/index.php/api/Mariner/addShipowner
+[ info ] 192.168.10.105:807/public/index.php/api/Mariner/addShipowner [运行时间：7.126007s][吞吐率：0.14req/s] [内存消耗：1,990.05kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addShipowner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '528',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------785301069999535518000817',
+  'postman-token' => 'e8284668-ae61-48a8-a0a1-ab8e5d629ced',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '北京中科院',
+  'attribute' => '境内客户',
+  'group' => '北京组',
+  'developDate' => '2018-04-18',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addShipowner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.013146s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.039241s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = '北京中科院' LIMIT 1 [ RunTime:0.001889s ]
+[ sql ] [ SQL ] INSERT INTO `sino_shipowner` (`title` , `attribute` , `develop_date` , `group` , `time`) VALUES ('北京中科院' , '境内客户' , '2018-04-18' , '北京组' , '2018-04-19') [ RunTime:0.043167s ]
+---------------------------------------------------------------
+[ 2018-04-19T17:54:55+08:00 ] 192.168.10.105 POST /public/index.php/api/Mariner/listShipowner
+[ info ] 192.168.10.105:807/public/index.php/api/Mariner/listShipowner [运行时间：7.084902s][吞吐率：0.14req/s] [内存消耗：1,994.49kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listShipowner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '528',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------641233208226544419834857',
+  'postman-token' => '6a01ef85-1b53-452d-ad24-43721cf13885',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '北京中科院',
+  'attribute' => '境内客户',
+  'group' => '北京组',
+  'developDate' => '2018-04-18',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listShipowner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017365s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.030710s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_shipowner` WHERE  `title` LIKE '%北京中科院%'  AND `attribute` = '境内客户'  AND `group` = '北京组'  AND `develop_date` = '2018-04-18' ORDER BY `develop_date` LIMIT 1 [ RunTime:0.003213s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_shipowner` WHERE  `title` LIKE '%北京中科院%'  AND `attribute` = '境内客户'  AND `group` = '北京组'  AND `develop_date` = '2018-04-18' ORDER BY `develop_date` LIMIT 0,15 [ RunTime:0.002623s ]
+---------------------------------------------------------------
+[ 2018-04-19T17:55:07+08:00 ] 192.168.10.105 POST /public/index.php/api/Mariner/listShipowner
+[ info ] 192.168.10.105:807/public/index.php/api/Mariner/listShipowner [运行时间：7.080108s][吞吐率：0.14req/s] [内存消耗：1,994.20kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listShipowner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '529',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------015921097138079607983745',
+  'postman-token' => '908d7bb0-be1c-4a9c-a36e-01ada1f3dc42',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '北京中科院',
+  'attribute' => '境内客户1',
+  'group' => '北京组',
+  'developDate' => '2018-04-18',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listShipowner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007668s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.039943s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_shipowner` WHERE  `title` LIKE '%北京中科院%'  AND `attribute` = '境内客户1'  AND `group` = '北京组'  AND `develop_date` = '2018-04-18' ORDER BY `develop_date` LIMIT 1 [ RunTime:0.002523s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_shipowner` WHERE  `title` LIKE '%北京中科院%'  AND `attribute` = '境内客户1'  AND `group` = '北京组'  AND `develop_date` = '2018-04-18' ORDER BY `develop_date` LIMIT 0,15 [ RunTime:0.002955s ]
+---------------------------------------------------------------
+[ 2018-04-19T17:55:18+08:00 ] 192.168.10.105 POST /public/index.php/api/Mariner/listShipowner
+[ info ] 192.168.10.105:807/public/index.php/api/Mariner/listShipowner [运行时间：7.080547s][吞吐率：0.14req/s] [内存消耗：1,991.34kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listShipowner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------407201769732662364321115',
+  'postman-token' => 'b632f170-d392-4b25-82a2-af5b45bfa2ba',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listShipowner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007875s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.037223s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_shipowner` WHERE  `title` LIKE '%%' ORDER BY `develop_date` LIMIT 1 [ RunTime:0.001467s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_shipowner` WHERE  `title` LIKE '%%' ORDER BY `develop_date` LIMIT 0,15 [ RunTime:0.003040s ]
+---------------------------------------------------------------
+[ 2018-04-19T19:09:41+08:00 ] 192.168.10.105 POST /public/index.php/api/Mariner/detailShipowner
+[ info ] 192.168.10.105:807/public/index.php/api/Mariner/detailShipowner [运行时间：7.099685s][吞吐率：0.14req/s] [内存消耗：1,990.80kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'detailShipowner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '158',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------431020243946416191586604',
+  'postman-token' => '0b67f3fe-801e-424f-b551-41be3e9a91db',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->detailShipowner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.024755s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.043066s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_shipowner` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.002719s ]
+---------------------------------------------------------------
+[ 2018-04-19T19:13:33+08:00 ] 192.168.10.105 POST /public/index.php/api/Mariner/editShipowner
+[ info ] 192.168.10.105:807/public/index.php/api/Mariner/editShipowner [运行时间：7.135504s][吞吐率：0.14req/s] [内存消耗：2,111.52kb] [文件加载：63]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editShipowner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '398',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------856839488853269705453375',
+  'postman-token' => 'b337451a-af20-4191-8076-6e0152601bf4',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+  'title' => '北京中科院2',
+  'attribute' => '境内客户',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editShipowner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016336s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.023200s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = '北京中科院2'  AND `id` <> 1 LIMIT 1 [ RunTime:0.030376s ]
+[ error ] [8]未定义数组索引: developDate[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:107]
+[ error ] [8]未定义数组索引: group[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:108]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'group' cannot be null[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-19T19:13:54+08:00 ] 192.168.10.105 POST /public/index.php/api/Mariner/editShipowner
+[ info ] 192.168.10.105:807/public/index.php/api/Mariner/editShipowner [运行时间：7.068651s][吞吐率：0.14req/s] [内存消耗：2,105.66kb] [文件加载：62]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editShipowner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '612',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------772327061333033902912425',
+  'postman-token' => '4ee9c537-f6ea-4c0e-a92a-10e72a6491a5',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+  'title' => '北京中科院2',
+  'attribute' => '境内客户',
+  'group' => '',
+  'developDate' => '',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editShipowner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.011434s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.025984s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = '北京中科院2'  AND `id` <> 1 LIMIT 1 [ RunTime:0.002448s ]
+[ error ] [10501]SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'develop_date' at row 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-19T19:16:33+08:00 ] 192.168.10.105 POST /public/index.php/api/Mariner/editShipowner
+[ info ] 192.168.10.105:807/public/index.php/api/Mariner/editShipowner [运行时间：7.071325s][吞吐率：0.14req/s] [内存消耗：2,106.05kb] [文件加载：62]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editShipowner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '612',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------334988253916088479568167',
+  'postman-token' => '6a00c44e-38e2-483c-a192-c08d5b237334',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+  'title' => '北京中科院2',
+  'attribute' => '境内客户',
+  'group' => '',
+  'developDate' => '',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editShipowner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.011695s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.026063s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = '北京中科院2'  AND `id` <> 1 LIMIT 1 [ RunTime:0.001404s ]
+[ error ] [10501]SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'develop_date' at row 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-19T19:17:49+08:00 ] 192.168.10.105 POST /public/index.php/api/Mariner/editShipowner
+[ info ] 192.168.10.105:807/public/index.php/api/Mariner/editShipowner [运行时间：7.105014s][吞吐率：0.14req/s] [内存消耗：2,067.09kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editShipowner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '612',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------862318793637354731563344',
+  'postman-token' => '261a373f-27ee-4d73-9eca-3acb8d23dabf',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+  'title' => '北京中科院2',
+  'attribute' => '境内客户',
+  'group' => '',
+  'developDate' => '',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editShipowner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016708s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.026102s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = '北京中科院2'  AND `id` <> 1 LIMIT 1 [ RunTime:0.002478s ]
+[ sql ] [ SQL ] UPDATE `sino_shipowner`  SET `title`='北京中科院2',`attribute`='境内客户',`develop_date`=NULL,`group`='',`time`='2018-04-19'  WHERE  `id` = 1 [ RunTime:0.036483s ]
+---------------------------------------------------------------
+[ 2018-04-19T19:24:05+08:00 ] 192.168.10.105 POST /public/index.php/api/Mariner/importShipowner
+[ info ] 192.168.10.105:807/public/index.php/api/Mariner/importShipowner [运行时间：7.199572s][吞吐率：0.14req/s] [内存消耗：5,163.94kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importShipowner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9754',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------645357876182601861954332',
+  'postman-token' => '05de560d-5e1b-4d29-84b3-e574c803c6a2',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+  'title' => '北京中科院2',
+  'attribute' => '境内客户',
+  'group' => '',
+  'developDate' => '',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importShipowner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.020322s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_supplier` [ RunTime:0.044746s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_supplier` WHERE  `title` = 'Sinochem'  AND `attribute` = '境内客户' LIMIT 1 [ RunTime:0.001641s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_supplier` WHERE  `title` = 'Misuga'  AND `attribute` = '境外客户' LIMIT 1 [ RunTime:0.002834s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_supplier` WHERE  `title` = ''  AND `attribute` = '' LIMIT 1 [ RunTime:0.002193s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_supplier` WHERE  `title` = ''  AND `attribute` = '' LIMIT 1 [ RunTime:0.001958s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_supplier` WHERE  `title` = ''  AND `attribute` = '' LIMIT 1 [ RunTime:0.001666s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.037469s ]
+[ error ] [0]数据表字段不存在:[remark][D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\builder\Mysql.php:48]
+---------------------------------------------------------------
+[ 2018-04-19T19:24:24+08:00 ] 192.168.10.105 POST /public/index.php/api/Mariner/importShipowner
+[ info ] 192.168.10.105:807/public/index.php/api/Mariner/importShipowner [运行时间：7.214110s][吞吐率：0.14req/s] [内存消耗：5,134.18kb] [文件加载：106]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importShipowner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9754',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=0kq9j5rmfr119ilidocpdncn25',
+  'host' => '192.168.10.105:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------280198803248455701442266',
+  'postman-token' => 'a2031701-48c1-4e34-8d2a-3dbbb01e2a09',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+  'title' => '北京中科院2',
+  'attribute' => '境内客户',
+  'group' => '',
+  'developDate' => '',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importShipowner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007291s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_supplier` [ RunTime:0.026819s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_supplier` WHERE  `title` = 'Sinochem'  AND `attribute` = '境内客户' LIMIT 1 [ RunTime:0.003682s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_supplier` WHERE  `title` = 'Misuga'  AND `attribute` = '境外客户' LIMIT 1 [ RunTime:0.002017s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_supplier` WHERE  `title` = ''  AND `attribute` = '' LIMIT 1 [ RunTime:0.003045s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_supplier` WHERE  `title` = ''  AND `attribute` = '' LIMIT 1 [ RunTime:0.003034s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_supplier` WHERE  `title` = ''  AND `attribute` = '' LIMIT 1 [ RunTime:0.002308s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.020613s ]
+[ sql ] [ SQL ] INSERT INTO `sino_shipowner` (`title` , `attribute` , `group` , `develop_date` , `time`) VALUES ( 'Sinochem','境内客户','',0,'2018-04-19 19:24:24' ) , ( 'Misuga','境外客户','',0,'2018-04-19 19:24:24' ) , ( '','','',0,'2018-04-19 19:24:24' ) , ( '','','',0,'2018-04-19 19:24:24' ) , ( '','','','2018-04-19','2018-04-19 19:24:24' ) [ RunTime:0.058335s ]

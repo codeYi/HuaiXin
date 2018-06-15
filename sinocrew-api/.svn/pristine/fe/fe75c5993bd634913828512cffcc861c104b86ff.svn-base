@@ -1,0 +1,8 @@
+[ 2018-04-12T18:56:21+08:00 ][ error ] [1]Class 'think\facade\Env' not found[D:\phpStudy\PHPTutorial\WWW\sinocrew\vendor\topthink\think-migration\src\command\Migrate.php:34]
+[ info ] [ LOG ] INIT File
+[ 2018-04-12T19:40:06+08:00 ][ error ] [1]Class 'think\facade\Env' not found[D:\phpStudy\PHPTutorial\WWW\sinocrew\vendor\topthink\think-migration\src\command\Migrate.php:34]
+[ info ] [ LOG ] INIT File
+[ 2018-04-12T19:41:30+08:00 ][ error ] [1]Class 'think\facade\Env' not found[D:\phpStudy\PHPTutorial\WWW\sinocrew\vendor\topthink\think-migration\src\command\Migrate.php:34]
+[ info ] [ LOG ] INIT File
+[ 2018-04-12T19:46:10+08:00 ][ error ] [1]Class 'think\facade\Env' not found[D:\phpStudy\PHPTutorial\WWW\sinocrew\vendor\topthink\think-migration\src\command\Migrate.php:34]
+[ info ] [ LOG ] INIT File

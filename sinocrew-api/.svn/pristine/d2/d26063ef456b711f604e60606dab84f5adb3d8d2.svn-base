@@ -1,0 +1,953 @@
+<?php
+/**
+ * @desc Created by PhpStorm.
+ * @author: CodeYi
+ * @since: 2018-04-25 15:10
+ */
+namespace app\api\controller;
+use app\api\common\Base;
+use think\Db;
+use think\Loader;
+
+/**
+ * 社保控制器
+ * Class SocialSecurity
+ * @package app\api\controller
+ */
+class Social extends Base
+{
+    /**
+     * 添加社保设置
+     * @return \think\response\Json
+     */
+    public function addArea()
+    {
+        $data = input('post.');
+        //时间的合理性
+        if($data['endtime'] < $data['starttime']) return error_data('填写时间有误');
+//        $info = Db::name('social_security')->where(['area'=>$data['area']])->order('endtime desc')->limit(1)->find();
+//        if($info){
+//            if(substr($info['endtime'],-2) == 12){
+//                $ifRight = (substr($info['endtime'],0,5)+1)."-01";
+//            }else{
+//                $ifRight = substr($info['endtime'],0,5)."-".sprintf("%02d",((substr($info['endtime'],-2))+1));
+//            }
+//            if($data['starttime'] != $ifRight) return error_data('有遗漏的时间区间');
+//        }
+        $insert = [
+            'area'=>$data['area'],
+            'starttime'=>formatTime($data['starttime'],'Y-m'),
+            'endtime'=>formatTime($data['endtime'],'Y-m'),
+            'formula_mode'=>$data['mode'],
+            'remark'=>$data['mode'],
+        ];
+        Db::startTrans();
+        try{
+            $pid = Db::name('social_security')->insertGetId($insert);
+            $project = json_decode(htmlspecialchars_decode($data['project']));
+            $arr = ['养老保险','医疗保险','失业保险','工伤保险','生育保险'];
+            foreach ($project as $k=>&$v){
+                $v['pid'] = $pid;
+                $v['total_person'] = $v['base_person']*$v['rate_person']+$v['amount_person'];
+                $v['total_company'] = $v['base_company']*$v['rate_person']+$v['amount_person'];
+                if(in_array($v['title'],$arr)){
+                    $v['is_five'] = 1;
+                }else{
+                    $v['is_five'] = 0;
+                }
+            }
+            Db::name('social_security_set')->insertAll($project);
+            Db::commit();
+            return ok_data();
+        }catch (\Exception $e){
+            Db::rollback();
+            return error_data();
+        }
+    }
+
+    /**
+     * 社保设置详情
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function detailArea()
+    {
+        $id = input('id');
+        $area = Db::name('social_security')->find($id);
+        $info = Db::name('social_security_set')->where(['pid'=>$id])->select();
+        $person = 0;
+        $company = 0;
+        $personElse = 0;
+        $companyElse = 0;
+        foreach ($info as $k=>$v){
+            if($v['is_five'] == 1){
+                $person += $v['total_person'];
+                $company += $v['total_company'];
+            }else{
+                $personElse += $v['total_person'];
+                $companyElse += $v['total_company'];
+            }
+        }
+        $res = [
+            'area'=>$area,
+            'data'=>$info,
+            'person'=>$person,
+            'company'=>$company,
+            'personElse'=>$personElse,
+            'companyElse'=>$companyElse
+        ];
+        return json($res);
+    }
+
+    /**
+     * 修改社保设置
+     * @return \think\response\Json
+     */
+    public function editArea()
+    {
+        $data = input('post.');
+        if($data['endtime'] < $data['starttime']) return error_data('填写时间有误');
+        $update = [
+            'id'=>$data['id'],
+            'area'=>$data['area'],
+            'starttime'=>formatTime($data['starttime'],'Y-m'),
+            'endtime'=>formatTime($data['endtime'],'Y-m'),
+            'formula_mode'=>$data['mode'],
+            'remark'=>$data['mode'],
+        ];
+        Db::startTrans();
+        try{
+            Db::name('social_security')->update($update);
+            Db::name('social_security_set')->where(['pid'=>$data['id']])->delete();
+            $project = json_decode(htmlspecialchars_decode($data['project']));
+            $arr = ['养老保险','医疗保险','失业保险','工伤保险','生育保险'];
+            foreach ($project as $k=>&$v){
+                $v['pid'] = $data['id'];
+                $v['total_person'] = $v['base_person']*$v['rate_person']+$v['amount_person'];
+                $v['total_company'] = $v['base_company']*$v['rate_person']+$v['amount_person'];
+                if(in_array($v['title'],$arr)){
+                    $v['is_five'] = 1;
+                }else{
+                    $v['is_five'] = 0;
+                }
+            }
+            Db::name('social_security_set')->insertAll($project);
+            Db::commit();
+            return ok_data();
+        }catch (\Exception $e){
+            Db::rollback();
+            return error_data();
+        }
+    }
+
+    /**
+     * 社保设置列表
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function listArea()
+    {
+        $area = input('area/a');
+        $page = input('page');
+        $starttime = formatTime(input('time')[0],'Y-m');
+        $endtime = formatTime(input('time')[1],'Y-m');
+        if(empty($starttime) && $endtime) $where['endtime'] = ['ELT',$endtime];
+        if(empty($endtime) && $starttime) $where['starttime'] = ['EGT',$starttime];
+        if($starttime && $endtime){
+            $where['starttime'] = ['EGT',$starttime];
+            $where['endtime'] = ['ELT',$endtime];
+        }
+        if($area) $where['area'] = ['IN',$area];
+        if($where){
+            $list = Db::name('social_security')->where($where)->order('starttime')->count();
+            $info = Db::name('social_security')->where($where)->order('starttime')->page($page,self::$listRows)->select();
+        }else {
+            $list = Db::name('social_security')->order('starttime')->count();
+            $info = Db::name('social_security')->order('starttime')->page($page,self::$listRows)->select();
+        }
+        $person = 0;
+        $company = 0;
+        $personElse = 0;
+        $companyElse = 0;
+        foreach ($info as $k=>$v){
+            $allInfo = Db::name('social_security_set')->where(['pid'=>$v['id']])->select();
+            $info[$k]['project'] = $allInfo;
+           foreach ($allInfo as $k1=>$v1){
+               if($v1['is_five'] == 1){
+                   $person += $v1['total_person'];
+                   $company += $v1['total_company'];
+               }else{
+                   $personElse += $v1['total_person'];
+                   $companyElse += $v1['total_company'];
+               }
+           }
+           $info[$k]['person'] = $person;
+           $info[$k]['company'] = $company;
+           $info[$k]['personElse'] = $personElse;
+           $info[$k]['companyElse'] = $companyElse;
+           $info[$k]['totalPerson'] = $person +$personElse;
+           $info[$k]['totalCompany'] = $company +$companyElse;
+        }
+        $res = [
+            'list'=>$list,
+            'data'=>$info
+        ];
+        return json($res);
+    }
+
+    /**
+     * 社保所有地区
+     * @return \think\response\Json
+     */
+    public function allArea()
+    {
+       $allArea = Db::name('social_security')->column('area');
+       $res = [
+           'area'=>array_unique($allArea)
+       ];
+       return json($res);
+    }
+
+    /**
+     * 导出社保设置数据
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function exportArea()
+    {
+        $area = input('area/a');
+        $starttime = formatTime(input('time')[0],'Y-m');
+        $endtime = formatTime(input('time')[1],'Y-m');
+        if(empty($starttime) && $endtime) $where['endtime'] = ['ELT',$endtime];
+        if(empty($endtime) && $starttime) $where['starttime'] = ['EGT',$starttime];
+        if($starttime && $endtime){
+            $where['starttime'] = ['EGT',$starttime];
+            $where['endtime'] = ['ELT',$endtime];
+        }
+        if($area) $where['area'] = ['IN',$area];
+        if($where){
+            $info = Db::name('social_security')->where($where)->order('starttime')->select();
+        }else {
+            $info = Db::name('social_security')->order('starttime')->select();
+        }
+        $person = 0;
+        $company = 0;
+        $personElse = 0;
+        $companyElse = 0;
+        foreach ($info as $k=>$v){
+            $allInfo = Db::name('social_security_set')->where(['pid'=>$v['id']])->select();
+            $info[$k]['project'] = $allInfo;
+            foreach ($allInfo as $k1=>$v1){
+                if($v1['is_five'] == 1){
+                    $person += $v1['total_person'];
+                    $company += $v1['total_company'];
+                }else{
+                    $personElse += $v1['total_person'];
+                    $companyElse += $v1['total_company'];
+                }
+            }
+            $info[$k]['person'] = $person;
+            $info[$k]['company'] = $company;
+            $info[$k]['personElse'] = $personElse;
+            $info[$k]['companyElse'] = $companyElse;
+            $info[$k]['totalPerson'] = $person +$personElse;
+            $info[$k]['totalCompany'] = $company +$companyElse;
+        }
+        return json($info);
+    }
+
+    /**
+     * 待定
+     * 导入设置
+     * @return \think\response\Json
+     * @throws \PHPExcel_Exception
+     * @throws \PHPExcel_Reader_Exception
+     */
+    public function importArea()
+    {
+        if (!$_FILES) return error_data('请选择文件');
+        $key = array_keys($_FILES);
+        $file = $_FILES[$key[0]]["tmp_name"];
+        Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
+        $PHPReader = new \PHPExcel_Reader_Excel5();
+        if (!$PHPReader->canRead($file)) {
+            $PHPReader = new \PHPExcel_Reader_Excel2007();
+            if (!$PHPReader->canRead($file)) {
+                return error_data('文件类型不符');
+            }
+        }
+        $E = $PHPReader->load($file);
+        $cur = $E->getSheet(0);  // 读取第一个表
+        $end = $cur->getHighestColumn(); // 获得最大的列数
+        $line = $cur->getHighestRow(); // 获得最大总行数
+        //将最大列转换为数字
+        $length = strlen($end);
+        if (strlen($end) > 1) {
+            $single = ord(substr($end, $length - 1)) - 64;
+            $end = ($length - 1) * 26 + $single;
+        } else {
+            $end = ord($end) - 64;
+        }
+        $info = [];
+        $i = 0;
+        for ($row = 2; $row <= $line; $row++) {
+            for ($column = 1; $column < $end; $column++) {
+                $val = $cur->getCellByColumnAndRow($column, $row)->getValue();
+                if(is_object($val)){
+                    $info[$i][] = $val->__toString();
+                }else{
+                    $info[$i][] = $val;
+                }
+            }
+            $i++;
+        }
+        $insert = [];
+        $insertSet = [];
+        foreach ($info as $k=>$v){
+            $area['area'] = (string)$v[0];
+            $area['starttime'] = (string)$v[1];
+            $area['endtime'] = (string)$v[2];
+            $area['formula_mode'] = (string)$v[33];
+            $area['remark'] = (string)$v[34];
+            $pid = Db::name('social_security')->insertGetId($area);
+
+            $data = [];
+            $str = explode(' ',$str);
+            if($str[0]) $str[0] = ucfirst($str[0]);
+            if($str[1]) $str[1] = " ".ucfirst($str[1]);
+            $data['english'] = implode('',$str);
+            $data['duty'] = (string)$v[3];
+            $data['manning_office'] = (string)$v[4];
+            $data['fleet'] = (string)$v[5];
+            $shipperId = Db::name('shipowner')->where(['title'=>(string)$v[6]])->value('id');
+            $vesselId = Db::name('vessel')->where(['title'=>(string)$v[7]])->value('id');
+            if(!$shipperId || !$vesselId) continue;
+            $data['owner_pool'] = $shipperId;
+            $data['vessel'] = $vesselId;
+            $data['time'] = formatTime(time());
+            $insert[] = $area;
+            $insertSet[] = $data;
+        }
+        $res = Db::name('mariner')->insertAll($insert);
+        if($res) return ok_data();
+        return error_data();
+    }
+
+    /**
+     * 参保地区搜索
+     */
+    public function searchArea()
+    {
+        $condition = input('condition');
+        $table = "insured";
+        $field = "area";
+       return $this->search($table,$field,$condition);
+    }
+
+    /**
+     * 添加社保人员
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function addInsured()
+    {
+        $data = input('post.');
+        $info = Db::name('mariner')->where(['id_number'=>$data['idNumber']])->find();
+        if(!$info) return error_data('没有找到该身份证对应的船员');
+        if($info['name'] != $data['name']) return error_data('身份证和船员姓名不匹配');
+        //是否重复提交
+        $repeat = Db::name('insured')->where(['mariner_id'=>$info['id'],'starttime'=>$data['time']])->value('id');
+        if($repeat) return error_data('请勿重复提交');
+        $insert = [
+            'mariner_id'=>$info['id'],
+            'area'=>$data['area'],
+            'starttime'=>(string)(formatTime($data['time'],'Y-m')),
+            'fee_payable'=>$data['payable'],
+            'add_month'=>date('Y-m',time())
+        ];
+       $res = Db::name('insured')->insert($insert);
+       if($res) return ok_data();
+       return error_data();
+    }
+
+    /**
+     * 批量导入社保人员
+     * @return \think\response\Json
+     * @throws \PHPExcel_Exception
+     * @throws \PHPExcel_Reader_Exception
+     */
+    public function importInsured()
+    {
+        if (!$_FILES) return error_data('请选择文件');
+        $key = array_keys($_FILES);
+        $file = $_FILES[$key[0]]["tmp_name"];
+        Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
+        $PHPReader = new \PHPExcel_Reader_Excel5();
+        if (!$PHPReader->canRead($file)) {
+            $PHPReader = new \PHPExcel_Reader_Excel2007();
+            if (!$PHPReader->canRead($file)) {
+                return error_data('文件类型不符');
+            }
+        }
+        $E = $PHPReader->load($file);
+        $cur = $E->getSheet(0);  // 读取第一个表
+        $end = $cur->getHighestColumn(); // 获得最大的列数
+        $line = $cur->getHighestRow(); // 获得最大总行数
+        //将最大列转换为数字
+        $length = strlen($end);
+        if (strlen($end) > 1) {
+            $single = ord(substr($end, $length - 1)) - 64;
+            $end = ($length - 1) * 26 + $single;
+        } else {
+            $end = ord($end) - 64;
+        }
+        $info = [];
+        $i = 0;
+        for ($row = 2; $row <= $line; $row++) {
+            for ($column = 1; $column < $end; $column++) {
+                $val = $cur->getCellByColumnAndRow($column, $row)->getValue();
+                if(is_object($val)){
+                    $info[$i][] = $val->__toString();
+                }else{
+                    $info[$i][] = $val;
+                }
+            }
+            $i++;
+        }
+        $insert = [];
+        $fail = 0;
+        $success = 0;
+        foreach ($info as $k=>$v){
+            $pid = Db::name('mariner')->where(['id_number'=>$v[1],'name'=>$v[0]])->value('id');
+            if(!$pid){
+                $fail++;
+                continue;
+            }
+            $data['mariner_id'] = $pid;
+            $data['area'] = (string)$v[2];
+            $data['starttime'] = (string)$v[3];
+            $data['fee_payable'] = (string)$v[4];
+            $data['add_month'] = date('Y-m',time());
+            $success++;
+            $insert[] = $data;
+        }
+        $res = Db::name('insured')->insertAll($insert);
+        if($res) return ok_data("成功导入".$success."条数据,"."失败".$fail."条");
+        return error_data();
+    }
+
+    /**
+     * 社保人员减员
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function reduceInsured()
+    {
+        $data = input('post.');
+        $info = Db::name('mariner')->where(['id_number'=>$data['idNumber']])->find();
+        if(!$info) return error_data('没有找到该身份证对应的船员');
+        if($info['name'] != $data['name']) return error_data('身份证和船员姓名不匹配');
+        $id = Db::name('insured')->where(['mariner_id'=>$info['id'],'area'=>$data['area']])->value('id');
+        if(!$id) return error_data('该船员没有在'.$data['area'].'缴过社保');
+        $insert = [
+            'mariner_id'=>$info['id'],
+            'area'=>$data['area'],
+            'starttime'=>formatTime($data['time'],"Y-m"),
+        ];
+        $repeat = Db::name('insured_stop')->where($insert)->value('id');
+        if($repeat) return error_data('该船员已停缴过,请勿重复操作');
+        $res = Db::name('insured_stop')->insert($insert);
+        if($res) return ok_data();
+        return error_data();
+    }
+
+    /**
+     * 批量导入减员
+     * @return \think\response\Json
+     * @throws \PHPExcel_Exception
+     * @throws \PHPExcel_Reader_Exception
+     */
+    public function importReduce()
+    {
+        if (!$_FILES) return error_data('请选择文件');
+        $key = array_keys($_FILES);
+        $file = $_FILES[$key[0]]["tmp_name"];
+        Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
+        $PHPReader = new \PHPExcel_Reader_Excel5();
+        if (!$PHPReader->canRead($file)) {
+            $PHPReader = new \PHPExcel_Reader_Excel2007();
+            if (!$PHPReader->canRead($file)) {
+                return error_data('文件类型不符');
+            }
+        }
+        $E = $PHPReader->load($file);
+        $cur = $E->getSheet(0);  // 读取第一个表
+        $end = $cur->getHighestColumn(); // 获得最大的列数
+        $line = $cur->getHighestRow(); // 获得最大总行数
+        //将最大列转换为数字
+        $length = strlen($end);
+        if (strlen($end) > 1) {
+            $single = ord(substr($end, $length - 1)) - 64;
+            $end = ($length - 1) * 26 + $single;
+        } else {
+            $end = ord($end) - 64;
+        }
+        $info = [];
+        $i = 0;
+        for ($row = 2; $row <= $line; $row++) {
+            for ($column = 1; $column < $end; $column++) {
+                $val = $cur->getCellByColumnAndRow($column, $row)->getValue();
+                if(is_object($val)){
+                    $info[$i][] = $val->__toString();
+                }else{
+                    $info[$i][] = $val;
+                }
+            }
+            $i++;
+        }
+        $insert = [];
+        $fail = 0;
+        $success = 0;
+        foreach ($info as $k=>$v){
+            $pid = Db::name('mariner')->where(['id_number'=>$v[1],'name'=>$v[0]])->value('id');
+            if(!$pid){
+                $fail++;
+                continue;
+            }
+            $data['mariner_id'] = $pid;
+            $data['area'] = (string)$v[2];
+            $data['starttime'] = (string)$v[3];
+            $success++;
+            $insert[] = $data;
+        }
+        $res = Db::name('insured_stop')->insertAll($insert);
+        if($res) return ok_data("成功导入".$success."条数据,"."失败".$fail."条");
+        return error_data();
+    }
+
+    public function listInsured()
+    {
+        $data = input('post.');
+        $starttime = formatTime($data['time'][0],'Y-m');
+        $endtime = formatTime($data['time'][1],'Y-m');
+        if($data['id']) $where['mariner_id'] = $data['id'];
+        if($data['idNumber']){
+           $marinerId = Db::name('mariner')->where(['id_number'=>$data['number']])->value('id');
+           $where['a.mariner_id'] = $marinerId;
+        }
+        if($data['cid']){
+            $marinerId = Db::name('mariner')->where(['cid'=>$data['cid']])->value('id');
+            $where['a.mariner_id'] = $marinerId;
+        }
+        if($data['area']) $where['area'] = ['IN',$data['area']];
+
+        //缴费状态、费用承担方式、缴费时间条件暂未处理
+        $info = Db::name('insured')
+            ->alias('a')
+            ->field('b.id,b.cid,b.name,b.id_number,min(starttime) firsttime,max(starttime) starttime')
+            ->join('mariner b','a.mariner_id=b.id','LEFT')
+            ->where($where)
+            ->group('mariner_id')
+            ->page($data['page'],self::$listRows)
+            ->select();
+        foreach ($info as $k=>$v){
+           $info[$k]['lastInsuredArea'] =  Db::name('insured')->where(['mariner_id'=>$v['id']])->order('starttime desc')->limit(1)->value('area');
+            $info[$k]['lastStopArea'] = Db::name('insured_stop')->where(['mariner_id'=>$v['id']])->order('starttime desc')->limit(1)->value('starttime');
+            if($info[$k]['lastStopArea'] && $info[$k]['lastStopArea']>$info[$k]['starttime'])
+            {
+                $info[$k]['status'] = "停缴";
+            }else{
+                $info[$k]['status'] = "参保";
+            }
+            //欠款截止日期
+            if($endtime){
+                $info[$k]['arrearageDate'] = $endtime;
+            }else{
+                $info[$k]['arrearageDate'] = date('Y-m',time());
+            }
+        }
+        //欠款金额、财务已收金额、公司合计、个人合计、个人承担单位金额合计、费用承担方式、
+        halt($info);
+    }
+
+    /**
+     * 社保人员设置备注
+     * @return \think\response\Json
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     */
+    public function addRemark()
+    {
+        $marinerId = input('marinerId');
+        $remark = input('remark');
+        $id = Db::name('social_security_remark')->where(['mariner_id'=>$marinerId])->value('mariner_id');
+        if($id){
+            $res = Db::name('social_security_remark')->where(['mariner_id'=>$id])->update(['remark'=>$remark]);
+        }else{
+            $res = Db::name('social_security_remark')->insert(['mariner_id'=>$marinerId,'remark'=>$remark]);
+        }
+        if($res) return ok_data();
+        return error_data();
+    }
+
+    /**
+     * 社保人员信息
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function infoInsured()
+    {
+        //查询条件
+        $data = request()->param();
+        $page = $data['page'];
+        $cid = $data['cid'];
+        $id = $data['id'];
+        $idNumber = $data['idNumber'];
+        $vessel = $data['vessel'];
+        $ownerPool = $data['ownerPool'];
+        $area = $data['area'];
+        $starttime = $data['time'][0];
+        $endtime = $data['time'][1];
+        $type = $data['type'];
+        if($cid) $where['mariner_id'] = Db::name('mariner')->where(['cid'=>$cid])->value('id');
+        if($id) $where['mariner_id'] = $id;
+        if($idNumber) $where['mariner_id'] = Db::name('mariner')->where(['id_number'=>$idNumber])->value('id');
+        if($vessel){
+            $marinerIds = Db::name('mariner')->where(['vessel'=>$vessel])->column('id');
+            $where['mariner_id'] = ['IN',$marinerIds];
+        }
+        if($ownerPool){
+            $marinerId = Db::name('mariner')->where(['owner_pool'=>$vessel])->column('id');
+            $where['mariner_id'] = ['IN',$marinerId];
+        }
+        if($area) $where['area'] = $area;
+        if($starttime && empty($endtime)) $where['pay_month'] = ['EGT',$starttime];
+        if($starttime && $endtime) $where['pay_month'] = ['BETWEEN TIME',[$starttime,$endtime]];
+        if($type) $where['pay_type'] = $type;
+        //缺少是否补缴
+        if($where) {
+            $list = Db::name('social_info')
+                ->where($where)
+                ->count();
+            $info = Db::name('social_info')
+                ->alias('a')
+                ->field("a.*,b.cid,b.name,b.id_number,b.duty,c.title vessel,d.title shipOwner")
+                ->join('mariner b', 'a.mariner_id=b.id', 'LEFT')
+                ->join('vessel c', 'b.vessel=c.id', 'LEFT')
+                ->join('shipowner d', 'd.id=b.owner_pool', 'LEFT')
+                ->where($where)
+                ->order('pay_month desc')
+                ->page($page,self::$listRows)
+                ->select();
+        }else{
+            $list = Db::name('social_info')
+                ->count();
+            $info = Db::name('social_info')
+                ->alias('a')
+                ->field("a.*,b.cid,b.name,b.id_number,b.duty,c.title vessel,d.title shipOwner")
+                ->join('mariner b', 'a.mariner_id=b.id', 'LEFT')
+                ->join('vessel c', 'b.vessel=c.id', 'LEFT')
+                ->join('shipowner d', 'd.id=b.owner_pool', 'LEFT')
+                ->order('pay_month desc')
+                ->page($page,self::$listRows)
+                ->select();
+        }
+        $res = [
+            'list'=>$list,
+            'data'=>$info
+        ];
+        return json($res);
+    }
+
+    /**
+     * 导出社保信息
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function exportInfo()
+    {
+        //查询条件
+        $data = request()->param();
+        $cid = $data['cid'];
+        $id = $data['id'];
+        $idNumber = $data['idNumber'];
+        $vessel = $data['vessel'];
+        $ownerPool = $data['ownerPool'];
+        $area = $data['area'];
+        $starttime = $data['time'][0];
+        $endtime = $data['time'][1];
+        $type = $data['type'];
+        if($cid) $where['mariner_id'] = Db::name('mariner')->where(['cid'=>$cid])->value('id');
+        if($id) $where['mariner_id'] = $id;
+        if($idNumber) $where['mariner_id'] = Db::name('mariner')->where(['id_number'=>$idNumber])->value('id');
+        if($vessel){
+            $marinerIds = Db::name('mariner')->where(['vessel'=>$vessel])->column('id');
+            $where['mariner_id'] = ['IN',$marinerIds];
+        }
+        if($ownerPool){
+            $marinerId = Db::name('mariner')->where(['owner_pool'=>$vessel])->column('id');
+            $where['mariner_id'] = ['IN',$marinerId];
+        }
+        if($area) $where['area'] = $area;
+        if($starttime && empty($endtime)) $where['pay_month'] = ['EGT',$starttime];
+        if($starttime && $endtime) $where['pay_month'] = ['BETWEEN TIME',[$starttime,$endtime]];
+        if($type) $where['pay_type'] = $type;
+        //缺少是否补缴
+        if($where) {
+            $info = Db::name('social_info')
+                ->alias('a')
+                ->field("a.*,b.cid,b.name,b.id_number,b.duty,c.title vessel,d.title shipOwner")
+                ->join('mariner b', 'a.mariner_id=b.id', 'LEFT')
+                ->join('vessel c', 'b.vessel=c.id', 'LEFT')
+                ->join('shipowner d', 'd.id=b.owner_pool', 'LEFT')
+                ->where($where)
+                ->order('pay_month desc')
+                ->select();
+        }else{
+            $info = Db::name('social_info')
+                ->alias('a')
+                ->field("a.*,b.cid,b.name,b.id_number,b.duty,c.title vessel,d.title shipOwner")
+                ->join('mariner b', 'a.mariner_id=b.id', 'LEFT')
+                ->join('vessel c', 'b.vessel=c.id', 'LEFT')
+                ->join('shipowner d', 'd.id=b.owner_pool', 'LEFT')
+                ->order('pay_month desc')
+                ->select();
+        }
+        return json($info);
+    }
+
+    /**
+     * 编辑社保信息
+     * @return \think\response\Json
+     * @throws \think\Exception
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     * @throws \think\exception\PDOException
+     */
+    public function editInsured()
+    {
+        $data = input('post.');
+        $data = json_encode(htmlspecialchars_decode($data));
+        foreach ($data as $k=>$v){
+            $info = Db::name('social_info')->field('id,amount_person,amount_company,debt,receipt')->where(['id'=>$v['id']])->find();
+            $update['assume_person'] = $v['assume_person'];
+            $update['else_person'] = $v['else_person'];
+            $update['else_company'] = $v['else_company'];
+            $update['add_company'] = $v['add_company'];
+            $update['add_person'] = $v['add_person'];
+            $update['amount_person'] = $v['else_person']+$info['amount_person'];
+            $update['amount_company'] = $v['else_company']+$info['amount_company'];
+            $total = $update['amount_company']+$update['add_company']-$v['assume_person'];
+            if($total<0){
+                $update['final_company'] = 0;
+            }else{
+                $update['final_company'] = $total;
+            }
+            $update['final_person'] = $v['assume_person']+$update['amount_person']+$update['add_person'];
+            $update['final'] = $update['final_company']+$update['final_person'];
+            $update['debt'] = abs($info['receipt']-$update['final_person']);
+            $res = Db::name('social_info')->where(['id'=>$info['id']])->update($update);
+        }
+        if($res) return ok_data();
+            return error_data();
+    }
+
+    /**
+     * 社保信息批量设置
+     * @return \think\response\Json
+     * @throws \PHPExcel_Exception
+     * @throws \PHPExcel_Reader_Exception
+     */
+    public function importInfo()
+    {
+        if (!$_FILES) return error_data('请选择文件');
+        $key = array_keys($_FILES);
+        $file = $_FILES[$key[0]]["tmp_name"];
+        Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
+        $PHPReader = new \PHPExcel_Reader_Excel5();
+        if (!$PHPReader->canRead($file)) {
+            $PHPReader = new \PHPExcel_Reader_Excel2007();
+            if (!$PHPReader->canRead($file)) {
+                return error_data('文件类型不符');
+            }
+        }
+        $E = $PHPReader->load($file);
+        $cur = $E->getSheet(0);  // 读取第一个表
+        $end = $cur->getHighestColumn(); // 获得最大的列数
+        $line = $cur->getHighestRow(); // 获得最大总行数
+        //将最大列转换为数字
+        $length = strlen($end);
+        if (strlen($end) > 1) {
+            $single = ord(substr($end, $length - 1)) - 64;
+            $end = ($length - 1) * 26 + $single;
+        } else {
+            $end = ord($end) - 64;
+        }
+        $info = [];
+        $i = 0;
+        for ($row = 2; $row <= $line; $row++) {
+            for ($column = 1; $column < $end; $column++) {
+                $val = $cur->getCellByColumnAndRow($column, $row)->getValue();
+                if(is_object($val)){
+                    $info[$i][] = $val->__toString();
+                }else{
+                    $info[$i][] = $val;
+                }
+            }
+            $i++;
+        }
+        $insert = [];
+        $fail = 0;
+        $success = 0;
+        $repeat = 0;
+        foreach ($info as $k=>$v){
+            $pid = Db::name('mariner')->where(['id_number'=>$v[3],'name'=>$v[2]])->value('id');
+            if(!$pid){
+                $fail++;
+                continue;
+            }
+            $infoId = Db::name('social_info')->where(['mariner_id'=>$pid,'pay_month'=>$v[1]])->value('id');
+            if($infoId){
+                $repeat++;
+                continue;
+            }
+            $success++;
+            $type = "单位承担部分金额";
+            if(!$v[27]) $type = "单位全额自付";
+            if(!$v[26]) $type = "个人全额自付";
+            $insert[] = [
+                'mariner_id'=>$pid,
+                'pay_month'=>(string)$v[0],
+                'first_date'=>(string)$v[8],
+                'area'=>(string)$v[7],
+                'yanglao_company'=>(float)$v[9],
+                'yiliao_company'=>(float)$v[10],
+                'shiye_company'=>(float)$v[11],
+                'gongshang_company'=>(float)$v[12],
+                'shengyu_company'=>(float)$v[13],
+                'else_company'=>(float)$v[14],
+                'amount_company'=>(float)$v[15],
+                'yanglao_person'=>(float)$v[16],
+                'yiliao_person'=>(float)$v[17],
+                'shiye_person'=>(float)$v[18],
+                'gongshang_person'=>(float)$v[19],
+                'shengyu_person'=>(float)$v[20],
+                'else_person'=>(float)$v[21],
+                'amount_person'=>(float)$v[22],
+                'assume_person'=>(float)$v[23],
+                'add_company'=>(float)$v[24],
+                'add_person'=>(float)$v[25],
+                'final_company'=>(float)$v[26],
+                'final_person'=>(float)$v[27],
+                'social_total'=>(float)$v[28],
+                'final'=>(float)$v[29],
+                'receipt'=>(float)$v[30],
+                'debt'=>(float)$v[31],
+                'remark'=>(string)$v[32],
+                'pay_type'=>$type
+            ];
+        }
+        $res = Db::name('social_info')->insertAll($insert);
+        if($res) return ok_data("成功导入".$success."条数据,"."重复".$repeat."条,失败".$fail."条");
+        return error_data();
+    }
+
+    /**
+     * 社保对账信息
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function checkInsured()
+    {
+        $area = request()->param('area');
+        $page = input('page');
+        $starttime = input('time')[0];
+        $endtime = input('time')[1];
+        if($area) $where['area'] = ['IN',$area];
+        if($starttime && empty($endtime)) $where['pay_month'] = ['EGT',$starttime];
+        if($starttime && $endtime) $where['pay_month'] = ['BETWEEN TIME',[$starttime,$endtime]];
+        if($where){
+            $list = Db::name('social_info')
+                ->field('area,pay_month,sum(debt) debt,sum(receipt) receipt')
+                ->where($where)
+                ->group('area,pay_month')
+                ->count();
+            $info = Db::name('social_info')
+                ->field('area,pay_month,sum(debt) debt,sum(receipt) receipt')
+                ->where($where)
+                ->group('area,pay_month')
+                ->order('pay_month')
+                ->page($page,self::$listRows)
+                ->select();
+        }else{
+            $list = Db::name('social_info')
+                ->field('area,pay_month,sum(debt) debt,sum(receipt) receipt')
+                ->group('area,pay_month')
+                ->count();
+            $info = Db::name('social_info')
+                ->field('area,pay_month,sum(debt) debt,sum(receipt) receipt')
+                ->group('area,pay_month')
+                ->order('pay_month')
+                ->page($page,self::$listRows)
+                ->select();
+        }
+        $debtTotal = 0;
+        $receiptTotal = 0;
+        foreach ($info as $k=>$v){
+            $debtTotal = $v['debt'];
+            $receiptTotal = $v['receipt'];
+            $sure = Db::name('social_info_sure')->where(['area'=>$v['area'],'month'=>$v['pay_month']])->value('area');
+            if($sure){
+                $info[$k]['sure'] = 1;
+            }else{
+                $info[$k]['sure'] = 0;
+            }
+        }
+        $res = [
+            'list'=>$list,
+            'data'=>$info,
+            'debtTotal'=>$debtTotal,
+            'receipt'=>$receiptTotal
+        ];
+        return json($res);
+    }
+
+    /**
+     * 社保对账确认
+     * @return \think\response\Json
+     */
+    public function sureInsured()
+    {
+        $area = input('area');
+        $payMonth = input('month');
+        $debt = input('debt');
+        $receipt = input('receipt');
+        $insert = [
+            'month'=>$payMonth,
+            'area'=>$area,
+            'debt'=>$debt,
+            'receipt'=>$receipt,
+            'time'=>formatTime(time())
+        ];
+        $res = Db::name('social_info_sure')->insert($insert);
+        if($res) return ok_data();
+        return error_data();
+    }
+}

@@ -1,0 +1,605 @@
+<?php
+/**
+ * @desc Created by PhpStorm.
+ * @author: CodeYi
+ * @since: 2018-05-04 14:53
+ */
+namespace app\api\controller;
+use app\api\common\Base;
+use think\Db;
+use think\Loader;
+
+/**
+ * 借还款控制器
+ * Class Borrow
+ * @package app\api\controller
+ */
+class Borrow extends Base
+{
+    /**
+     * 添加借款
+     * @return \think\response\Json
+     */
+    public function addBorrow()
+    {
+        if(input('amount')<= 0) return error_data("输入金额有误");
+        $insert = [
+            'mariner_id'=>input('id'),
+            'date'=>date("Y-m-d",strtotime(input('date'))),
+            'tally'=>input('tally'),
+            'currency'=>input('currency'),
+            'amount'=>input('amount'),
+            'reason'=>input('reason'),
+            'changer'=>input('username'),
+            'change_date'=>formatTime(time(),'Y-m-d')
+        ];
+        $res = Db::name('borrow')->insert($insert);
+        if($res) return ok_data();
+        return error_data();
+    }
+
+    /**
+     * 姓名获取姓名+身份证号码
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function nameSearch()
+    {
+        $name = input('name');
+        if(empty($name)) return error_data('请输入姓名');
+        $where['name'] = ['LIKE',"$name%"];
+        $info = Db::name('mariner')->field('id,name,id_number')->where($where)->limit(10)->select();
+        $data = [];
+        foreach ($info as $k=>$v){
+            $data[] = [
+                'id'=>$v['id'],
+                'info'=>$v['name']."+".$v['id_number']
+            ];
+        }
+        return json($data);
+    }
+
+    /**
+     * 获取变更者
+     * @return \think\response\Json
+     */
+    public function getChanger()
+    {
+        $username = $this->user['username'];
+        $time = formatTime(time(),'Y-m-d');
+        $res = [
+            'username'=>$username,
+            'time'=>$time
+        ];
+        return json($res);
+    }
+
+    /**
+     * 借还款列表
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function listBorrow()
+    {
+        $page = input('page');
+        $id = input('id');
+        $listRows = input('rows')?input('rows'):self::$listRows;
+        $currency = input('currency');
+        $reason = input('reason');
+        $ifSettle = input('ifSettle');
+        $starttime = input('time/a')[0];
+        $endtime = input('time/a')[1];
+        $startTally = input('tally/a')[0];
+        $endTally = input('tally/a')[1];
+        if($currency) $where['currency'] = $currency;
+        if($id) $where['mariner_id'] = $id;
+        if($currency) $where['currency'] = $currency;
+        if($reason) $where['reason'] = $reason;
+        if(!empty($ifSettle)) $where['if_settle'] = $ifSettle;
+        if($starttime && $endtime) $where['date'] = ['BETWEEN TIME',[$starttime,$endtime]];
+        if($startTally && $endTally) $where['tally'] = ['BETWEEN',[$startTally,$endTally]];
+         if($where){
+             $list = Db::name('borrow')
+                 ->alias('a')
+                 ->field('a.id,a.date,a.tally,a.amount,a.repayment,a.reason,currency,b.name,b.id_number')
+                 ->join('mariner b','a.mariner_id = b.id','LEFT')
+                 ->where($where)
+                 ->order('date')
+                 ->count();
+             $info = Db::name('borrow')
+                 ->alias('a')
+                 ->field('a.id,a.date,a.tally,a.amount,a.repayment,a.reason,currency,b.name,b.id_number')
+                 ->join('mariner b','a.mariner_id = b.id','LEFT')
+                 ->where($where)
+                 ->order('date')
+                 ->page($page,$listRows)
+                 ->select();
+         }else{
+             $list = Db::name('borrow')
+                 ->alias('a')
+                 ->field('a.id,a.date,a.tally,a.amount,a.repayment,a.reason,currency,b.name,b.id_number')
+                 ->join('mariner b','a.mariner_id = b.id','LEFT')
+                 ->order('date')
+                 ->count();
+             $info = Db::name('borrow')
+                 ->alias('a')
+                 ->field('a.id,a.date,a.tally,a.amount,a.repayment,a.reason,currency,b.name,b.id_number')
+                 ->join('mariner b','a.mariner_id = b.id','LEFT')
+                 ->order('date')
+                 ->page($page,$listRows)
+                 ->select();
+         }
+         $res = [
+             'list'=>$list,
+             'data'=>$info
+         ];
+         return json($res);
+    }
+
+    /**
+     * 导出借还款数据
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function exportBorrow()
+    {
+        $id = input('id');
+        $currency = input('currency');
+        $reason = input('reason');
+        $ifSettle = input('ifSettle');
+        $starttime = input('time/a')[0];
+        $endtime = input('time/a')[1];
+        $startTally = input('tally/a')[0];
+        $endTally = input('tally/a')[1];
+        if($currency) $where['currency'] = $currency;
+        if($id) $where['mariner_id'] = $id;
+        if($currency) $where['currency'] = $currency;
+        if($reason) $where['reason'] = $reason;
+        if(!empty($ifSettle)) $where['if_settle'] = $ifSettle;
+        if($starttime && $endtime) $where['date'] = ['BETWEEN TIME',[$starttime,$endtime]];
+        if($startTally && $endTally) $where['tally'] = ['BETWEEN',[$startTally,$endTally]];
+        if($where){
+            $info = Db::name('borrow')
+                ->alias('a')
+                ->field('a.id,a.date,a.tally,a.amount,a.repayment,a.reason,currency,b.name,b.id_number')
+                ->join('mariner b','a.mariner_id = b.id','LEFT')
+                ->where($where)
+                ->order('date')
+                ->select();
+        }else{
+            $info = Db::name('borrow')
+                ->alias('a')
+                ->field('a.id,a.date,a.tally,a.amount,a.repayment,a.reason,currency,b.name,b.id_number')
+                ->join('mariner b','a.mariner_id = b.id','LEFT')
+                ->order('date')
+                ->select();
+        }
+        return json($info);
+    }
+
+    /**
+     * 借款详情
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function detailBorrow()
+    {
+        $id = input('id');
+        $info = Db::name('borrow')
+            ->alias('a')
+            ->field('a.id,a.date,a.tally,a.amount,a.reason,currency,b.name,b.id_number,a.changer,a.change_date')
+            ->join('mariner b','a.mariner_id=b.id','LEFT')
+            ->find($id);
+        $res = [
+            'data'=>$info
+        ];
+        return json($res);
+    }
+
+    /**
+     * 编辑借还款
+     * @return \think\response\Json
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     */
+    public function editBorrow()
+    {
+        if(input('amount')<= 0) return error_data("输入金额有误");
+        $update = [
+            'mariner_id'=>input('id'),
+            'date'=>date("Y-m-d",strtotime(input('date'))),
+            'tally'=>input('tally'),
+            'currency'=>input('currency'),
+            'amount'=>input('amount'),
+            'reason'=>input('reason'),
+            'changer'=>input('username'),
+            'change_date'=>formatTime(time(),'Y-m-d')
+        ];
+        $res = Db::name('borrow')->where(['id'=>input('id')])->update($update);
+        if($res) return ok_data();
+        return error_data();
+    }
+
+    /**
+     * 还款信息
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function receiptInfo()
+    {
+        $id = input('id');
+        //获取还款信息
+        $money = Db::name('borrow')->where(['id'=>$id])->value('money');
+        $recordInfo = Db::name('borrow_record')
+            ->field('date,money,changer,change_date')
+            ->where(['pid'=>$id])
+            ->select();
+        $receipt = 0;
+        foreach ($recordInfo as $k=>$v){
+            $receipt += $v['money'];
+        }
+        $res = [
+            'amount'=>$money,
+            'receipt'=>$receipt,
+            'record'=>$recordInfo
+        ];
+        return json($res);
+    }
+
+    /**
+     * 还款
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function receiptBorrow()
+    {
+        $id = input('id');
+        $date = formatTime(input('date'),'Y-m-d');
+        $currency = input('currency');
+        $money = input('money');
+        $changer = input('changer');
+        $changeDate = formatTime(time(),'Y-m-d');
+        $info = Db::name('borrow')->field('amount,currency')->where(['id'=>$id])->find();
+        $receipt = Db::name('borrow_record')->field('sum(money) receipt')->where(['pid'=>$id])->find();
+        if($currency != $info['currency']) return error_data("还款货币类型须为".$info['currency']);
+        $waitReceipt = $info['amount'] - $receipt['receipt'];
+        if($waitReceipt < $money) return error_data('还款金额大于待还金额');
+       $insert = [
+           'pid'=>$id,
+           'date'=>$date,
+           'currency'=>$currency,
+           'money'=>$money,
+           'changer'=>$changer,
+           'change_date'=>$changeDate
+       ];
+       $res = Db::name('borrow_record')->insert($insert);
+       if($res) return ok_data();
+       return error_data();
+    }
+
+    /**
+     * 添加意外险
+     * @return \think\response\Json
+     */
+    public function addInsurance()
+    {
+        $marinerId = input('id');
+        $supplierId = input('supplier');
+        $effectTime  = formatTime(input('starttime'),'Y-m-d');
+        $finishTime  = formatTime(input('endtime'),'Y-m-d');
+        $person = input('person');
+        $company = input('company');
+        if($person < 0 || $company < 0 ) return error_data('输入金额必须大于或等于0');
+        $insert = [
+            'mariner_id'=>$marinerId,
+            'supplier_id'=>$supplierId,
+            'effect_time'=>$effectTime,
+            'finish_time'=>$finishTime,
+            'person'=>$person,
+            'company'=>$company,
+            'time'=>formatTime(time())
+        ];
+        Db::startTrans();
+        try{
+            $pid = Db::name('insurance')->insertGetId($insert);
+            if($insert['person'] > 0) {
+                $borrow = [
+                    'mariner_id'=>$marinerId,
+                    'date'=>date("Y-m-d",time()),
+                    'tally'=>date("Y-m",time()),
+                    'currency'=>"人民币",
+                    'amount'=>$insert['person'],
+                    'reason'=>"意外险",
+                    'changer'=>$this->user['username'],
+                    'change_date'=>formatTime(time(),'Y-m-d')
+                ];
+                $borrowId = Db::name('borrow')->insertGetId($borrow);
+                Db::name('insurance')->insert(['pid'=>$pid,'borrow_id'=>$borrowId]);
+                Db::commit();
+                return ok_data();
+            }
+        }catch (\Exception $e){
+            Db::rollback();
+            return error_data();
+        }
+    }
+
+    /**
+     * 意外险列表
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function listInsurance()
+    {
+        $id = input('id');
+        $supplier = input('supplier');
+        $page = input('page');
+        $page = $page?$page:1;
+        $listRows = input('row')?input('row'):self::$listRows;
+        if($id) $where['mariner_id'] = $id;
+        if($supplier) $where['supplier_id'] = $supplier;
+        if($where){
+            $list = Db::name('insurance')
+                ->alias('a')
+                ->field('a.id,c.name,c.id_number,b.title,a.effect_time,a.finish_time,a.person,a.company')
+                ->join('supplier b','a.supplier_id=b.id','LEFT')
+                ->join('mariner c','a.mariner_id=c.id','LEFT')
+                ->where($where)
+                ->count();
+            $info = Db::name('insurance')
+                ->alias('a')
+                ->field('a.id,c.name,c.id_number,b.title,a.effect_time,a.finish_time,a.person,a.company')
+                ->join('supplier b','a.supplier_id=b.id','LEFT')
+                ->join('mariner c','a.mariner_id=c.id','LEFT')
+                ->where($where)
+                ->order('finish_time')
+                ->page($page,$listRows)
+                ->select();
+        }else{
+            $list = Db::name('insurance')
+                ->alias('a')
+                ->field('a.id,c.name,c.id_number,b.title,a.effect_time,a.finish_time,a.person,a.company')
+                ->join('supplier b','a.supplier_id=b.id','LEFT')
+                ->join('mariner c','a.mariner_id=c.id','LEFT')
+                ->count();
+            $info = Db::name('insurance')
+                ->alias('a')
+                ->field('a.id,c.name,c.id_number,b.title,a.effect_time,a.finish_time,a.person,a.company')
+                ->join('supplier b','a.supplier_id=b.id','LEFT')
+                ->join('mariner c','a.mariner_id=c.id','LEFT')
+                ->order('finish_time')
+                ->page($page,$listRows)
+                ->select();
+        }
+        $res = [
+            'list'=>$list,
+            'data'=>$info
+        ];
+        return json($res);
+    }
+
+    /**
+     * 导出意外险数据
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function exportInsurance()
+    {
+        $id = input('id');
+        $supplier = input('supplier');
+        if($id) $where['mariner_id'] = $id;
+        if($supplier) $where['supplier_id'] = $supplier;
+        if($where){
+            $info = Db::name('insurance')
+                ->alias('a')
+                ->field('a.id,c.name,c.id_number,b.title,a.effect_time,a.finish_time,a.person,a.company')
+                ->join('supplier b','a.supplier_id=b.id','LEFT')
+                ->join('mariner c','a.mariner_id=c.id','LEFT')
+                ->where($where)
+                ->order('finish_time')
+                ->select();
+        }else{
+            $info = Db::name('insurance')
+                ->alias('a')
+                ->field('a.id,c.name,c.id_number,b.title,a.effect_time,a.finish_time,a.person,a.company')
+                ->join('supplier b','a.supplier_id=b.id','LEFT')
+                ->join('mariner c','a.mariner_id=c.id','LEFT')
+                ->order('finish_time')
+                ->select();
+        }
+        return json($info);
+    }
+
+    /**
+     * 意外险详情
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function detailInsurance()
+    {
+        $id = input('id');
+        $info = Db::name('insurance')
+            ->alias('a')
+            ->field('b.name,b.id_number,a.supplier_id,a.effect_time,a.finish_time')
+            ->join('mariner b','a.mariner_id=b.id','LEFT')
+            ->where(['a.id'=>$id])
+            ->find();
+        $supplier = Db::name('supplier')->field('id,title')->select();
+        $res =[
+            'data'=>$info,
+            'supplier'=>$supplier
+        ];
+        return json($res);
+    }
+
+    /**
+     * 编辑意外险
+     * @return \think\response\Json
+     */
+    public function editInsurance()
+    {
+        $id = input('id');
+        $marinerId = input('marinerId');
+        $supplierId = input('supplier');
+        $effectTime  = formatTime(input('starttime'),'Y-m-d');
+        $finishTime  = formatTime(input('endtime'),'Y-m-d');
+        $person = input('person');
+        $company = input('company');
+        if($person < 0 || $company < 0 ) return error_data('输入金额必须大于或等于0');
+        $update = [
+            'mariner_id'=>$marinerId,
+            'supplier_id'=>$supplierId,
+            'effect_time'=>$effectTime,
+            'finish_time'=>$finishTime,
+            'person'=>$person,
+            'company'=>$company,
+            'time'=>formatTime(time())
+        ];
+        Db::startTrans();
+        try{
+            Db::name('insurance')->where(['id'=>$id])->update($update);
+            $borrowId =  Db::name('insurance_borrow')->where(['pid'=>$id])->value('borrow_id');
+            if(!$borrowId && $update['person']>0 ) {
+                $borrow = [
+                    'mariner_id'=>$marinerId,
+                    'date'=>date("Y-m-d",time()),
+                    'tally'=>date("Y-m",time()),
+                    'currency'=>"人民币",
+                    'amount'=>$update['person'],
+                    'reason'=>"意外险",
+                    'changer'=>$this->user['username'],
+                    'change_date'=>formatTime(time(),'Y-m-d')
+                ];
+                $borrowId = Db::name('borrow')->insertGetId($borrow);
+                Db::name('insurance_borrow')->insert(['pid'=>$id,'borrow_id'=>$borrowId]);
+            }
+            if($borrowId && $update['person'] > 0){
+                $borrow = [
+                    'mariner_id'=>$marinerId,
+                    'date'=>date("Y-m-d",time()),
+                    'tally'=>date("Y-m",time()),
+                    'currency'=>"人民币",
+                    'amount'=>$update['person'],
+                    'reason'=>"意外险",
+                    'changer'=>$this->user['username'],
+                    'change_date'=>formatTime(time(),'Y-m-d')
+                ];
+                Db::name('borrow')->where(['id'=>$borrowId])->update($borrow);
+            }
+            if($borrowId && $update['person'] == 0 ){
+                Db::name('borrow')->where(['id'=>$borrowId])->delete();
+                Db::name('insurance_borrow')->where(['pid'=>$id])->delete();
+            }
+            Db::commit();
+            return ok_data();
+        }catch (\Exception $e){
+            Db::rollback();
+            return error_data();
+        }
+    }
+
+    /**
+     * 批量导入意外险
+     * @return \think\response\Json
+     * @throws \PHPExcel_Exception
+     * @throws \PHPExcel_Reader_Exception
+     */
+    public function importInsurance()
+    {
+        if (!$_FILES) return error_data('请选择文件');
+        $key = array_keys($_FILES);
+        $file = $_FILES[$key[0]]["tmp_name"];
+        Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
+        $PHPReader = new \PHPExcel_Reader_Excel5();
+        if (!$PHPReader->canRead($file)) {
+            $PHPReader = new \PHPExcel_Reader_Excel2007();
+            if (!$PHPReader->canRead($file)) {
+                return error_data('文件类型不符');
+            }
+        }
+        $E = $PHPReader->load($file);
+        $cur = $E->getSheet(0);  // 读取第一个表
+        $end = $cur->getHighestColumn(); // 获得最大的列数
+        $line = $cur->getHighestRow(); // 获得最大总行数
+        //将最大列转换为数字
+        $length = strlen($end);
+        if (strlen($end) > 1) {
+            $single = ord(substr($end, $length - 1)) - 64;
+            $end = ($length - 1) * 26 + $single;
+        } else {
+            $end = ord($end) - 64;
+        }
+        $info = [];
+        $i = 0;
+        for ($row = 2; $row <= $line; $row++) {
+            for ($column = 1; $column < $end; $column++) {
+                $val = $cur->getCellByColumnAndRow($column, $row)->getValue();
+                if(is_object($val)){
+                    $info[$i][] = $val->__toString();
+                }else{
+                    $info[$i][] = $val;
+                }
+            }
+            $i++;
+        }
+        $fail = 0;
+        $success = 0;
+        foreach ($info as $k=>$v){
+            $marinerId = Db::name('mariner')->where(['id_number'=>$v[1],'name'=>$v[0]])->value('id');
+            $supplierId = Db::name('supplier')->where(['title'=>(string)$v[2]])->value('id');
+            if(!$marinerId && !$supplierId){
+                $fail++;
+                continue;
+            }
+            if($v[5] < 0 || $v[6] < 0) {
+                $fail++;
+                continue;
+            }
+            $data['mariner_id'] = $marinerId;
+            $data['supplier_id'] = $supplierId;
+            $data['effect_time'] = formatTime((string)$v[3],'Y-m-d');
+            $data['finish_time'] = formatTime((string)$v[4],'Y-m-d');
+            $data['person'] = $v[5];
+            $data['company'] = $v[6];
+            $data['time'] = formatTime(time());
+            $pid = Db::name('insurance')->insertGetId($data);
+            if($pid) $res = 1;
+            if($v[5] > 0){
+                $borrow = [
+                    'mariner_id'=>$marinerId,
+                    'date'=>date("Y-m-d",time()),
+                    'tally'=>date("Y-m",time()),
+                    'currency'=>"人民币",
+                    'amount'=>$v[5],
+                    'reason'=>"意外险",
+                    'changer'=>"刘丽娜",
+                    'change_date'=>formatTime(time(),'Y-m-d')
+                ];
+                $borrowId = Db::name('borrow')->insertGetId($borrow);
+                $result = Db::name('insurance_borrow')->insert(['pid'=>$pid,'borrow_id'=>$borrowId]);
+                if(!$result) $res = 0;
+            }
+            $success++;
+        }
+        if($res) return ok_data("成功导入".$success."条数据,"."失败".$fail."条");
+        return error_data();
+    }
+}

@@ -1,0 +1,1270 @@
+---------------------------------------------------------------
+[ 2018-04-28T09:47:01+08:00 ] 192.168.10.110 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.110:807/public/index.php/api/Social/listInsured [运行时间：7.166911s][吞吐率：0.14req/s] [内存消耗：2,120.55kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------178577220416766829225918',
+  'postman-token' => 'b6d719fc-0ca4-46fb-9e13-ddd9f17f1395',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:547]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:551]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:558]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:560]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.023325s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.039913s ]
+[ sql ] [ SQL ] SELECT `b`.`id`,`b`.`cid`,`b`.`name`,`b`.`id_number`,min(starttime) firsttime,max(starttime) starttime FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` LIMIT 0,15 [ RunTime:0.003406s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 8 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002942s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured_stop` [ RunTime:0.043189s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 8 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002806s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 9 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001958s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 9 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002718s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 13 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002009s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 13 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002557s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 14 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002540s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 14 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002569s ]
+---------------------------------------------------------------
+[ 2018-04-28T09:57:49+08:00 ] 192.168.10.110 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.110:807/public/index.php/api/Social/listInsured [运行时间：0.022380s][吞吐率：44.68req/s] [内存消耗：1,222.36kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '162',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------036757749741993014445299',
+  'postman-token' => '3478f9a5-ee2b-48e2-8825-786e6554cb82',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'time' => 
+  array (
+    0 => '',
+  ),
+)
+[ info ] [ LOG ] INIT File
+[ error ] [4]语法错误: unexpected ')'[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:575]
+---------------------------------------------------------------
+[ 2018-04-28T09:57:59+08:00 ] 192.168.10.110 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.110:807/public/index.php/api/Social/listInsured [运行时间：0.021302s][吞吐率：46.94req/s] [内存消耗：1,528.79kb] [文件加载：52]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '162',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------748869592046863555372227',
+  'postman-token' => 'dd36e027-baa2-40d0-96fd-6c8053574263',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'time' => 
+  array (
+    0 => '',
+  ),
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组下标: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+---------------------------------------------------------------
+[ 2018-04-28T09:58:08+08:00 ] 192.168.10.110 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.110:807/public/index.php/api/Social/listInsured [运行时间：0.021099s][吞吐率：47.40req/s] [内存消耗：1,528.77kb] [文件加载：52]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '172',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------330266569415525625015645',
+  'postman-token' => 'c14c30e3-1abb-4b24-b30a-d0b7ab41c6e5',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'time' => 
+  array (
+    0 => '2018-01-11',
+  ),
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组下标: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+---------------------------------------------------------------
+[ 2018-04-28T09:58:26+08:00 ] 192.168.10.110 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.110:807/public/index.php/api/Social/listInsured [运行时间：0.019422s][吞吐率：51.49req/s] [内存消耗：1,528.77kb] [文件加载：52]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '172',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------342294713762541434886438',
+  'postman-token' => '55f620b6-2022-4a0d-87ac-2133293f65a0',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'time' => 
+  array (
+    0 => '2018-01-11',
+  ),
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组下标: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+---------------------------------------------------------------
+[ 2018-04-28T09:58:27+08:00 ] 192.168.10.110 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.110:807/public/index.php/api/Social/listInsured [运行时间：0.025119s][吞吐率：39.81req/s] [内存消耗：1,528.77kb] [文件加载：52]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '172',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------513185242900081926979073',
+  'postman-token' => '562cbd23-a45d-47de-ab78-69f132625e43',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'time' => 
+  array (
+    0 => '2018-01-11',
+  ),
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组下标: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+---------------------------------------------------------------
+[ 2018-04-28T09:58:27+08:00 ] 192.168.10.110 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.110:807/public/index.php/api/Social/listInsured [运行时间：0.023337s][吞吐率：42.85req/s] [内存消耗：1,528.77kb] [文件加载：52]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '172',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------833008704194321631760759',
+  'postman-token' => '21838438-3e62-4595-b176-7e890815dcb1',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'time' => 
+  array (
+    0 => '2018-01-11',
+  ),
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组下标: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+---------------------------------------------------------------
+[ 2018-04-28T10:02:48+08:00 ] 192.168.10.110 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.110:807/public/index.php/api/Social/listInsured [运行时间：0.027226s][吞吐率：36.73req/s] [内存消耗：1,529.00kb] [文件加载：52]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '172',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------651903087105002388795423',
+  'postman-token' => 'b54ca034-a195-498e-9418-112f7ac931c9',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'time' => 
+  array (
+    0 => '2018-01-11',
+  ),
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]A non well formed numeric value encountered[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+---------------------------------------------------------------
+[ 2018-04-28T10:03:09+08:00 ] 192.168.10.110 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.110:807/public/index.php/api/Social/listInsured [运行时间：0.017741s][吞吐率：56.37req/s] [内存消耗：1,489.21kb] [文件加载：49]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '172',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------795777321828287153315615',
+  'postman-token' => '428b8c9b-f02c-4a86-abf9-87247fb26d97',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'time' => 
+  array (
+    0 => '2018-01-11',
+  ),
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-28T10:04:16+08:00 ] 192.168.10.110 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.110:807/public/index.php/api/Social/listInsured [运行时间：0.019839s][吞吐率：50.41req/s] [内存消耗：1,529.09kb] [文件加载：52]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '172',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------649663323088557418877387',
+  'postman-token' => '3ea2a1a1-90ee-49e2-ac4d-523d469ce42d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'time' => 
+  array (
+    0 => '2018-01-11',
+  ),
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组下标: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+---------------------------------------------------------------
+[ 2018-04-28T10:04:20+08:00 ] 192.168.10.110 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.110:807/public/index.php/api/Social/listInsured [运行时间：0.023004s][吞吐率：43.47req/s] [内存消耗：1,529.09kb] [文件加载：52]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '172',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------001309680752709036863657',
+  'postman-token' => '2da524fb-b961-49c1-81e0-d2aa6a4cfdbf',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'time' => 
+  array (
+    0 => '2018-02-11',
+  ),
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组下标: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+---------------------------------------------------------------
+[ 2018-04-28T10:25:18+08:00 ] 192.168.10.110 POST /public/index.php/api/login/staff
+[ info ] 192.168.10.110:807/public/index.php/api/login/staff [运行时间：0.042491s][吞吐率：23.53req/s] [内存消耗：1,203.94kb] [文件加载：45]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'login',
+    2 => 'staff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12972',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------420211615469660945017012',
+  'postman-token' => 'acb1c636-aa80-4925-9701-6409e0b6173f',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-28T10:26:10+08:00 ] 192.168.10.110 POST /public/index.php/api/login/staff
+[ info ] 192.168.10.110:807/public/index.php/api/login/staff [运行时间：0.018602s][吞吐率：53.76req/s] [内存消耗：1,203.98kb] [文件加载：45]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'login',
+    2 => 'staff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12972',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------523656649221395360276168',
+  'postman-token' => '7ab10181-5129-43cf-9bab-c40ba2d95cf2',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-28T10:26:19+08:00 ] 192.168.10.110 POST /public/index.php/api/Login/staff
+[ info ] 192.168.10.110:807/public/index.php/api/Login/staff [运行时间：0.019674s][吞吐率：50.83req/s] [内存消耗：1,203.98kb] [文件加载：45]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Login',
+    2 => 'staff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12972',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------756274522202695783306702',
+  'postman-token' => '518cfce0-6bf0-46ef-af92-588664ca5900',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-28T10:26:20+08:00 ] 192.168.10.110 POST /public/index.php/api/Login/staff
+[ info ] 192.168.10.110:807/public/index.php/api/Login/staff [运行时间：0.018246s][吞吐率：54.81req/s] [内存消耗：1,203.98kb] [文件加载：45]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Login',
+    2 => 'staff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12972',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------435042894347722134242971',
+  'postman-token' => '508c7dc5-9728-4a9f-b719-b8cbbd0f2aeb',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-28T10:26:21+08:00 ] 192.168.10.110 POST /public/index.php/api/Login/staff
+[ info ] 192.168.10.110:807/public/index.php/api/Login/staff [运行时间：0.025919s][吞吐率：38.58req/s] [内存消耗：1,203.98kb] [文件加载：45]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Login',
+    2 => 'staff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12972',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------724521168447306141857300',
+  'postman-token' => '63c5baab-f198-4c94-981b-623ccd9d2196',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-28T10:26:21+08:00 ] 192.168.10.110 POST /public/index.php/api/Login/staff
+[ info ] 192.168.10.110:807/public/index.php/api/Login/staff [运行时间：0.022506s][吞吐率：44.43req/s] [内存消耗：1,203.98kb] [文件加载：45]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Login',
+    2 => 'staff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12972',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------055551530160672774267839',
+  'postman-token' => '913049e5-8518-4b8a-8f99-7ab43c4f5092',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-28T10:26:21+08:00 ] 192.168.10.110 POST /public/index.php/api/Login/staff
+[ info ] 192.168.10.110:807/public/index.php/api/Login/staff [运行时间：0.021666s][吞吐率：46.16req/s] [内存消耗：1,203.98kb] [文件加载：45]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Login',
+    2 => 'staff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12972',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------081874784703837600779886',
+  'postman-token' => 'b78efdf8-b0c4-4523-b9f1-c85ae210eb83',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-28T10:26:33+08:00 ] 192.168.10.110 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.110:807/public/index.php/api/Social/listInsured [运行时间：0.022329s][吞吐率：44.78req/s] [内存消耗：1,529.09kb] [文件加载：52]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '172',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------263825136611921317624379',
+  'postman-token' => '5d5e1a53-3ea0-426a-90c6-9834aa4dc41d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'time' => 
+  array (
+    0 => '2018-02-11',
+  ),
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组下标: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+---------------------------------------------------------------
+[ 2018-04-28T10:26:50+08:00 ] 192.168.10.110 POST /public/index.php/api/login/staff
+[ info ] 192.168.10.110:807/public/index.php/api/login/staff [运行时间：0.016985s][吞吐率：58.88req/s] [内存消耗：1,203.98kb] [文件加载：45]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'login',
+    2 => 'staff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12972',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------470021844053842420914780',
+  'postman-token' => '060a5953-8c93-47a5-bb29-443740ab65b6',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-28T10:27:50+08:00 ] 192.168.10.110 POST /public/index.php/api/login/staff
+[ info ] 192.168.10.110:807/public/index.php/api/login/staff [运行时间：7.176851s][吞吐率：0.14req/s] [内存消耗：2,019.01kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'login',
+    2 => 'staff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12972',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------656416738209018883710298',
+  'postman-token' => 'd104bb6a-7fb6-4286-8d3f-63aeded46b05',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Login->staff[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.012841s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.126149s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_user` WHERE  `department` IS NULL [ RunTime:0.003607s ]
+---------------------------------------------------------------
+[ 2018-04-28T10:35:03+08:00 ] 192.168.10.110 POST /public/index.php/api/privilege/department
+[ info ] 192.168.10.110:807/public/index.php/api/privilege/department [运行时间：5.984566s][吞吐率：0.17req/s] [内存消耗：2,039.91kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'department',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12972',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------059823766453585545015527',
+  'postman-token' => '018f1a51-d008-4db1-bb52-ef79be414706',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Privilege->department[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:5.913464s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.039853s ]
+[ sql ] [ SQL ] SELECT `department` FROM `sino_user` [ RunTime:0.001835s ]
+---------------------------------------------------------------
+[ 2018-04-28T10:35:03+08:00 ] 192.168.10.110 POST /public/index.php/api/privilege/department
+[ info ] 192.168.10.110:807/public/index.php/api/privilege/department [运行时间：7.144516s][吞吐率：0.14req/s] [内存消耗：2,039.91kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'department',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12972',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------753177249422113104485810',
+  'postman-token' => '515c5ce9-7923-4a65-92f5-e5fdaf3686a7',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Privilege->department[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.021651s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.069733s ]
+[ sql ] [ SQL ] SELECT `department` FROM `sino_user` [ RunTime:0.001431s ]
+---------------------------------------------------------------
+[ 2018-04-28T10:35:56+08:00 ] 192.168.10.110 POST /public/index.php/api/privilege/department
+[ info ] 192.168.10.110:807/public/index.php/api/privilege/department [运行时间：7.063952s][吞吐率：0.14req/s] [内存消耗：2,040.15kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'department',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12972',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------638843490905397615991280',
+  'postman-token' => 'd59aeb2a-983a-4151-b2b2-a52819345a0a',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Privilege->department[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007779s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.030643s ]
+[ sql ] [ SQL ] SELECT `department` FROM `sino_user` [ RunTime:0.001968s ]
+---------------------------------------------------------------
+[ 2018-04-28T10:36:18+08:00 ] 192.168.10.110 POST /public/index.php/api/privilege/department
+[ info ] 192.168.10.110:807/public/index.php/api/privilege/department [运行时间：7.079614s][吞吐率：0.14req/s] [内存消耗：2,040.23kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'department',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12972',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------150464458125184842682721',
+  'postman-token' => '6011d43c-ea51-4093-a8cd-b7c2c3d7eec2',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Privilege->department[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016540s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.029462s ]
+[ sql ] [ SQL ] SELECT `department` FROM `sino_user` [ RunTime:0.003331s ]
+---------------------------------------------------------------
+[ 2018-04-28T10:40:04+08:00 ] 192.168.10.110 POST /public/index.php/api/privilege/department
+[ info ] 192.168.10.110:807/public/index.php/api/privilege/department [运行时间：7.064792s][吞吐率：0.14req/s] [内存消耗：2,040.34kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'privilege',
+    2 => 'department',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12972',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------820202709265633803597977',
+  'postman-token' => '0cbba4bf-1f4d-4548-9760-abe8a4f71567',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Privilege->department[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Privilege.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.006860s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.027379s ]
+[ sql ] [ SQL ] SELECT `department` FROM `sino_user` [ RunTime:0.001948s ]
+---------------------------------------------------------------
+[ 2018-04-28T12:16:19+08:00 ] 192.168.10.110 POST /public/index.php/api/login
+[ info ] 192.168.10.110:807/public/index.php/api/login [运行时间：0.025324s][吞吐率：39.49req/s] [内存消耗：1,421.19kb] [文件加载：50]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'login',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12972',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------043431109023635587888650',
+  'postman-token' => 'd86add6b-e55a-48aa-9fc8-7bc4caf3dbd6',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'shortName' => '招行',
+  'english' => 'China Merchants Bank',
+  'number' => '6217211107001880725',
+  'nameCn' => '李爸',
+  'nameEn' => 'Li Ba',
+  'birthday' => '1975-02-24',
+  'relation' => '父子',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-28T12:16:53+08:00 ] 192.168.10.110 POST /public/index.php/api/login/forgetPassword
+[ info ] 192.168.10.110:807/public/index.php/api/login/forgetPassword [运行时间：9.768876s][吞吐率：0.10req/s] [内存消耗：2,594.08kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'login',
+    2 => 'forgetPassword',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12274',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------575079404597135077884962',
+  'postman-token' => 'fc53fec7-a5b1-45a5-a187-b87541ea84fc',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'birthday' => '1975-02-24',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Login->forgetPassword[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.018557s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_user` [ RunTime:0.040030s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_user` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.003235s ]
+---------------------------------------------------------------
+[ 2018-04-28T12:30:17+08:00 ] 192.168.10.110 POST /public/index.php/api/login/forgetPassword
+[ info ] 192.168.10.110:807/public/index.php/api/login/forgetPassword [运行时间：0.043405s][吞吐率：23.04req/s] [内存消耗：1,497.23kb] [文件加载：52]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'login',
+    2 => 'forgetPassword',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12274',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------227648647136541838428267',
+  'postman-token' => '5464573d-2a8f-440e-8aa9-697c9018b8e8',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'birthday' => '1975-02-24',
+  'telnumber' => '13314526589',
+  'swift' => '',
+  'lineNumber' => '989584027708',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Login->forgetPassword[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-28T14:10:05+08:00 ] 192.168.10.110 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.110:807/public/index.php/api/Social/listInsured [运行时间：0.035975s][吞吐率：27.80req/s] [内存消耗：1,529.84kb] [文件加载：52]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '172',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------228411515378218151023275',
+  'postman-token' => 'fd22f720-6b49-47ab-9af8-3d8e590286d9',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'time' => 
+  array (
+    0 => '2018-02-11',
+  ),
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组下标: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+---------------------------------------------------------------
+[ 2018-04-28T14:29:59+08:00 ] 192.168.10.110 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.110:807/public/index.php/api/Social/listInsured [运行时间：7.144184s][吞吐率：0.14req/s] [内存消耗：2,123.49kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '172',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------628863104409612801415518',
+  'postman-token' => 'cc3dc18f-44d0-4886-b639-2681019de1dd',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'time' => 
+  array (
+    0 => '2018-02-11',
+  ),
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组下标: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:544]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:545]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:549]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:553]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:560]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:562]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016178s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.033502s ]
+[ sql ] [ SQL ] SELECT `b`.`id`,`b`.`cid`,`b`.`name`,`b`.`id_number`,min(starttime) firsttime,max(starttime) starttime FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` LIMIT 0,15 [ RunTime:0.003338s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 8 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002452s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured_stop` [ RunTime:0.024974s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 8 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002807s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 9 ORDER BY starttime desc LIMIT 1 [ RunTime:0.003548s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 9 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002858s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 13 ORDER BY starttime desc LIMIT 1 [ RunTime:0.003257s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 13 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002515s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 14 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002235s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 14 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002527s ]
+---------------------------------------------------------------
+[ 2018-04-28T15:53:12+08:00 ] 192.168.10.110 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.110:807/public/index.php/api/Social/listInsured [运行时间：7.133721s][吞吐率：0.14req/s] [内存消耗：2,065.66kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '172',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------182094295188379064961135',
+  'postman-token' => '0f9fec9e-1dd5-40d1-a50a-3838fe7635cb',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'time' => 
+  array (
+    0 => '2018-02-11',
+  ),
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.023762s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.035805s ]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'area' in field list is ambiguous[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2018-04-28T15:53:45+08:00 ] 192.168.10.110 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.110:807/public/index.php/api/Social/listInsured [运行时间：7.099762s][吞吐率：0.14req/s] [内存消耗：2,040.33kb] [文件加载：53]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '172',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------227559834631732544440644',
+  'postman-token' => 'b181314e-820e-4215-b207-15c09a79191a',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'time' => 
+  array (
+    0 => '2018-02-11',
+  ),
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016378s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.023248s ]
+[ sql ] [ SQL ] SELECT `a`.`area`,max(a.starttime) starttime,max(b.starttime) stoptime FROM `sino_insured` `a` LEFT JOIN `sino_insured_stop` `b` ON `a`.`mariner_id`=`b`.`mariner_id` GROUP BY `a`.`mariner_id` [ RunTime:0.033706s ]
+---------------------------------------------------------------
+[ 2018-04-28T15:54:24+08:00 ] 192.168.10.110 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.110:807/public/index.php/api/Social/listInsured [运行时间：7.072207s][吞吐率：0.14req/s] [内存消耗：2,041.00kb] [文件加载：53]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '172',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.110:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------984979897093726070197067',
+  'postman-token' => '61404bbc-0cb0-4d7d-8fdd-cb56c2f2efc4',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'time' => 
+  array (
+    0 => '2018-02-11',
+  ),
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008003s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.036425s ]
+[ sql ] [ SQL ] SELECT `a`.`mariner_id`,`a`.`area`,max(a.starttime) starttime,max(b.starttime) stoptime FROM `sino_insured` `a` LEFT JOIN `sino_insured_stop` `b` ON `a`.`mariner_id`=`b`.`mariner_id` GROUP BY `a`.`mariner_id` [ RunTime:0.002619s ]

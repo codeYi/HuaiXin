@@ -1,0 +1,50 @@
+<?php
+/**
+ * @desc Created by PhpStorm.
+ * @author: 蒹葭苍苍
+ * @since: 2018-04-12 18:59
+ */
+namespace app\api\controller;
+use app\api\common\Base;
+use think\Db;
+
+/**
+ * 首页控制器
+ * Class Index
+ * @package app\api\controller
+ */
+class Index extends Base
+{
+    /**
+     * 常用功能设置
+     * @return \think\response\Json
+     */
+    public function menuAdd()
+    {
+        $data = input('title');
+        if(session('is_mariner')) return error_data('船员无权限进行此操作');
+        $insert = [];
+        $result = [];
+        foreach ($data as $k=>$v){
+            $insert['user_id'] = self::$id;
+            $insert['title'] = $v;
+            $result[] = $insert;
+        }
+        $res = Db::name('menu')->insertAll($result);
+        if($res) return ok_data();
+        return error_data();
+    }
+
+    /**
+     * 常用功能列表
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function menuList()
+    {
+        $info = Db::name('menu')->where(['user_id'=>self::$id])->select();
+        return json($info);
+    }
+}

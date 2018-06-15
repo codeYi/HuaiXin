@@ -1,0 +1,429 @@
+<?php
+/**
+ * @desc Created by PhpStorm.
+ * @author: CodeYi
+ * @since: 2018-05-08 10:43
+ */
+namespace app\api\controller;
+use app\api\common\Base;
+use think\Db;
+use think\Loader;
+
+/**
+ * 收费控制器
+ * Class Charge
+ * @package app\api\controller
+ */
+class Charge extends Base
+{
+    /**
+     * 添加收费
+     * @return \think\response\Json
+     */
+    public function addCharge()
+    {
+        $marinerId = input('id');
+        $date = input('time');
+        $money = input('money');
+        $changer = input('changer');
+        $changeDate  = date('Y-m-d',time());
+        $insert = [
+            'mariner_id'=>$marinerId,
+            'date'=>$date,
+            'amount'=>$money,
+            'month'=>date('Y-m',time()),
+            'surplus'=>$money,
+            'changer'=>$changer,
+            'change_date'=>$changeDate
+        ];
+        $res = Db::name("charge")->insert($insert);
+        if($res) return ok_data();
+        return error_data();
+    }
+
+    /**
+     * 收费列表
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function listCharge()
+    {
+        $page = input('page')?input('page'):1;
+        $listRows = input('listRows')?input('listRows'):self::$listRows;
+        $marinerId = input('id');
+        $starttime = input('time/a')[0];
+        $endtime = input('time/a')[1];
+        $ifSettle = input('settle');
+        $where = [];
+        if($marinerId) $where['mariner_id'] = $marinerId;
+        if($starttime && $endtime) $where['date'] = ['BETWEEN TIME',[$starttime,$endtime]];
+        if($ifSettle == 1) $where['surplus'] = 0; //结清
+        if($ifSettle == 2) $where['surplus'] = ['GT',0]; //未结清
+            $list = Db::name('charge')
+                ->alias('a')
+                ->field('a.id,a.date,b.name,b.id_number,a.amount,(a.amount-a.surplus) receipt,a.surplus')
+                ->join('mariner b', 'a.mariner_id=b.id', 'LEFT')
+                ->where($where)
+                ->count();
+            $info = Db::name('charge')
+                ->alias('a')
+                ->field('a.id,a.date,b.name,b.id_number,a.amount,(a.amount-a.surplus) receipt,a.surplus')
+                ->join('mariner b', 'a.mariner_id=b.id', 'LEFT')
+                ->where($where)
+                ->order('date')
+                ->page($page,$listRows)
+                ->select();
+        $res = [
+            'list'=>$list,
+            'data'=>$info
+        ];
+        return json($res);
+    }
+
+    /**
+     * 导出收费数据
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function exportCharge()
+    {
+        $marinerId = input('id');
+        $starttime = input('time/a')[0];
+        $endtime = input('time/a')[1];
+        $ifSettle = input('settle');
+        if($marinerId) $where['mariner_id'] = $marinerId;
+        if($starttime && $endtime) $where['date'] = ['BETWEEN TIME',[$starttime,$endtime]];
+        if($ifSettle == 1) $where['surplus'] = 0; //结清
+        if($ifSettle == 2) $where['surplus'] = ['GT',0]; //未结清
+        if($where) {
+            $info = Db::name('charge')
+                ->alias('a')
+                ->field('a.id,a.date,b.name,b.id_number,a.amount,(a.amount-a.surplus) receipt,a.surplus')
+                ->join('mariner b', 'a.mariner_id=b.id', 'LEFT')
+                ->where($where)
+                ->order('date')
+                ->select();
+        }else{
+            $info = Db::name('charge')
+                ->alias('a')
+                ->field('a.id,a.date,b.name,b.id_number,a.amount,(a.amount-a.surplus) receipt,a.surplus')
+                ->join('mariner b', 'a.mariner_id=b.id', 'LEFT')
+                ->order('date')
+                ->select();
+        }
+        return json($info);
+    }
+
+    /**
+     * 收费详情
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function detailCharge()
+    {
+        $id = input('id');
+        $info = Db::name('charge')
+            ->alias('a')
+            ->field('b.id marinerId,b.name,b.id_number,a.date,a.amount,a.changer,a.change_date')
+            ->join('mariner b','a.mariner_id=b.id','LEFT')
+            ->where(['a.id'=>$id])
+            ->find();
+        $res = [
+            'data'=>$info
+        ];
+        return json($res);
+    }
+
+    /**
+     * 编辑收费
+     * @return \think\response\Json
+     * @throws \think\Exception
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     * @throws \think\exception\PDOException
+     */
+    public function editCharge()
+    {
+        $id = input('id');
+        $marinerId = input('marinerId');
+        $date = input('time');
+        $money = input('money');
+        $changer = input('changer');
+        $changeDate  = date('Y-m-d',time());
+        $info = Db::name('charge_record')
+            ->field('sum(money) repayment')
+            ->where(['pid'=>$id])
+            ->find();
+        $update = [
+            'mariner_id'=>$marinerId,
+            'date'=>$date,
+            'amount'=>$money,
+            'surplus'=>$money-$info['repayment'],
+            'changer'=>$changer,
+            'change_date'=>$changeDate
+        ];
+        if($info['repayment'] > $money) return error_data('收费金额大于已还款金额');
+        $res = Db::name("charge")->where(['id'=>$id])->update($update);
+        if($res) return ok_data();
+        return error_data();
+    }
+
+    /**
+     *还款记录
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function repaymentInfo()
+    {
+        $id = input('id');
+        $info = Db::name('charge')->field('amount,(amount-surplus) receipt')->find($id);
+        $record = Db::name('charge_record')->field('time,money,changer,change_date')->where(['pid'=>$id])->select();
+        $res = [
+            'info'=>$info,
+            'record'=>$record,
+            'username'=>$this->user['username'],
+            'time'=>date('Y-m-d',time())
+        ];
+        return json($res);
+    }
+
+    /**
+     * 还款
+     * @return \think\response\Json
+     * @throws \Exception
+     */
+    public function repayment()
+    {
+        $id = input('id');
+        $time = input('date');
+        $money = input('money');
+        $changeDate = date('Y-m-d',time());
+        $insert = [
+            'pid'=>$id,
+            'time'=>$time,
+            'money'=>$money,
+            'month'=>date('Y-m',time()),
+            'changer'=>$this->user['username'],
+            'change_date'=>$changeDate
+        ];
+        Db::startTrans();
+        try{
+            Db::name('charge_record')->insert($insert);
+            $surplus = Db::name('charge')->where(['id'=>$id])->value('surplus');
+            if($money > $surplus) return error_data("还款金额大于剩余金额");
+            Db::name('charge')->update(['id'=>$id,'surplus'=>$surplus-$money]);
+            Db::commit();
+            return ok_data();
+        }catch (\Exception $e){
+            Db::rollback();
+            throw $e;
+        }
+    }
+
+    /**
+     * 收费对账列表
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function infoCharge()
+    {
+        $starttime = input("time/a")[0];
+        $endtime = input("time/a")[1];
+        $page = input('page')?input('page'):1;
+        $listRows = input('listRows')?input('listRows'):self::$listRows;
+        $where = [];
+        if($starttime && empty($endtime)) $where['month'] = ['EGT',$starttime];
+        if($starttime && $endtime) $where['month'] = ['BETWEEN',[$starttime,$endtime]];
+        $list = Db::name('charge')
+                    ->field('date')
+                    ->where($where)
+                    ->group('month')
+                    ->count();
+        $amount = Db::name('charge')
+                    ->field('month,sum(amount) amount')
+                    ->where($where)
+                    ->group('month')
+                    ->order('date')
+                    ->page($page,$listRows)
+                    ->select();
+        $totalAmount = 0;
+        $totalRepayment = 0;
+        foreach ($amount as $k=>&$v){
+            $month = Db::name('charge_sure')->where(['month'=>$v['month']])->value('month');
+            if($month){
+                $v['sure'] = 1;
+            }else{
+                $v['sure'] = 0;
+            }
+            $info = Db::name('charge_record')->field('sum(money) repayment')->where(['month'=>$v['month']])->find();
+           if(empty($info['repayment'])){
+               $v['repayment'] = 0;
+           }else{
+               $v['repayment'] = $info['repayment'];
+           }
+           $totalAmount += $v['amount'];
+           $totalRepayment += $v['repayment'];
+        }
+        $res = [
+            'list'=>$list,
+            'data'=>$amount,
+            'amount'=>$totalAmount,
+            'repayment'=>$totalRepayment
+        ];
+        return json($res);
+    }
+
+    /**
+     * 导出收费对账数据
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function exportSure()
+    {
+        $starttime = input("time/a")[0];
+        $endtime = input("time/a")[1];
+        $where = [];
+        if($starttime && empty($endtime)) $where['date'] = ['EGT',$starttime];
+        if($starttime && $endtime) $where['date'] = ['BETWEEN TIME',[$starttime,$endtime]];
+        $amount = Db::name('charge')
+                ->field('month,sum(amount) amount')
+                ->where($where)
+                ->group('month')
+                ->order('date')
+                ->select();
+        $totalAmount = 0;
+        $totalRepayment = 0;
+        foreach ($amount as $k=>&$v){
+            $month = Db::name('charge_sure')->where(['month'=>$v['month']])->value('month');
+            if($month){
+                $v['sure'] = 1;
+            }else{
+                $v['sure'] = 0;
+            }
+            $info = Db::name('charge_record')->field('sum(money) repayment')->where(['month'=>$v['month']])->find();
+            if(empty($info['repayment'])){
+                $v['repayment'] = 0;
+            }else{
+                $v['repayment'] = $info['repayment'];
+            }
+            $totalAmount += $v['amount'];
+            $totalRepayment += $v['repayment'];
+        }
+        $res = [
+            'data'=>$amount,
+            'amount'=>$totalAmount,
+            'repayment'=>$totalRepayment
+        ];
+        return json($res);
+    }
+
+    /**
+     * 收费对账
+     * @return \think\response\Json
+     */
+    public  function sureCharge()
+    {
+        $month = input('month');
+        $amount = input('amount');
+        $repayment = input('repayment');
+        $repeat = Db::name('charge_sure')->where(['month'=>$month])->value('month');
+        if($repeat) return error_data('该月已经完成过对账');
+        $insert = [
+            'month'=>$month,
+            'amount'=>$amount,
+            'repayment'=>$repayment,
+            'time'=>formatTime(time())
+        ];
+        $res = Db::name('charge_sure')->insert($insert);
+        if($res) return ok_data();
+        return ok_data();
+    }
+
+    /**
+     * 导入收费
+     * @return \think\response\Json
+     * @throws \PHPExcel_Exception
+     * @throws \PHPExcel_Reader_Exception
+     */
+    public function importCharge()
+    {
+        if (!$_FILES) return error_data('请选择文件');
+        $key = array_keys($_FILES);
+        $file = $_FILES[$key[0]]["tmp_name"];
+        Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
+        $PHPReader = new \PHPExcel_Reader_Excel5();
+        if (!$PHPReader->canRead($file)) {
+            $PHPReader = new \PHPExcel_Reader_Excel2007();
+            if (!$PHPReader->canRead($file)) {
+                return error_data('文件类型不符');
+            }
+        }
+        $E = $PHPReader->load($file);
+        $cur = $E->getSheet(0);  // 读取第一个表
+        $end = $cur->getHighestColumn(); // 获得最大的列数
+        $line = $cur->getHighestRow(); // 获得最大总行数
+        //将最大列转换为数字
+        $length = strlen($end);
+        if (strlen($end) > 1) {
+            $single = ord(substr($end, $length - 1)) - 64;
+            $end = ($length - 1) * 26 + $single;
+        } else {
+            $end = ord($end) - 64;
+        }
+        $info = [];
+        $i = 0;
+        for ($row = 2; $row <= $line; $row++) {
+            for ($column = 1; $column < $end; $column++) {
+                $val = $cur->getCellByColumnAndRow($column, $row)->getValue();
+                if(is_object($val)){
+                    $info[$i][] = $val->__toString();
+                }else{
+                    $info[$i][] = $val;
+                }
+            }
+            $i++;
+        }
+        $repeat = 0;
+        $success = 0;
+        $info_ = [];
+        foreach ($info as $k=>&$v){
+            $marinerId = Db::name('mariner')->where(['id_number'=>$v[1],'name'=>$v[0]])->value('id');
+            if($marinerId){
+                $v['mariner_id'] = $marinerId;
+                $info_[] = $v;
+                $success++;
+            }else{
+                $repeat++;
+            }
+        }
+        if(empty($info_)) return error_data('请勿重复导入');
+        $insert = [];
+        foreach ($info_ as $k=>$v){
+            $insert[] = [
+                'mariner_id'=>$v['mariner_id'],
+                'date'=>(string)$v[2],
+                'amount'=>(float)$v[3],
+                'surplus'=>(float)$v[3],
+                'month'=>substr($v[2],0,strrpos($v[2],'-')),
+                'changer'=>$this->user['username'],
+                'change_date'=>date('Y-m-d',time())
+            ];
+        }
+        $res = Db::name('charge')->insertAll($insert);
+        if($res) return ok_data("成功导入".$success."条数据,"."失败".$repeat."条");
+        return error_data();
+    }
+}

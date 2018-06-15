@@ -1,0 +1,3113 @@
+---------------------------------------------------------------
+[ 2018-04-24T09:09:00+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/editVessel?id=&title=Poplar%20Arrmm
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/editVessel?id=&title=Poplar%20Arrmm [运行时间：7.206297s][吞吐率：0.14req/s] [内存消耗：2,157.11kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '490',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------097018798858742858033402',
+  'postman-token' => '968ba552-5b95-4011-ac11-9778743b790f',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+  'title' => 'torrow',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.018296s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.028051s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'torrow'  AND `id` <> 1 LIMIT 1 [ RunTime:0.002805s ]
+[ sql ] [ SQL ] UPDATE `sino_vessel`  SET `title`='torrow',`attribute`='整船',`fleet`='A队',`develop_date`=''  WHERE  `id` = 1 [ RunTime:0.026827s ]
+[ error ] [8]未定义数组索引: developDate[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:301]
+---------------------------------------------------------------
+[ 2018-04-24T09:12:34+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/editVessel?id=&title=Poplar%20Arrmm
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/editVessel?id=&title=Poplar%20Arrmm [运行时间：7.130134s][吞吐率：0.14req/s] [内存消耗：2,157.12kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '490',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------855858846735456311993087',
+  'postman-token' => '9f953ebe-7549-4d9e-a6f8-bba7f0d0cb7c',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+  'title' => 'torrow',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015543s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.022471s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'torrow'  AND `id` <> 1 LIMIT 1 [ RunTime:0.002334s ]
+[ sql ] [ SQL ] UPDATE `sino_vessel`  SET `title`='torrow',`attribute`='整船',`fleet`='A队',`develop_date`=''  WHERE  `id` = 1 [ RunTime:0.038112s ]
+[ error ] [8]未定义数组索引: developDate[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:301]
+---------------------------------------------------------------
+[ 2018-04-24T09:12:54+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/editVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/editVessel [运行时间：7.116465s][吞吐率：0.14req/s] [内存消耗：2,157.20kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '491',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------806076942595747646625328',
+  'postman-token' => '5495ca6d-60be-4768-9ad4-421e977510f7',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => 'tomrrow',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+  'id' => '1',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007267s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.025984s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow'  AND `id` <> 1 LIMIT 1 [ RunTime:0.002880s ]
+[ sql ] [ SQL ] UPDATE `sino_vessel`  SET `title`='tomrrow',`attribute`='整船',`fleet`='A队',`develop_date`=''  WHERE  `id` = 1 [ RunTime:0.041073s ]
+[ error ] [8]未定义数组索引: developDate[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:301]
+---------------------------------------------------------------
+[ 2018-04-24T10:18:59+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addMariner [运行时间：7.103781s][吞吐率：0.14req/s] [内存消耗：2,049.92kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '972',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------323696034510562587881921',
+  'postman-token' => 'b744b5ff-bd67-4342-9d7c-9a3ac236a39b',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张六',
+  'english' => 'Zhang Liu',
+  'duty' => '职务',
+  'vessel' => '海盗船2',
+  'fleet' => 'A队',
+  'ownerPool' => '北京中科院',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017034s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.036287s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = '北京中科院' LIMIT 1 [ RunTime:0.001796s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.019046s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗船2' LIMIT 1 [ RunTime:0.001397s ]
+---------------------------------------------------------------
+[ 2018-04-24T10:19:32+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addMariner [运行时间：7.120457s][吞吐率：0.14req/s] [内存消耗：2,097.31kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '971',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------422611017004276203784464',
+  'postman-token' => '1c6fd1ff-c362-4efd-86b5-74894cd5b3f7',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张六',
+  'english' => 'Zhang Liu',
+  'duty' => '职务',
+  'vessel' => '海盗号',
+  'fleet' => 'A队',
+  'ownerPool' => '北京中科院',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.011127s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.023356s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = '北京中科院' LIMIT 1 [ RunTime:0.002743s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.017840s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号' LIMIT 1 [ RunTime:0.001448s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.017973s ]
+[ error ] [8]未定义数组索引: manningOffice[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:398]
+[ error ] [0]数据表字段不存在:[time][D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Builder.php:109]
+---------------------------------------------------------------
+[ 2018-04-24T10:20:09+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addMariner [运行时间：7.149269s][吞吐率：0.14req/s] [内存消耗：2,106.60kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '971',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------711813386483219318934015',
+  'postman-token' => '5c122595-151e-4e55-afd5-6cfd50a4ff75',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张六',
+  'english' => 'Zhang Liu',
+  'duty' => '职务',
+  'vessel' => '海盗号',
+  'fleet' => 'A队',
+  'ownerPool' => '北京中科院',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017849s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.022194s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = '北京中科院' LIMIT 1 [ RunTime:0.002925s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.018421s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号' LIMIT 1 [ RunTime:0.002387s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.018691s ]
+[ error ] [8]未定义数组索引: manningOffice[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:398]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'manning_office' cannot be null[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-24T10:26:00+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addMariner [运行时间：7.188655s][吞吐率：0.14req/s] [内存消耗：2,062.45kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1095',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------799017433566003173039009',
+  'postman-token' => '02672df8-0967-47df-8792-29a8c199cfa3',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张六',
+  'english' => 'Zhang Liu',
+  'duty' => '职务',
+  'vessel' => '海盗号',
+  'fleet' => 'A队',
+  'ownerPool' => '北京中科院',
+  'manningOffice' => '自由船员',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.027928s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.020821s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = '北京中科院' LIMIT 1 [ RunTime:0.001859s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.017906s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号' LIMIT 1 [ RunTime:0.001283s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.017842s ]
+[ sql ] [ SQL ] INSERT INTO `sino_mariner` (`id_number` , `cid` , `name` , `abbreviation` , `english` , `duty` , `vessel` , `fleet` , `owner_pool` , `manning_office` , `time`) VALUES ('421121199307272412' , 'XYS2012512' , '张六' , 'zl' , 'Zhang Liu' , '职务' , 4 , 'A队' , 2 , '自由船员' , '2018-04-24 10:26:00') [ RunTime:0.064906s ]
+---------------------------------------------------------------
+[ 2018-04-24T10:27:02+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addMariner [运行时间：7.206442s][吞吐率：0.14req/s] [内存消耗：2,062.56kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1097',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------251166030095116004040517',
+  'postman-token' => '89ee593c-b7e3-49df-85c0-0e533e3b33fe',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张七',
+  'english' => 'Zhang Qi',
+  'duty' => '二轮手',
+  'vessel' => '海盗号',
+  'fleet' => 'B队',
+  'ownerPool' => '北京中科院',
+  'manningOffice' => '自由船员',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.026194s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.027939s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = '北京中科院' LIMIT 1 [ RunTime:0.001585s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.018074s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号' LIMIT 1 [ RunTime:0.002167s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.019287s ]
+[ sql ] [ SQL ] INSERT INTO `sino_mariner` (`id_number` , `cid` , `name` , `abbreviation` , `english` , `duty` , `vessel` , `fleet` , `owner_pool` , `manning_office` , `time`) VALUES ('421121199307272412' , 'XYS2012512' , '张七' , 'zq' , 'Zhang Qi' , '二轮手' , 4 , 'B队' , 2 , '自由船员' , '2018-04-24 10:27:02') [ RunTime:0.080106s ]
+---------------------------------------------------------------
+[ 2018-04-24T10:27:51+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addMariner [运行时间：7.149869s][吞吐率：0.14req/s] [内存消耗：2,062.45kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1094',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------685293100326733227392222',
+  'postman-token' => '0ad71a48-d357-477f-bbe2-2eb57507dc2e',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张八',
+  'english' => 'Zhang Ba',
+  'duty' => '船长',
+  'vessel' => '海盗号',
+  'fleet' => 'B队',
+  'ownerPool' => '北京中科院',
+  'manningOffice' => '自由船员',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.006444s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.021741s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = '北京中科院' LIMIT 1 [ RunTime:0.001092s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.020485s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号' LIMIT 1 [ RunTime:0.001523s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.020553s ]
+[ sql ] [ SQL ] INSERT INTO `sino_mariner` (`id_number` , `cid` , `name` , `abbreviation` , `english` , `duty` , `vessel` , `fleet` , `owner_pool` , `manning_office` , `time`) VALUES ('421121199307272412' , 'XYS2012512' , '张八' , 'zb' , 'Zhang Ba' , '船长' , 4 , 'B队' , 2 , '自由船员' , '2018-04-24 10:27:51') [ RunTime:0.047281s ]
+---------------------------------------------------------------
+[ 2018-04-24T10:28:49+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addMariner [运行时间：7.163633s][吞吐率：0.14req/s] [内存消耗：2,062.45kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1095',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------470201373808768705365727',
+  'postman-token' => '8d821df6-fb6b-4ac4-8063-fef16c85ef38',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '大副',
+  'vessel' => '海盗号',
+  'fleet' => 'B队',
+  'ownerPool' => '北京中科院',
+  'manningOffice' => '自由船员',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007679s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.036941s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = '北京中科院' LIMIT 1 [ RunTime:0.001419s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.019386s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号' LIMIT 1 [ RunTime:0.001446s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.018637s ]
+[ sql ] [ SQL ] INSERT INTO `sino_mariner` (`id_number` , `cid` , `name` , `abbreviation` , `english` , `duty` , `vessel` , `fleet` , `owner_pool` , `manning_office` , `time`) VALUES ('421121199307272412' , 'XYS2012512' , '张九' , 'zj' , 'Zhang Jiu' , '大副' , 4 , 'B队' , 2 , '自由船员' , '2018-04-24 10:28:49') [ RunTime:0.051307s ]
+---------------------------------------------------------------
+[ 2018-04-24T10:49:05+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/listMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/listMariner [运行时间：7.096060s][吞吐率：0.14req/s] [内存消耗：2,084.73kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1095',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------972110433504862588120909',
+  'postman-token' => '28f8f5c0-ad00-43ad-86b6-49b1dc15dc5d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '大副',
+  'vessel' => '海盗号',
+  'fleet' => 'B队',
+  'ownerPool' => '北京中科院',
+  'manningOffice' => '自由船员',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.032454s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.024156s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_mariner` WHERE  `id_number` = '421121199307272412'  AND `cid` = 'XYS2012512'  AND `fleet` LIKE '%B队%'  AND `owner_pool` = 0  AND `vessel` = 0  AND `manning_office` = '自由船员' ORDER BY `duty` LIMIT 1 [ RunTime:0.001731s ]
+[ error ] [10501]SQLSTATE[42S02]: Base table or view not found: 1146 Table 'sinocrew.sino_shipper' doesn't exist[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2018-04-24T10:49:43+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/listMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/listMariner [运行时间：7.088959s][吞吐率：0.14req/s] [内存消耗：2,084.73kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1095',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------820189744520005100650130',
+  'postman-token' => '87f2ae39-5d19-437d-9159-d573453272f2',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '大副',
+  'vessel' => '海盗号',
+  'fleet' => 'B队',
+  'ownerPool' => '北京中科院',
+  'manningOffice' => '自由船员',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.009093s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.020428s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_mariner` WHERE  `id_number` = '421121199307272412'  AND `cid` = 'XYS2012512'  AND `fleet` LIKE '%B队%'  AND `owner_pool` = 0  AND `vessel` = 0  AND `manning_office` = '自由船员' ORDER BY `duty` LIMIT 1 [ RunTime:0.002978s ]
+[ error ] [10501]SQLSTATE[42S02]: Base table or view not found: 1146 Table 'sinocrew.sino_ship_owner' doesn't exist[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2018-04-24T10:50:08+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/listMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/listMariner [运行时间：7.079998s][吞吐率：0.14req/s] [内存消耗：2,084.70kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1095',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------223937760023879900117941',
+  'postman-token' => 'c245184d-0b20-4d2a-8b95-9b616d11a5ee',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '大副',
+  'vessel' => '海盗号',
+  'fleet' => 'B队',
+  'ownerPool' => '北京中科院',
+  'manningOffice' => '自由船员',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.009500s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.036869s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_mariner` WHERE  `id_number` = '421121199307272412'  AND `cid` = 'XYS2012512'  AND `fleet` LIKE '%B队%'  AND `owner_pool` = 0  AND `vessel` = 0  AND `manning_office` = '自由船员' ORDER BY `duty` LIMIT 1 [ RunTime:0.001427s ]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'fleet' in where clause is ambiguous[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2018-04-24T10:51:03+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/listMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/listMariner [运行时间：7.080897s][吞吐率：0.14req/s] [内存消耗：2,060.72kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1095',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------880726318121851396334572',
+  'postman-token' => 'fba654b1-0168-4d7a-82bc-5dbd416eae33',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '大副',
+  'vessel' => '海盗号',
+  'fleet' => 'B队',
+  'ownerPool' => '北京中科院',
+  'manningOffice' => '自由船员',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008369s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.019315s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_mariner` WHERE  `id_number` = '421121199307272412'  AND `cid` = 'XYS2012512'  AND `manning_office` = '自由船员' ORDER BY `duty` LIMIT 1 [ RunTime:0.002682s ]
+[ sql ] [ SQL ] SELECT `a`.`id`,`a`.`cid`,`a`.`name`,`a`.`id_number`,`a`.`duty`,`a`.`manning_office`,`a`.`fleet`,`a`.`time`,b.title ownerPool,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` WHERE  `id_number` = '421121199307272412'  AND `cid` = 'XYS2012512'  AND `manning_office` = '自由船员' ORDER BY `duty` LIMIT 0,15 [ RunTime:0.024965s ]
+---------------------------------------------------------------
+[ 2018-04-24T11:02:10+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/listMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/listMariner [运行时间：7.090056s][吞吐率：0.14req/s] [内存消耗：2,057.18kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------455486094058244812096578',
+  'postman-token' => 'dd2ef92e-0368-4eb6-9fc3-36dd0cf58795',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'ownerPool' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.026472s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.022369s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_mariner` WHERE  `owner_pool` = 2 ORDER BY `duty` LIMIT 1 [ RunTime:0.001969s ]
+[ sql ] [ SQL ] SELECT `a`.`id`,`a`.`cid`,`a`.`name`,`a`.`id_number`,`a`.`duty`,`a`.`manning_office`,`a`.`fleet`,`a`.`time`,b.title ownerPool,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` WHERE  `owner_pool` = 2 ORDER BY `duty` LIMIT 0,15 [ RunTime:0.003516s ]
+---------------------------------------------------------------
+[ 2018-04-24T11:02:31+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/listMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/listMariner [运行时间：7.068420s][吞吐率：0.14req/s] [内存消耗：2,056.80kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------870465488639125190769243',
+  'postman-token' => '6976a743-e843-410e-aae4-e0b973190196',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'ownerPool' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016274s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.022405s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_mariner` WHERE  `owner_pool` = 2 ORDER BY `duty` LIMIT 1 [ RunTime:0.001795s ]
+[ sql ] [ SQL ] SELECT `a`.`id`,`a`.`cid`,`a`.`name`,`a`.`id_number`,`a`.`duty`,`a`.`manning_office`,`a`.`fleet`,`a`.`time`,b.title ownerPool,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` WHERE  `owner_pool` = 2 ORDER BY `duty` LIMIT 0,15 [ RunTime:0.003131s ]
+---------------------------------------------------------------
+[ 2018-04-24T11:03:11+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/dutyMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/dutyMariner [运行时间：7.058383s][吞吐率：0.14req/s] [内存消耗：2,045.93kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'dutyMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------798256315579928624500598',
+  'postman-token' => 'ccb68d23-a54c-4190-a0f3-b610344453dd',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'ownerPool' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->dutyMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.009116s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.022494s ]
+[ sql ] [ SQL ] SELECT `duty` FROM `sino_mariner` [ RunTime:0.001650s ]
+---------------------------------------------------------------
+[ 2018-04-24T11:34:59+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/detailMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/detailMariner [运行时间：7.086620s][吞吐率：0.14req/s] [内存消耗：2,053.80kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'detailMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '158',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------814901134394066520098512',
+  'postman-token' => '5b237a6f-a8a5-4526-9b19-f3c47548e5df',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->detailMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.022038s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.024504s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.003329s ]
+---------------------------------------------------------------
+[ 2018-04-24T11:35:13+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/detailMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/detailMariner [运行时间：7.099307s][吞吐率：0.14req/s] [内存消耗：2,054.49kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'detailMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '158',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------196638676171351256964732',
+  'postman-token' => '50b92370-b742-42a5-a25b-919aa33d240d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->detailMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015093s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.054249s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.002573s ]
+---------------------------------------------------------------
+[ 2018-04-24T11:39:07+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/detailMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/detailMariner [运行时间：7.069630s][吞吐率：0.14req/s] [内存消耗：2,055.05kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'detailMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '158',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------938451903291851045359390',
+  'postman-token' => '5ffced63-c116-47bf-b313-d9c16992d2ed',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->detailMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016077s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.022245s ]
+[ sql ] [ SQL ] SELECT `a`.`id`,`a`.`cid`,`a`.`name`,`a`.`id_number`,`a`.`duty`,`a`.`manning_office`,`a`.`fleet`,`a`.`time`,b.title ownerPool,c.title vessel FROM `sino_mariner` `a` LEFT JOIN `sino_shipowner` `b` ON `a`.`owner_pool`=`b`.`id` LEFT JOIN `sino_vessel` `c` ON `c`.`id`=`a`.`vessel` WHERE  `a`.`id` = '2' LIMIT 1 [ RunTime:0.002971s ]
+---------------------------------------------------------------
+[ 2018-04-24T11:57:04+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/editMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/editMariner [运行时间：7.096731s][吞吐率：0.14req/s] [内存消耗：2,058.66kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1183',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------282004562799648317077629',
+  'postman-token' => '85506d7d-e5a8-4bf9-81d2-0e9f4c12fbb2',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '海盗号',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.010181s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.031051s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = '2' LIMIT 1 [ RunTime:0.002031s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.020552s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号' LIMIT 1 [ RunTime:0.001631s ]
+---------------------------------------------------------------
+[ 2018-04-24T11:58:23+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/editMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/editMariner [运行时间：7.141511s][吞吐率：0.14req/s] [内存消耗：2,058.20kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1183',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------958970575697293513329877',
+  'postman-token' => '118d0f10-5ffb-4b4a-b529-a0d958d47daa',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '海盗号',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.009346s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.057473s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = '2' LIMIT 1 [ RunTime:0.002401s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.037080s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号' LIMIT 1 [ RunTime:0.002591s ]
+---------------------------------------------------------------
+[ 2018-04-24T11:59:04+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/editMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/editMariner [运行时间：7.149125s][吞吐率：0.14req/s] [内存消耗：2,058.28kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1183',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------044155190802841557823558',
+  'postman-token' => '9876f034-b954-4e25-b348-154f3ef49b2f',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '海盗号',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.013554s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.068352s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = '2' LIMIT 1 [ RunTime:0.001302s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.032466s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号' LIMIT 1 [ RunTime:0.005102s ]
+---------------------------------------------------------------
+[ 2018-04-24T11:59:32+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/editMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/editMariner [运行时间：7.101740s][吞吐率：0.14req/s] [内存消耗：2,059.58kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1183',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------260776191038559514281376',
+  'postman-token' => '57e6f592-ac9b-4bbb-8bb4-e8843d23c8a5',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '海盗号',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.018311s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.019457s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_shipowner` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.003092s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.017925s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_vessel` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.002738s ]
+---------------------------------------------------------------
+[ 2018-04-24T12:00:02+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/editMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/editMariner [运行时间：7.204333s][吞吐率：0.14req/s] [内存消耗：2,178.57kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1175',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------639903216812355738219222',
+  'postman-token' => '8352173d-3a84-44cf-b980-8ff482585d95',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.009101s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.022000s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_shipowner` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.001774s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.018158s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_vessel` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.003146s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.020007s ]
+[ sql ] [ SQL ] UPDATE `sino_mariner`  SET `id_number`='421121199307272412',`cid`='XYS2012512',`name`='张九',`abbreviation`='zj',`english`='Zhang Jiu',`duty`='二副',`fleet`='B队',`manning_office`='自由船员'  WHERE  `id` = 2 [ RunTime:0.094089s ]
+[ error ] [8]未定义数组下标: 0[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Builder.php:114]
+[ error ] [8]未定义数组下标: 0[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Builder.php:114]
+---------------------------------------------------------------
+[ 2018-04-24T12:26:38+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/exportMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/exportMariner [运行时间：0.028750s][吞吐率：34.78req/s] [内存消耗：1,461.16kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '1175',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------211435018591068410731894',
+  'postman-token' => 'cbd0deb4-0482-412c-bcd0-d09b1b221e50',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-24T12:27:02+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/exportMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/exportMariner [运行时间：7.499135s][吞吐率：0.13req/s] [内存消耗：5,293.58kb] [文件加载：115]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12489',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------772440899094644685895651',
+  'postman-token' => '4f64eeab-4cbc-4bf4-a439-bd252d2914cb',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.023011s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.034671s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'idNumber' in 'field list'[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2018-04-24T12:28:07+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/exportMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/exportMariner [运行时间：7.190061s][吞吐率：0.14req/s] [内存消耗：5,266.66kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12489',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------275334702505615981758832',
+  'postman-token' => '58d8779a-dc56-4af9-9e1b-fbfa0b4fa720',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.041066s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.022134s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_mariner` [ RunTime:0.002215s ]
+---------------------------------------------------------------
+[ 2018-04-24T14:24:59+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/exportMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/exportMariner [运行时间：7.263043s][吞吐率：0.14req/s] [内存消耗：5,290.46kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12489',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------033838166529379230883019',
+  'postman-token' => '8fdae234-8c8c-4030-89ef-d195dd8513d6',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.039913s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.036929s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_mariner` [ RunTime:0.002094s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.021336s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001632s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.019645s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001758s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001814s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001814s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002456s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001792s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001764s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001714s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001679s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001719s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001196s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001910s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001390s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002756s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002183s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002663s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001784s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001865s ]
+---------------------------------------------------------------
+[ 2018-04-24T14:28:02+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/exportMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/exportMariner [运行时间：7.181817s][吞吐率：0.14req/s] [内存消耗：5,268.26kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12548',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------700967184977904031435364',
+  'postman-token' => 'f01d4ae5-c996-4d3d-a657-18770678ddcc',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.022917s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.052584s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_mariner` [ RunTime:0.002244s ]
+---------------------------------------------------------------
+[ 2018-04-24T14:28:18+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/exportMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/exportMariner [运行时间：7.209271s][吞吐率：0.14req/s] [内存消耗：5,290.42kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12548',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------363254935933147472358134',
+  'postman-token' => '2771274b-81f5-44b7-a38e-630030700f9b',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007099s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.038107s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_mariner` [ RunTime:0.002406s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.019486s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001885s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.023067s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002827s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001448s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001991s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001334s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001926s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002544s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001913s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001335s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002938s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001438s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002888s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002151s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002208s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001797s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001307s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001960s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002760s ]
+---------------------------------------------------------------
+[ 2018-04-24T14:29:00+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/exportMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/exportMariner [运行时间：7.310841s][吞吐率：0.14req/s] [内存消耗：5,286.23kb] [文件加载：110]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12548',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------684373389576247893544631',
+  'postman-token' => '3583bbed-f992-4835-9444-7073fdbce57f',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016891s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.094560s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_mariner` [ RunTime:0.002146s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.020588s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002530s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.017750s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.003054s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002277s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002223s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001537s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001614s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001544s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001596s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002199s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002168s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002906s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002253s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.003045s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002508s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001690s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001720s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001723s ]
+---------------------------------------------------------------
+[ 2018-04-24T14:29:27+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/exportMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/exportMariner [运行时间：7.127683s][吞吐率：0.14req/s] [内存消耗：5,268.26kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12548',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------583069563194536405452195',
+  'postman-token' => 'e4e248e2-59db-4a05-8623-5e2fe6148b6e',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007270s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.022581s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_mariner` [ RunTime:0.001275s ]
+---------------------------------------------------------------
+[ 2018-04-24T14:30:20+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/exportMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/exportMariner [运行时间：7.190368s][吞吐率：0.14req/s] [内存消耗：5,290.45kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12548',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------127581352767921258540929',
+  'postman-token' => '16192651-6ed5-468b-8da6-70f35568e239',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008937s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.020395s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_mariner` [ RunTime:0.001446s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.017839s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002319s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.018971s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002252s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001829s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002419s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001741s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.003354s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001666s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002351s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002281s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001696s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001746s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001729s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002409s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001759s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002441s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002284s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002325s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001763s ]
+---------------------------------------------------------------
+[ 2018-04-24T14:30:53+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/exportMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/exportMariner [运行时间：7.213289s][吞吐率：0.14req/s] [内存消耗：5,311.13kb] [文件加载：113]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12548',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------803093376767662095755738',
+  'postman-token' => '09193ad5-7003-40f5-9f99-e1657ad67939',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.005815s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.026724s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_mariner` [ RunTime:0.002827s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.024385s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002397s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.029699s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001765s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001654s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001152s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001781s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001701s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001647s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001786s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001802s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001680s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001749s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001110s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001653s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002026s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002332s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002379s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002557s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001895s ]
+[ error ] [0]数据表字段不存在:[shipowner][D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\builder\Mysql.php:48]
+---------------------------------------------------------------
+[ 2018-04-24T14:43:53+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/exportMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/exportMariner [运行时间：7.244101s][吞吐率：0.14req/s] [内存消耗：5,311.15kb] [文件加载：113]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12548',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------798129702691074385571393',
+  'postman-token' => 'd5d56067-8b5a-49b4-9eeb-e5a34403f712',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.032506s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.038200s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_mariner` [ RunTime:0.001783s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.020305s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001609s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.020971s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002421s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002158s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002993s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002398s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001173s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002567s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001910s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001904s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002252s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001961s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002284s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002120s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002911s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002963s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002910s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001444s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002569s ]
+[ error ] [0]数据表字段不存在:[ship_owner][D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\builder\Mysql.php:48]
+---------------------------------------------------------------
+[ 2018-04-24T14:44:18+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/exportMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/exportMariner [运行时间：7.256997s][吞吐率：0.14req/s] [内存消耗：5,323.85kb] [文件加载：115]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12548',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------686455359081757319684020',
+  'postman-token' => 'b990e230-497b-4912-bea6-360a406462dd',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.009844s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.040546s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_mariner` [ RunTime:0.002164s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.018481s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001676s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.017312s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001779s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002466s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002320s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002321s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002443s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002355s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002810s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002594s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002805s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.003194s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001667s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001664s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002281s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001593s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001540s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001541s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002923s ]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'time' doesn't have a default value[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-24T14:54:53+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/exportMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/exportMariner [运行时间：7.271988s][吞吐率：0.14req/s] [内存消耗：5,334.90kb] [文件加载：114]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12548',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------688242290015561461717169',
+  'postman-token' => '19cb5144-5930-49a3-b789-896f05f38318',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.033279s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.021256s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_mariner` [ RunTime:0.002757s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.041058s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001697s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.019469s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002352s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001590s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001699s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001632s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001763s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001572s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002461s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002914s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001113s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001603s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001781s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002258s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001734s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002298s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001689s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001550s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001720s ]
+[ error ] [8]Uninitialized string offset: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\common.php:206]
+[ error ] [8]Uninitialized string offset: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\common.php:206]
+[ error ] [8]Uninitialized string offset: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\common.php:206]
+[ error ] [8]Uninitialized string offset: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\common.php:206]
+[ error ] [8]Uninitialized string offset: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\common.php:206]
+[ error ] [8]Uninitialized string offset: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\common.php:206]
+[ error ] [8]Uninitialized string offset: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\common.php:206]
+[ error ] [8]Uninitialized string offset: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\common.php:206]
+[ error ] [8]Uninitialized string offset: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\common.php:206]
+---------------------------------------------------------------
+[ 2018-04-24T14:55:22+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/exportMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/exportMariner [运行时间：7.277377s][吞吐率：0.14req/s] [内存消耗：5,334.56kb] [文件加载：113]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12548',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------797860976895413633873446',
+  'postman-token' => 'b79e4092-3d75-4d45-ab8f-1d7b2360e3d4',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016130s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.020005s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_mariner` [ RunTime:0.001599s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_shipowner` [ RunTime:0.017910s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001965s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.018459s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001389s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002202s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002780s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.003073s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002697s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002118s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001896s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.002449s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.002563s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001998s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001398s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001220s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001766s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001587s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001134s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_shipowner` WHERE  `title` = 'Sinochem' LIMIT 1 [ RunTime:0.001110s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'tomrrow' LIMIT 1 [ RunTime:0.001742s ]
+[ sql ] [ SQL ] INSERT INTO `sino_mariner` (`cid` , `name` , `id_number` , `abbreviation` , `english` , `duty` , `manning_office` , `fleet` , `owner_pool` , `vessel` , `time`) VALUES ( 'XYS000001','李1','421121199307241000','l','Li 1','船长','自有船员','A队',3,1,'2018-04-24 14:55:22' ) , ( 'XYS000002','李2','421121199307241001','l','Li 2','大副','自有船员','A队',3,1,'2018-04-24 14:55:22' ) , ( 'XYS000003','李3','421121199307241002','l','Li 3','二副','自有船员','A队',3,1,'2018-04-24 14:55:22' ) , ( 'XYS000004','李4','421121199307241003','l','Li 4','三副','自有船员','A队',3,1,'2018-04-24 14:55:22' ) , ( 'XYS000005','李5','421121199307241004','l','Li 5','大轮管','自有船员','A队',3,1,'2018-04-24 14:55:22' ) , ( 'XYS000006','李6','421121199307241005','l','Li 6','二轮管','自有船员','A队',3,1,'2018-04-24 14:55:22' ) , ( 'XYS000007','李7','421121199307241006','l','Li 7','三轮管','自有船员','A队',3,1,'2018-04-24 14:55:22' ) , ( 'XYS000008','李8','421121199307241007','l','Li 8','三轮管','自有船员','A队',3,1,'2018-04-24 14:55:22' ) , ( 'XYS000009','李9','421121199307241008','l','Li 9','三轮管','自有船员','A队',3,1,'2018-04-24 14:55:22' ) [ RunTime:0.049488s ]
+[ error ] [8]Uninitialized string offset: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\common.php:206]
+[ error ] [8]Uninitialized string offset: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\common.php:206]
+[ error ] [8]Uninitialized string offset: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\common.php:206]
+[ error ] [8]Uninitialized string offset: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\common.php:206]
+[ error ] [8]Uninitialized string offset: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\common.php:206]
+[ error ] [8]Uninitialized string offset: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\common.php:206]
+[ error ] [8]Uninitialized string offset: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\common.php:206]
+[ error ] [8]Uninitialized string offset: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\common.php:206]
+[ error ] [8]Uninitialized string offset: 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\common.php:206]
+---------------------------------------------------------------
+[ 2018-04-24T14:55:45+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/exportMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/exportMariner [运行时间：7.143782s][吞吐率：0.14req/s] [内存消耗：5,266.36kb] [文件加载：110]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'exportMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12548',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------728284765233102915556914',
+  'postman-token' => '878e923f-8d8d-4fbd-837b-83c90c2442cd',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->exportMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008827s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.044893s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_mariner` [ RunTime:0.001438s ]
+---------------------------------------------------------------
+[ 2018-04-24T15:08:40+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.167903s][吞吐率：0.14req/s] [内存消耗：5,280.43kb] [文件加载：110]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12548',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------023141456545136876046824',
+  'postman-token' => '198f5662-a6a6-41b1-aeb3-cfc782e9b150',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.011287s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.070638s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_mariner` [ RunTime:0.001842s ]
+---------------------------------------------------------------
+[ 2018-04-24T15:12:33+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.142098s][吞吐率：0.14req/s] [内存消耗：5,285.05kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12548',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------903927661026870710257442',
+  'postman-token' => '48ebb41a-c536-45d5-83dc-11b1fa03ff07',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016902s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.039369s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_mariner` [ RunTime:0.002583s ]
+---------------------------------------------------------------
+[ 2018-04-24T15:13:05+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.114409s][吞吐率：0.14req/s] [内存消耗：5,312.21kb] [文件加载：115]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12548',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------703350396702282979256621',
+  'postman-token' => '3e230c59-05aa-45c3-83c1-d1d9b242207d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.005782s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.024887s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_number' in 'field list'[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:388]
+---------------------------------------------------------------
+[ 2018-04-24T15:16:44+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.269182s][吞吐率：0.14req/s] [内存消耗：5,285.07kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12548',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------047071076217588589880199',
+  'postman-token' => '17a6debb-261f-4d23-a67d-fa6d9ab877b4',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.084460s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.088381s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.001964s ]
+---------------------------------------------------------------
+[ 2018-04-24T15:17:05+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.510030s][吞吐率：0.13req/s] [内存消耗：5,224.74kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '11861',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------596403644807755354750642',
+  'postman-token' => '167e2550-fb2b-48ad-8e02-06369ccf74db',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017220s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.378552s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.002072s ]
+---------------------------------------------------------------
+[ 2018-04-24T15:53:14+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.152008s][吞吐率：0.14req/s] [内存消耗：5,255.99kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12274',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------740735937306857196190092',
+  'postman-token' => 'a10a39b7-6422-468b-882b-25abd45a198d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.013485s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.026261s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.001460s ]
+---------------------------------------------------------------
+[ 2018-04-24T15:59:27+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.122080s][吞吐率：0.14req/s] [内存消耗：5,259.96kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12834',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------627075333512870791828709',
+  'postman-token' => 'b4aec9c8-da74-42ef-b3b9-b4bc6d269894',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.013363s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.021207s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `sino_remittance` [ RunTime:0.001709s ]
+---------------------------------------------------------------
+[ 2018-04-24T16:08:44+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.148201s][吞吐率：0.14req/s] [内存消耗：5,260.16kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12834',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------077230962366684719419060',
+  'postman-token' => '533e3ab9-0398-4d43-ac96-493014283f1c',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.013588s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.046060s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_remittance` [ RunTime:0.003336s ]
+---------------------------------------------------------------
+[ 2018-04-24T16:24:18+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.195723s][吞吐率：0.14req/s] [内存消耗：5,291.70kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12834',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------698168493628317431448418',
+  'postman-token' => 'c46acd61-2f7b-440e-9675-5a5b81a5005c',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.020641s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.026915s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_remittance` [ RunTime:0.001885s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.022419s ]
+[ error ] [0]数据表字段不存在:[bank][D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\builder\Mysql.php:48]
+---------------------------------------------------------------
+[ 2018-04-24T16:25:09+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.135692s][吞吐率：0.14req/s] [内存消耗：5,281.33kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12834',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------131300350321035644412066',
+  'postman-token' => 'a07c9ede-25c6-4f49-b1e4-1b317aeecc38',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008360s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.024818s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_remittance` [ RunTime:0.002939s ]
+[ error ] [0]数据表字段不存在:[swift][D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\builder\Mysql.php:48]
+---------------------------------------------------------------
+[ 2018-04-24T16:27:41+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.167413s][吞吐率：0.14req/s] [内存消耗：5,265.09kb] [文件加载：106]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12834',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------103919498559469255407097',
+  'postman-token' => '56898658-1952-4c2b-ac6b-59168fe615a6',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.018510s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.021326s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_remittance` [ RunTime:0.001410s ]
+[ sql ] [ SQL ] INSERT INTO `sino_remittance` (`name` , `id_number` , `bank` , `short_name` , `english` , `number` , `name_cn` , `name_en` , `birthday` , `relation` , `telnumber` , `swift` , `line_number` , `changer` , `change_time`) VALUES ( '李1','421121199307241000','中国建设银行','建行','bank for construction','6217002710000684871','李爸','Li Ba','19750223','父子','13164627140','',' 989584027708','Codeyi','2018-04-24' ) , ( '李2','421121199307241000','中国建设银行','建行','bank for construction','6217002710000684872','李爸','Li Ba','19750224','父子','13164627141','',' 989584027708','Codeyi','2018-04-24' ) , ( '李3','421121199307241001','中国建设银行','建行','bank for construction','6217002710000684873','李爸','Li Ba','19750225','父子','13164627142','',' 989584027708','Codeyi','2018-04-24' ) , ( '李4','421121199307241002','中国建设银行','建行','bank for construction','6217002710000684875','李爸','Li Ba','19750226','父子','13164627143','',' 989584027708','Codeyi','2018-04-24' ) , ( '李5','421121199307241003','中国建设银行','建行','bank for construction','6217002710000684876','李爸','Li Ba','19750227','父子','13164627144','',' 989584027708','Codeyi','2018-04-24' ) , ( '李6','421121199307241004','中国建设银行','建行','bank for construction','6217002710000684877','李爸','Li Ba','19750228','父子','13164627145','',' 989584027708','Codeyi','2018-04-24' ) , ( '李7','421121199307241005','中国建设银行','建行','bank for construction','6217002710000684878','李爸','Li Ba','19750229','父子','13164627146','',' 989584027708','Codeyi','2018-04-24' ) , ( '李8','421121199307241006','中国建设银行','建行','bank for construction','6217002710000684879','李爸','Li Ba','19750230','父子','13164627147','',' 989584027708','Codeyi','2018-04-24' ) , ( '李9','421121199307241007','中国建设银行','建行','bank for construction','6217002710000684870','李爸','Li Ba','19750218','父子','13164627148','',' 989584027708','Codeyi','2018-04-24' ) [ RunTime:0.041494s ]
+---------------------------------------------------------------
+[ 2018-04-24T16:28:37+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.109534s][吞吐率：0.14req/s] [内存消耗：5,259.59kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12834',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------084381567776990858666165',
+  'postman-token' => '42913b48-3f37-43df-a0c4-60302a27dbf5',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007490s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.022188s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_remittance` [ RunTime:0.002173s ]
+---------------------------------------------------------------
+[ 2018-04-24T16:29:36+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.126912s][吞吐率：0.14req/s] [内存消耗：5,282.78kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12834',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------267826905632096694219679',
+  'postman-token' => 'dbd24c00-f7f7-4e84-a0b6-e6da6f517ef3',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008492s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.039839s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_remittance` [ RunTime:0.002233s ]
+[ error ] [0]数据表字段不存在:[0][D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Builder.php:109]
+---------------------------------------------------------------
+[ 2018-04-24T16:30:11+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.125904s][吞吐率：0.14req/s] [内存消耗：5,259.73kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12834',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------731600768393262639241202',
+  'postman-token' => '16d3e849-74fb-4fb5-8ac5-ab1ab3409b0e',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016825s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.028041s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_remittance` [ RunTime:0.002144s ]
+---------------------------------------------------------------
+[ 2018-04-24T16:30:40+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.126270s][吞吐率：0.14req/s] [内存消耗：5,259.59kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12834',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------745296947872252925917656',
+  'postman-token' => 'dcca46f4-7b7a-45d1-8aff-6982c9853fa7',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008024s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.035552s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_remittance` [ RunTime:0.001584s ]
+---------------------------------------------------------------
+[ 2018-04-24T16:32:08+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.134016s][吞吐率：0.14req/s] [内存消耗：5,262.29kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12834',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------031087970506697201795259',
+  'postman-token' => '81b8d96e-1266-4061-9ca1-a2ae40af3117',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.020746s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.025870s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_remittance` [ RunTime:0.002127s ]
+---------------------------------------------------------------
+[ 2018-04-24T16:32:19+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.364613s][吞吐率：0.14req/s] [内存消耗：5,285.43kb] [文件加载：106]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12834',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------278389772191707999220992',
+  'postman-token' => '7490002a-507b-4ed3-8fc2-0098ed8ba5fb',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.006954s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.027314s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_remittance` [ RunTime:0.002317s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李1',`id_number`='421121199307241000',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684871',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750223',`relation`='父子',`telnumber`='13164627140',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241000' [ RunTime:0.032058s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李2',`id_number`='421121199307241000',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684872',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750224',`relation`='父子',`telnumber`='13164627141',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241000' [ RunTime:0.025793s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李3',`id_number`='421121199307241001',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684873',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750225',`relation`='父子',`telnumber`='13164627142',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241001' [ RunTime:0.024659s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李4',`id_number`='421121199307241002',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684875',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750226',`relation`='父子',`telnumber`='13164627143',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241002' [ RunTime:0.024445s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李5',`id_number`='421121199307241003',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684876',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750227',`relation`='父子',`telnumber`='13164627144',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241003' [ RunTime:0.024660s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李6',`id_number`='421121199307241004',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684877',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750228',`relation`='父子',`telnumber`='13164627145',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241004' [ RunTime:0.024625s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李7',`id_number`='421121199307241005',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684878',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750229',`relation`='父子',`telnumber`='13164627146',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241005' [ RunTime:0.021857s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李8',`id_number`='421121199307241006',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684879',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750230',`relation`='父子',`telnumber`='13164627147',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241006' [ RunTime:0.026072s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李9',`id_number`='421121199307241007',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684870',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750218',`relation`='父子',`telnumber`='13164627148',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241007' [ RunTime:0.024643s ]
+---------------------------------------------------------------
+[ 2018-04-24T16:32:50+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.377634s][吞吐率：0.14req/s] [内存消耗：5,285.43kb] [文件加载：106]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12834',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------965008430919860711484227',
+  'postman-token' => '4015acd1-f5e2-4c99-8b3c-faf004e705d7',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016541s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.027126s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_remittance` [ RunTime:0.002462s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李1',`id_number`='421121199307241000',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684871',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750223',`relation`='父子',`telnumber`='13164627140',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241000' [ RunTime:0.037752s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李2',`id_number`='421121199307241000',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684872',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750224',`relation`='父子',`telnumber`='13164627141',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241000' [ RunTime:0.025985s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李3',`id_number`='421121199307241001',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684873',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750225',`relation`='父子',`telnumber`='13164627142',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241001' [ RunTime:0.024826s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李4',`id_number`='421121199307241002',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684875',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750226',`relation`='父子',`telnumber`='13164627143',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241002' [ RunTime:0.021500s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李5',`id_number`='421121199307241003',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684876',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750227',`relation`='父子',`telnumber`='13164627144',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241003' [ RunTime:0.025927s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李6',`id_number`='421121199307241004',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684877',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750228',`relation`='父子',`telnumber`='13164627145',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241004' [ RunTime:0.024365s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李7',`id_number`='421121199307241005',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684878',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750229',`relation`='父子',`telnumber`='13164627146',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241005' [ RunTime:0.022036s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李8',`id_number`='421121199307241006',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684879',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750230',`relation`='父子',`telnumber`='13164627147',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241006' [ RunTime:0.025964s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李9',`id_number`='421121199307241007',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684870',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750218',`relation`='父子',`telnumber`='13164627148',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241007' [ RunTime:0.024434s ]
+---------------------------------------------------------------
+[ 2018-04-24T16:34:44+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.186258s][吞吐率：0.14req/s] [内存消耗：5,286.01kb] [文件加载：106]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12834',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------975191375650321471870248',
+  'postman-token' => 'e7f7274e-6f91-4520-a51d-5bed23a8f008',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.013765s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.024899s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_remittance` [ RunTime:0.002086s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李1',`id_number`='421121199307241000',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684871',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750223',`relation`='父子',`telnumber`='13164627140',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241000' [ RunTime:0.002852s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李2',`id_number`='421121199307241000',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684872',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750224',`relation`='父子',`telnumber`='13164627141',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241000' [ RunTime:0.000773s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李3',`id_number`='421121199307241001',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684873',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750225',`relation`='父子',`telnumber`='13164627142',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241001' [ RunTime:0.000785s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李4',`id_number`='421121199307241002',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684875',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750226',`relation`='父子',`telnumber`='13164627143',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241002' [ RunTime:0.000783s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李5',`id_number`='421121199307241003',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684876',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750227',`relation`='父子',`telnumber`='13164627144',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241003' [ RunTime:0.000844s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李6',`id_number`='421121199307241004',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684877',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750228',`relation`='父子',`telnumber`='13164627145',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241004' [ RunTime:0.000783s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李7',`id_number`='421121199307241005',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684878',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750229',`relation`='父子',`telnumber`='13164627146',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241005' [ RunTime:0.000751s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李8',`id_number`='421121199307241006',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684879',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750230',`relation`='父子',`telnumber`='13164627147',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241006' [ RunTime:0.000890s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李9',`id_number`='421121199307241007',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684870',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='19750218',`relation`='父子',`telnumber`='13164627148',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241007' [ RunTime:0.000899s ]
+---------------------------------------------------------------
+[ 2018-04-24T18:30:40+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：0.060307s][吞吐率：16.58req/s] [内存消耗：1,231.20kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12822',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------736059259243304270748857',
+  'postman-token' => '884f6973-3e6b-4079-8665-3757e0ff8e1b',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ LOG ] INIT File
+[ error ] [4]语法错误: unexpected ';'[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:608]
+---------------------------------------------------------------
+[ 2018-04-24T18:31:00+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.197878s][吞吐率：0.14req/s] [内存消耗：5,289.59kb] [文件加载：106]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12822',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------397657164056700398552225',
+  'postman-token' => '74858692-9fc0-429a-b537-1850c794cc47',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.031623s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.040473s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_remittance` [ RunTime:0.002738s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李1',`id_number`='421121199307241000',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684871',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975/02/23',`relation`='父子',`telnumber`='13164627140',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241000' [ RunTime:0.001686s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李2',`id_number`='421121199307241000',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684872',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975/02/24',`relation`='父子',`telnumber`='13164627141',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241000' [ RunTime:0.000866s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李3',`id_number`='421121199307241001',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684873',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975/02/25',`relation`='父子',`telnumber`='13164627142',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241001' [ RunTime:0.001117s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李4',`id_number`='421121199307241002',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684875',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975/02/26',`relation`='父子',`telnumber`='13164627143',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241002' [ RunTime:0.000957s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李5',`id_number`='421121199307241003',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684876',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975/02/27',`relation`='父子',`telnumber`='13164627144',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241003' [ RunTime:0.001255s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李6',`id_number`='421121199307241004',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684877',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975/02/28',`relation`='父子',`telnumber`='13164627145',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241004' [ RunTime:0.000808s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李7',`id_number`='421121199307241005',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684878',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975/02/29',`relation`='父子',`telnumber`='13164627146',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241005' [ RunTime:0.000983s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李8',`id_number`='421121199307241006',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684879',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975/02/30',`relation`='父子',`telnumber`='13164627147',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241006' [ RunTime:0.001080s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李9',`id_number`='421121199307241007',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684870',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975/02/30',`relation`='父子',`telnumber`='13164627148',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241007' [ RunTime:0.001090s ]
+---------------------------------------------------------------
+[ 2018-04-24T18:32:21+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/importRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/importRemittance [运行时间：7.202756s][吞吐率：0.14req/s] [内存消耗：5,289.84kb] [文件加载：106]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'importRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12822',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------549409298179669598907347',
+  'postman-token' => '6d5ce681-f357-47c0-a973-0ddba634e4c7',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->importRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.009660s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.023846s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_remittance` [ RunTime:0.002884s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李1',`id_number`='421121199307241000',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684871',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-23',`relation`='父子',`telnumber`='13164627140',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241000' [ RunTime:0.002113s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李2',`id_number`='421121199307241000',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684872',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-24',`relation`='父子',`telnumber`='13164627141',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241000' [ RunTime:0.001066s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李3',`id_number`='421121199307241001',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684873',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-25',`relation`='父子',`telnumber`='13164627142',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241001' [ RunTime:0.000986s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李4',`id_number`='421121199307241002',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684875',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-26',`relation`='父子',`telnumber`='13164627143',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241002' [ RunTime:0.000902s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李5',`id_number`='421121199307241003',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684876',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-27',`relation`='父子',`telnumber`='13164627144',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241003' [ RunTime:0.001333s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李6',`id_number`='421121199307241004',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684877',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-28',`relation`='父子',`telnumber`='13164627145',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241004' [ RunTime:0.001223s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李7',`id_number`='421121199307241005',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684878',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-29',`relation`='父子',`telnumber`='13164627146',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241005' [ RunTime:0.001170s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李8',`id_number`='421121199307241006',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684879',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-30',`relation`='父子',`telnumber`='13164627147',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241006' [ RunTime:0.001019s ]
+[ sql ] [ SQL ] UPDATE `sino_remittance`  SET `name`='李9',`id_number`='421121199307241007',`bank`='中国建设银行',`short_name`='建行',`english`='bank for construction',`number`='6217002710000684870',`name_cn`='李爸',`name_en`='Li Ba',`birthday`='1975-02-30',`relation`='父子',`telnumber`='13164627148',`swift`='',`line_number`=' 989584027708',`changer`='Codeyi',`change_time`='2018-04-24'  WHERE  `id_number` = '421121199307241007' [ RunTime:0.001233s ]
+---------------------------------------------------------------
+[ 2018-04-24T19:25:38+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/detailRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/detailRemittance [运行时间：7.086055s][吞吐率：0.14req/s] [内存消耗：2,100.87kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'detailRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12822',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------540499563115398565006325',
+  'postman-token' => '5809d286-9842-45ab-a160-0977960e8298',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307272412',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->detailRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015344s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.022021s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_remittance` WHERE  `id_number` = '421121199307272412' LIMIT 1 [ RunTime:0.002697s ]
+---------------------------------------------------------------
+[ 2018-04-24T19:26:18+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/detailRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/detailRemittance [运行时间：7.065914s][吞吐率：0.14req/s] [内存消耗：2,100.95kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'detailRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12823',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------967313173091693442098995',
+  'postman-token' => 'e9265d6c-7941-4a8e-a993-8057837743ea',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '6217002710000684872',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->detailRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017355s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.021832s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_remittance` WHERE  `id_number` = '6217002710000684872' LIMIT 1 [ RunTime:0.001965s ]
+---------------------------------------------------------------
+[ 2018-04-24T19:27:03+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/detailRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/detailRemittance [运行时间：7.073927s][吞吐率：0.14req/s] [内存消耗：2,101.99kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'detailRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '12822',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------445808012909287268434467',
+  'postman-token' => '38ad1f84-8ac0-4a11-9300-b984a1f872a2',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241002',
+  'cid' => 'XYS2012512',
+  'name' => '张九',
+  'english' => 'Zhang Jiu',
+  'duty' => '二副',
+  'vessel' => '4',
+  'fleet' => 'B队',
+  'ownerPool' => '2',
+  'manningOffice' => '自由船员',
+  'id' => '2',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->detailRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016622s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.024581s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_remittance` WHERE  `id_number` = '421121199307241002' LIMIT 1 [ RunTime:0.002459s ]
+---------------------------------------------------------------
+[ 2018-04-24T19:47:03+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/detailRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/detailRemittance [运行时间：7.081253s][吞吐率：0.14req/s] [内存消耗：2,100.90kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'detailRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '181',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------503128211212836246142454',
+  'postman-token' => '8323ebc0-47e1-4d0b-960d-5f2b56a62613',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241002',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->detailRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.022994s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.024169s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_remittance` WHERE  `id_number` = '421121199307241002' LIMIT 1 [ RunTime:0.002446s ]
+---------------------------------------------------------------
+[ 2018-04-24T19:47:32+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/detailRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/detailRemittance [运行时间：7.072492s][吞吐率：0.14req/s] [内存消耗：2,100.98kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'detailRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '181',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------105811740558216659225900',
+  'postman-token' => '1fbd843d-3d5d-4e17-9658-8b610a43c3cc',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241002',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->detailRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.014026s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.026808s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_remittance` WHERE  `id_number` = '421121199307241002' LIMIT 1 [ RunTime:0.003538s ]
+---------------------------------------------------------------
+[ 2018-04-24T19:48:23+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/detailRemittance
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/detailRemittance [运行时间：7.077704s][吞吐率：0.14req/s] [内存消耗：2,101.05kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'detailRemittance',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '181',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------602498655661100238615868',
+  'postman-token' => 'e3cd9bbd-969a-443d-bf43-41fd6972993d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241002',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->detailRemittance[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015149s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_remittance` [ RunTime:0.028468s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_remittance` WHERE  `id_number` = '421121199307241002' LIMIT 1 [ RunTime:0.002493s ]

@@ -1,0 +1,1821 @@
+---------------------------------------------------------------
+[ 2018-04-27T09:42:36+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/importArea
+[ info ] 192.168.10.108:807/public/index.php/api/Social/importArea [运行时间：0.126598s][吞吐率：7.90req/s] [内存消耗：1,419.73kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'importArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '165',
+  'content-type' => 'multipart/form-data; boundary=--------------------------033581820442417337224366',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '5fbf10b9-2841-4fa3-bcb8-273c0bd4fd54',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'area' => '北京',
+)
+[ info ] [ RUN ] app\api\controller\Social->importArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-27T09:44:00+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/importArea
+[ info ] 192.168.10.108:807/public/index.php/api/Social/importArea [运行时间：7.518214s][吞吐率：0.13req/s] [内存消耗：5,160.97kb] [文件加载：105]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'importArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9900',
+  'content-type' => 'multipart/form-data; boundary=--------------------------788547568392120769616651',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '62457209-c281-45e0-8478-ad6101e3e1c5',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'area' => '北京',
+)
+[ info ] [ RUN ] app\api\controller\Social->importArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015235s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.039708s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_mariner` [ RunTime:0.002034s ]
+---------------------------------------------------------------
+[ 2018-04-27T09:54:49+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/importArea
+[ info ] 192.168.10.108:807/public/index.php/api/Social/importArea [运行时间：7.160970s][吞吐率：0.14req/s] [内存消耗：5,195.43kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'importArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '10374',
+  'content-type' => 'multipart/form-data; boundary=--------------------------316520602778140778201766',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '631803b9-91d0-4470-b247-fcf6bd06908e',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'area' => '北京',
+)
+[ info ] [ RUN ] app\api\controller\Social->importArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.014223s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.040338s ]
+[ sql ] [ SQL ] SELECT `id_number` FROM `sino_mariner` [ RunTime:0.001744s ]
+---------------------------------------------------------------
+[ 2018-04-27T12:06:27+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/addInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/addInsured [运行时间：7.141530s][吞吐率：0.14req/s] [内存消耗：2,078.88kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '623',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------624860878513039579872153',
+  'postman-token' => '75f15d51-0e4f-4195-bdcc-cfa54daae7dc',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'starttime' => '2018-01',
+  'fee_payable' => '1',
+)
+[ info ] [ RUN ] app\api\controller\Social->addInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.021651s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.029705s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' LIMIT 1 [ RunTime:0.005342s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.019385s ]
+[ error ] [8]未定义数组索引: time[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:361]
+[ error ] [8]未定义数组索引: payable[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:362]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'fee_payable' cannot be null[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-27T12:07:26+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/addInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/addInsured [运行时间：7.139803s][吞吐率：0.14req/s] [内存消耗：2,073.69kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '619',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------821531489439738765911261',
+  'postman-token' => '0f86a4e0-7b0f-4a17-872e-d131973485e3',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'starttime' => '2018-01',
+  'payable' => '1',
+)
+[ info ] [ RUN ] app\api\controller\Social->addInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015315s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.022269s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' LIMIT 1 [ RunTime:0.003227s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.022198s ]
+[ sql ] [ SQL ] INSERT INTO `sino_insured` (`mariner_id` , `area` , `starttime` , `fee_payable`) VALUES (8 , '北京' , '' , 1) [ RunTime:0.048550s ]
+[ error ] [8]未定义数组索引: time[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:361]
+---------------------------------------------------------------
+[ 2018-04-27T12:08:06+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/addInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/addInsured [运行时间：7.123162s][吞吐率：0.14req/s] [内存消耗：2,033.34kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '614',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------045245088130578794765332',
+  'postman-token' => '9d75236c-350c-4508-a7aa-2e2f205ba460',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+  'payable' => '1',
+)
+[ info ] [ RUN ] app\api\controller\Social->addInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007557s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.023268s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' LIMIT 1 [ RunTime:0.002555s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.020182s ]
+[ sql ] [ SQL ] INSERT INTO `sino_insured` (`mariner_id` , `area` , `starttime` , `fee_payable`) VALUES (8 , '北京' , '2018-01' , 1) [ RunTime:0.037764s ]
+---------------------------------------------------------------
+[ 2018-04-27T14:12:17+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/addInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/addInsured [运行时间：7.101456s][吞吐率：0.14req/s] [内存消耗：2,041.86kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '614',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------247025915542090816597258',
+  'postman-token' => '3a3b16e4-79d5-4c55-9577-7f9c27c490c8',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+  'payable' => '1',
+)
+[ info ] [ RUN ] app\api\controller\Social->addInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.013265s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.030022s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' LIMIT 1 [ RunTime:0.002286s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.020293s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_insured` WHERE  `mariner_id` = 8  AND `starttime` = '2018-01' LIMIT 1 [ RunTime:0.002453s ]
+---------------------------------------------------------------
+[ 2018-04-27T14:12:22+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/exportInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/exportInsured [运行时间：0.024727s][吞吐率：40.44req/s] [内存消耗：1,430.99kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'exportInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '614',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------686180141119563864534918',
+  'postman-token' => 'c496a50c-cd68-42ed-a6bd-bb3cfc4da9b7',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+  'payable' => '1',
+)
+[ info ] [ RUN ] app\api\controller\Social->exportInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-27T14:12:40+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/exportInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/exportInsured [运行时间：0.089780s][吞吐率：11.14req/s] [内存消耗：4,591.34kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'exportInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9827',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------021270426911485125857360',
+  'postman-token' => 'f6b0574f-e46b-4690-846d-93f553715708',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+  'payable' => '1',
+)
+[ info ] [ RUN ] app\api\controller\Social->exportInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-27T14:35:37+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/exportInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/exportInsured [运行时间：7.208573s][吞吐率：0.14req/s] [内存消耗：5,199.30kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'exportInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9827',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------847900014795216292342954',
+  'postman-token' => '27553f45-2a6c-49e2-ac33-c3c6b8e03b1a',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+  'payable' => '1',
+)
+[ info ] [ RUN ] app\api\controller\Social->exportInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.027026s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.039862s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006'  AND `name` = '李8' LIMIT 1 [ RunTime:0.003567s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007'  AND `name` = '李9' LIMIT 1 [ RunTime:0.002378s ]
+[ error ] [0]数据表字段不存在:[marined][D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\builder\Mysql.php:48]
+---------------------------------------------------------------
+[ 2018-04-27T14:37:05+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/exportInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/exportInsured [运行时间：7.183947s][吞吐率：0.14req/s] [内存消耗：5,204.41kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'exportInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9827',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------511688496782708034187141',
+  'postman-token' => 'a2690494-86c8-4760-8f70-156f23afd5e4',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+  'payable' => '1',
+)
+[ info ] [ RUN ] app\api\controller\Social->exportInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007564s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.033835s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006'  AND `name` = '李8' LIMIT 1 [ RunTime:0.002563s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007'  AND `name` = '李9' LIMIT 1 [ RunTime:0.002442s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.020229s ]
+[ error ] [0]数据表字段不存在:[marined][D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\builder\Mysql.php:48]
+---------------------------------------------------------------
+[ 2018-04-27T14:37:31+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/exportInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/exportInsured [运行时间：7.232071s][吞吐率：0.14req/s] [内存消耗：5,173.66kb] [文件加载：106]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'exportInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9827',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------649326722359962732204369',
+  'postman-token' => '40f73f7f-79c7-4910-9a15-3ad75afda333',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+  'payable' => '1',
+)
+[ info ] [ RUN ] app\api\controller\Social->exportInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016837s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.021918s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241006'  AND `name` = '李8' LIMIT 1 [ RunTime:0.003021s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241007'  AND `name` = '李9' LIMIT 1 [ RunTime:0.001781s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.020971s ]
+[ sql ] [ SQL ] INSERT INTO `sino_insured` (`mariner_id` , `area` , `starttime` , `fee_payable`) VALUES ( 13,'武汉','2018-04','是' ) , ( 14,'武汉','2018-05','否' ) [ RunTime:0.046739s ]
+---------------------------------------------------------------
+[ 2018-04-27T15:17:40+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/reduceInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/reduceInsured [运行时间：7.214355s][吞吐率：0.14req/s] [内存消耗：2,050.89kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'reduceInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '507',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------850122339064336706432875',
+  'postman-token' => '85733af6-3ed5-45a2-9121-d049883acdb9',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+)
+[ info ] [ RUN ] app\api\controller\Social->reduceInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.032408s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.057512s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' LIMIT 1 [ RunTime:0.002769s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.020652s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_insured` WHERE  `mariner_id` = 8  AND `area` = '北京' LIMIT 1 [ RunTime:0.002543s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured_stop` [ RunTime:0.023053s ]
+[ sql ] [ SQL ] INSERT INTO `sino_insured_stop` (`mariner_id` , `area` , `starttime`) VALUES (8 , '北京' , '2018-01') [ RunTime:0.039803s ]
+---------------------------------------------------------------
+[ 2018-04-27T15:21:55+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/reduceInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/reduceInsured [运行时间：7.112134s][吞吐率：0.14req/s] [内存消耗：2,052.97kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'reduceInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '507',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------155631986039641296493280',
+  'postman-token' => '7169833e-5402-4ddb-9117-0b52bd01378f',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+)
+[ info ] [ RUN ] app\api\controller\Social->reduceInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.009805s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.024830s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' LIMIT 1 [ RunTime:0.002408s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.020000s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_insured` WHERE  `mariner_id` = 8  AND `area` = '北京' LIMIT 1 [ RunTime:0.001477s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured_stop` [ RunTime:0.019769s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_insured_stop` WHERE  `mariner_id` = 8  AND `area` = '北京'  AND `starttime` = '2018-01' LIMIT 1 [ RunTime:0.001725s ]
+---------------------------------------------------------------
+[ 2018-04-27T15:31:34+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/reduceInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/reduceInsured [运行时间：7.195986s][吞吐率：0.14req/s] [内存消耗：2,062.02kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'reduceInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '507',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------457782337807285642603085',
+  'postman-token' => '33920782-4b3b-402d-b965-253d3b7844df',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+)
+[ info ] [ RUN ] app\api\controller\Social->reduceInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.014248s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.091239s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `id_number` = '421121199307241001' LIMIT 1 [ RunTime:0.004394s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.021467s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_insured` WHERE  `mariner_id` = 8  AND `area` = '北京' LIMIT 1 [ RunTime:0.002677s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured_stop` [ RunTime:0.018416s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_insured_stop` WHERE  `mariner_id` = 8  AND `area` = '北京'  AND `starttime` = '2018-01' LIMIT 1 [ RunTime:0.001913s ]
+---------------------------------------------------------------
+[ 2018-04-27T15:31:43+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/importReduce
+[ info ] 192.168.10.108:807/public/index.php/api/Social/importReduce [运行时间：0.019499s][吞吐率：51.29req/s] [内存消耗：1,447.20kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'importReduce',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '507',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------662882933505120611275028',
+  'postman-token' => 'c07ecd19-e899-46f0-a0a8-1313a45b7a91',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+)
+[ info ] [ RUN ] app\api\controller\Social->importReduce[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-27T15:35:14+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/importReduce
+[ info ] 192.168.10.108:807/public/index.php/api/Social/importReduce [运行时间：0.096966s][吞吐率：10.31req/s] [内存消耗：4,597.88kb] [文件加载：101]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'importReduce',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9560',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------996835930115576813730862',
+  'postman-token' => '07bd6cc1-645d-4b17-b285-371e6179baa6',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+)
+[ info ] [ RUN ] app\api\controller\Social->importReduce[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-27T15:36:22+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/importReduce
+[ info ] 192.168.10.108:807/public/index.php/api/Social/importReduce [运行时间：7.216972s][吞吐率：0.14req/s] [内存消耗：5,178.05kb] [文件加载：106]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'importReduce',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9560',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------145175265208124011563819',
+  'postman-token' => '7ff6d5c6-3937-427e-9238-7d0dcaccb097',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+)
+[ info ] [ RUN ] app\api\controller\Social->importReduce[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.009895s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.033059s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241001'  AND `name` = '李3' LIMIT 1 [ RunTime:0.002448s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_mariner` WHERE  `id_number` = '421121199307241002'  AND `name` = '李4' LIMIT 1 [ RunTime:0.002600s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.022018s ]
+[ sql ] [ SQL ] INSERT INTO `sino_insured` (`mariner_id` , `area` , `starttime`) VALUES ( 8,'北京','2018-04' ) , ( 9,'北京','2018-04' ) [ RunTime:0.045256s ]
+---------------------------------------------------------------
+[ 2018-04-27T16:39:47+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/searchArea
+[ info ] 192.168.10.108:807/public/index.php/api/Social/searchArea [运行时间：7.089537s][吞吐率：0.14req/s] [内存消耗：2,052.37kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'searchArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9560',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------818400820672846006973162',
+  'postman-token' => '02818bfd-31b3-49b7-ba78-2a90a6c6f0bf',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+)
+[ info ] [ RUN ] app\api\controller\Social->searchArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016890s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.022711s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `area` LIKE '%%' [ RunTime:0.002372s ]
+---------------------------------------------------------------
+[ 2018-04-27T16:39:57+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/searchArea
+[ info ] 192.168.10.108:807/public/index.php/api/Social/searchArea [运行时间：7.076931s][吞吐率：0.14req/s] [内存消耗：2,052.45kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'searchArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9671',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------027231265653741303962869',
+  'postman-token' => 'e2c8a6ee-ea49-401e-a5f0-850891c6451d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+  'condition' => '北',
+)
+[ info ] [ RUN ] app\api\controller\Social->searchArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016854s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.029642s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `area` LIKE '%北%' [ RunTime:0.001991s ]
+---------------------------------------------------------------
+[ 2018-04-27T16:40:39+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/searchArea
+[ info ] 192.168.10.108:807/public/index.php/api/Social/searchArea [运行时间：7.083739s][吞吐率：0.14req/s] [内存消耗：2,052.45kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'searchArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9671',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------953448146913520349761276',
+  'postman-token' => 'd75ec7ce-f4e7-4626-a849-20fc546072a0',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+  'condition' => '北',
+)
+[ info ] [ RUN ] app\api\controller\Social->searchArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.009873s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.044072s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `area` LIKE '%北%' [ RunTime:0.003109s ]
+---------------------------------------------------------------
+[ 2018-04-27T16:40:53+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/searchArea
+[ info ] 192.168.10.108:807/public/index.php/api/Social/searchArea [运行时间：7.080108s][吞吐率：0.14req/s] [内存消耗：2,057.13kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'searchArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9671',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------560817519156324634656726',
+  'postman-token' => '2115b4b0-5245-4677-8d9a-2a0717c33c14',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+  'condition' => '北',
+)
+[ info ] [ RUN ] app\api\controller\Social->searchArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007416s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.024786s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `area` LIKE '%北%' [ RunTime:0.004344s ]
+---------------------------------------------------------------
+[ 2018-04-27T16:41:14+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/searchArea
+[ info ] 192.168.10.108:807/public/index.php/api/Social/searchArea [运行时间：7.100272s][吞吐率：0.14req/s] [内存消耗：2,057.13kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'searchArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9671',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------176631940509105893252986',
+  'postman-token' => 'efae2d18-0d60-4b7c-8539-afae3aa2ccfd',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+  'condition' => '北',
+)
+[ info ] [ RUN ] app\api\controller\Social->searchArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007638s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.064066s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `area` LIKE '%北%' [ RunTime:0.001991s ]
+---------------------------------------------------------------
+[ 2018-04-27T16:41:44+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/searchArea
+[ info ] 192.168.10.108:807/public/index.php/api/Social/searchArea [运行时间：7.075096s][吞吐率：0.14req/s] [内存消耗：2,052.48kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'searchArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9671',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------556929677518691400731753',
+  'postman-token' => 'da431f91-6efc-4bfe-bd19-7c1e35015279',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+  'condition' => '北',
+)
+[ info ] [ RUN ] app\api\controller\Social->searchArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017277s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.025240s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `area` LIKE '%北%' [ RunTime:0.002015s ]
+---------------------------------------------------------------
+[ 2018-04-27T16:42:36+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/searchArea
+[ info ] 192.168.10.108:807/public/index.php/api/Social/searchArea [运行时间：7.075451s][吞吐率：0.14req/s] [内存消耗：2,052.39kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'searchArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9671',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------840647567884963883044071',
+  'postman-token' => '3dde8212-7702-4983-83de-12f7cbb9f775',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+  'condition' => '北',
+)
+[ info ] [ RUN ] app\api\controller\Social->searchArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.013479s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.021379s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `area` LIKE '%北%' [ RunTime:0.002457s ]
+---------------------------------------------------------------
+[ 2018-04-27T16:45:43+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/searchArea
+[ info ] 192.168.10.108:807/public/index.php/api/Social/searchArea [运行时间：7.062795s][吞吐率：0.14req/s] [内存消耗：2,052.85kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'searchArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9671',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------205216098670208295434319',
+  'postman-token' => '714e4352-9595-4853-af1f-908525c91170',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+  'condition' => '北',
+)
+[ info ] [ RUN ] app\api\controller\Social->searchArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.004936s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.021063s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `area` LIKE '%北%' [ RunTime:0.001817s ]
+---------------------------------------------------------------
+[ 2018-04-27T16:45:57+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/searchArea
+[ info ] 192.168.10.108:807/public/index.php/api/Social/searchArea [运行时间：7.068544s][吞吐率：0.14req/s] [内存消耗：2,052.85kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'searchArea',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9671',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------664764455189249485457982',
+  'postman-token' => 'ef2e1c1c-c02a-495c-8f58-a556d9db1485',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+  'condition' => '北',
+)
+[ info ] [ RUN ] app\api\controller\Social->searchArea[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.006914s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.033764s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `area` LIKE '%北%' [ RunTime:0.001911s ]
+---------------------------------------------------------------
+[ 2018-04-27T18:32:33+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：7.149787s][吞吐率：0.14req/s] [内存消耗：2,097.55kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9671',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------307218752169679888368201',
+  'postman-token' => 'a2be5ce4-b8d4-4c5d-9760-063b766c53a3',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307241001',
+  'name' => '李3',
+  'area' => '北京',
+  'time' => '2018-01',
+  'condition' => '北',
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: number[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:544]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_numebr' in 'where clause'[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:388]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.032100s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.025305s ]
+---------------------------------------------------------------
+[ 2018-04-27T18:32:50+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：7.073004s][吞吐率：0.14req/s] [内存消耗：2,112.70kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------928709158428631959018257',
+  'postman-token' => 'b7a9f493-e224-49d5-ad47-3edcfb3bef1b',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:547]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:551]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:557]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:560]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.006423s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.023079s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` ORDER BY `starttime` LIMIT 0,15 [ RunTime:0.012437s ]
+---------------------------------------------------------------
+[ 2018-04-27T18:35:55+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：7.131569s][吞吐率：0.14req/s] [内存消耗：2,106.00kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------609636442603613153343665',
+  'postman-token' => '66159887-abc9-4af2-b30b-1c16b5a5319e',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:547]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:551]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:558]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:561]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.019365s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.052492s ]
+[ sql ] [ SQL ] SELECT `b`.`cid`,`b`.`name`,`b`.`id_number`,`a`.`area`,`a`.`starttime` FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` ORDER BY `starttime` LIMIT 0,15 [ RunTime:0.017347s ]
+---------------------------------------------------------------
+[ 2018-04-27T18:36:42+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：7.065411s][吞吐率：0.14req/s] [内存消耗：2,106.00kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------777073854705982785924671',
+  'postman-token' => '4592ba50-3a72-42fb-b9b6-dd2bae161d09',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:547]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:551]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:558]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:561]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016025s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.020331s ]
+[ sql ] [ SQL ] SELECT `b`.`cid`,`b`.`name`,`b`.`id_number`,`a`.`area`,`a`.`starttime` FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` ORDER BY `starttime` LIMIT 0,15 [ RunTime:0.002409s ]
+---------------------------------------------------------------
+[ 2018-04-27T18:38:32+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：7.108185s][吞吐率：0.14req/s] [内存消耗：2,105.63kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------180708661300415470788158',
+  'postman-token' => '482275b4-f16b-4261-9b4e-9aee4dcf9309',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:547]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:551]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:558]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:560]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015020s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.021366s ]
+[ sql ] [ SQL ] SELECT `b`.`cid`,`b`.`name`,`b`.`id_number`,`a`.`area`,max(starttime) starttime FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` LIMIT 0,15 [ RunTime:0.038097s ]
+---------------------------------------------------------------
+[ 2018-04-27T18:41:28+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：7.085602s][吞吐率：0.14req/s] [内存消耗：2,106.31kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------311482664529084233363187',
+  'postman-token' => 'e6aac697-04fc-4c73-8353-90a814f4c631',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:547]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:551]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:558]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:560]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016111s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.031799s ]
+[ sql ] [ SQL ] SELECT `b`.`cid`,`b`.`name`,`b`.`id_number`,`a`.`area`,min(starttime) firsttime,max(starttime) starttime FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` LIMIT 0,15 [ RunTime:0.002388s ]
+---------------------------------------------------------------
+[ 2018-04-27T18:42:29+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：7.074666s][吞吐率：0.14req/s] [内存消耗：2,106.72kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------019405690550990078948938',
+  'postman-token' => '0fa7bcf3-9942-4499-9c72-8aa8bf085ae2',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:547]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:551]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:558]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:561]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015348s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.030425s ]
+[ sql ] [ SQL ] SELECT `b`.`cid`,`b`.`name`,`b`.`id_number`,`a`.`area`,min(starttime) firsttime,max(starttime) starttime FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` ORDER BY `starttime` LIMIT 0,15 [ RunTime:0.003173s ]
+---------------------------------------------------------------
+[ 2018-04-27T18:51:40+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：7.083299s][吞吐率：0.14req/s] [内存消耗：2,106.82kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------294779643149739323583721',
+  'postman-token' => '5cae8e32-26a7-476e-bcd6-9bb90fd399d0',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:547]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:551]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:558]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:561]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.022438s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.023763s ]
+[ sql ] [ SQL ] SELECT `b`.`cid`,`b`.`name`,`b`.`id_number`,`a`.`area`,min(starttime) firsttime,max(starttime) starttime FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` ORDER BY `starttime` LIMIT 0,15 [ RunTime:0.002170s ]
+---------------------------------------------------------------
+[ 2018-04-27T19:01:10+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：0.056076s][吞吐率：17.83req/s] [内存消耗：1,221.13kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------741442539529894819897855',
+  'postman-token' => '8300e124-168b-4899-aded-a40f3b11d276',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+[ error ] [4]语法错误: unexpected '}', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$'[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:565]
+---------------------------------------------------------------
+[ 2018-04-27T19:01:26+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：7.078858s][吞吐率：0.14req/s] [内存消耗：2,118.00kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------362746831686342284780352',
+  'postman-token' => '7afb9bc9-88a7-4527-b0a9-7a717ff21ff2',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:547]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:551]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:558]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:561]
+[ error ] [1]Cannot use [] for reading[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:564]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.019444s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.025117s ]
+[ sql ] [ SQL ] SELECT `b`.`id`,`b`.`cid`,`b`.`name`,`b`.`id_number`,min(starttime) firsttime,max(starttime) starttime FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` ORDER BY `starttime` LIMIT 0,15 [ RunTime:0.002454s ]
+---------------------------------------------------------------
+[ 2018-04-27T19:01:42+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：7.055523s][吞吐率：0.14req/s] [内存消耗：2,106.84kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------495702090265260341350696',
+  'postman-token' => '222179d4-6eb9-4ef2-953d-d7c9cedc8de5',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:547]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:551]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:558]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:561]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.004615s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.021833s ]
+[ sql ] [ SQL ] SELECT `b`.`id`,`b`.`cid`,`b`.`name`,`b`.`id_number`,min(starttime) firsttime,max(starttime) starttime FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` ORDER BY `starttime` LIMIT 0,15 [ RunTime:0.002354s ]
+---------------------------------------------------------------
+[ 2018-04-27T19:04:10+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：7.082957s][吞吐率：0.14req/s] [内存消耗：2,109.64kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------232604005169374963724258',
+  'postman-token' => '91e79a8f-1742-4462-b820-f45ea37a0b2e',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:547]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:551]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:558]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:561]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008855s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.029600s ]
+[ sql ] [ SQL ] SELECT `b`.`id`,`b`.`cid`,`b`.`name`,`b`.`id_number`,min(starttime) firsttime,max(starttime) starttime FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` ORDER BY `starttime` LIMIT 0,15 [ RunTime:0.002571s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 8 ORDER BY `starttime` LIMIT 1 [ RunTime:0.002299s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 13 ORDER BY `starttime` LIMIT 1 [ RunTime:0.002557s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 9 ORDER BY `starttime` LIMIT 1 [ RunTime:0.001264s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 14 ORDER BY `starttime` LIMIT 1 [ RunTime:0.003341s ]
+---------------------------------------------------------------
+[ 2018-04-27T19:04:47+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：7.070813s][吞吐率：0.14req/s] [内存消耗：2,109.70kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------051598357563153743931534',
+  'postman-token' => '389e4964-3201-4026-9084-ee17c9a9638c',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:547]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:551]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:558]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:561]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.006367s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.026735s ]
+[ sql ] [ SQL ] SELECT `b`.`id`,`b`.`cid`,`b`.`name`,`b`.`id_number`,min(starttime) firsttime,max(starttime) starttime FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` ORDER BY `starttime` LIMIT 0,15 [ RunTime:0.003197s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 8 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002799s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 13 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002671s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 9 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002495s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 14 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001128s ]
+---------------------------------------------------------------
+[ 2018-04-27T19:05:14+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：7.081585s][吞吐率：0.14req/s] [内存消耗：2,107.35kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------041157263786378586718341',
+  'postman-token' => '50f3aa6f-e150-47af-a0cc-f3a2a7157611',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:547]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:551]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:558]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:561]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.019234s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.029041s ]
+[ sql ] [ SQL ] SELECT `b`.`id`,`b`.`cid`,`b`.`name`,`b`.`id_number`,min(starttime) firsttime,`a`.`area`,max(starttime) starttime FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` ORDER BY starttime desc LIMIT 0,15 [ RunTime:0.003024s ]
+---------------------------------------------------------------
+[ 2018-04-27T19:05:44+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：7.086357s][吞吐率：0.14req/s] [内存消耗：2,109.52kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------426570871649040626532889',
+  'postman-token' => 'd2886ec4-7206-4d83-9ca5-2240b8164977',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:547]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:551]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:558]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:560]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007912s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.033722s ]
+[ sql ] [ SQL ] SELECT `b`.`id`,`b`.`cid`,`b`.`name`,`b`.`id_number`,min(starttime) firsttime,max(starttime) starttime FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` LIMIT 0,15 [ RunTime:0.003296s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 8 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002656s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 9 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001947s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 13 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002523s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 14 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002691s ]
+---------------------------------------------------------------
+[ 2018-04-27T19:31:22+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/addRemark
+[ info ] 192.168.10.108:807/public/index.php/api/Social/addRemark [运行时间：0.022837s][吞吐率：43.79req/s] [内存消耗：1,221.91kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addRemark',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '276',
+  'content-type' => 'multipart/form-data; boundary=--------------------------420374399051457932914958',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '295c62cc-1a9a-4868-8064-da95a4e2b610',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'marinerId' => '8',
+  'remark' => '备注',
+)
+[ info ] [ LOG ] INIT File
+[ error ] [4]语法错误: unexpected '}', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$'[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:565]
+---------------------------------------------------------------
+[ 2018-04-27T19:31:50+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/addRemark
+[ info ] 192.168.10.108:807/public/index.php/api/Social/addRemark [运行时间：7.098133s][吞吐率：0.14req/s] [内存消耗：2,062.15kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'addRemark',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '276',
+  'content-type' => 'multipart/form-data; boundary=--------------------------149531490354057000388784',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'postman-token' => '3b8a4830-ca93-4159-ab74-c24bd9e5d646',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'marinerId' => '8',
+  'remark' => '备注',
+)
+[ info ] [ RUN ] app\api\controller\Social->addRemark[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.012529s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_social_security_remark` [ RunTime:0.029022s ]
+[ sql ] [ SQL ] SELECT `mariner_id` FROM `sino_social_security_remark` WHERE  `mariner_id` = 8 LIMIT 1 [ RunTime:0.001492s ]
+[ sql ] [ SQL ] INSERT INTO `sino_social_security_remark` (`mariner_id` , `remark`) VALUES (8 , '备注') [ RunTime:0.026489s ]
+---------------------------------------------------------------
+[ 2018-04-27T19:34:04+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：7.118051s][吞吐率：0.14req/s] [内存消耗：2,119.88kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------515311629806642637464315',
+  'postman-token' => '0226cfbd-0c92-4023-b8aa-488ae0767199',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:547]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:551]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:558]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:560]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016371s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.027256s ]
+[ sql ] [ SQL ] SELECT `b`.`id`,`b`.`cid`,`b`.`name`,`b`.`id_number`,min(starttime) firsttime,max(starttime) starttime FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` LIMIT 0,15 [ RunTime:0.003335s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 8 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002321s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured_stop` [ RunTime:0.020700s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 8 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001766s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 9 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001794s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 9 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002048s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 13 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001977s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 13 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002408s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 14 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002177s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 14 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001285s ]
+---------------------------------------------------------------
+[ 2018-04-27T19:34:43+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：7.113987s][吞吐率：0.14req/s] [内存消耗：2,119.88kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------809185059141194391569604',
+  'postman-token' => '57078196-2ae4-4ec6-84e8-f42679de65af',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:547]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:551]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:558]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:560]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.012503s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.025400s ]
+[ sql ] [ SQL ] SELECT `b`.`id`,`b`.`cid`,`b`.`name`,`b`.`id_number`,min(starttime) firsttime,max(starttime) starttime FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` LIMIT 0,15 [ RunTime:0.003752s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 8 ORDER BY starttime desc LIMIT 1 [ RunTime:0.003742s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured_stop` [ RunTime:0.019354s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 8 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001709s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 9 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002743s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 9 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002579s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 13 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002740s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 13 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001313s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 14 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001250s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 14 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001599s ]
+---------------------------------------------------------------
+[ 2018-04-27T19:39:48+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：7.169603s][吞吐率：0.14req/s] [内存消耗：2,120.56kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------567958395161563393006344',
+  'postman-token' => 'fc50affb-3597-49e2-992e-67c1572b215d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:547]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:551]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:558]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:560]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.024108s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.053636s ]
+[ sql ] [ SQL ] SELECT `b`.`id`,`b`.`cid`,`b`.`name`,`b`.`id_number`,min(starttime) firsttime,max(starttime) starttime FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` LIMIT 0,15 [ RunTime:0.003665s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 8 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001693s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured_stop` [ RunTime:0.034999s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 8 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001514s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 9 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002894s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 9 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002550s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 13 ORDER BY starttime desc LIMIT 1 [ RunTime:0.003027s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 13 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001249s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 14 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001960s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 14 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001818s ]
+---------------------------------------------------------------
+[ 2018-04-27T19:40:24+08:00 ] 192.168.10.108 POST /public/index.php/api/Social/listInsured
+[ info ] 192.168.10.108:807/public/index.php/api/Social/listInsured [运行时间：7.140417s][吞吐率：0.14req/s] [内存消耗：2,120.63kb] [文件加载：58]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Social',
+    2 => 'listInsured',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.108:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------474813605182880454632439',
+  'postman-token' => '3de919dd-a96f-41f8-8eea-e7b626a784c9',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Social->listInsured[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:542]
+[ error ] [8]未定义数组索引: idNumber[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:543]
+[ error ] [8]未定义数组索引: cid[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:547]
+[ error ] [8]未定义数组索引: area[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:551]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:558]
+[ error ] [8]未定义数组索引: page[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Social.php:560]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016436s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured` [ RunTime:0.024227s ]
+[ sql ] [ SQL ] SELECT `b`.`id`,`b`.`cid`,`b`.`name`,`b`.`id_number`,min(starttime) firsttime,max(starttime) starttime FROM `sino_insured` `a` LEFT JOIN `sino_mariner` `b` ON `a`.`mariner_id`=`b`.`id` GROUP BY `mariner_id` LIMIT 0,15 [ RunTime:0.003150s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 8 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002107s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_insured_stop` [ RunTime:0.054543s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 8 ORDER BY starttime desc LIMIT 1 [ RunTime:0.002422s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 9 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001788s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 9 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001789s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 13 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001130s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 13 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001888s ]
+[ sql ] [ SQL ] SELECT `area` FROM `sino_insured` WHERE  `mariner_id` = 14 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001156s ]
+[ sql ] [ SQL ] SELECT `starttime` FROM `sino_insured_stop` WHERE  `mariner_id` = 14 ORDER BY starttime desc LIMIT 1 [ RunTime:0.001272s ]

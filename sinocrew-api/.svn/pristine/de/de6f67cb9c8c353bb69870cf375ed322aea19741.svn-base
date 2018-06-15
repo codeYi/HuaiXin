@@ -1,0 +1,356 @@
+<?php
+/**
+ * @desc Created by PhpStorm.
+ * @author: CodeYi
+ * @since: 2018-04-13 18:28
+ */
+namespace app\api\common;
+use think\Controller;
+use think\Request;
+use think\Session;
+use think\Url;
+use think\Loader;
+use think\Db;
+
+/**
+ * 基类控制器
+ * Class Base
+ * @package app\api\common
+ */
+class Base extends Controller
+{
+    //Request实例
+    protected $request;
+    //是否进行权限验证
+    protected $is_cehck_rule = true;
+    //保存用户信息
+    protected $user = [];
+    //待审批数量
+    protected $number = 0;
+    protected $create = 1;
+    protected $isMariner;
+    protected static $id;
+    protected static $idnumber;
+    protected static $listRows;
+
+    /**
+     * 构造函数
+     * Base constructor.
+     * @param Request|null $request
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function __construct(Request $request = null)
+    {
+        parent::__construct($request);
+        //直接实例化request类方便后期调用
+        $this->request = $request;
+        //判断是否是post请求
+        if(!($request->isPost())) return error_data('请求错误');
+        self::$listRows = 15;
+        if($this->isMariner) $this->isMariner = Session::get('is_mariner');
+        //每月1号生成所有社保费用数据
+        if(date('d',time()) == 1 && $this->create){
+            $info = Db::name('insured')
+                ->alias('a')
+                ->field("a.mariner_id,a.area,max(a.starttime) starttime,max(b.starttime) stoptime")
+                ->join('insured_stop b','a.mariner_id=b.mariner_id','LEFT')
+                ->join('mariner c','a.mariner_id=c.id','LEFT')
+                ->where(['is_stop'=>0])
+                ->group('a.mariner_id')
+                ->select();
+            $insert = [];
+            foreach ($info as $k=>&$v) {
+                $socialTotal = 0;//社保合计
+                $totalPerson = 0;//个人合计
+                $totalCompany = 0;//公司合计
+                $addPerson = 0;//个人添加项
+                $addCompany = 0;//公司添加项
+                $finalPerson = 0;//实际个人
+                $finalCompany = 0;//实际公司
+                $final = 0;//合计
+                //是否停保
+                if($v['stoptime'] > $v['starttime']) continue;
+                $areaInfo = Db::name('social_security')
+                    ->where(['area' => $v['area'], 'starttime' => ['ELT', date('Y-m', time()), 'endtime' => ['EGT', date('Y-m', time())]]])
+                    ->order('starttime desc')
+                    ->find();
+                $setInfo = Db::name('social_security_set')
+                    ->where(['pid' => $areaInfo['id']])
+                    ->select();
+                $data = [];
+                foreach ($setInfo as $key => $value) {
+                    if ($value['title'] == "养老保险") {
+                        $data['yanglao_company'] = $value['base_company'] * $value['rate_company'];
+                        $data['yanglao_person'] = $value['base_person'] * $value['rate_person'];
+                        $socialTotal += $data['yanglao_company'];
+                        $socialTotal += $data['yanglao_person'];
+                        $totalPerson += $data['yanglao_person'];
+                        $totalCompany += $data['yanglao_person'];
+                    } elseif ($value['title'] == "生育保险") {
+                        $data['shengyu_company'] = $value['base_company'] * $value['rate_company'];
+                        $data['shengyu_person'] = $value['base_person'] * $value['rate_person'];
+
+                        $totalPerson += $data['shengyu_person'];
+                        $totalCompany += $data['shengyu_company'];
+                    } elseif ($value['title'] == "工伤保险") {
+                        $data['gongshang_company'] = $value['base_company'] * $value['rate_company'];
+                        $data['gongshang_person'] = $value['base_person'] * $value['rate_person'];
+                        $totalPerson += $data['gongshang_person'];
+                        $totalCompany += $data['gongshang_company'];
+                    } elseif ($value['title'] == "失业保险") {
+                        $data['shiye_company'] = $value['base_company'] * $value['rate_company'];
+                        $data['shiye_person'] = $value['base_person'] * $value['rate_person'];
+                        $totalPerson += $data['shiye_person'];
+                        $totalCompany += $data['shiye_company'];
+                    } elseif ($value['title'] == "医疗保险") {
+                        $data['yiliao_company'] = $value['base_company'] * $value['rate_company'];
+                        $data['yiliao_person'] = $value['base_person'] * $value['rate_person'];
+                        $totalPerson += $data['yiliao_person'];
+                        $totalCompany += $data['yiliao_company'];
+                    } else {
+                        $addPerson += $value['base_person'] * $value['rate_person'];
+                        $addCompany += $value['base_company'] * $value['rate_company'];
+                    }
+                    $socialTotal += $totalCompany;
+                    $socialTotal += $totalPerson;
+                    $finalPerson += $totalPerson + $addPerson;
+                    $finalCompany += $totalCompany + $addCompany;
+                    $final += $finalPerson + $finalCompany;
+                }
+                $data['mariner_id'] = $v['mariner_id'];
+                $data['area'] = $v['area'];
+                $data['pay_month'] = date('Y-m',time());
+                $data['first_date'] = $v['starttime'];
+                $data['add_company'] = $addCompany;
+                $data['add_person'] = $addPerson;
+                $data['else_person'] = 0;
+                $data['else_company'] = 0;
+                $data['amount_company'] = $totalCompany;
+                $data['amount_person'] = $totalPerson;
+                $data['assume_person'] = 0;
+                $data['social_total'] = $socialTotal;
+                $data['final_company'] = $finalCompany;
+                $data['final_person'] = $finalPerson;
+                $data['receipt'] = 0;
+                $data['final'] = $final;
+                $data['debt'] = $finalPerson;
+                $data['remark'] = "";
+                $insert[] = $data;
+            }
+            Db::name('social_info')->insertAll($insert);
+            $this->create = 0;
+        }
+        if(date('d',time()) != 1) $this->create = 1;
+        $userInfo = cookie('user');
+        if(!$userInfo){
+            return error_data('请登录');
+        }
+        self::$id = Session::get('id');
+        self::$idnumber = $userInfo['id_number'];
+        //获取需要审批的数量
+
+        //用户信息
+        $this->user = cookie('user');
+        //获取用户的角色id
+        $roleId = Db::name('role_user')->where(['user_id'=>$userInfo['id']])->value('role_id');
+        $privilege = Db::name('access')
+            ->alias('a')
+            ->field('b.title')
+            ->join('node b','a.node_id = b.id','LEFT')
+            ->where(['role_id'=>$roleId])
+            ->select();
+        //控制器、方法
+        if($roleId == 1) $this->is_cehck_rule = FALSE;
+        if($this->is_cehck_rule) {
+//            $module = mb_strtolower($this->request->module());
+            $controller = mb_strtolower($this->request->controller());
+            $action = mb_strtolower($this->request->action());
+            $now = $controller . '/' . $action;
+            //首页的功能列表可以查看
+            if (($controller == "index") && ($action == "menulist")) {
+               array_push($privilege,'index/menulist');
+            }
+            //权限判断 无权限无法操作
+            if ( empty($privilege)||!in_array($now, $privilege)) {
+                header('Content-type: text/html; charset=utf-8');
+               echo '没有权限';die();
+            }
+        }
+    }
+
+    /**
+     * 验证token
+     * @return array
+     */
+    public function checkToken()
+    {
+        $token = Session::get("token");
+        $getToken = $this->request->post("token");
+        if ($token != $getToken) {
+            $this->msg("请不要重复提交", "数据提交", "error");
+        }
+    }
+
+    /**
+     * 统一的信息打印
+     * @param $msg
+     * @param $title
+     * @param string $status
+     */
+    public function msg($msg='', $title='', $status = "success")
+    {
+        if ($status == "success") {
+            $this->deleteToken();
+        }
+        exit(json_encode([
+            "status" => $status,
+            "msg" => $msg,
+            "title" => $title
+        ]));
+    }
+
+    /**
+     * 删除token
+     */
+    public function deleteToken()
+    {
+        Session::delete("token");
+    }
+
+    /**
+     * 生成token
+     * @return string
+     */
+    public function buildToken()
+    {
+        $md5 = md5(md5(time() . chr(rand(65, 90)) . rand(1, 1000)) . rand(1, 1000));
+        Session::set("token", $md5);
+        return $md5;
+    }
+
+
+    /**
+     * 成功
+     * @param $name
+     * @param $value
+     */
+    public function successSessionMsg($value)
+    {
+        Session::flash("success",$value);
+        $this->msg();
+    }
+
+    /**
+     * 导出Excel文件
+     * @param string $fileName
+     * @param array $headArr
+     * @param array $data
+     * @throws \PHPExcel_Exception
+     * @throws \PHPExcel_Reader_Exception
+     * @throws \PHPExcel_Writer_Exception
+     */
+    public function excelExport($fileName = '', $headArr = [], $data = []) {
+        $fileName .= "_" . date("Y_m_d", Request::instance()->time()) . ".xls";
+        //引入PHPExcel类
+        Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
+        $objPHPExcel = new \PHPExcel();
+        $objPHPExcel->getProperties();
+
+        $key = ord("A"); // 设置表头
+        foreach ($headArr as $v) {
+            $colum = chr($key);
+            $objPHPExcel->setActiveSheetIndex(0)->setCellValue($colum . '1', $v);
+            $key += 1;
+        }
+        $column = 2;
+        $objActSheet = $objPHPExcel->getActiveSheet();
+        foreach ($data as $key => $rows) { // 行写入
+            $span = ord("A");
+            foreach ($rows as $keyName => $value) { // 列写入
+                $objActSheet->setCellValue(chr($span) . $column, $value);
+                $span++;
+            }
+            $column++;
+        }
+        $fileName = iconv("utf-8", "gb2312", $fileName); // 重命名表
+        $objPHPExcel->setActiveSheetIndex(0); // 设置活动单指数到第一个表,所以Excel打开这是第一个表
+        header('Content-Type: application/vnd.ms-excel');
+        header("Content-Disposition: attachment;filename='$fileName'");
+        header('Cache-Control: max-age=0');
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+        $objWriter->save('php://output'); // 文件通过浏览器下载
+        exit();
+    }
+
+    /**
+     * 获取姓名简称
+     * @param $name
+     * @return string
+     */
+    public function staffList($name = "")
+    {
+        return abbreviation($name);
+    }
+
+    /**
+     * 模糊搜索下拉
+     * @param $table
+     * @param $field
+     * @param $condition
+     * @return \think\response\Json
+     */
+    public function search($table,$field,$condition)
+    {
+       $info =  Db::name($table)->where(["$field"=>['LIKE',"%$condition%"]])->column($field);
+        if(empty($info)) return error_data("暂无数据");
+        $result = array_slice(array_unique($info),0,self::$listRows,false);
+        $res = [
+           'data'=>$result
+       ];
+       return json($res);
+    }
+
+    /**
+     * 删除操作
+     * @param $table
+     * @return \think\response\Json
+     * @throws \think\Exception
+     * @throws \think\exception\PDOException
+     */
+    public function delete($table)
+    {
+        $id = input('id/a');
+        if($id == 1) return error_data('超级管理员不允许删除');
+        $res = Db::name($table)->where(['id'=>['IN',$id]])->delete();
+        if($res) return ok_data("删除成功");
+        return error_data();
+    }
+
+    /**
+     * 上传类
+     * @param $path
+     * @param array $ext
+     * @return array
+     */
+    protected function upload($path, array $ext)
+    {
+        if ($_FILES) {
+            $key = array_keys($_FILES);
+            $file = request()->file($key[0]);
+            $arr = explode('.', $_FILES[$key[0]]['name']);
+            if (!in_array(strtolower(end($arr)), $ext)) return ['error' => 1, 'msg' => '文件类型不符'];
+            if (!$file->checkSize(8388608)) return ['error' => 1, 'msg' => '文件过大,上限8MB'];
+            $info = $file->rule('date')->move(ROOT_PATH . 'public' . DS . 'uploads' . DS . $path);
+            if ($info) {
+                return ['status' => '200', 'msg' => SITE . $path . '/' . $info->getSaveName()];
+            } else {
+                return ['status' => '001', 'msg' => $info->getError()];
+            }
+        } else {
+            return ['status' => '002', 'msg' => '没有选择文件'];
+        }
+    }
+
+}

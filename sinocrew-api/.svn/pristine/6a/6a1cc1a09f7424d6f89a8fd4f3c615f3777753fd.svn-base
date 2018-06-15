@@ -1,0 +1,260 @@
+---------------------------------------------------------------
+[ 2018-04-23T19:06:19+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/detailVessel?id&id=1
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/detailVessel?id&id=1 [运行时间：7.571730s][吞吐率：0.13req/s] [内存消耗：2,045.49kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'detailVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------047205392456397462419760',
+  'postman-token' => '005885e6-2fea-4cc9-8d3d-622903cd2e17',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->detailVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.043963s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.157405s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_vessel` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.002381s ]
+---------------------------------------------------------------
+[ 2018-04-23T20:07:16+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/detailVessel?id=&id=1
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/detailVessel?id=&id=1 [运行时间：7.072347s][吞吐率：0.14req/s] [内存消耗：2,045.42kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'detailVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------129546768033257528508586',
+  'postman-token' => 'd3aa52dd-562e-4a61-8e4c-0c493a69d604',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->detailVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.022602s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.019271s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_vessel` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001873s ]
+---------------------------------------------------------------
+[ 2018-04-23T20:09:27+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/editVessel?id=&title=Poplar%20Arrmm
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/editVessel?id=&title=Poplar%20Arrmm [运行时间：0.021755s][吞吐率：45.97req/s] [内存消耗：1,439.27kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------016176905739725908870944',
+  'postman-token' => 'feb8b869-760f-4b0e-8f49-232841055931',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+  'title' => 'Poplar Arrmm',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-23T20:10:00+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/editVessel?id=&title=Poplar%20Arrmm
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/editVessel?id=&title=Poplar%20Arrmm [运行时间：7.126150s][吞吐率：0.14req/s] [内存消耗：2,086.34kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '166',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------033738859212399293116595',
+  'postman-token' => 'a17b48cc-87ab-49c0-b4f4-f421c82eb7fa',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+  'title' => 'torrow',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:295]
+[ error ] [8]未定义数组索引: attribute[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:299]
+[ error ] [8]未定义数组索引: fleet[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:300]
+[ error ] [8]未定义数组索引: developDate[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:301]
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:303]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.012402s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.052667s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'torrow'  AND `id` <> null LIMIT 1 [ RunTime:0.002714s ]
+[ sql ] [ SQL ] UPDATE `sino_vessel`  SET `title`='torrow',`attribute`=NULL,`fleet`=NULL,`develop_date`=''  WHERE  `id` IS NULL [ RunTime:0.002679s ]
+---------------------------------------------------------------
+[ 2018-04-23T20:10:15+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/editVessel?id=&title=Poplar%20Arrmm
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/editVessel?id=&title=Poplar%20Arrmm [运行时间：7.098323s][吞吐率：0.14req/s] [内存消耗：2,161.84kb] [文件加载：63]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '268',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------706142892193489888779915',
+  'postman-token' => 'bf220aa1-8603-4b57-acf2-508c5c45641d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+  'title' => 'torrow',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008641s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.019743s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'torrow'  AND `id` <> 1 LIMIT 1 [ RunTime:0.001710s ]
+[ error ] [8]未定义数组索引: attribute[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:299]
+[ error ] [8]未定义数组索引: fleet[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:300]
+[ error ] [8]未定义数组索引: developDate[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:301]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'attribute' cannot be null[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-23T20:10:29+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/editVessel?id=&title=Poplar%20Arrmm
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/editVessel?id=&title=Poplar%20Arrmm [运行时间：7.072477s][吞吐率：0.14req/s] [内存消耗：2,162.12kb] [文件加载：63]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '382',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------013895943852346347933243',
+  'postman-token' => '7f3cb2d0-b20c-41b9-bf35-6f5752651770',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+  'title' => 'torrow',
+  'attribute' => '整船',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008731s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.020051s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'torrow'  AND `id` <> 1 LIMIT 1 [ RunTime:0.002774s ]
+[ error ] [8]未定义数组索引: fleet[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:300]
+[ error ] [8]未定义数组索引: developDate[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:301]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'fleet' cannot be null[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-23T20:10:51+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/editVessel?id=&title=Poplar%20Arrmm
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/editVessel?id=&title=Poplar%20Arrmm [运行时间：7.121099s][吞吐率：0.14req/s] [内存消耗：2,157.16kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'editVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '490',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'PHPSESSID=6b2ju448p6m3gtuu4jdo5l31m4',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------017290730504647859789775',
+  'postman-token' => 'c2b019d3-f573-4de1-85bf-a3c82ece1992',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+  'title' => 'torrow',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->editVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008985s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.021754s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = 'torrow'  AND `id` <> 1 LIMIT 1 [ RunTime:0.002054s ]
+[ sql ] [ SQL ] UPDATE `sino_vessel`  SET `title`='torrow',`attribute`='整船',`fleet`='A队',`develop_date`=''  WHERE  `id` = 1 [ RunTime:0.056561s ]
+[ error ] [8]未定义数组索引: developDate[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:301]

@@ -1,0 +1,19 @@
+<?php
+/**
+ * @desc Created by PhpStorm.
+ * @author: 蒹葭苍苍
+ * @since: 2018-04-12 18:59
+ */
+namespace app\api\controller;
+use app\api\common\Base;
+use think\Db;
+
+/**
+ * 首页控制器
+ * Class Index
+ * @package app\api\controller
+ */
+class Index extends Base
+{
+
+}

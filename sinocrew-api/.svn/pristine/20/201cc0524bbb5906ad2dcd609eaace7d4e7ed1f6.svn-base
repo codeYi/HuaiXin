@@ -1,0 +1,1299 @@
+---------------------------------------------------------------
+[ 2018-04-21T10:10:08+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/dutyMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/dutyMariner [运行时间：7.414565s][吞吐率：0.13req/s] [内存消耗：2,038.31kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'dutyMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9032',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------394199730852675837277195',
+  'postman-token' => '71ee5647-1b52-44ec-bab5-06103f8d7a33',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->dutyMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.025624s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.029858s ]
+[ sql ] [ SQL ] SELECT `duty` FROM `sino_mariner` [ RunTime:0.001722s ]
+---------------------------------------------------------------
+[ 2018-04-21T10:10:57+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/dutyMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/dutyMariner [运行时间：7.078654s][吞吐率：0.14req/s] [内存消耗：2,038.20kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'dutyMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9032',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------219151681522199340761798',
+  'postman-token' => '25ce17ce-e5d9-48cc-af42-80efcb97a4ac',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->dutyMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.011021s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.041375s ]
+[ sql ] [ SQL ] SELECT `duty` FROM `sino_mariner` [ RunTime:0.001068s ]
+---------------------------------------------------------------
+[ 2018-04-21T10:23:14+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/listMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/listMariner [运行时间：7.157502s][吞吐率：0.14req/s] [内存消耗：2,090.02kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9032',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------060129687500703566627591',
+  'postman-token' => 'd4648c60-5f44-4e9a-a7b8-749ca30cb1d9',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:419]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:423]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016465s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.037933s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_mariner` ORDER BY `duty` LIMIT 1 [ RunTime:0.027645s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` ORDER BY `duty` LIMIT 0,15 [ RunTime:0.006395s ]
+---------------------------------------------------------------
+[ 2018-04-21T10:31:45+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/listMariner?id&idNumber=42112119930724241
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/listMariner?id&idNumber=42112119930724241 [运行时间：7.080147s][吞吐率：0.14req/s] [内存消耗：2,090.40kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9032',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------557256451688120234083129',
+  'postman-token' => '983fcbdd-f72e-4cae-8c38-db96a95cb140',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+  'idNumber' => '42112119930724241',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:419]
+[ error ] [8]未定义变量: where[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:423]
+[ sql ] [ DB ] CONNECT:[ UseTime:7.020812s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.026611s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_mariner` ORDER BY `duty` LIMIT 1 [ RunTime:0.001628s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` ORDER BY `duty` LIMIT 0,15 [ RunTime:0.002169s ]
+---------------------------------------------------------------
+[ 2018-04-21T10:32:25+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/listMariner?id&idNumber=42112119930724241
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/listMariner?id&idNumber=42112119930724241 [运行时间：7.089432s][吞吐率：0.14req/s] [内存消耗：2,050.94kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9032',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------297036951189656557750272',
+  'postman-token' => '1b931ee5-965f-4d6f-a111-a18341471044',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+  'idNumber' => '42112119930724241',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016251s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.035687s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_mariner` WHERE  `id_number` = '42112119930724241' ORDER BY `duty` LIMIT 1 [ RunTime:0.003002s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `id_number` = '42112119930724241' ORDER BY `duty` LIMIT 0,15 [ RunTime:0.003429s ]
+---------------------------------------------------------------
+[ 2018-04-21T10:32:37+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/listMariner?id&idNumber=421121199307242412
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/listMariner?id&idNumber=421121199307242412 [运行时间：7.096545s][吞吐率：0.14req/s] [内存消耗：2,051.56kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9032',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------520153404370495489637439',
+  'postman-token' => 'ec6220b2-9ab1-4eef-9117-4318d408c812',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+  'idNumber' => '421121199307242412',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017204s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.051321s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_mariner` WHERE  `id_number` = '421121199307242412' ORDER BY `duty` LIMIT 1 [ RunTime:0.002170s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `id_number` = '421121199307242412' ORDER BY `duty` LIMIT 0,15 [ RunTime:0.002301s ]
+---------------------------------------------------------------
+[ 2018-04-21T10:38:43+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/dutyMariner?id&idNumber=421121199307242412
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/dutyMariner?id&idNumber=421121199307242412 [运行时间：7.076412s][吞吐率：0.14req/s] [内存消耗：2,042.55kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'dutyMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9032',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------504336320459805107960641',
+  'postman-token' => '378be816-059c-455b-972c-8504e3418a30',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+  'idNumber' => '421121199307242412',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->dutyMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015817s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.026342s ]
+[ sql ] [ SQL ] SELECT `duty` FROM `sino_mariner` [ RunTime:0.001234s ]
+---------------------------------------------------------------
+[ 2018-04-21T10:38:50+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/dutyMariner?idNumber=421121199307242412
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/dutyMariner?idNumber=421121199307242412 [运行时间：7.090383s][吞吐率：0.14req/s] [内存消耗：2,042.33kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'dutyMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '9032',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------377510360536391453737119',
+  'postman-token' => 'ccad7a91-3125-49f8-bcc0-5da081a4e403',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'idNumber' => '421121199307242412',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->dutyMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017296s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.043419s ]
+[ sql ] [ SQL ] SELECT `duty` FROM `sino_mariner` [ RunTime:0.002194s ]
+---------------------------------------------------------------
+[ 2018-04-21T10:39:52+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/getMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/getMariner [运行时间：7.547131s][吞吐率：0.13req/s] [内存消耗：2,091.27kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'getMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '168',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------895734364039124720168762',
+  'postman-token' => '19ab3998-7f4f-4bda-9250-d4697c117921',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'abbreviation' => 'z',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->getMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.010521s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.506234s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `abbreviation` LIKE 'z%' LIMIT 10 [ RunTime:0.003007s ]
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:201]
+[ error ] [8]未定义数组索引: name[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:202]
+[ error ] [8]未定义数组索引: id_number[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:202]
+[ error ] [8]未定义数组索引: duty[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:202]
+---------------------------------------------------------------
+[ 2018-04-21T10:40:06+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/getMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/getMariner [运行时间：7.091861s][吞吐率：0.14req/s] [内存消耗：2,091.31kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'getMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '169',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------531151827858211270924788',
+  'postman-token' => '6544afe7-b782-4bc1-bddd-fae597083ee2',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'abbreviation' => 'zs',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->getMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008253s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.053344s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `abbreviation` LIKE 'zs%' LIMIT 10 [ RunTime:0.003376s ]
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:201]
+[ error ] [8]未定义数组索引: name[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:202]
+[ error ] [8]未定义数组索引: id_number[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:202]
+[ error ] [8]未定义数组索引: duty[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:202]
+---------------------------------------------------------------
+[ 2018-04-21T10:40:36+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/getMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/getMariner [运行时间：0.034128s][吞吐率：29.30req/s] [内存消耗：1,467.63kb] [文件加载：49]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'getMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '169',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------831070676436981670939524',
+  'postman-token' => '93d2678d-178b-4ee0-9195-e168193e2bbd',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'abbreviation' => 'zs',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->getMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-21T10:41:21+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/getMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/getMariner [运行时间：7.115304s][吞吐率：0.14req/s] [内存消耗：2,091.36kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'getMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '169',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------054402533025273888198464',
+  'postman-token' => 'bff6e533-c87f-4f6f-99ba-9a0bd93e56c4',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'abbreviation' => 'zs',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->getMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.018147s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.059637s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `abbreviation` LIKE '%zs%' LIMIT 10 [ RunTime:0.003105s ]
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:201]
+[ error ] [8]未定义数组索引: name[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:202]
+[ error ] [8]未定义数组索引: id_number[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:202]
+[ error ] [8]未定义数组索引: duty[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:202]
+---------------------------------------------------------------
+[ 2018-04-21T10:41:47+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/getMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/getMariner [运行时间：7.054666s][吞吐率：0.14req/s] [内存消耗：2,091.36kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'getMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '169',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------900158153627955139950930',
+  'postman-token' => 'b37fe4cc-599e-48b0-9788-c2241f2369db',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'abbreviation' => 'zs',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->getMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007654s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.021444s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `abbreviation` LIKE '%zs%' LIMIT 10 [ RunTime:0.002285s ]
+[ error ] [8]未定义数组索引: id[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:201]
+[ error ] [8]未定义数组索引: name[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:202]
+[ error ] [8]未定义数组索引: id_number[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:202]
+[ error ] [8]未定义数组索引: duty[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:202]
+---------------------------------------------------------------
+[ 2018-04-21T10:42:03+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/getMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/getMariner [运行时间：7.074626s][吞吐率：0.14req/s] [内存消耗：2,054.33kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'getMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '169',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------241506918739836444710294',
+  'postman-token' => 'c45e96f6-d0a7-488a-bfd0-4ccba5c97f54',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'abbreviation' => 'zs',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->getMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016435s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.027409s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `abbreviation` LIKE '%zs%' LIMIT 10 [ RunTime:0.002242s ]
+---------------------------------------------------------------
+[ 2018-04-21T10:42:22+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/getMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/getMariner [运行时间：7.088038s][吞吐率：0.14req/s] [内存消耗：2,054.20kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'getMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '169',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------484089728894702257995038',
+  'postman-token' => '7ef4064e-49b9-4adf-8658-e4c4542eece8',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'abbreviation' => 'zs',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->getMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017275s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.044122s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `abbreviation` LIKE 'zs%' LIMIT 10 [ RunTime:0.002271s ]
+---------------------------------------------------------------
+[ 2018-04-21T10:42:49+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/getMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/getMariner [运行时间：7.061793s][吞吐率：0.14req/s] [内存消耗：2,049.45kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'getMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '169',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------743382133324050642704892',
+  'postman-token' => '29998053-7ad5-4f21-9da9-90f9cbfe2296',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'abbreviation' => 'zs',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->getMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.014043s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.022239s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `abbreviation` LIKE 'zs%' LIMIT 10 [ RunTime:0.002551s ]
+---------------------------------------------------------------
+[ 2018-04-21T10:43:35+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/getMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/getMariner [运行时间：7.086028s][吞吐率：0.14req/s] [内存消耗：2,049.55kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'getMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '169',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------431838013407191891360446',
+  'postman-token' => 'cfc3627f-a513-4ede-ae70-fd56eb95e021',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'abbreviation' => 'zs',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->getMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016358s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.039415s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `abbreviation` LIKE 'zs%' LIMIT 10 [ RunTime:0.002543s ]
+---------------------------------------------------------------
+[ 2018-04-21T10:45:55+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/getMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/getMariner [运行时间：7.073112s][吞吐率：0.14req/s] [内存消耗：2,049.91kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'getMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '169',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------426980034204693136793924',
+  'postman-token' => '6fe3b7d3-c0f4-46a5-b35d-702ea60beb64',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'abbreviation' => 'zs',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->getMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.018412s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.021075s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `abbreviation` LIKE 'zs%' LIMIT 10 [ RunTime:0.001947s ]
+---------------------------------------------------------------
+[ 2018-04-21T10:46:38+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/getMariner
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/getMariner [运行时间：7.074589s][吞吐率：0.14req/s] [内存消耗：2,049.98kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'getMariner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '169',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------537402981895808959173658',
+  'postman-token' => 'd64707b4-c18f-4df1-8c7b-e671a3ec069b',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'abbreviation' => 'zs',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->getMariner[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016880s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_mariner` [ RunTime:0.025825s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_mariner` WHERE  `abbreviation` LIKE 'zs%' LIMIT 10 [ RunTime:0.002739s ]
+---------------------------------------------------------------
+[ 2018-04-21T10:50:44+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addVessel [运行时间：7.215583s][吞吐率：0.14req/s] [内存消耗：2,092.54kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '512',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------927141786019857442702986',
+  'postman-token' => '5d92a0cf-f17a-44cf-a5a5-01ffc923512f',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '海盗号',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+  'develop_date' => '2018-04-19',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.021140s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.093347s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号' LIMIT 1 [ RunTime:0.002841s ]
+[ error ] [8]未定义数组索引: developDate[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:223]
+[ error ] [10501]SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'develop_date' at row 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-21T10:51:55+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addVessel [运行时间：0.027372s][吞吐率：36.53req/s] [内存消耗：1,170.10kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '512',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------768330564089543226015212',
+  'postman-token' => '9bd5b550-e3f0-45db-8942-23524a6f3418',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '海盗号',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+  'develop_date' => '2018-04-19',
+)
+[ info ] [ LOG ] INIT File
+[ error ] [4]语法错误: unexpected ','[D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php:225]
+---------------------------------------------------------------
+[ 2018-04-21T10:52:09+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addVessel [运行时间：7.080038s][吞吐率：0.14req/s] [内存消耗：2,048.85kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '512',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------990995851611529692559333',
+  'postman-token' => 'f03c8357-70f4-4bd0-87fd-9427a7e8b541',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '海盗号',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+  'develop_date' => '2018-04-19',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.010023s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.044628s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号' LIMIT 1 [ RunTime:0.002190s ]
+---------------------------------------------------------------
+[ 2018-04-21T10:52:49+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addVessel [运行时间：7.073256s][吞吐率：0.14req/s] [内存消耗：2,085.45kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '512',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------098776119866396565562621',
+  'postman-token' => '20a4072a-e9e4-4e56-93bd-45e17ae948fa',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '海盗号',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+  'develop_date' => '2018-04-19',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015685s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.020897s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号' LIMIT 1 [ RunTime:0.002663s ]
+[ error ] [10501]SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'develop_date' at row 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-21T10:53:06+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addVessel [运行时间：7.086913s][吞吐率：0.14req/s] [内存消耗：2,085.50kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '512',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------825213182227616102466816',
+  'postman-token' => 'af03d936-d775-4ea5-ace7-ca7b2c99f906',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '海盗号',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+  'develop_date' => '2018-04-19',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007366s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.048648s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号' LIMIT 1 [ RunTime:0.001577s ]
+[ error ] [10501]SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '0' for column 'develop_date' at row 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-21T10:54:31+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addVessel [运行时间：7.073361s][吞吐率：0.14req/s] [内存消耗：2,084.83kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '512',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------145038672165174059903882',
+  'postman-token' => 'cc913b95-7efe-41f2-8a8e-833c4d34029b',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '海盗号',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+  'develop_date' => '2018-04-19',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017741s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.026509s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号' LIMIT 1 [ RunTime:0.002061s ]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'develop_date' cannot be null[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-21T10:55:13+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addVessel [运行时间：7.069700s][吞吐率：0.14req/s] [内存消耗：2,084.84kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '512',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------462893717548908156054908',
+  'postman-token' => 'ef138201-61e7-4f62-8b20-ff8ba5b20c4a',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '海盗号',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+  'develop_date' => '2018-04-19',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008595s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.024704s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号' LIMIT 1 [ RunTime:0.002801s ]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'develop_date' cannot be null[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-21T10:55:48+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addVessel [运行时间：7.117443s][吞吐率：0.14req/s] [内存消耗：2,047.13kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '511',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------500528146632768424509865',
+  'postman-token' => '167e7915-fdab-4b3b-83e1-daafb40c43e7',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '海盗号',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+  'developDate' => '2018-04-19',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.015473s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.022060s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号' LIMIT 1 [ RunTime:0.001978s ]
+[ sql ] [ SQL ] INSERT INTO `sino_vessel` (`title` , `attribute` , `fleet` , `develop_date` , `time`) VALUES ('海盗号' , '整船' , 'A队' , '2018-04-19' , '2018-04-21 10:55:48') [ RunTime:0.052266s ]
+---------------------------------------------------------------
+[ 2018-04-21T10:56:37+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addVessel [运行时间：7.056517s][吞吐率：0.14req/s] [内存消耗：2,044.12kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '511',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------210237967341503875300317',
+  'postman-token' => 'b60b0800-9ee5-42e8-8518-6766da1e4ccb',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '海盗号',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+  'developDate' => '2018-04-19',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.006671s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.024520s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号' LIMIT 1 [ RunTime:0.001237s ]
+---------------------------------------------------------------
+[ 2018-04-21T10:56:47+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addVessel [运行时间：7.119617s][吞吐率：0.14req/s] [内存消耗：2,047.04kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '512',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------709049514523848354836746',
+  'postman-token' => 'ad9b0a3a-ad17-466a-b1e1-ea78bf98561f',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '海盗号1',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+  'developDate' => '2018-04-19',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.018189s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.038175s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号1' LIMIT 1 [ RunTime:0.001472s ]
+[ sql ] [ SQL ] INSERT INTO `sino_vessel` (`title` , `attribute` , `fleet` , `develop_date` , `time`) VALUES ('海盗号1' , '整船' , 'A队' , '2018-04-19' , '2018-04-21 10:56:47') [ RunTime:0.038354s ]
+---------------------------------------------------------------
+[ 2018-04-21T10:57:12+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addVessel [运行时间：7.059815s][吞吐率：0.14req/s] [内存消耗：2,085.33kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '502',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------995391047462272311812174',
+  'postman-token' => 'd95a6843-1070-4b65-9b28-27d05256a1ce',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '海盗号2',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+  'developDate' => '',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.007068s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.025178s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号2' LIMIT 1 [ RunTime:0.001268s ]
+[ error ] [10501]SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'develop_date' at row 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-21T11:01:46+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addVessel [运行时间：7.127306s][吞吐率：0.14req/s] [内存消耗：2,085.48kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '502',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------013822299144012491780344',
+  'postman-token' => '18344187-85eb-4b45-acf0-7a8c1405432c',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '海盗号2',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+  'developDate' => '',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.013629s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.072396s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号2' LIMIT 1 [ RunTime:0.002947s ]
+[ error ] [10501]SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: '0' for column 'develop_date' at row 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-21T11:02:15+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addVessel [运行时间：7.086468s][吞吐率：0.14req/s] [内存消耗：2,085.34kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '502',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------833820995431204092164442',
+  'postman-token' => 'b20c01fc-6959-4643-bf4b-747897cdc6ab',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '海盗号2',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+  'developDate' => '',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017165s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.039603s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号2' LIMIT 1 [ RunTime:0.001685s ]
+[ error ] [10501]SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: '' for column 'develop_date' at row 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-21T11:03:36+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addVessel [运行时间：7.074041s][吞吐率：0.14req/s] [内存消耗：2,084.98kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '502',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------939192119200159713365865',
+  'postman-token' => 'df6c3b32-a2ca-42fa-b49a-e8267125985d',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '海盗号2',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+  'developDate' => '',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.017942s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.024856s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号2' LIMIT 1 [ RunTime:0.001421s ]
+[ error ] [10501]SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: '' for column 'develop_date' at row 1[D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\library\think\db\Connection.php:456]
+---------------------------------------------------------------
+[ 2018-04-21T11:05:32+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addVessel [运行时间：7.068873s][吞吐率：0.14req/s] [内存消耗：2,048.28kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '502',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------596649186272241211837260',
+  'postman-token' => '9c2fb9f8-d567-4622-bdc4-29edae8f3e09',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '海盗号2',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+  'developDate' => '',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.016023s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.024030s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号2' LIMIT 1 [ RunTime:0.002043s ]
+---------------------------------------------------------------
+[ 2018-04-21T11:06:20+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/addVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/addVessel [运行时间：7.125566s][吞吐率：0.14req/s] [内存消耗：2,046.52kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'addVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '502',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------169819069430418740799467',
+  'postman-token' => 'fb2caad3-70c6-4fa7-a327-255e3988af81',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+  'title' => '海盗号2',
+  'attribute' => '整船',
+  'fleet' => 'A队',
+  'developDate' => '',
+)
+[ info ] [ RUN ] app\api\controller\Mariner->addVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.022129s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.036318s ]
+[ sql ] [ SQL ] SELECT `id` FROM `sino_vessel` WHERE  `title` = '海盗号2' LIMIT 1 [ RunTime:0.001503s ]
+[ sql ] [ SQL ] INSERT INTO `sino_vessel` (`title` , `attribute` , `fleet` , `develop_date` , `time`) VALUES ('海盗号2' , '整船' , 'A队' , '' , '2018-04-21 11:06:20') [ RunTime:0.043913s ]
+---------------------------------------------------------------
+[ 2018-04-21T11:10:11+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/listVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/listVessel [运行时间：7.078630s][吞吐率：0.14req/s] [内存消耗：2,048.27kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------556896221598147730915930',
+  'postman-token' => 'fb662ff6-c3aa-420a-8947-629a220b7f73',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.019662s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.021316s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_vessel` WHERE  `title` LIKE '%%' ORDER BY `develop_date` [ RunTime:0.002038s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_vessel` WHERE  `title` LIKE '%%' ORDER BY `develop_date` LIMIT 0,15 [ RunTime:0.002337s ]
+---------------------------------------------------------------
+[ 2018-04-21T11:10:42+08:00 ] 192.168.10.106 POST /public/index.php/api/Mariner/listVessel
+[ info ] 192.168.10.106:807/public/index.php/api/Mariner/listVessel [运行时间：7.064565s][吞吐率：0.14req/s] [内存消耗：2,048.81kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\sinocrew\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Mariner',
+    2 => 'listVessel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'content-length' => '0',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => '192.168.10.106:807',
+  'accept' => '*/*',
+  'user-agent' => 'PostmanRuntime/6.3.2',
+  'content-type' => 'multipart/form-data; boundary=--------------------------102680888467061583049153',
+  'postman-token' => '70f2f437-81c9-4d69-a1f6-6a4997c961af',
+  'cache-control' => 'no-cache',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Mariner->listVessel[ D:\phpStudy\PHPTutorial\WWW\sinocrew\application\api\controller\Mariner.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:7.008052s ] mysql:host=bvbej;port=1521;dbname=sinocrew;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `sino_vessel` [ RunTime:0.027421s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `sino_vessel` WHERE  `title` LIKE '%%' ORDER BY `develop_date` LIMIT 1 [ RunTime:0.002595s ]
+[ sql ] [ SQL ] SELECT * FROM `sino_vessel` WHERE  `title` LIKE '%%' ORDER BY `develop_date` LIMIT 0,15 [ RunTime:0.001211s ]
