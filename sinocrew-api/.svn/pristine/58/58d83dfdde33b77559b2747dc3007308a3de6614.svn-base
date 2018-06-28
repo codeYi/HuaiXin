@@ -92,7 +92,6 @@ class Borrow extends Base
         $file = $_FILES[$key[0]]["tmp_name"];
         Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
         $PHPReader = new \PHPExcel_Reader_Excel5();
-        $shared = new \PHPExcel_Shared_Date();
         if (!$PHPReader->canRead($file)) {
             $PHPReader = new \PHPExcel_Reader_Excel2007();
             if (!$PHPReader->canRead($file)) {
@@ -142,7 +141,7 @@ class Borrow extends Base
         foreach ($info_ as $k=>$v){
             $insert[] = [
                 'mariner_id'=>$v['mariner_id'],
-                'date'=>formatTime($shared ->ExcelToPHP($v[2]),'Y-m-d'),
+                'date'=>(string)$v[2],
                 'tally'=>(string)$v[3],
                 'currency'=>(string)$v[4],
                 'amount'=>(float)$v[5],
@@ -195,7 +194,7 @@ class Borrow extends Base
                  ->count();
              $info = Db::name('borrow')
                  ->alias('a')
-                 ->field('a.id,a.mariner_id,a.date,a.tally,a.amount,a.repayment,a.reason,currency,b.name,b.id_number')
+                 ->field('a.id,a.date,a.tally,a.amount,a.repayment,a.reason,currency,b.name,b.id_number')
                  ->join('mariner b','a.mariner_id = b.id','LEFT')
                  ->where($where)
                  ->order('date')
@@ -263,7 +262,7 @@ class Borrow extends Base
         $id = input('id');
         $info = Db::name('borrow')
             ->alias('a')
-            ->field('a.id,a.mariner_id,a.date,a.tally,a.amount,a.reason,currency,b.name,b.id_number,a.changer,a.change_date')
+            ->field('a.id,a.date,a.tally,a.amount,a.reason,currency,b.name,b.id_number,a.changer,a.change_date')
             ->join('mariner b','a.mariner_id=b.id','LEFT')
             ->find($id);
         $res = [
@@ -282,7 +281,7 @@ class Borrow extends Base
     {
         if(input('amount')<= 0) return error_data("输入金额有误");
         $update = [
-            'mariner_id'=>input('mariner_id'),
+            'mariner_id'=>input('id'),
             'date'=>date("Y-m-d",strtotime(input('date'))),
             'tally'=>input('tally'),
             'currency'=>input('currency'),
@@ -388,7 +387,7 @@ class Borrow extends Base
             'finish_time'=>$finishTime,
             'person'=>$person,
             'company'=>$company,
-            'time'=>formatTime(time(),'Y-m-d')
+            'time'=>formatTime(time())
         ];
         Db::startTrans();
         try{
@@ -406,17 +405,9 @@ class Borrow extends Base
                 ];
                 $borrowId = Db::name('borrow')->insertGetId($borrow);
                 Db::name('insurance_borrow')->insert(['pid'=>$pid,'borrow_id'=>$borrowId]);
+                Db::commit();
+                return ok_data();
             }
-            $supplier = [
-                'pid'=>$supplierId,
-                'date'=>date('Y-m-d',time()),
-                'month'=>date('Y-m',time()),
-                'pay_before'=>$person+$company,
-                'pay_after'=>0
-            ];
-            Db::name('supplier_info')->insert($supplier);
-            Db::commit();
-            return ok_data();
         }catch (\Exception $e){
             Db::rollback();
             return error_data();
@@ -433,20 +424,13 @@ class Borrow extends Base
     public function listInsurance()
     {
         $id = input('id');
-        $supplier = input('supplier/a');
+        $supplier = input('supplier');
         $page = input('page');
         $page = $page?$page:1;
         $listRows = input('listRows')?input('listRows'):self::$listRows;
-        $idNumber = input('idNumber');
-        $date = input('time/a');
         $where = [];
-        if($idNumber) $where['c.id_number'] = ['LIKE',"%$idNumber%"];
-        if($date[0] && $date[1]) {
-            $where['effect_time'] = ['EGT',$date[0]];
-            $where['finish_time'] = ['ELT',$date[1]];
-        }
         if($id) $where['mariner_id'] = $id;
-        if($supplier) $where['supplier_id'] = ['IN',$supplier];
+        if($supplier) $where['supplier_id'] = $supplier;
             $list = Db::name('insurance')
                 ->alias('a')
                 ->field('a.id,c.name,c.id_number,b.title,a.effect_time,a.finish_time,a.person,a.company')
@@ -481,17 +465,26 @@ class Borrow extends Base
     {
         $id = input('id');
         $supplier = input('supplier');
-        $where = [];
         if($id) $where['mariner_id'] = $id;
         if($supplier) $where['supplier_id'] = $supplier;
+        if($where){
             $info = Db::name('insurance')
                 ->alias('a')
                 ->field('a.id,c.name,c.id_number,b.title,a.effect_time,a.finish_time,a.person,a.company')
-                ->join('supplier b', 'a.supplier_id=b.id', 'LEFT')
-                ->join('mariner c', 'a.mariner_id=c.id', 'LEFT')
+                ->join('supplier b','a.supplier_id=b.id','LEFT')
+                ->join('mariner c','a.mariner_id=c.id','LEFT')
                 ->where($where)
                 ->order('finish_time')
                 ->select();
+        }else{
+            $info = Db::name('insurance')
+                ->alias('a')
+                ->field('a.id,c.name,c.id_number,b.title,a.effect_time,a.finish_time,a.person,a.company')
+                ->join('supplier b','a.supplier_id=b.id','LEFT')
+                ->join('mariner c','a.mariner_id=c.id','LEFT')
+                ->order('finish_time')
+                ->select();
+        }
         return json($info);
     }
 
@@ -598,7 +591,6 @@ class Borrow extends Base
         $file = $_FILES[$key[0]]["tmp_name"];
         Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
         $PHPReader = new \PHPExcel_Reader_Excel5();
-        $shared = new \PHPExcel_Shared_Date();
         if (!$PHPReader->canRead($file)) {
             $PHPReader = new \PHPExcel_Reader_Excel2007();
             if (!$PHPReader->canRead($file)) {
@@ -632,27 +624,27 @@ class Borrow extends Base
         }
         $fail = 0;
         $success = 0;
-        Db::startTrans();
-        try{
-            foreach ($info as $k=>$v){
-                $marinerId = Db::name('mariner')->where(['id_number'=>$v[1],'name'=>$v[0]])->value('id');
-                $supplierId = Db::name('supplier')->where(['title'=>(string)$v[2]])->value('id');
-                if(!$marinerId || !$supplierId){
-                    $fail++;
-                    continue;
-                }
-                if($v[5] < 0 || $v[6] < 0) {
-                    $fail++;
-                    continue;
-                }
-                $data['mariner_id'] = $marinerId;
-                $data['supplier_id'] = $supplierId;
-                $data['effect_time'] = formatTime($shared ->ExcelToPHP($v[3]),'Y-m-d');
-                $data['finish_time'] = formatTime($shared ->ExcelToPHP($v[4]),'Y-m-d');
-                $data['person'] = $v[5];
-                $data['company'] = $v[6];
-                $data['time'] = formatTime(time(),'Y-m-d');
-                $pid = Db::name('insurance')->insertGetId($data);
+        foreach ($info as $k=>$v){
+            $marinerId = Db::name('mariner')->where(['id_number'=>$v[1],'name'=>$v[0]])->value('id');
+            $supplierId = Db::name('supplier')->where(['title'=>(string)$v[2]])->value('id');
+            if(!$marinerId && !$supplierId){
+                $fail++;
+                continue;
+            }
+            if($v[5] < 0 || $v[6] < 0) {
+                $fail++;
+                continue;
+            }
+            $data['mariner_id'] = $marinerId;
+            $data['supplier_id'] = $supplierId;
+            $data['effect_time'] = formatTime((string)$v[3],'Y-m-d');
+            $data['finish_time'] = formatTime((string)$v[4],'Y-m-d');
+            $data['person'] = $v[5];
+            $data['company'] = $v[6];
+            $data['time'] = formatTime(time(),'Y-m-d');
+            $pid = Db::name('insurance')->insertGetId($data);
+            if($pid) $res = 1;
+            if($v[5] > 0){
                 $borrow = [
                     'mariner_id'=>$marinerId,
                     'date'=>date("Y-m-d",time()),
@@ -660,27 +652,17 @@ class Borrow extends Base
                     'currency'=>"人民币",
                     'amount'=>$v[5],
                     'reason'=>"意外险",
-                    'changer'=>$this->user['username'],
+                    'changer'=>"刘丽娜",
                     'change_date'=>formatTime(time(),'Y-m-d')
                 ];
                 $borrowId = Db::name('borrow')->insertGetId($borrow);
-                Db::name('insurance_borrow')->insert(['pid'=>$pid,'borrow_id'=>$borrowId]);
-                $supplier = [
-                    'pid'=>$supplierId,
-                    'date'=>date('Y-m-d',time()),
-                    'month'=>date('Y-m',time()),
-                    'pay_before'=>$v[5]+$v[6],
-                    'pay_after'=>0
-                ];
-                Db::name('supplier_info')->insert($supplier);
-                $success++;
+                $result = Db::name('insurance_borrow')->insert(['pid'=>$pid,'borrow_id'=>$borrowId]);
+                if(!$result) $res = 0;
             }
-            Db::commit();
-            return ok_data("成功导入".$success."条数据,"."失败".$fail."条");
-        }catch (\Exception $e){
-            Db::rollback();
-            return error_data("成功导入".$success."条数据,"."失败".$fail."条");
+            $success++;
         }
+        if($res) return ok_data("成功导入".$success."条数据,"."失败".$fail."条");
+        return error_data();
     }
 
     /**
@@ -693,7 +675,6 @@ class Borrow extends Base
     public function infoBorrow()
     {
         $page = input('page');
-        $listRows = input('listRows')?input('listRows'):self::$listRows;
         $starttime = formatTime(input('time/a')[0],'Y-m');
         $endtime = formatTime(input('time/a')[1],'Y-m');
         $where = [];
@@ -714,14 +695,14 @@ class Borrow extends Base
                 ->where($where1)
                 ->order('tally')
                 ->group('tally')
-                ->page($page,$listRows)
+                ->page($page,self::$listRows)
                 ->select();
             $usd = Db::name('borrow')
                 ->field('tally,sum(amount) usd_amount,sum(repayment) usd_repayment')
                 ->where($where2)
                 ->order('tally')
                 ->group('tally')
-                ->page($page,$listRows)
+                ->page($page,self::$listRows)
                 ->select();
             foreach ($rmb as $k=>&$v){
                 $v['usd_amount'] = 0;
@@ -749,17 +730,8 @@ class Borrow extends Base
         $usd_repayment = 0;
         $rmb_amount = 0;
         $rmb_repayment = 0;
-        $rmb_accident = 0;
-        $rmb_repayAccident = 0;
         foreach ($data as $k=>&$v){
             $month = Db::name('borrow_sure')->where(['month'=>$v['tally']])->value('month');
-            $where['reason'] = "意外险";
-            $where['tally'] = $v['tally'];
-            $borrow = Db::name('borrow')->field('tally,sum(amount) rmb_amount,sum(repayment) rmb_repayment')->where($where)->find();
-            $v['rmb_accident'] = $borrow['rmb_amount'];
-            $v['rmb_repayAccident'] = $borrow['rmb_repayment'];
-            $v['rmb_another'] = $v['rmb_amount']-$borrow['rmb_amount'];
-            $v['rmb_repayAnother'] = $v['rmb_repayment']-$borrow['rmb_repayment'];
             if($month){
                 $v['sure'] = 1;
             }else{
@@ -767,20 +739,16 @@ class Borrow extends Base
             }
             $usd_amount += $v['usd_amount'];
             $usd_repayment += $v['usd_repayment'];
-            $rmb_amount += $v['rmb_amount']-$borrow['rmb_amount'];
-            $rmb_repayment += $v['rmb_repayment']-$borrow['rmb_repayment'];
-            $rmb_accident += $borrow['rmb_amount'];
-            $rmb_repayAccident += $borrow['rmb_repayment'];
+            $rmb_amount += $v['rmb_amount'];
+            $rmb_repayment += $v['rmb_repayment'];
         }
         $res = [
             'list'=>$list,
             'data'=>$data,
             'usd_amount'=>$usd_amount,
             'usd_repayment'=>$usd_repayment,
-            'rmb_another'=>$rmb_amount,
-            'rmb_repayAnother'=>$rmb_repayment,
-            'rmb_accident'=>$rmb_accident,
-            'rmb_repayAccident'=>$rmb_repayAccident,
+            'rmb_amount'=>$rmb_amount,
+            'rmb_repayment'=>$rmb_repayment,
         ];
         return json($res);
     }

@@ -372,7 +372,6 @@ class Charge extends Base
         $file = $_FILES[$key[0]]["tmp_name"];
         Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
         $PHPReader = new \PHPExcel_Reader_Excel5();
-        $shared = new \PHPExcel_Shared_Date();
         if (!$PHPReader->canRead($file)) {
             $PHPReader = new \PHPExcel_Reader_Excel2007();
             if (!$PHPReader->canRead($file)) {
@@ -422,7 +421,7 @@ class Charge extends Base
         foreach ($info_ as $k=>$v){
             $insert[] = [
                 'mariner_id'=>$v['mariner_id'],
-                'date'=>formatTime($shared ->ExcelToPHP($v[2]),'Y-m-d'),
+                'date'=>(string)$v[2],
                 'amount'=>(float)$v[3],
                 'surplus'=>(float)$v[3],
                 'month'=>substr($v[2],0,strrpos($v[2],'-')),

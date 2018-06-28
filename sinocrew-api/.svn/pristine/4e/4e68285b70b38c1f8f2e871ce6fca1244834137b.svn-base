@@ -139,25 +139,6 @@ class Social extends Base
     }
 
     /**
-     * 删除社保设置
-     * @throws \Exception
-     */
-    public function deleteSet()
-    {
-        $id = input("id/a");
-        Db::startTrans();
-        try{
-            Db::name('social_security_set')->where(['pid'=>['IN',$id]])->delete();
-            Db::name('social_security')->where(['id'=>['IN',$id]])->delete();
-            Db::commit();
-            return ok_data();
-        }catch (\Exception $e){
-            Db::rollback();
-            return error_data();
-        }
-    }
-
-    /**
      * 社保设置列表
      * @return \think\response\Json
      * @throws \think\db\exception\DataNotFoundException
@@ -921,7 +902,6 @@ class Social extends Base
     public function listInsured()
     {
         $data = input('post.');
-        $listRows = input('listRows')?input('listRows'):self::$listRows;
         $starttime = formatTime($data['time'][0],'Y-m');
         $endtime = formatTime($data['time'][1],'Y-m');
         $where = [];
@@ -943,7 +923,7 @@ class Social extends Base
         if($data['isStop'] == "否") $where['mariner_id'] = ['NOT IN',$ids];
         //欠款截止时间
         $time = $endtime?$endtime:date('Y-m',time());
-        if($starttime) $where1['pay_month'] = ['BETWEEN',[$starttime,$time]];
+        if($starttime) $where1['pay_month'] = ['BETWEEN',[$starttime,$endtime]];
         //费用承担方式
         $list = Db::name('insured')
             ->alias('a')
@@ -954,12 +934,11 @@ class Social extends Base
             ->count();
         $info = Db::name('insured')
             ->alias('a')
-            ->field('b.id,b.cid,b.name,b.id_number,min(starttime) firsttime,max(starttime) starttime,c.remark')
+            ->field('b.id,b.cid,b.name,b.id_number,min(starttime) firsttime,max(starttime) starttime')
             ->join('mariner b','a.mariner_id=b.id','LEFT')
-            ->join('social_security_remark c','a.mariner_id=c.mariner_id','LEFT')
             ->where($where)
-            ->group('a.mariner_id')
-            ->page($data['page'],$listRows)
+            ->group('mariner_id')
+            ->page($data['page'],self::$listRows)
             ->select();
         foreach ($info as $k=>$v){
             $where1['mariner_id'] = $v['id'];
@@ -975,7 +954,7 @@ class Social extends Base
            }
             //欠款截止日期
             $info[$k]['arrearageDate'] = $time;
-            $socialInfo = Db::name('social_info')->field('SUM(debt) debt,SUM(receipt) receipt,SUM(final_company) amount_company,SUM(final_person) amount_person,SUM(assume_person) assume_person')->where($where1)->find();
+            $socialInfo = Db::name('social_info')->field('SUM(debt) debt,SUM(receipt) receipt,SUM(amount_company) amount_company,SUM(amount_person) amount_person,SUM(assume_person) assume_person')->where($where1)->find();
             $info[$k]['debt'] = $socialInfo['debt'];
             $info[$k]['receipt'] = $socialInfo['receipt'];
             $info[$k]['amount_company'] = $socialInfo['amount_company'];
@@ -1137,7 +1116,7 @@ class Social extends Base
         }
         if($area) $where['area'] = ['IN',$area];
         if($starttime && empty($endtime)) $where['pay_month'] = ['EGT',$starttime];
-        if($starttime && $endtime) $where['pay_month'] = ['BETWEEN',[$starttime,$endtime]];
+        if($starttime && $endtime) $where['pay_month'] = ['BETWEEN TIME',[$starttime,$endtime]];
         if($type) $where['pay_type'] = $type;
         //缺少是否补缴
         $yanglao_company = 0;
@@ -1585,57 +1564,5 @@ class Social extends Base
             Db::rollback();
             return error_data();
         }
-    }
-
-    /**
-     * 更新备注
-     */
-    public function remarkAdd()
-    {
-        $id = input('id');
-        $remark = input('remark');
-        $value = Db::name('social_security_remark')->where(['mariner_id'=>$id])->value('mariner_id');
-        if($value){
-            $res = Db::name('social_security_remark')->where(['mariner_id'=>$id])->update(['remark'=>$remark]);
-        }else{
-           $res = Db::name('social_security_remark')->insert(['mariner_id'=>$id,'remark'=>$remark]);
-        }
-        if($res) return ok_data();
-        return error_data();
-    }
-
-    /**
-     * 删除社保人员
-     * @return \think\response\Json
-     */
-    public function deleteInsured()
-    {
-        $id = input('id/a');
-        Db::startTrans();
-        try{
-            Db::name('insured')->where(['mariner_id'=>['IN',$id]])->delete();
-            Db::name('insured_stop')->where(['mariner_id'=>['IN',$id]])->delete();
-            Db::name('social_info')->where(['mariner_id'=>['IN',$id]])->delete();
-            Db::name('social_security_remark')->where(['mariner_id'=>['IN',$id]])->delete();
-            Db::commit();
-            return ok_data();
-        }catch (\Exception $e){
-            Db::rollback();
-            return error_data();
-        }
-    }
-
-    /**
-     * 删除社保信息
-     * @return \think\response\Json
-     * @throws \think\Exception
-     * @throws \think\exception\PDOException
-     */
-    public function  deleteInfo()
-    {
-        $id = input('id/a');
-        $res = Db::name('social_info')->where(['id'=>['IN',$id]])->delete();
-        if($res) return ok_data();
-        return error_data();
     }
 }

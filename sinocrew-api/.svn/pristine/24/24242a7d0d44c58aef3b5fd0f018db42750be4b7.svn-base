@@ -6,7 +6,6 @@
  */
 namespace app\api\controller;
 use app\api\common\Base;
-use PhpOffice\PhpSpreadsheet\Calculation\Exception;
 use think\Db;
 use think\Loader;
 
@@ -20,16 +19,12 @@ class Social extends Base
     /**
      * 添加社保设置
      * @return \think\response\Json
-     * @throws \Exception
      */
     public function addArea()
     {
         $data = input('post.');
         //时间的合理性
         if(strcmp($data['starttime'],$data['endtime'])>0) return error_data('填写时间有误');
-        //判断是否有同期的社保信息
-        $repeat = Db::name('social_security')->where(['area'=>$data['area'],'starttime'=>['BETWEEN',[$data['starttime'],$data['endtime']],'endtime'=>['BETWEEN',[$data['starttime'],$data['endtime']]]]])->value('id');
-        if($repeat) return error_data('重复设置');
         $insert = [
             'area'=>$data['area'],
             'starttime'=>formatTime($data['starttime'],'Y-m'),
@@ -45,7 +40,7 @@ class Social extends Base
             foreach ($project as $k=>&$v){
                 $v['pid'] = $pid;
                 $v['total_person'] = $v['base_person']*$v['rate_person']/100+$v['amount_person'];
-                $v['total_company'] = $v['base_company']*$v['rate_company']/100+$v['amount_company'];
+                $v['total_company'] = $v['base_company']*$v['rate_person']/100+$v['amount_company'];
                 if(in_array($v['title'],$arr)){
                     $v['is_five'] = 1;
                 }else{
@@ -57,7 +52,7 @@ class Social extends Base
             return ok_data();
         }catch (\Exception $e){
             Db::rollback();
-            throw $e;
+            return error_data();
         }
     }
 
@@ -139,25 +134,6 @@ class Social extends Base
     }
 
     /**
-     * 删除社保设置
-     * @throws \Exception
-     */
-    public function deleteSet()
-    {
-        $id = input("id/a");
-        Db::startTrans();
-        try{
-            Db::name('social_security_set')->where(['pid'=>['IN',$id]])->delete();
-            Db::name('social_security')->where(['id'=>['IN',$id]])->delete();
-            Db::commit();
-            return ok_data();
-        }catch (\Exception $e){
-            Db::rollback();
-            return error_data();
-        }
-    }
-
-    /**
      * 社保设置列表
      * @return \think\response\Json
      * @throws \think\db\exception\DataNotFoundException
@@ -217,12 +193,12 @@ class Social extends Base
                     (float)$gongshangPerson += (float)$v1['total_person'];
                 }
                 if($v1['title'] == "生育保险"){
-                    (float)$shengyuPerson += (float)$v1['total_person'];
                     (float)$shengyuCompany += (float)$v1['total_company'];
+                    (float)$shengyuPerson += (float)$v1['total_person'];
                 }
                 if($v1['title'] == "失业保险"){
-                    (float)$shiyePerson += (float)$v1['total_person'];
                     (float)$shiyeCompany += (float)$v1['total_company'];
+                    (float)$shiyePerson += (float)$v1['total_person'];
                 }
                 if($v1['is_five'] == 1){
                     (float)$person += (float)$v1['total_person'];
@@ -231,14 +207,14 @@ class Social extends Base
                     (float)$personElse += (float)$v1['total_person'];
                     (float)$companyElse += (float)$v1['total_company'];
                 }
-                (float)$info[$k]['project'] = $allInfo;
-                (float)$info[$k]['person'] = $person;
-                (float)$info[$k]['company'] = $company;
-                (float)$info[$k]['personElse'] = $personElse;
-                (float)$info[$k]['companyElse'] = $companyElse;
-                (float)$info[$k]['totalPerson'] = $person +$personElse;
-                (float)$info[$k]['totalCompany'] = $company +$companyElse;
             }
+            (float)$info[$k]['project'] = $allInfo;
+            (float)$info[$k]['person'] = $person;
+            (float)$info[$k]['company'] = $company;
+            (float)$info[$k]['personElse'] = $personElse;
+            (float)$info[$k]['companyElse'] = $companyElse;
+            (float)$info[$k]['totalPerson'] = $person +$personElse;
+            (float)$info[$k]['totalCompany'] = $company +$companyElse;
             (float)$totalCompany += $company +$companyElse;
             (float)$totalPerson += $person +$personElse;
             (float)$fiveCompany += $company;
@@ -510,126 +486,34 @@ class Social extends Base
     /**
      * 添加社保人员
      * @return \think\response\Json
-     * @throws \Exception
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
      */
     public function addInsured()
     {
         $data = input('post.');
-        Db::startTrans();
-        try{
-            $info = Db::name('mariner')->where(['id_number'=>$data['idNumber']])->find();
-            if(!$info) return error_data('没有找到该身份证对应的船员');
-            if($info['name'] != $data['name']) return error_data('身份证和船员姓名不匹配');
-            $pInfo = Db::name('social_security')->field('id,starttime,endtime')->where(['area'=>$data['area'],'starttime'=>['ELT',$data['time']],'endtime'=>['EGT',$data['time']]])->find();
-            //是否重复提交
-            $repeat = Db::name('insured')->where(['mariner_id'=>$info['id'],'starttime'=>$data['time']])->value('id');
-            if($repeat) return error_data('请勿重复提交');
-            $insert = [
-                'mariner_id'=>$info['id'],
-                'area'=>$data['area'],
-                'starttime'=>$data['time'],
-                'fee_payable'=>$data['payable'],
-                'add_month'=>date('Y-m',time())
-            ];
-            Db::name('insured')->insert($insert);
-            //遍历
-            $monarr = [];
-            if($data['payable'] == "是"){
-                $monarr[] = $data['time'];
-            }else{
-                if($data['time'] && $pInfo['endtime']){
-                    $startDate = strtotime($data['time']);
-                    $endDate = strtotime($pInfo['endtime']);
-                }
-                $monarr[] = date('Y-m',$startDate);
-                while( ($startDate = strtotime('+1 month', $startDate)) <= $endDate){
-                    $monarr[] = date('Y-m',$startDate); // 取得递增月;
-                }
-            }
-            foreach ($monarr as $k=>$v){
-                //根据月份生成社保数据
-                $socialTotal = 0;//社保合计
-                $totalPerson = 0;//个人合计
-                $totalCompany = 0;//公司合计
-                $addPerson = 0;//个人添加项
-                $addCompany = 0;//公司添加项
-                $finalPerson = 0;//实际个人
-                $finalCompany = 0;//实际公司
-                $final = 0;//合计
-                $setInfo = Db::name('social_security_set')->where(['pid'=>$pInfo['id']])->select();
-                $insert = [];
-                foreach ($setInfo as $key => $value) {
-                    if ($value['title'] == "养老保险") {
-                        $result['yanglao_company'] = $value['base_company'] * $value['rate_company']/100+$value['amount_company'];
-                        $result['yanglao_person'] = $value['base_person'] * $value['rate_person']/100+$value['amount_person'];
-                        $totalPerson += $result['yanglao_person'];
-                        $totalCompany += $result['yanglao_company'];
-                    } elseif ($value['title'] == "生育保险") {
-                        $result['shengyu_company'] = $value['base_company'] * $value['rate_company']/100+$value['amount_company'];
-                        $result['shengyu_person'] = $value['base_person'] * $value['rate_person']/100+$value['amount_person'];
-                        $totalPerson += $result['shengyu_person'];
-                        $totalCompany += $result['shengyu_company'];
-                    } elseif ($value['title'] == "工伤保险") {
-                        $result['gongshang_company'] = $value['base_company'] * $value['rate_company']/100+$value['amount_company'];
-                        $result['gongshang_person'] = $value['base_person'] * $value['rate_person']/100+$value['amount_person'];
-                        $totalCompany += $result['gongshang_company'];
-                    } elseif ($value['title'] == "失业保险") {
-                        $result['shiye_company'] = $value['base_company'] * $value['rate_company']/100+$value['amount_company'];
-                        $result['shiye_person'] = $value['base_person'] * $value['rate_person']/100+$value['amount_person'];
-                        $totalPerson += $result['shiye_person'];
-                        $totalCompany += $result['shiye_company'];
-                    } elseif ($value['title'] == "医疗保险") {
-                        $result['yiliao_company'] = $value['base_company'] * $value['rate_company']/100+$value['amount_company'];
-                        $result['yiliao_person'] = $value['base_person'] * $value['rate_person']/100+$value['amount_person'];
-                        $totalCompany += $result['yiliao_company'];
-                        $totalPerson += $result['yiliao_person'];
-                    } else {
-                        $addPerson += $value['base_person'] * $value['rate_person']/100+$value['amount_company'];
-                        $addCompany += $value['base_company'] * $value['rate_company']/100+$value['amount_person'];
-                    }
-                }
-                $socialTotal += $totalCompany+$totalPerson;
-                $finalPerson += $totalPerson + $addPerson;
-                $finalCompany += $totalCompany + $addCompany;
-                $final += $finalPerson + $finalCompany;
-                $type = "单位承担部分";
-                if($finalPerson == $final) $type = "个人全额自付";
-                if($finalCompany == $final) $type = "公司全额自付";
-                $result['mariner_id'] = $info['id'];
-                $result['area'] = $data['area'];
-                $result['pay_month'] = $v;
-                $result['first_date'] = Db::name('insured')->where(['mariner_id'=>$info['id']])->order('starttime')->value('starttime');
-                $result['add_company'] = $addCompany;
-                $result['add_person'] = $addPerson;
-                $result['else_person'] = 0;
-                $result['else_company'] = 0;
-                $result['amount_company'] = $totalCompany;
-                $result['amount_person'] = $totalPerson;
-                $result['assume_person'] = 0;
-                $result['social_total'] = $socialTotal;
-                $result['final_company'] = $finalCompany;
-                $result['final_person'] = $finalPerson;
-                $result['social_total'] = $socialTotal;
-                $result['receipt'] = 0;
-                $result['final'] = $final;
-                $result['debt'] = $finalPerson;
-                $result['remark'] = "";
-                $result['pay_type'] = $type;
-                $insert[] = $result;
-                Db::name('social_info')->insertAll($insert);
-            }
-            Db::commit();
-            return ok_data();
-        }catch (\Exception $e){
-            Db::rollback();
-            throw $e;
-        }
+        $info = Db::name('mariner')->where(['id_number'=>$data['idNumber']])->find();
+        if(!$info) return error_data('没有找到该身份证对应的船员');
+        if($info['name'] != $data['name']) return error_data('身份证和船员姓名不匹配');
+        //是否重复提交
+        $repeat = Db::name('insured')->where(['mariner_id'=>$info['id'],'starttime'=>$data['time']])->value('id');
+        if($repeat) return error_data('请勿重复提交');
+        $insert = [
+            'mariner_id'=>$info['id'],
+            'area'=>$data['area'],
+            'starttime'=>(string)(formatTime($data['time'],'Y-m')),
+            'fee_payable'=>$data['payable'],
+            'add_month'=>date('Y-m',time())
+        ];
+       $res = Db::name('insured')->insert($insert);
+       if($res) return ok_data();
+       return error_data();
     }
 
     /**
      * 批量导入社保人员
      * @return \think\response\Json
-     * @throws \Exception
      * @throws \PHPExcel_Exception
      * @throws \PHPExcel_Reader_Exception
      */
@@ -671,129 +555,32 @@ class Social extends Base
             }
             $i++;
         }
+        $insert = [];
         $fail = 0;
-        $failInfo = "";
-        Db::startTrans();
-        try{
-            foreach ($info as $key1=>$value1) {
-                $pid = Db::name('mariner')->where(['id_number' => $value1[1], 'name' => $value1[0]])->value('id');
-                if (!$pid) {
-                    $fail++;
-                    $failInfo .= "$value1[0],";
-                    continue;
-                }
-                $repeatId = Db::name('insured')->where(['mariner_id' => $pid, 'area' => $value1[2], 'starttime' => $value1[3]])->value('id');
-                if ($repeatId) {
-                    $fail++;
-                    $failInfo .= "$value1[0],";
-                    continue;
-                }
-                $data['mariner_id'] = $pid;
-                $data['area'] = (string)$value1[2];
-                $data['starttime'] = (string)$value1[3];
-                $data['fee_payable'] = (string)$value1[4];
-                $data['add_month'] = date('Y-m', time());
-                Db::name('insured')->insert($data);
-                $pInfo = Db::name('social_security')->field('id,starttime,endtime')->where(['area' => $data['area'], 'starttime' => ['ELT', $data['starttime']], 'endtime' => ['EGT', $data['starttime']]])->find();
-                $monarr = [];
-                if ($data['fee_payable'] == "是") {
-                    $monarr[] = $data['starttime'];
-                } else {
-                    if ($data['starttime'] && $pInfo['endtime']) {
-                        $startDate = strtotime($data['starttime']);
-                        $endDate = strtotime($pInfo['endtime']);
-                    }
-                    $monarr[] = date('Y-m', $startDate);
-                    while (($startDate = strtotime('+1 month', $startDate)) <= $endDate) {
-                        $monarr[] = date('Y-m', $startDate); // 取得递增月;
-                    }
-                }
-                $insert = [];
-                foreach ($monarr as $k => $v) {
-                    $result = [];
-                    //根据月份生成社保数据
-                    $socialTotal = 0;//社保合计
-                    $totalPerson = 0;//个人合计
-                    $totalCompany = 0;//公司合计
-                    $addPerson = 0;//个人添加项
-                    $addCompany = 0;//公司添加项
-                    $finalPerson = 0;//实际个人
-                    $finalCompany = 0;//实际公司
-                    $final = 0;//合计
-                    $setInfo = Db::name('social_security_set')->where(['pid' => $pInfo['id']])->select();
-                    foreach ($setInfo as $key => $value) {
-                        if ($value['title'] == "养老保险") {
-                            $result['yanglao_company'] = $value['base_company'] * $value['rate_company'] / 100 + $value['amount_company'];
-                            $result['yanglao_person'] = $value['base_person'] * $value['rate_person'] / 100 + $value['amount_person'];
-                            $totalPerson += $result['yanglao_person'];
-                            $totalCompany += $result['yanglao_company'];
-                        } elseif ($value['title'] == "生育保险") {
-                            $result['shengyu_company'] = $value['base_company'] * $value['rate_company'] / 100 + $value['amount_company'];
-                            $result['shengyu_person'] = $value['base_person'] * $value['rate_person'] / 100 + $value['amount_person'];
-                            $totalPerson += $result['shengyu_person'];
-                            $totalCompany += $result['shengyu_company'];
-                        } elseif ($value['title'] == "工伤保险") {
-                            $result['gongshang_company'] = $value['base_company'] * $value['rate_company'] / 100 + $value['amount_company'];
-                            $result['gongshang_person'] = $value['base_person'] * $value['rate_person'] / 100 + $value['amount_person'];
-                            $totalCompany += $result['gongshang_company'];
-                        } elseif ($value['title'] == "失业保险") {
-                            $result['shiye_company'] = $value['base_company'] * $value['rate_company'] / 100 + $value['amount_company'];
-                            $result['shiye_person'] = $value['base_person'] * $value['rate_person'] / 100 + $value['amount_person'];
-                            $totalPerson += $result['shiye_person'];
-                            $totalCompany += $result['shiye_company'];
-                        } elseif ($value['title'] == "医疗保险") {
-                            $result['yiliao_company'] = $value['base_company'] * $value['rate_company'] / 100 + $value['amount_company'];
-                            $result['yiliao_person'] = $value['base_person'] * $value['rate_person'] / 100 + $value['amount_person'];
-                            $totalCompany += $result['yiliao_company'];
-                            $totalPerson += $result['yiliao_person'];
-                        } else {
-                            $addPerson += $value['base_person'] * $value['rate_person'] / 100 + $value['amount_company'];
-                            $addCompany += $value['base_company'] * $value['rate_company'] / 100 + $value['amount_person'];
-                        }
-                    }
-                    $socialTotal += $totalCompany + $totalPerson;
-                    $finalPerson += $totalPerson + $addPerson;
-                    $finalCompany += $totalCompany + $addCompany;
-                    $final += $finalPerson + $finalCompany;
-                    $type = "单位承担部分";
-                    if ($finalPerson == $final) $type = "个人全额自付";
-                    if ($finalCompany == $final) $type = "公司全额自付";
-                    $result['mariner_id'] = $pid;
-                    $result['area'] = $data['area'];
-                    $result['pay_month'] = $v;
-                    $result['first_date'] = Db::name('insured')->where(['mariner_id' => $info['id']])->order('starttime')->value('starttime')?Db::name('insured')->where(['mariner_id' => $info['id']])->order('starttime')->value('starttime'):$value1[3];
-                    $result['add_company'] = $addCompany;
-                    $result['add_person'] = $addPerson;
-                    $result['else_person'] = 0;
-                    $result['else_company'] = 0;
-                    $result['amount_company'] = $totalCompany;
-                    $result['amount_person'] = $totalPerson;
-                    $result['assume_person'] = 0;
-                    $result['social_total'] = $socialTotal;
-                    $result['final_company'] = $finalCompany;
-                    $result['final_person'] = $finalPerson;
-                    $result['social_total'] = $socialTotal;
-                    $result['receipt'] = 0;
-                    $result['final'] = $final;
-                    $result['debt'] = $finalPerson;
-                    $result['remark'] = "";
-                    $result['pay_type'] = $type;
-                    $insert[] = $result;
-                }
-                Db::name('social_info')->insertAll($insert);
+        $success = 0;
+        foreach ($info as $k=>&$v){
+            $pid = Db::name('mariner')->where(['id_number'=>$v[1],'name'=>$v[0]])->value('id');
+            if(!$pid){
+                $fail++;
+                continue;
             }
-            $success = count($info)-$fail;
-            Db::commit();
-            if(empty($failInfo)){
-                $msg = "成功导入".$success."条数据,"."失败".$fail."条";
-            }else{
-                $msg = "成功导入".$success."条数据,"."失败".$fail."条,失败人:".$failInfo;
+           $repeatId = Db::name('insured')->where(['mariner_id'=>$pid,'area'=>$v[2],'starttime'=>$v[3]])->value('id');
+            if($repeatId){
+                $fail++;
+                continue;
             }
-            return ok_data($msg);
-        }catch (\Exception $e){
-            Db::rollback();
-            throw $e;
+            $data['mariner_id'] = $pid;
+            $data['area'] = (string)$v[2];
+            $data['starttime'] = (string)$v[3];
+            $data['fee_payable'] = (string)$v[4];
+            $data['add_month'] = date('Y-m',time());
+            $success++;
+            $insert[] = $data;
         }
+        if(empty($insert)) return error_data('重复导入或导入信息无效');
+        $res = Db::name('insured')->insertAll($insert);
+        if($res) return ok_data("成功导入".$success."条数据,"."失败".$fail."条");
+        return error_data();
     }
 
     /**
@@ -822,34 +609,31 @@ class Social extends Base
             $insert = [
                 'mariner_id'=>$info['id'],
                 'area'=>$data['area'],
-                'starttime'=>$data['time']
+                'starttime'=>formatTime($data['time'],"Y-m"),
             ];
             $repeat = Db::name('insured_stop')->where($insert)->value('id');
             if($repeat) return error_data('该船员已停缴过,请勿重复操作');
             Db::name('insured_stop')->insert($insert);
-//            $defaultDate = date('Y-m',strtotime("+1 month"));
-//            //减员是下个月才改变is_stop状态，否则在构造函数再进行判断
-//            if( $defaultDate == $insert['starttime']){
-//                $pid = Db::name('insured')->where(['area'=>$data['arae'],'mariner_id'=>$info['id']])->order('starttime')->limit(1)->value('id');
-//                Db::name('insured')->where(['id'=>$pid])->update(['is_stop'=>1]);
-//            }
-            //删除停保后的数据
-            Db::name('social_info')->where(['mariner_id'=>$info['id'],'area'=>$data['area'],'pay_month'=>['EGT',$data['time']]])->delete();
+            $defaultDate = date('Y-m',strtotime("+1 month"));
+            //减员是下个月才改变is_stop状态，否则在构造函数再进行判断
+            if( $defaultDate == $insert['starttime']){
+                $pid = Db::name('insured')->where(['area'=>$data['arae'],'mariner_id'=>$info['id']])->order('starttime')->limit(1)->value('id');
+                Db::name('insured')->where(['id'=>$pid])->update(['is_stop'=>1]);
+            }
             Db::commit();
             return ok_data();
         }catch (\Exception $e){
             Db::rollback();
             throw $e;
         }
+
     }
 
     /**
-     * 批量减员
+     * 批量导入减员
      * @return \think\response\Json
      * @throws \PHPExcel_Exception
      * @throws \PHPExcel_Reader_Exception
-     * @throws \think\Exception
-     * @throws \think\exception\PDOException
      */
     public function importReduce()
     {
@@ -901,12 +685,10 @@ class Social extends Base
             $data['mariner_id'] = $pid;
             $data['area'] = (string)$v[2];
             $data['starttime'] = (string)$v[3];
-            Db::name('social_info')->where(['mariner_id'=>$pid,'area'=>$data['area'],'pay_month'=>['EGT',$data['starttime']]])->delete();
             $success++;
             $insert[] = $data;
         }
         $res = Db::name('insured_stop')->insertAll($insert);
-
         if($res) return ok_data("成功导入".$success."条数据,"."失败".$fail."条");
         return error_data();
     }
@@ -921,10 +703,8 @@ class Social extends Base
     public function listInsured()
     {
         $data = input('post.');
-        $listRows = input('listRows')?input('listRows'):self::$listRows;
         $starttime = formatTime($data['time'][0],'Y-m');
         $endtime = formatTime($data['time'][1],'Y-m');
-        $where = [];
         if($data['id']) $where['mariner_id'] = $data['id'];
         if($data['idNumber']){
            $marinerId = Db::name('mariner')->where(['id_number'=>['LIKE',"%".$data['idNumber']."%"]])->value('id');
@@ -943,7 +723,8 @@ class Social extends Base
         if($data['isStop'] == "否") $where['mariner_id'] = ['NOT IN',$ids];
         //欠款截止时间
         $time = $endtime?$endtime:date('Y-m',time());
-        if($starttime) $where1['pay_month'] = ['BETWEEN',[$starttime,$time]];
+        $where1['pay_month'] = ['ELT',$time];
+        if($starttime) $where1['pay_month'] = ['BETWEEN TIME',$starttime,$endtime];
         //费用承担方式
         $list = Db::name('insured')
             ->alias('a')
@@ -954,12 +735,11 @@ class Social extends Base
             ->count();
         $info = Db::name('insured')
             ->alias('a')
-            ->field('b.id,b.cid,b.name,b.id_number,min(starttime) firsttime,max(starttime) starttime,c.remark')
+            ->field('b.id,b.cid,b.name,b.id_number,min(starttime) firsttime,max(starttime) starttime')
             ->join('mariner b','a.mariner_id=b.id','LEFT')
-            ->join('social_security_remark c','a.mariner_id=c.mariner_id','LEFT')
             ->where($where)
-            ->group('a.mariner_id')
-            ->page($data['page'],$listRows)
+            ->group('mariner_id')
+            ->page($data['page'],self::$listRows)
             ->select();
         foreach ($info as $k=>$v){
             $where1['mariner_id'] = $v['id'];
@@ -975,7 +755,7 @@ class Social extends Base
            }
             //欠款截止日期
             $info[$k]['arrearageDate'] = $time;
-            $socialInfo = Db::name('social_info')->field('SUM(debt) debt,SUM(receipt) receipt,SUM(final_company) amount_company,SUM(final_person) amount_person,SUM(assume_person) assume_person')->where($where1)->find();
+            $socialInfo = Db::name('social_info')->field('sum(debt) debt,sum(receipt) receipt,sum(amount_company) amount_company,sum(amount_person) amount_person,sum(assume_person) assume_person')->where($where1)->group('mariner_id')->find();
             $info[$k]['debt'] = $socialInfo['debt'];
             $info[$k]['receipt'] = $socialInfo['receipt'];
             $info[$k]['amount_company'] = $socialInfo['amount_company'];
@@ -1137,7 +917,7 @@ class Social extends Base
         }
         if($area) $where['area'] = ['IN',$area];
         if($starttime && empty($endtime)) $where['pay_month'] = ['EGT',$starttime];
-        if($starttime && $endtime) $where['pay_month'] = ['BETWEEN',[$starttime,$endtime]];
+        if($starttime && $endtime) $where['pay_month'] = ['BETWEEN TIME',[$starttime,$endtime]];
         if($type) $where['pay_type'] = $type;
         //缺少是否补缴
         $yanglao_company = 0;
@@ -1585,57 +1365,5 @@ class Social extends Base
             Db::rollback();
             return error_data();
         }
-    }
-
-    /**
-     * 更新备注
-     */
-    public function remarkAdd()
-    {
-        $id = input('id');
-        $remark = input('remark');
-        $value = Db::name('social_security_remark')->where(['mariner_id'=>$id])->value('mariner_id');
-        if($value){
-            $res = Db::name('social_security_remark')->where(['mariner_id'=>$id])->update(['remark'=>$remark]);
-        }else{
-           $res = Db::name('social_security_remark')->insert(['mariner_id'=>$id,'remark'=>$remark]);
-        }
-        if($res) return ok_data();
-        return error_data();
-    }
-
-    /**
-     * 删除社保人员
-     * @return \think\response\Json
-     */
-    public function deleteInsured()
-    {
-        $id = input('id/a');
-        Db::startTrans();
-        try{
-            Db::name('insured')->where(['mariner_id'=>['IN',$id]])->delete();
-            Db::name('insured_stop')->where(['mariner_id'=>['IN',$id]])->delete();
-            Db::name('social_info')->where(['mariner_id'=>['IN',$id]])->delete();
-            Db::name('social_security_remark')->where(['mariner_id'=>['IN',$id]])->delete();
-            Db::commit();
-            return ok_data();
-        }catch (\Exception $e){
-            Db::rollback();
-            return error_data();
-        }
-    }
-
-    /**
-     * 删除社保信息
-     * @return \think\response\Json
-     * @throws \think\Exception
-     * @throws \think\exception\PDOException
-     */
-    public function  deleteInfo()
-    {
-        $id = input('id/a');
-        $res = Db::name('social_info')->where(['id'=>['IN',$id]])->delete();
-        if($res) return ok_data();
-        return error_data();
     }
 }

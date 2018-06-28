@@ -318,7 +318,6 @@ class Base extends Controller
             $span = ord("A");
             foreach ($rows as $keyName => $value) { // 列写入
                 $objActSheet->setCellValue(chr($span) . $column, $value);
-                $objPHPExcel->getActiveSheet()->setCellValueExplicit(chr($span) . $column,$value,\PHPExcel_Cell_DataType::TYPE_STRING);
                 $span++;
             }
             $column++;

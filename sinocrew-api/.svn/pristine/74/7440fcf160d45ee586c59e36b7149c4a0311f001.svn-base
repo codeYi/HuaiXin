@@ -386,12 +386,12 @@ class Privilege extends Base
     {
         $userId = input('userId');
         $idNumber = input('idNumber');
-        $department = input('department/a');
+        $department = input('department');
         $roleId = input('roleId');
         $page = input('page')?input('page'):1;
         $listRows = input('listRows')?input('listRows'):self::$listRows;
         $where = [];
-        if($department) $where['department'] = ['IN',$department];
+        if($department) $where['department'] = $department;
         if($idNumber) $where['id_number'] = ['LIKE',"%$idNumber%"];
         if($userId) $where['user_id'] = $userId;
         if($roleId) $where['role_id'] = $roleId;

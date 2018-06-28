@@ -211,7 +211,6 @@ class Mariner extends Base
         $file = $_FILES[$key[0]]["tmp_name"];
         Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
         $PHPReader = new \PHPExcel_Reader_Excel5();
-        $shared = new \PHPExcel_Shared_Date();
         if (!$PHPReader->canRead($file)) {
             $PHPReader = new \PHPExcel_Reader_Excel2007();
             if (!$PHPReader->canRead($file)) {
@@ -277,8 +276,8 @@ class Mariner extends Base
                 $data['alias'] = (string)$v[1];
                 $data['attribute'] = (string)$v[2];
                 $data['group'] = (string)$v[3];
-                $data['develop_date'] = formatTime($shared ->ExcelToPHP($v[6]),'Y-m-d');
-                $data['time'] = formatTime(time(),'Y-m-d');
+                $data['develop_date'] = formatTime(strtotime((string)$v[6]),'Y-m-d');
+                $data['time'] = formatTime(time());
                 $success++;
                 $pid = Db::name('shipowner')->insertGetId($data);
                 if($v['userId'][0]){
@@ -471,7 +470,6 @@ class Mariner extends Base
         $file = $_FILES[$key[0]]["tmp_name"];
         Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
         $PHPReader = new \PHPExcel_Reader_Excel5();
-        $shared = new \PHPExcel_Shared_Date();
         if (!$PHPReader->canRead($file)) {
             $PHPReader = new \PHPExcel_Reader_Excel2007();
             if (!$PHPReader->canRead($file)) {
@@ -505,15 +503,8 @@ class Mariner extends Base
         }
         $vesselInfo = Db::name('vessel')->column('title');
         $info_ = [];
-        $success = 0;
-        $fail = 0;
         foreach ($info as $k=>$v){
-            if (!in_array((string)$v[0],$vesselInfo,true)) {
-                $info_[] = $v;
-                $success++;
-            }else{
-                $fail++;
-            }
+            if (!in_array((string)$v[1],$vesselInfo,true)) $info_[] = $v;
         }
         if(empty($info_)) return error_data("请勿重复导入");
         $insert = [];
@@ -521,13 +512,13 @@ class Mariner extends Base
             $data['title'] = (string)$v[0];
             $data['attribute'] = (string)$v[1];
             $data['fleet'] = (string)$v[2];
-            $data['develop_date'] = formatTime($shared ->ExcelToPHP($v[3]),'Y-m-d');
+            $data['develop_date'] = formatTime(strtotime((string)$v[3]),'Y-m-d');
             $data['time'] = formatTime(time());
             $insert[] = $data;
         }
         $res = Db::name('vessel')->insertAll($insert);
-        if($res) return ok_data("成功导入".$success."条数据,"."失败".$fail."条");
-        return error_data("成功导入".$success."条数据,"."失败".$fail."条");
+        if($res) return ok_data();
+        return error_data();
     }
 
     /**
@@ -595,6 +586,7 @@ class Mariner extends Base
             ->join('shipowner b','a.owner_pool = b.id','LEFT')
             ->join('vessel c','c.id=a.vessel','LEFT')
             ->where($where)
+            ->order('duty')
             ->count();
         $info = Db::name('mariner')
             ->alias('a')
@@ -602,18 +594,12 @@ class Mariner extends Base
             ->join('shipowner b','a.owner_pool = b.id','LEFT')
             ->join('vessel c','c.id=a.vessel','LEFT')
             ->where($where)
+            ->order('duty')
             ->page($page,$listRows)
             ->select();
-       $dutyInfo = Db::name('duty')->order('id asc')->column('duty');
-        $data = [];
-        foreach ($dutyInfo as $k=>$v){
-            foreach ($info as $k1=>$v1){
-                if($v1['duty'] == $v) $data[] = $v1;
-            }
-        }
         $res = [
             'list'=>$list,
-            'data'=>$data
+            'data'=>$info
         ];
         return json($res);
     }
@@ -627,36 +613,24 @@ class Mariner extends Base
      */
     public function exportMariner()
     {
-        $where = [];
-        $ids = input('mariner_id/a');
-        if($ids[0]){
-            $where['a.id'] = ['IN',$ids];
-        }else{
-            if(input('id')) $where['a.id'] = input('id');
-            if(input('idNumber')) $where['id_number'] = ['LIKE',"%".input('idNumber')."%"];
-            if(input('cid')) $where['cid'] = ['LIKE',"%".input('cid')."%"];
-            if (input('fleet')) $where['a.fleet'] = ['LIKE',"%".strtoupper(input('fleet'))."%"];
-            if (input('ownerPool/a')) $where['owner_pool'] = ['IN',input('ownerPool/a')];
-            if (input('vessel/a')) $where['a.vessel'] = ['IN',input('vessel/a')];
-            if (input('manningOffice')) $where['manning_office'] = input('manningOffice');
-            if (input('duty/a')) $where['duty'] = ['IN',input('duty/a')];
-        }
+        if(input('id')) $where['a.id'] = input('id');
+        if(input('idNumber')) $where['id_number'] = ['LIKE',"%".input('idNumber')."%"];
+        if(input('cid')) $where['cid'] = ['LIKE',"%".input('cid')."%"];
+        if (input('fleet')) $where['a.fleet'] = ['LIKE',"%".strtoupper(input('fleet'))."%"];
+        if (input('ownerPool/a')) $where['owner_pool'] = ['IN',input('ownerPool/a')];
+        if (input('vessel/a')) $where['a.vessel'] = ['IN',input('vessel/a')];
+        if (input('manningOffice')) $where['manning_office'] = input('manningOffice');
+        if (input('duty/a')) $where['duty'] = ['IN',input('duty/a')];
         $info = Db::name('mariner')
             ->alias('a')
-            ->field('a.id,a.cid,a.name,a.id_number,a.duty,a.manning_office,a.fleet,a.time,b.title ownerPool,c.title vessel,a.is_delete')
+            ->field('a.id,a.cid,a.name,a.id_number,a.duty,a.manning_office,a.fleet,a.time,b.title ownerPool,c.title vessel')
             ->join('shipowner b','a.owner_pool = b.id','LEFT')
             ->join('vessel c','c.id=a.vessel','LEFT')
             ->where($where)
+            ->order('duty')
             ->select();
-        $dutyInfo = Db::name('duty')->order('id asc')->column('duty');
-        $data = [];
-        foreach ($dutyInfo as $k=>$v){
-            foreach ($info as $k1=>$v1){
-                if($v1['duty'] == $v) $data[] = $v1;
-            }
-        }
-        $res= [
-            'data'=>$data
+        $res = [
+            'data'=>$info
         ];
         return json($res);
     }
@@ -796,6 +770,7 @@ class Mariner extends Base
                }
             }
         }
+//        if(empty($info_)) return error_data("请勿重复导入");
         $insert = [];
         Db::startTrans();
         try{
@@ -868,7 +843,6 @@ class Mariner extends Base
         $file = $_FILES[$key[0]]["tmp_name"];
         Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
         $PHPReader = new \PHPExcel_Reader_Excel5();
-        $shared = new \PHPExcel_Shared_Date();
         if (!$PHPReader->canRead($file)) {
             $PHPReader = new \PHPExcel_Reader_Excel2007();
             if (!$PHPReader->canRead($file)) {
@@ -914,6 +888,7 @@ class Mariner extends Base
                 $updateInfo[] = $v;
             }
         }
+        if(empty($info_)) return error_data('重复录入');
         $insert = [];
         foreach ($info_ as $k=>$v){
             $data['pid'] = $v['pid'];
@@ -923,7 +898,7 @@ class Mariner extends Base
             $data['number'] = (string)$v[5];
             $data['name_cn'] = (string)$v[6];
             $data['name_en'] = (string)$v[7];
-            $data['birthday'] = formatTime($shared ->ExcelToPHP($v[8]),'Y-m-d');
+            $data['birthday'] = (string)$v[8];
             $data['relation'] = (string)$v[9];
             $data['telnumber'] = (string)$v[10];
             $data['swift'] = (string)$v[11];
@@ -935,6 +910,7 @@ class Mariner extends Base
         Db::startTrans();
         try{
             if($updateInfo){
+                $update = [];
                 foreach ($updateInfo as $k=>$v){
                     $update['bank'] = (string)$v[2];
                     $update['short_name'] = (string)$v[3];
@@ -942,7 +918,7 @@ class Mariner extends Base
                     $update['number'] = (string)$v[5];
                     $update['name_cn'] = (string)$v[6];
                     $update['name_en'] = (string)$v[7];
-                    $update['birthday'] = formatTime($shared ->ExcelToPHP($v[8]),'Y-m-d');
+                    $update['birthday'] = str_replace('/','-',(string)$v[8]);
                     $update['relation'] = (string)$v[9];
                     $update['telnumber'] = (string)$v[10];
                     $update['swift'] = (string)$v[11];
@@ -1028,37 +1004,26 @@ class Mariner extends Base
 ];
         $param = input('get.');
         $where = [];
-        $ids = explode(",",input('id'));
-        if($ids[0]){
-            $where['a.id'] = ['IN',$ids];
-        }else{
-            if ($param['id']) $where['a.id'] = input('id');
-            if ($param['idNumber']) $where['id_number'] = ['LIKE',"%".input('idNumber')."%"];
-            if ($param['cid']) $where['cid'] = ['LIKE',"%".input('cid')."%"];
-            if ($param['fleet']) $where['a.fleet'] = ['LIKE',"%".strtoupper(input('fleet'))."%"];
-            if ($param['ownerPool']) $where['owner_pool'] = ['IN',explode(',',$param['ownerPool'])];
-            if ($param['vessel']) $where['a.vessel'] = ['IN',explode(',',$param['vessel'])];
-            if ($param['manningOffice']) $where['manning_office'] = input('manningOffice');
-            if ($param['duty']) $where['duty'] = ['IN',explode(',',$param['duty'])];
-        }
+        if ($param['id']) $where['a.id'] = input('id');
+        if ($param['idNumber']) $where['id_number'] = ['LIKE',"%".input('idNumber')."%"];
+        if ($param['cid']) $where['cid'] = ['LIKE',"%".input('cid')."%"];
+        if ($param['fleet']) $where['a.fleet'] = ['LIKE',"%".strtoupper(input('fleet'))."%"];
+        if ($param['ownerPool']) $where['owner_pool'] = ['IN',explode(',',$param['ownerPool'])];
+        if ($param['vessel']) $where['a.vessel'] = ['IN',explode(',',$param['vessel'])];
+        if ($param['manningOffice']) $where['manning_office'] = input('manningOffice');
+        if ($param['duty']) $where['duty'] = ['IN',explode(',',$param['duty'])];
         $info = Db::name('mariner')
             ->alias('a')
-            ->field('a.id,a.cid,a.name,a.id_number,a.duty,a.manning_office,a.fleet,a.time,b.title ownerPool,b.alias,c.title vessel,a.is_delete,d.number,d.name_cn,d.line_number,d.bank,d.short_name')
+            ->field('a.id,a.cid,a.name,a.id_number,a.duty,a.manning_office,a.fleet,a.time,b.title ownerPool,b.alias,c.title vessel,a.is_delete,d.line_number,d.bank,d.name_cn,d.short_name,d.number')
             ->join('shipowner b','a.owner_pool = b.id','LEFT')
             ->join('vessel c','c.id=a.vessel','LEFT')
             ->join('remittance d','d.pid=a.id','LEFT')
             ->where($where)
+            ->order('duty')
             ->select();
-        $dutyInfo = Db::name('duty')->order('id asc')->column('duty');
         $data = [];
-        foreach ($dutyInfo as $k=>$v){
-            foreach ($info as $k1=>$v1){
-                if($v1['duty'] == $v) $data[] = $v1;
-            }
-        }
-        $result = [];
         $i = 1;
-       foreach ($data as $k=>&$v){
+       foreach ($info as $k=>&$v){
            if(strlen($v['id_number']) == 18){
                $v['id_number'] = substr($v['id_number'],6,4)."-".substr($v['id_number'],10,2)."-".substr($v['id_number'],12,2);
            }else{
@@ -1083,75 +1048,8 @@ class Mariner extends Base
                    "vessel"=>$v['vessel'],
                    "time"=>date("Y-m-d",strtotime("+1 day"))
                ];
-               $result[] = $insert;
+               $data[] = $insert;
        }
-        $this->excelExport($fileName,$header,$result);
-    }
-
-    /**
-     * 导出人民币权限判断
-     * @return \think\response\Json
-     */
-    public function checkRule()
-    {
-        if(!in_array("导出人民币汇款",$this->privilege) && self::$is_check_rule){
-            return json(["false"]);
-        }else{
-            return json(["true"]);
-        }
-    }
-
-    /**
-     * 导出个人的人民币汇款
-     * @throws \PHPExcel_Exception
-     * @throws \PHPExcel_Reader_Exception
-     * @throws \PHPExcel_Writer_Exception
-     * @throws \think\db\exception\DataNotFoundException
-     * @throws \think\db\exception\ModelNotFoundException
-     * @throws \think\exception\DbException
-     */
-    public function exportOne()
-    {
-        $fileName = "人民币汇款单";
-        $header = ["序号","船员姓名","出生日期","职务","收款账号","收款人姓名","金额","用途","收款行行号","收款行名称","银行简称","船东（简称）","船名","汇款日期"
-        ];
-        $id = input('id');
-        $info = Db::name('mariner')
-            ->alias('a')
-            ->field('a.id,a.cid,a.name,a.id_number,a.duty,a.manning_office,a.fleet,a.time,b.title ownerPool,b.alias,c.title vessel,a.is_delete,d.line_number,d.bank,d.name_cn,d.short_name,d.number')
-            ->join('shipowner b','a.owner_pool = b.id','LEFT')
-            ->join('vessel c','c.id=a.vessel','LEFT')
-            ->join('remittance d','d.pid=a.id','LEFT')
-            ->where(['a.id'=>$id])
-            ->order('duty')
-            ->select();
-        $i = 1;
-        foreach ($info as $k=>&$v){
-            if(strlen($v['id_number']) == 18){
-                $v['id_number'] = substr($v['id_number'],6,4)."-".substr($v['id_number'],10,2)."-".substr($v['id_number'],12,2);
-            }else{
-                $v['id_number'] = "";
-            }
-            $v['money'] = "";
-            $v['use']  = "家汇";
-            $v['time'] = date("Y-m-d",strtotime("+1 day"));
-            $data[] = [
-                'order'=>$i++,
-                'name'=>$v['name'],
-                'birthday'=>$v['id_number'],
-                'duty'=>$v['duty'],
-                'number'=>(string)$v['number']."\t",
-                'nameCn'=>$v['name_cn'],
-                'money'=>"",
-                "use"=>"家汇",
-                "lineNumber"=>$v['line_number'],
-                "bank"=>$v['bank'],
-                "shortName"=>$v['short_name'],
-                "alias"=>$v['alias'],
-                "vessel"=>$v['vessel'],
-                "time"=>date("Y-m-d",strtotime("+1 day"))
-            ];
-        }
         $this->excelExport($fileName,$header,$data);
     }
 
@@ -1170,38 +1068,27 @@ class Mariner extends Base
         $fileName = "英文汇款单";
         $header = ["序号","船员姓名","出生日期","职务","收款人","收款行名称","账号","Swift Code","金额(USD)","船东+职务+船员姓名"	,"收款人生日","收款人联系电话","船东","船名","收款人与船员关系","汇款日期"];
         $where = [];
-        $ids = explode(",",input('id'));
-        if ($ids[0]){
-            $where['a.id'] = ['IN',$ids];
-        }else{
-            $param = input('get.');
-            if ($param['id']) $where['a.id'] = input('id');
-            if ($param['idNumber']) $where['id_number'] = ['LIKE',"%".input('idNumber')."%"];
-            if ($param['cid']) $where['cid'] = ['LIKE',"%".input('cid')."%"];
-            if ($param['fleet']) $where['a.fleet'] = ['LIKE',"%".strtoupper(input('fleet'))."%"];
-            if ($param['ownerPool']) $where['owner_pool'] = ['IN',explode(',',$param['ownerPool'])];
-            if ($param['vessel']) $where['a.vessel'] = ['IN',explode(',',$param['vessel'])];
-            if ($param['manningOffice']) $where['manning_office'] = input('manningOffice');
-            if ($param['duty']) $where['duty'] = ['IN',explode(',',$param['duty'])];
-        }
-        $info = Db::name('mariner')
-            ->alias('a')
-            ->field('a.id,a.cid,a.name,a.id_number,a.duty,a.manning_office,a.fleet,a.time,b.title ownerPool,c.title vessel,a.is_delete,d.name_en,d.english,d.swift,d.number,d.relation,d.telnumber,d.birthday')
-            ->join('shipowner b','a.owner_pool = b.id','LEFT')
-            ->join('vessel c','c.id=a.vessel','LEFT')
-            ->join('remittance d','a.id=d.pid','LEFT')
-            ->where($where)
-            ->select();
-        $dutyInfo = Db::name('duty')->order('id asc')->column('duty');
+        $param = input('get.');
+        if ($param['id']) $where['a.id'] = input('id');
+        if ($param['idNumber']) $where['id_number'] = ['LIKE',"%".input('idNumber')."%"];
+        if ($param['cid']) $where['cid'] = ['LIKE',"%".input('cid')."%"];
+        if ($param['fleet']) $where['a.fleet'] = ['LIKE',"%".strtoupper(input('fleet'))."%"];
+        if ($param['ownerPool']) $where['owner_pool'] = ['IN',explode(',',$param['ownerPool'])];
+        if ($param['vessel']) $where['a.vessel'] = ['IN',explode(',',$param['vessel'])];
+        if ($param['manningOffice']) $where['manning_office'] = input('manningOffice');
+        if ($param['duty']) $where['duty'] = ['IN',explode(',',$param['duty'])];
+            $info = Db::name('mariner')
+                ->alias('a')
+                ->field('a.name,a.id_number,a.duty,d.english,d.name_en,d.number,d.swift,b.title ownerPool,c.title vessel,d.telnumber,d.relation,d.birthday')
+                ->join('shipowner b','a.owner_pool = b.id','LEFT')
+                ->join('vessel c','c.id=a.vessel','LEFT')
+                ->join('remittance d','d.pid= a.id','LEFT')
+                ->where($where)
+                ->order('duty')
+                ->select();
         $data = [];
-        foreach ($dutyInfo as $k=>$v){
-            foreach ($info as $k1=>$v1){
-                if($v1['duty'] == $v) $data[] = $v1;
-            }
-        }
-        $result = [];
         $i = 1;
-        foreach ($data as $k=>&$v){
+        foreach ($info as $k=>&$v){
             $v['id_number'] = substr($v['id_number'],6,4)."-".substr($v['id_number'],10,2)."-".substr($v['id_number'],12,2);
             $insert = [
                 'order'=>$i++,
@@ -1221,9 +1108,9 @@ class Mariner extends Base
                 "relation"=>$v['relation'],
                 "time"=>date("Y-m-d",strtotime("+1 day"))
             ];
-            $result[] = $insert;
+            $data[] = $insert;
         }
-        $this->excelExport($fileName,$header,$result);
+        $this->excelExport($fileName,$header,$data);
     }
 
     /**

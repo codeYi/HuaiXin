@@ -954,11 +954,10 @@ class Social extends Base
             ->count();
         $info = Db::name('insured')
             ->alias('a')
-            ->field('b.id,b.cid,b.name,b.id_number,min(starttime) firsttime,max(starttime) starttime,c.remark')
+            ->field('b.id,b.cid,b.name,b.id_number,min(starttime) firsttime,max(starttime) starttime')
             ->join('mariner b','a.mariner_id=b.id','LEFT')
-            ->join('social_security_remark c','a.mariner_id=c.mariner_id','LEFT')
             ->where($where)
-            ->group('a.mariner_id')
+            ->group('mariner_id')
             ->page($data['page'],$listRows)
             ->select();
         foreach ($info as $k=>$v){
@@ -1585,57 +1584,5 @@ class Social extends Base
             Db::rollback();
             return error_data();
         }
-    }
-
-    /**
-     * 更新备注
-     */
-    public function remarkAdd()
-    {
-        $id = input('id');
-        $remark = input('remark');
-        $value = Db::name('social_security_remark')->where(['mariner_id'=>$id])->value('mariner_id');
-        if($value){
-            $res = Db::name('social_security_remark')->where(['mariner_id'=>$id])->update(['remark'=>$remark]);
-        }else{
-           $res = Db::name('social_security_remark')->insert(['mariner_id'=>$id,'remark'=>$remark]);
-        }
-        if($res) return ok_data();
-        return error_data();
-    }
-
-    /**
-     * 删除社保人员
-     * @return \think\response\Json
-     */
-    public function deleteInsured()
-    {
-        $id = input('id/a');
-        Db::startTrans();
-        try{
-            Db::name('insured')->where(['mariner_id'=>['IN',$id]])->delete();
-            Db::name('insured_stop')->where(['mariner_id'=>['IN',$id]])->delete();
-            Db::name('social_info')->where(['mariner_id'=>['IN',$id]])->delete();
-            Db::name('social_security_remark')->where(['mariner_id'=>['IN',$id]])->delete();
-            Db::commit();
-            return ok_data();
-        }catch (\Exception $e){
-            Db::rollback();
-            return error_data();
-        }
-    }
-
-    /**
-     * 删除社保信息
-     * @return \think\response\Json
-     * @throws \think\Exception
-     * @throws \think\exception\PDOException
-     */
-    public function  deleteInfo()
-    {
-        $id = input('id/a');
-        $res = Db::name('social_info')->where(['id'=>['IN',$id]])->delete();
-        if($res) return ok_data();
-        return error_data();
     }
 }

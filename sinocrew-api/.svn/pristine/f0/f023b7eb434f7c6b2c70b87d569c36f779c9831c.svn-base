@@ -61,7 +61,7 @@ class Login
             ->value('role_id');
         if(!$role) return error_data('您的账号没有绑定角色，请联系管理员');
         //更新最后登录ip
-        Db::name('user')->where(['id' => input('id')])->update(['logintime' => formatTime(time()), 'loginip' => getIp()]);
+        Db::name('user')->where(['id' => input('id')])->update(['logintime' => formatTime(time()), 'loginip' => get_ip()]);
         session('is_mariner',false);
         cookie('user', $userInfo);
         session('id', $userInfo['id']);

@@ -464,7 +464,7 @@ class Index extends Base
     public function borrowInfo()
     {
         $result = [];
-        if(!in_array("借还款统计",$this->privilege) && self::$is_check_rule) return json($result);
+        if(!in_array("借还款统计",$this->privilege) && !self::$is_check_rule) return json($result);
         $startDate = input('date/a')[0];
         $endDate = input('date/a')[1];
         $currency = input('currency')?input('currency'):"人民币";
@@ -503,7 +503,7 @@ class Index extends Base
     public function chargeInfo()
     {
         $result = [];
-        if(!in_array("收费统计",$this->privilege) && self::$is_check_rule) return json($result);
+        if(!in_array("收费统计",$this->privilege) && !self::$is_check_rule) return json($result);
         $startDate = input('date/a')[0];
         $endDate = input('date/a')[1];
         $monarr = [];
@@ -977,16 +977,8 @@ class Index extends Base
         return json($res);
     }
 
-    /**
-     * 人事统计
-     * @return \think\response\Json
-     * @throws \think\db\exception\DataNotFoundException
-     * @throws \think\db\exception\ModelNotFoundException
-     * @throws \think\exception\DbException
-     */
     public function personnel()
     {
-        if(!in_array("人事统计",$this->privilege) && self::$is_check_rule) return json([]);
         $type = input('type');
         switch ($type){
             case 1:

@@ -56,8 +56,7 @@ class Supplier extends Base
         $attribute = input('attribute/a');
         $startTime = input('time/a')[0];
         $endTime = input('time/a')[1];
-        $where = [];
-        if($search) $where['title'] = ['LIKE',"%$search%"];
+        $where['title'] = ['LIKE',"%$search%"];
         if($attribute) $where['attribute'] = ['IN',$attribute];
         if($startTime && $endTime) $where['develop_date'] = ['BETWEEN TIME',[$startTime,$endTime]];
         $list = Db::name('supplier')

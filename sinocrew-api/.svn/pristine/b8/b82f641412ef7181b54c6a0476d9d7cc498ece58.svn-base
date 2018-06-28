@@ -219,7 +219,7 @@ class Index extends Base
      */
     public function socialInfo()
     {
-        $result= [];
+        $result = [];
         if(!in_array("社保预算",$this->privilege) && self::$is_check_rule) return json($result);
         $type = input('type');
         $startDate = input('date/a')[0];
@@ -327,17 +327,7 @@ class Index extends Base
 //                    }
 //                }
 //                return json($result);
-                $result = [];
-                foreach ($monarr as $k1=>$v1){
-                    $list = Db::name('social_info')->where(['pay_month'=>$v1])->count();
-                    $final = Db::name('social_info')->where(['pay_month'=>$v1])->value('final');
-                    $result[] = [
-                            'month'=>$v1,
-                            'list'=>$list,
-                            'total'=>$final?$final:0
-                        ];
-                }
-                return json($result);
+
                 break;
             //参保地
             case 2:
@@ -345,10 +335,74 @@ class Index extends Base
                 foreach ($area as $k1=>$v1) {
                     $list = Db::name('social_info')->where(['area' => $v1, 'pay_month' => ['BETWEEN', [current($monarr), $monarr[count($monarr)-1]]]])->count();
                     $info = Db::name('social_info')->field('SUM(final_company)+SUM(final_person) total')->where(['area' => $v1, 'pay_month' => ['BETWEEN', [current($monarr), $monarr[count($monarr)-1]]]])->find();
+                    $final = 0;//合计
+                    foreach ($monarr as $k2=>$v2){
+                        //预算
+                        $finalPerson = 0;//实际个人
+                        $finalCompany = 0;//实际公司
+                        $totalCompany = 0;
+                        $totalPerson = 0;
+                        $addPerson = 0;
+                        $addCompany = 0;
+                        if($v2 > date('Y-m',time())){
+                            $list += Db::name('insured')
+                                ->alias('a')
+                                ->join('insured_stop b','a.mariner_id=b.mariner_id','LEFT')
+                                ->where(['is_stop'=>0,'a.area'=>$v1])
+                                ->group('a.mariner_id')
+                                ->count();
+                            $insured = Db::name('insured')
+                                ->alias('a')
+                                ->field("a.mariner_id,a.area,max(a.starttime) starttime,max(b.starttime) stoptime")
+                                ->join('insured_stop b','a.mariner_id=b.mariner_id','LEFT')
+                                ->where(['is_stop'=>0,'a.area'=>$v1])
+                                ->group('mariner_id')
+                                ->select();
+                            foreach ($insured as $k=>&$v) {
+                                //是否停保
+                                if ($v['stoptime'] > $v['starttime']) continue;
+                                $areaInfo = Db::name('social_security')
+                                    ->where(['area' => $v['area'], 'starttime' => ['ELT', date('Y-m', time()), 'endtime' => ['EGT', date('Y-m', time())]]])
+                                    ->order('starttime desc')
+                                    ->find();
+                                $setInfo = Db::name('social_security_set')
+                                    ->where(['pid' => $areaInfo['id']])
+                                    ->select();
+                                foreach ($setInfo as $key => $value) {
+                                    if ($value['title'] == "养老保险") {
+                                        $totalPerson += $value['base_person'] * $value['rate_person'];
+                                        $totalCompany += $value['base_company'] * $value['rate_company'];
+                                    } elseif ($value['title'] == "生育保险") {
+                                        $totalPerson += $value['base_person'] * $value['rate_person'];
+                                        $totalCompany += $value['base_company'] * $value['rate_company'];
+                                    } elseif ($value['title'] == "工伤保险") {
+                                        $totalPerson += $value['base_person'] * $value['rate_person'];
+                                        $totalCompany += $value['base_company'] * $value['rate_company'];
+                                    } elseif ($value['title'] == "失业保险") {
+                                        $data['shiye_company'] = $value['base_company'] * $value['rate_company'];
+                                        $data['shiye_person'] = $value['base_person'] * $value['rate_person'];
+                                        $totalPerson += $data['shiye_person'];
+                                        $totalCompany += $data['shiye_company'];
+                                    } elseif ($value['title'] == "医疗保险") {
+                                        $data['yiliao_company'] = $value['base_company'] * $value['rate_company'];
+                                        $data['yiliao_person'] = $value['base_person'] * $value['rate_person'];
+                                        $totalPerson += $data['yiliao_person'];
+                                        $totalCompany += $data['yiliao_company'];
+                                    } else {
+                                        $addPerson += $value['base_person'] * $value['rate_person'];
+                                        $addCompany += $value['base_company'] * $value['rate_company'];
+                                    }
+                                    $finalPerson += $totalPerson + $addPerson;
+                                    $finalCompany += $totalCompany + $addCompany;
+                                    $final += $finalPerson + $finalCompany;
+                                }
+                            }
+                        }
+                    }
                     $result[] = [
                         'area' => $v1,
                         'list' => $list,
-                        'total' => $info['total']
+                        'total' => $info['total']+$final
                     ];
                 }
                 return json($result);
@@ -370,10 +424,76 @@ class Index extends Base
                         ->join('mariner b','a.mariner_id=b.id','LEFT')
                         ->where(['b.fleet'=>$v1,'pay_month' => ['BETWEEN', [current($monarr), $monarr[count($monarr)-1]]]])
                         ->find();
+                    $final = 0;//合计
+                    foreach ($monarr as $k2=>$v2){
+                        //预算
+                        $finalPerson = 0;//实际个人
+                        $finalCompany = 0;//实际公司
+                        $totalCompany = 0;
+                        $totalPerson = 0;
+                        $addPerson = 0;
+                        $addCompany = 0;
+                        if($v2 > date('Y-m',time())){
+                            $list += Db::name('insured')
+                                ->alias('a')
+                                ->join('insured_stop b','a.mariner_id=b.mariner_id','LEFT')
+                                ->join('mariner c','a.mariner_id=c.id','LEFT')
+                                ->where(['is_stop'=>0,'c.fleet'=>$v1])
+                                ->group('a.mariner_id')
+                                ->count();
+                            $insured = Db::name('insured')
+                                ->alias('a')
+                                ->field("a.mariner_id,a.area,max(a.starttime) starttime,max(b.starttime) stoptime")
+                                ->join('insured_stop b','a.mariner_id=b.mariner_id','LEFT')
+                                ->join('mariner c','a.mariner_id=c.id','LEFT')
+                                ->where(['is_stop'=>0,'c.fleet'=>$v1])
+                                ->group('a.mariner_id')
+                                ->select();
+                            foreach ($insured as $k=>&$v) {
+                                //是否停保
+                                if ($v['stoptime'] > $v['starttime']) continue;
+                                $areaInfo = Db::name('social_security')
+                                    ->where(['area' => $v['area'], 'starttime' => ['ELT', date('Y-m', time()), 'endtime' => ['EGT', date('Y-m', time())]]])
+                                    ->order('starttime desc')
+                                    ->find();
+                                $setInfo = Db::name('social_security_set')
+                                    ->where(['pid' => $areaInfo['id']])
+                                    ->select();
+                                foreach ($setInfo as $key => $value) {
+                                    if ($value['title'] == "养老保险") {
+                                        $totalPerson += $value['base_person'] * $value['rate_person'];
+                                        $totalCompany += $value['base_company'] * $value['rate_company'];
+                                    } elseif ($value['title'] == "生育保险") {
+                                        $totalPerson += $value['base_person'] * $value['rate_person'];
+                                        $totalCompany += $value['base_company'] * $value['rate_company'];
+                                    } elseif ($value['title'] == "工伤保险") {
+                                        $totalPerson += $value['base_person'] * $value['rate_person'];
+                                        $totalCompany += $value['base_company'] * $value['rate_company'];
+                                    } elseif ($value['title'] == "失业保险") {
+                                        $data['shiye_company'] = $value['base_company'] * $value['rate_company'];
+                                        $data['shiye_person'] = $value['base_person'] * $value['rate_person'];
+                                        $totalPerson += $data['shiye_person'];
+                                        $totalCompany += $data['shiye_company'];
+                                    } elseif ($value['title'] == "医疗保险") {
+                                        $data['yiliao_company'] = $value['base_company'] * $value['rate_company'];
+                                        $data['yiliao_person'] = $value['base_person'] * $value['rate_person'];
+                                        $totalPerson += $data['yiliao_person'];
+                                        $totalCompany += $data['yiliao_company'];
+                                    } else {
+                                        $addPerson += $value['base_person'] * $value['rate_person'];
+                                        $addCompany += $value['base_company'] * $value['rate_company'];
+                                    }
+                                    $finalPerson += $totalPerson + $addPerson;
+                                    $finalCompany += $totalCompany + $addCompany;
+                                    $final += $finalPerson + $finalCompany;
+                                }
+                            }
+                        }
+                    }
                     $result[] = [
                         'area' => $v1,
                         'list' => $list,
-                        'total' => $info['total']
+                        'total' => $info['total']+$final
                     ];
                 }
                 return json($result);
@@ -395,14 +515,79 @@ class Index extends Base
                         ->join('mariner b','a.mariner_id=b.id','LEFT')
                         ->where(['b.owner_pool'=>$v1['id'],'pay_month' => ['BETWEEN', [current($monarr), $monarr[count($monarr)-1]]]])
                         ->find();
+                    $final = 0;//合计
+                    foreach ($monarr as $k2=>$v2){
+                        //预算
+                        $finalPerson = 0;//实际个人
+                        $finalCompany = 0;//实际公司
+                        $totalCompany = 0;
+                        $totalPerson = 0;
+                        $addPerson = 0;
+                        $addCompany = 0;
+                        if($v2 > date('Y-m',time())){
+                            $list += Db::name('insured')
+                                ->alias('a')
+                                ->join('insured_stop b','a.mariner_id=b.mariner_id','LEFT')
+                                ->join('mariner c','a.mariner_id=c.id','LEFT')
+                                ->where(['is_stop'=>0,'c.owner_pool'=>$v1['id']])
+                                ->count();
+                            $insured = Db::name('insured')
+                                ->alias('a')
+                                ->field("a.mariner_id,a.area,max(a.starttime) starttime,max(b.starttime) stoptime")
+                                ->join('insured_stop b','a.mariner_id=b.mariner_id','LEFT')
+                                ->join('mariner c','a.mariner_id=c.id','LEFT')
+                                ->where(['is_stop'=>0,'c.owner_pool'=>$v1['id']])
+                                ->select();
+                            foreach ($insured as $k=>&$v) {
+                                //是否停保
+                                if ($v['stoptime'] > $v['starttime']) continue;
+                                $areaInfo = Db::name('social_security')
+                                    ->where(['area' => $v['area'], 'starttime' => ['ELT', date('Y-m', time()), 'endtime' => ['EGT', date('Y-m', time())]]])
+                                    ->order('starttime desc')
+                                    ->find();
+                                $setInfo = Db::name('social_security_set')
+                                    ->where(['pid' => $areaInfo['id']])
+                                    ->select();
+                                foreach ($setInfo as $key => $value) {
+                                    if ($value['title'] == "养老保险") {
+                                        $totalPerson += $value['base_person'] * $value['rate_person'];
+                                        $totalCompany += $value['base_company'] * $value['rate_company'];
+                                    } elseif ($value['title'] == "生育保险") {
+                                        $totalPerson += $value['base_person'] * $value['rate_person'];
+                                        $totalCompany += $value['base_company'] * $value['rate_company'];
+                                    } elseif ($value['title'] == "工伤保险") {
+                                        $totalPerson += $value['base_person'] * $value['rate_person'];
+                                        $totalCompany += $value['base_company'] * $value['rate_company'];
+                                    } elseif ($value['title'] == "失业保险") {
+                                        $data['shiye_company'] = $value['base_company'] * $value['rate_company'];
+                                        $data['shiye_person'] = $value['base_person'] * $value['rate_person'];
+                                        $totalPerson += $data['shiye_person'];
+                                        $totalCompany += $data['shiye_company'];
+                                    } elseif ($value['title'] == "医疗保险") {
+                                        $data['yiliao_company'] = $value['base_company'] * $value['rate_company'];
+                                        $data['yiliao_person'] = $value['base_person'] * $value['rate_person'];
+                                        $totalPerson += $data['yiliao_person'];
+                                        $totalCompany += $data['yiliao_company'];
+                                    } else {
+                                        $addPerson += $value['base_person'] * $value['rate_person'];
+                                        $addCompany += $value['base_company'] * $value['rate_company'];
+                                    }
+                                    $finalPerson += $totalPerson + $addPerson;
+                                    $finalCompany += $totalCompany + $addCompany;
+                                    $final += $finalPerson + $finalCompany;
+                                }
+                            }
+                        }
+                    }
                     $result[] = [
                         'area' => $v1['title'],
                         'list' => $list,
-                        'total' => $info['total']
+                        'total' => $info['total']+$final
                     ];
                 }
                 return json($result);
                 break;
+            //月度社保预算
             case 5:
                 $month = input('month');
                 $info = Db::name('social_info')->field('SUM(yiliao_person+shengyu_person+shiye_person+yanglao_person+gongshang_person)  social_person,SUM(yiliao_company+shengyu_company+shiye_company+yanglao_company+gongshang_company)  social_company,SUM(else_person) else_person,SUM(else_company) else_company,SUM(amount_person) amount_person,SUM(amount_company) amount_company,SUM(assume_person) assume_person,SUM(add_person) add_person,SUM(add_company) add_company,SUM(final_person) final_person,SUM(final_company) final_company')->where(['pay_month'=>$month])->select();
@@ -464,7 +649,7 @@ class Index extends Base
     public function borrowInfo()
     {
         $result = [];
-        if(!in_array("借还款统计",$this->privilege) && self::$is_check_rule) return json($result);
+        if(!in_array("借还款统计",$this->privilege) && !self::$is_check_rule) return json($result);
         $startDate = input('date/a')[0];
         $endDate = input('date/a')[1];
         $currency = input('currency')?input('currency'):"人民币";
@@ -503,7 +688,7 @@ class Index extends Base
     public function chargeInfo()
     {
         $result = [];
-        if(!in_array("收费统计",$this->privilege) && self::$is_check_rule) return json($result);
+        if(!in_array("收费统计",$this->privilege) && !self::$is_check_rule) return json($result);
         $startDate = input('date/a')[0];
         $endDate = input('date/a')[1];
         $monarr = [];
@@ -563,12 +748,12 @@ class Index extends Base
                 $result = [];
                 $list = 0;
                 foreach ($monarr as $k=>$v){
-                    $list += Db::name('expense')->field('SUM(total) really')->where(['status'=>1,'month'=>$v])->count();
-                    $list += Db::name('user_expense')->field('SUM(total) really')->where(['status'=>1,'month'=>$v])->count();
-                    $list += Db::name('office_expense')->field('SUM(total) really')->where(['status'=>1,'month'=>$v])->count();
-                    $mariner = Db::name('expense')->field('SUM(total) really')->where(['status'=>1,'month'=>$v])->find();
-                    $user = Db::name('user_expense')->field('SUM(total) really')->where(['status'=>1,'month'=>$v])->find();
-                    $office = Db::name('office_expense')->field('SUM(total) really')->where(['status'=>1,'month'=>$v])->find();
+                    $list += Db::name('expense')->field('SUM(really) really')->where(['status'=>1,'month'=>$v])->count();
+                    $list += Db::name('user_expense')->field('SUM(really) really')->where(['status'=>1,'month'=>$v])->count();
+                    $list += Db::name('office_expense')->field('SUM(really) really')->where(['status'=>1,'month'=>$v])->count();
+                    $mariner = Db::name('expense')->field('SUM(really) really')->where(['status'=>1,'month'=>$v])->find();
+                    $user = Db::name('user_expense')->field('SUM(really) really')->where(['status'=>1,'month'=>$v])->find();
+                    $office = Db::name('office_expense')->field('SUM(really) really')->where(['status'=>1,'month'=>$v])->find();
                     $result[] = [
                         'month'=>$v,
                         'list'=>$list,
@@ -619,9 +804,9 @@ class Index extends Base
                 $address = array_unique(array_merge($mariner,$user,$office));
                 $result = [];
                 foreach ($address as $k=>$v){
-                   $marinerReally = Db::name('expense')->where(['address'=>$v])->sum('total');
-                   $userReally = Db::name('user_expense')->where(['address'=>$v])->sum('total');
-                   $officeReally = Db::name('office_expense')->where(['address'=>$v])->sum('total');
+                   $marinerReally = Db::name('expense')->where(['address'=>$v])->sum('really');
+                   $userReally = Db::name('user_expense')->where(['address'=>$v])->sum('really');
+                   $officeReally = Db::name('office_expense')->where(['address'=>$v])->sum('really');
                    $result[] = [
                         'address'=>$v,
                        'mariner'=>$marinerReally,
@@ -659,7 +844,7 @@ class Index extends Base
                         ->where(['month' => $month])
                         ->join('mariner b', 'a.mariner_id = b.id', 'LEFT')
                         ->group('b.duty')
-                        ->column('b.duty');
+                        ->column('duty');
                     $all = [];
                     foreach ($info as $k => $v) {
                         //获取职务对应的报销id
@@ -669,10 +854,8 @@ class Index extends Base
                             ->where(['a.duty' => $v])
                             ->column('b.id');
                         $result = Db::name('expense_data')
-                            ->alias('a')
                             ->field('SUM(traffic_cost) traffic,SUM(hotel_cost) hotel,SUM(city_cost) city,SUM(examination_cost) examination,SUM(train_cost) train,SUM(subsidy_cost) subsidy,SUM(else_cost) rests')
-                            ->join('expense b','a.pid = b.id','LEFT')
-                            ->where(['a.pid' => ['IN', $expenseId],'b.status'=>1])
+                            ->where(['pid' => ['IN', $expenseId]])
                             ->find();
                         $result['duty'] = $v;
                         $result['total'] = $result['traffic']+$result['hotel']+$result['city']+$result['examination']+$result['train']+$result['subsidy']+$result['rests'];
@@ -693,10 +876,8 @@ class Index extends Base
                             ->where(['shipowner_id'=>$v['id']])
                             ->column('id');
                         $result = Db::name('expense_data')
-                            ->alias('a')
                             ->field('SUM(traffic_cost) traffic,SUM(hotel_cost) hotel,SUM(city_cost) city,SUM(examination_cost) examination,SUM(train_cost) train,SUM(subsidy_cost) subsidy,SUM(else_cost) rests')
-                            ->join('expense b','a.pid = b.id','LEFT')
-                            ->where(['a.pid' => ['IN', $expenseId],'b.status'=>1])
+                            ->where(['pid' => ['IN', $expenseId]])
                             ->find();
                         $result['shipowner'] = $v['title'];
                         $result['total'] = $result['traffic']+$result['hotel']+$result['city']+$result['examination']+$result['train']+$result['subsidy']+$result['rests'];
@@ -709,10 +890,8 @@ class Index extends Base
                     foreach ($address as $k=>$v){
                         $expenseId = Db::name('expense')->where(['address'=>$v])->column('id');
                         $result = Db::name('expense_data')
-                            ->alias('a')
                             ->field('SUM(traffic_cost) traffic,SUM(hotel_cost) hotel,SUM(city_cost) city,SUM(examination_cost) examination,SUM(train_cost) train,SUM(subsidy_cost) subsidy,SUM(else_cost) rests')
-                            ->join('expense b','a.pid = b.id','LEFT')
-                            ->where(['a.pid' => ['IN', $expenseId],'b.status'=>1])
+                            ->where(['pid' => ['IN', $expenseId]])
                             ->find();
                         $result['duty'] = $v;
                         $result['total'] = $result['traffic']+$result['hotel']+$result['city']+$result['examination']+$result['train']+$result['subsidy']+$result['rests'];
@@ -733,10 +912,8 @@ class Index extends Base
                             ->where(['vessel_id'=>$v['id']])
                             ->column('id');
                         $result = Db::name('expense_data')
-                            ->alias('a')
                             ->field('SUM(traffic_cost) traffic,SUM(hotel_cost) hotel,SUM(city_cost) city,SUM(examination_cost) examination,SUM(train_cost) train,SUM(subsidy_cost) subsidy,SUM(else_cost) rests')
-                            ->join('expense b','a.pid = b.id','LEFT')
-                            ->where(['a.pid' => ['IN', $expenseId],'b.status'=>1])
+                            ->where(['pid' => ['IN', $expenseId]])
                             ->find();
                         $result['vessel'] = $v['title'];
                         $result['total'] = $result['traffic']+$result['hotel']+$result['city']+$result['examination']+$result['train']+$result['subsidy']+$result['rests'];
@@ -754,10 +931,8 @@ class Index extends Base
                             ->where(['fleet'=>$v])
                             ->column('id');
                         $result = Db::name('expense_data')
-                            ->alias('a')
                             ->field('SUM(traffic_cost) traffic,SUM(hotel_cost) hotel,SUM(city_cost) city,SUM(examination_cost) examination,SUM(train_cost) train,SUM(subsidy_cost) subsidy,SUM(else_cost) rests')
-                            ->join('expense b','a.pid = b.id','LEFT')
-                            ->where(['a.pid' => ['IN', $expenseId],'b.status'=>1])
+                            ->where(['pid' => ['IN', $expenseId]])
                             ->find();
                         $result['fleet'] = $v;
                         $result['total'] = $result['traffic']+$result['hotel']+$result['city']+$result['examination']+$result['train']+$result['subsidy']+$result['rests'];
@@ -781,10 +956,8 @@ class Index extends Base
                            ->where(['department' => $v])
                            ->column('b.id');
                        $result = Db::name('user_expense_data')
-                           ->alias('a')
                            ->field('SUM(traffic_cost) traffic,SUM(hotel_cost) hotel,SUM(city_cost) city,SUM(travel_cost) travel,SUM(meal_cost) meal,SUM(exchange_cost) exchange,SUM(office_cost) office,SUM(communication_cost) communication,SUM(post_cost) post,SUM(partner_cost) partner,SUM(else_cost) rests')
-                           ->join('user_expense b','a.pid=b.id','LEFT')
-                           ->where(['pid' => ['IN', $expenseId],'status'=>1])
+                           ->where(['pid' => ['IN', $expenseId]])
                            ->find();
                        $result['department'] = $v;
                        $result['total'] = $result['traffic']+$result['hotel']+$result['city']+$result['travel']+$result['meal']+$result['exchange']+$result['office']+$result['communication']+$result['post']+$result['partner']+$result['rests'];
@@ -805,10 +978,8 @@ class Index extends Base
                             ->where(['shipowner_id'=>$v['id']])
                             ->column('id');
                         $result = Db::name('user_expense_data')
-                            ->alias('a')
                             ->field('SUM(traffic_cost) traffic,SUM(hotel_cost) hotel,SUM(city_cost) city,SUM(travel_cost) travel,SUM(meal_cost) meal,SUM(exchange_cost) exchange,SUM(office_cost) office,SUM(communication_cost) communication,SUM(post_cost) post,SUM(partner_cost) partner,SUM(else_cost) rests')
-                            ->join('user_expense b','a.pid=b.id','LEFT')
-                            ->where(['pid' => ['IN', $expenseId],'status'=>1])
+                            ->where(['pid' => ['IN', $expenseId]])
                             ->find();
                         $result['shipowner'] = $v['title'];
                         $result['total'] = $result['traffic']+$result['hotel']+$result['city']+$result['travel']+$result['meal']+$result['exchange']+$result['office']+$result['communication']+$result['post']+$result['partner']+$result['rests'];
@@ -821,10 +992,8 @@ class Index extends Base
                     foreach ($address as $k=>$v){
                         $expenseId = Db::name('user_expense')->where(['address'=>$v])->column('id');
                         $result = Db::name('user_expense_data')
-                            ->alias('a')
                             ->field('SUM(traffic_cost) traffic,SUM(hotel_cost) hotel,SUM(city_cost) city,SUM(travel_cost) travel,SUM(meal_cost) meal,SUM(exchange_cost) exchange,SUM(office_cost) office,SUM(communication_cost) communication,SUM(post_cost) post,SUM(partner_cost) partner,SUM(else_cost) rests')
-                            ->join('user_expense b','a.pid=b.id','LEFT')
-                            ->where(['pid' => ['IN', $expenseId],'status'=>1])
+                            ->where(['pid' => ['IN', $expenseId]])
                             ->find();
                         $result['address'] = $v;
                         $result['total'] = $result['traffic']+$result['hotel']+$result['city']+$result['examination']+$result['train']+$result['subsidy']+$result['rests'];
@@ -832,7 +1001,6 @@ class Index extends Base
                     }
                     return json($all);
                 }elseif($status == "vessel"){
-                    //已启用
                     $info = Db::name('user_expense')
                         ->alias('a')
                         ->field('b.id,b.title')
@@ -846,10 +1014,8 @@ class Index extends Base
                             ->where(['vessel_id'=>$v['id']])
                             ->column('id');
                         $result = Db::name('user_expense_data')
-                            ->alias('a')
                             ->field('SUM(traffic_cost) traffic,SUM(hotel_cost) hotel,SUM(city_cost) city,SUM(travel_cost) travel,SUM(meal_cost) meal,SUM(exchange_cost) exchange,SUM(office_cost) office,SUM(communication_cost) communication,SUM(post_cost) post,SUM(partner_cost) partner,SUM(else_cost) rests')
-                            ->join('user_expense b','a.pid=b.id','LEFT')
-                            ->where(['pid' => ['IN', $expenseId],'status'=>1])
+                            ->where(['pid' => ['IN', $expenseId]])
                             ->find();
                         $result['vessel'] = $v['title'];
                         $result['total'] = $result['traffic']+$result['hotel']+$result['city']+$result['examination']+$result['train']+$result['subsidy']+$result['rests'];
@@ -873,20 +1039,13 @@ class Index extends Base
                             ->where(['department' => $v])
                             ->column('b.id');
                         $result = Db::name('office_expense_data')
-                            ->alias('a')
-                            ->field('project,SUM(a.total) money')
-                            ->where(['pid' => ['IN', $expenseId],'status'=>1])
-                            ->join('office_expense b','b.id=a.pid','LEFT')
+                            ->field('project,SUM(total) money')
+                            ->where(['pid' => ['IN', $expenseId]])
                             ->group('project')
                             ->select();
-                        $total = 0;
-                        foreach ($result as $k1=>$v1){
-                            $total += $v1['money'];
-                        }
                         $all[] = [
                             'department'=>$v,
-                            'result'=>$result,
-                            'total'=>$total
+                            'result'=>$result
                         ];
                     }
                     return json($all);
@@ -895,9 +1054,8 @@ class Index extends Base
                         ->alias('a')
                         ->field('b.id,b.title')
                         ->join('shipowner b','a.shipowner_id=b.id','LEFT')
-                        ->where(['status'=>1])
                         ->group('a.shipowner_id')
-                        ->select();
+                        ->find();
                     $all = [];
                     foreach ($info as $k=>$v){
                         $expenseId = Db::name('user')
@@ -906,20 +1064,13 @@ class Index extends Base
                             ->where(['shipowner_id' => $v['id']])
                             ->column('b.id');
                         $result = Db::name('office_expense_data')
-                            ->alias('a')
-                            ->field('project,SUM(a.total) money')
-                            ->where(['pid' => ['IN', $expenseId],'status'=>1])
-                            ->join('office_expense b','b.id=a.pid','LEFT')
+                            ->field('project,SUM(total) money')
+                            ->where(['pid' => ['IN', $expenseId]])
                             ->group('project')
                             ->select();
-                        $total = 0;
-                        foreach ($result as $k1=>$v1){
-                            $total += $v1['money'];
-                        }
                         $all[] = [
                             'shipowner'=>$v['title'],
-                            'result'=>$result,
-                            'total'=>$total
+                            'result'=>$result
                         ];
                     }
                     return json($all);
@@ -932,23 +1083,16 @@ class Index extends Base
                         $expenseId = Db::name('user')
                             ->alias('a')
                             ->join('office_expense b', 'b.user_id=a.id', 'LEFT')
-                            ->where(['b.address' => $v])
+                            ->where(['address' => $v])
                             ->column('b.id');
                         $result = Db::name('office_expense_data')
-                            ->alias('a')
-                            ->field('project,SUM(a.total) money')
-                            ->where(['pid' => ['IN', $expenseId],'status'=>1])
-                            ->join('office_expense b','b.id=a.pid','LEFT')
+                            ->field('project,SUM(total) money')
+                            ->where(['pid' => ['IN', $expenseId]])
                             ->group('project')
                             ->select();
-                        $total = 0;
-                        foreach ($result as $k1=>$v1){
-                            $total += $v1['money'];
-                        }
                         $all[] = [
-                            'address'=>$v,
-                            'result'=>$result,
-                            'total'=>$total
+                            'shipowner'=>$v['title'],
+                            'result'=>$result
                         ];
                     }
                     return json($all);
@@ -975,80 +1119,5 @@ class Index extends Base
             'isMariner'=>$this->isMariner
         ];
         return json($res);
-    }
-
-    /**
-     * 人事统计
-     * @return \think\response\Json
-     * @throws \think\db\exception\DataNotFoundException
-     * @throws \think\db\exception\ModelNotFoundException
-     * @throws \think\exception\DbException
-     */
-    public function personnel()
-    {
-        if(!in_array("人事统计",$this->privilege) && self::$is_check_rule) return json([]);
-        $type = input('type');
-        switch ($type){
-            case 1:
-                //统计部门人数
-               $info = Db::name('user')->field('department,COUNT(id) total')->group('department')->select();
-               return json($info);
-                break;
-            case 2:
-                //统计年龄结构
-                $ten = 0;
-                $twenty = 0;
-                $thirty = 0;
-                $forty = 0;
-                $fifty = 0;
-                $info = Db::name('user')->column('age');
-                foreach ($info as $k=>$v){
-                    if($v<20) $ten++;
-                    if(20<=$v && $v<30) $twenty++;
-                    if(30<=$v && $v<40) $thirty++;
-                    if(40<=$v && $v<50) $forty++;
-                    if($v>50) $fifty++;
-                }
-                $extent = [
-                    ['title' => '20及以下', 'number' => $ten],
-                    ['title' => '20～29', 'number' => $twenty],
-                    ['title' => '30～39', 'number' => $thirty],
-                    ['title' => '40～49', 'number' => $forty],
-                    ['title' => '50及以上', 'number' => $fifty],
-                ];
-                return json($extent);
-                break;
-            case 3:
-                //统计学历
-                $info = Db::name('user')->field('edu_background name,COUNT(id) total')->group('edu_background')->select();
-                return json($info);
-                break;
-            case 4:
-                //统计在职时间
-                $one = 0;
-                $two = 0;
-                $three = 0;
-                $four = 0;
-                $five = 0;
-                $info = Db::name('user')->column('assume_office_date');
-                foreach ($info as $k=>$v){
-                    if($v<1) $one++;
-                    if(1<=$v && $v<3) $two++;
-                    if(3<=$v && $v<6) $three++;
-                    if(6<=$v && $v<10) $four++;
-                    if($v>10) $five++;
-                }
-                $extent = [
-                    ['title' => '1年以下', 'number' => $one],
-                    ['title' => '1年～3年', 'number' => $two],
-                    ['title' => '3年～6年', 'number' => $three],
-                    ['title' => '6年～10年', 'number' => $four],
-                    ['title' => '10年及以上', 'number' => $five],
-                ];
-                return json($extent);
-                break;
-            default:
-                return error_data('参数错误');
-        }
     }
 }

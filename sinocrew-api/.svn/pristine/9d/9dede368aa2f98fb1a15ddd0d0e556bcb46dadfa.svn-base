@@ -437,14 +437,7 @@ class Borrow extends Base
         $page = input('page');
         $page = $page?$page:1;
         $listRows = input('listRows')?input('listRows'):self::$listRows;
-        $idNumber = input('idNumber');
-        $date = input('time/a');
         $where = [];
-        if($idNumber) $where['c.id_number'] = ['LIKE',"%$idNumber%"];
-        if($date[0] && $date[1]) {
-            $where['effect_time'] = ['EGT',$date[0]];
-            $where['finish_time'] = ['ELT',$date[1]];
-        }
         if($id) $where['mariner_id'] = $id;
         if($supplier) $where['supplier_id'] = ['IN',$supplier];
             $list = Db::name('insurance')

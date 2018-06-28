@@ -92,7 +92,6 @@ class Borrow extends Base
         $file = $_FILES[$key[0]]["tmp_name"];
         Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
         $PHPReader = new \PHPExcel_Reader_Excel5();
-        $shared = new \PHPExcel_Shared_Date();
         if (!$PHPReader->canRead($file)) {
             $PHPReader = new \PHPExcel_Reader_Excel2007();
             if (!$PHPReader->canRead($file)) {
@@ -142,7 +141,7 @@ class Borrow extends Base
         foreach ($info_ as $k=>$v){
             $insert[] = [
                 'mariner_id'=>$v['mariner_id'],
-                'date'=>formatTime($shared ->ExcelToPHP($v[2]),'Y-m-d'),
+                'date'=>(string)$v[2],
                 'tally'=>(string)$v[3],
                 'currency'=>(string)$v[4],
                 'amount'=>(float)$v[5],
@@ -437,14 +436,7 @@ class Borrow extends Base
         $page = input('page');
         $page = $page?$page:1;
         $listRows = input('listRows')?input('listRows'):self::$listRows;
-        $idNumber = input('idNumber');
-        $date = input('time/a');
         $where = [];
-        if($idNumber) $where['c.id_number'] = ['LIKE',"%$idNumber%"];
-        if($date[0] && $date[1]) {
-            $where['effect_time'] = ['EGT',$date[0]];
-            $where['finish_time'] = ['ELT',$date[1]];
-        }
         if($id) $where['mariner_id'] = $id;
         if($supplier) $where['supplier_id'] = ['IN',$supplier];
             $list = Db::name('insurance')

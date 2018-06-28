@@ -278,7 +278,7 @@ class Mariner extends Base
                 $data['attribute'] = (string)$v[2];
                 $data['group'] = (string)$v[3];
                 $data['develop_date'] = formatTime($shared ->ExcelToPHP($v[6]),'Y-m-d');
-                $data['time'] = formatTime(time(),'Y-m-d');
+                $data['time'] = formatTime(time());
                 $success++;
                 $pid = Db::name('shipowner')->insertGetId($data);
                 if($v['userId'][0]){
@@ -595,6 +595,7 @@ class Mariner extends Base
             ->join('shipowner b','a.owner_pool = b.id','LEFT')
             ->join('vessel c','c.id=a.vessel','LEFT')
             ->where($where)
+            ->order('duty')
             ->count();
         $info = Db::name('mariner')
             ->alias('a')
@@ -602,18 +603,12 @@ class Mariner extends Base
             ->join('shipowner b','a.owner_pool = b.id','LEFT')
             ->join('vessel c','c.id=a.vessel','LEFT')
             ->where($where)
+            ->order('duty')
             ->page($page,$listRows)
             ->select();
-       $dutyInfo = Db::name('duty')->order('id asc')->column('duty');
-        $data = [];
-        foreach ($dutyInfo as $k=>$v){
-            foreach ($info as $k1=>$v1){
-                if($v1['duty'] == $v) $data[] = $v1;
-            }
-        }
         $res = [
             'list'=>$list,
-            'data'=>$data
+            'data'=>$info
         ];
         return json($res);
     }
@@ -643,20 +638,14 @@ class Mariner extends Base
         }
         $info = Db::name('mariner')
             ->alias('a')
-            ->field('a.id,a.cid,a.name,a.id_number,a.duty,a.manning_office,a.fleet,a.time,b.title ownerPool,c.title vessel,a.is_delete')
+            ->field('a.id,a.cid,a.name,a.id_number,a.duty,a.manning_office,a.fleet,a.time,b.title ownerPool,c.title vessel')
             ->join('shipowner b','a.owner_pool = b.id','LEFT')
             ->join('vessel c','c.id=a.vessel','LEFT')
             ->where($where)
+            ->order('duty')
             ->select();
-        $dutyInfo = Db::name('duty')->order('id asc')->column('duty');
-        $data = [];
-        foreach ($dutyInfo as $k=>$v){
-            foreach ($info as $k1=>$v1){
-                if($v1['duty'] == $v) $data[] = $v1;
-            }
-        }
-        $res= [
-            'data'=>$data
+        $res = [
+            'data'=>$info
         ];
         return json($res);
     }
@@ -1043,22 +1032,16 @@ class Mariner extends Base
         }
         $info = Db::name('mariner')
             ->alias('a')
-            ->field('a.id,a.cid,a.name,a.id_number,a.duty,a.manning_office,a.fleet,a.time,b.title ownerPool,b.alias,c.title vessel,a.is_delete,d.number,d.name_cn,d.line_number,d.bank,d.short_name')
+            ->field('a.id,a.cid,a.name,a.id_number,a.duty,a.manning_office,a.fleet,a.time,b.title ownerPool,b.alias,c.title vessel,a.is_delete,d.line_number,d.bank,d.name_cn,d.short_name,d.number')
             ->join('shipowner b','a.owner_pool = b.id','LEFT')
             ->join('vessel c','c.id=a.vessel','LEFT')
             ->join('remittance d','d.pid=a.id','LEFT')
             ->where($where)
+            ->order('duty')
             ->select();
-        $dutyInfo = Db::name('duty')->order('id asc')->column('duty');
         $data = [];
-        foreach ($dutyInfo as $k=>$v){
-            foreach ($info as $k1=>$v1){
-                if($v1['duty'] == $v) $data[] = $v1;
-            }
-        }
-        $result = [];
         $i = 1;
-       foreach ($data as $k=>&$v){
+       foreach ($info as $k=>&$v){
            if(strlen($v['id_number']) == 18){
                $v['id_number'] = substr($v['id_number'],6,4)."-".substr($v['id_number'],10,2)."-".substr($v['id_number'],12,2);
            }else{
@@ -1083,9 +1066,9 @@ class Mariner extends Base
                    "vessel"=>$v['vessel'],
                    "time"=>date("Y-m-d",strtotime("+1 day"))
                ];
-               $result[] = $insert;
+               $data[] = $insert;
        }
-        $this->excelExport($fileName,$header,$result);
+        $this->excelExport($fileName,$header,$data);
     }
 
     /**
@@ -1186,22 +1169,16 @@ class Mariner extends Base
         }
         $info = Db::name('mariner')
             ->alias('a')
-            ->field('a.id,a.cid,a.name,a.id_number,a.duty,a.manning_office,a.fleet,a.time,b.title ownerPool,c.title vessel,a.is_delete,d.name_en,d.english,d.swift,d.number,d.relation,d.telnumber,d.birthday')
+            ->field('a.name,a.id_number,a.duty,d.english,d.name_en,d.number,d.swift,b.title ownerPool,c.title vessel,d.telnumber,d.relation,d.birthday')
             ->join('shipowner b','a.owner_pool = b.id','LEFT')
             ->join('vessel c','c.id=a.vessel','LEFT')
-            ->join('remittance d','a.id=d.pid','LEFT')
+            ->join('remittance d','d.pid= a.id','LEFT')
             ->where($where)
+            ->order('duty')
             ->select();
-        $dutyInfo = Db::name('duty')->order('id asc')->column('duty');
         $data = [];
-        foreach ($dutyInfo as $k=>$v){
-            foreach ($info as $k1=>$v1){
-                if($v1['duty'] == $v) $data[] = $v1;
-            }
-        }
-        $result = [];
         $i = 1;
-        foreach ($data as $k=>&$v){
+        foreach ($info as $k=>&$v){
             $v['id_number'] = substr($v['id_number'],6,4)."-".substr($v['id_number'],10,2)."-".substr($v['id_number'],12,2);
             $insert = [
                 'order'=>$i++,
@@ -1221,9 +1198,9 @@ class Mariner extends Base
                 "relation"=>$v['relation'],
                 "time"=>date("Y-m-d",strtotime("+1 day"))
             ];
-            $result[] = $insert;
+            $data[] = $insert;
         }
-        $this->excelExport($fileName,$header,$result);
+        $this->excelExport($fileName,$header,$data);
     }
 
     /**

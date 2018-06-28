@@ -219,7 +219,6 @@ class Index extends Base
      */
     public function socialInfo()
     {
-        $result= [];
         if(!in_array("社保预算",$this->privilege) && self::$is_check_rule) return json($result);
         $type = input('type');
         $startDate = input('date/a')[0];
@@ -464,7 +463,7 @@ class Index extends Base
     public function borrowInfo()
     {
         $result = [];
-        if(!in_array("借还款统计",$this->privilege) && self::$is_check_rule) return json($result);
+        if(!in_array("借还款统计",$this->privilege) && !self::$is_check_rule) return json($result);
         $startDate = input('date/a')[0];
         $endDate = input('date/a')[1];
         $currency = input('currency')?input('currency'):"人民币";
@@ -503,7 +502,7 @@ class Index extends Base
     public function chargeInfo()
     {
         $result = [];
-        if(!in_array("收费统计",$this->privilege) && self::$is_check_rule) return json($result);
+        if(!in_array("收费统计",$this->privilege) && !self::$is_check_rule) return json($result);
         $startDate = input('date/a')[0];
         $endDate = input('date/a')[1];
         $monarr = [];
@@ -975,80 +974,5 @@ class Index extends Base
             'isMariner'=>$this->isMariner
         ];
         return json($res);
-    }
-
-    /**
-     * 人事统计
-     * @return \think\response\Json
-     * @throws \think\db\exception\DataNotFoundException
-     * @throws \think\db\exception\ModelNotFoundException
-     * @throws \think\exception\DbException
-     */
-    public function personnel()
-    {
-        if(!in_array("人事统计",$this->privilege) && self::$is_check_rule) return json([]);
-        $type = input('type');
-        switch ($type){
-            case 1:
-                //统计部门人数
-               $info = Db::name('user')->field('department,COUNT(id) total')->group('department')->select();
-               return json($info);
-                break;
-            case 2:
-                //统计年龄结构
-                $ten = 0;
-                $twenty = 0;
-                $thirty = 0;
-                $forty = 0;
-                $fifty = 0;
-                $info = Db::name('user')->column('age');
-                foreach ($info as $k=>$v){
-                    if($v<20) $ten++;
-                    if(20<=$v && $v<30) $twenty++;
-                    if(30<=$v && $v<40) $thirty++;
-                    if(40<=$v && $v<50) $forty++;
-                    if($v>50) $fifty++;
-                }
-                $extent = [
-                    ['title' => '20及以下', 'number' => $ten],
-                    ['title' => '20～29', 'number' => $twenty],
-                    ['title' => '30～39', 'number' => $thirty],
-                    ['title' => '40～49', 'number' => $forty],
-                    ['title' => '50及以上', 'number' => $fifty],
-                ];
-                return json($extent);
-                break;
-            case 3:
-                //统计学历
-                $info = Db::name('user')->field('edu_background name,COUNT(id) total')->group('edu_background')->select();
-                return json($info);
-                break;
-            case 4:
-                //统计在职时间
-                $one = 0;
-                $two = 0;
-                $three = 0;
-                $four = 0;
-                $five = 0;
-                $info = Db::name('user')->column('assume_office_date');
-                foreach ($info as $k=>$v){
-                    if($v<1) $one++;
-                    if(1<=$v && $v<3) $two++;
-                    if(3<=$v && $v<6) $three++;
-                    if(6<=$v && $v<10) $four++;
-                    if($v>10) $five++;
-                }
-                $extent = [
-                    ['title' => '1年以下', 'number' => $one],
-                    ['title' => '1年～3年', 'number' => $two],
-                    ['title' => '3年～6年', 'number' => $three],
-                    ['title' => '6年～10年', 'number' => $four],
-                    ['title' => '10年及以上', 'number' => $five],
-                ];
-                return json($extent);
-                break;
-            default:
-                return error_data('参数错误');
-        }
     }
 }

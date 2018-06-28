@@ -429,8 +429,8 @@ class Expenses extends Base
         $listRows = input('listRows')?input('listRows'):self::$listRows;
         $id = input('id');
         $fleet = strtolower(input('fleet'));
-        $shipownerId = input('shipownerId/a');
-        $vesselId = input('vesselId/a');
+        $shipownerId = input('shipownerId');
+        $vesselId = input('vesselId');
         $cid = input('cid');
         $status = input('status/a');
         $firstTotal = input('total/a')[0];
@@ -438,23 +438,11 @@ class Expenses extends Base
         $startTime = input('date/a')[0];
         $endTime = input('date/a')[1];
         $address = input('address/a');
-        $suppliers = input("suppliers/a");
         $where = [];
-        if($suppliers) {
-            $option = Db::name('expense_option')->field('pid,traffic,hotel,city,examination,train,subsidy')->select();
-            $expenseIds = [];
-            foreach ($option as $k=>$v){
-                if(in_array(explode(',',$v['traffic'])[1],$suppliers)){
-                    $expenseIds[] = $v['pid'];
-                }
-            }
-            $expenseIds = array_unique($expenseIds);
-            $where['a.id'] = ['IN',$expenseIds];
-        }
         if($id) $where['mariner_id'] = $id;
         if($fleet) $where['a.fleet'] = ['LIKE',"%$fleet%"];
-        if($shipownerId) $where['a.shipowner_id'] = ['IN',$shipownerId];
-        if($vesselId) $where['vessel_id'] = ['IN',$vesselId];
+        if($shipownerId) $where['a.shipowner_id'] = $shipownerId;
+        if($vesselId) $where['vessel_id'] = $vesselId;
         if($cid) $where['mariner_id'] = Db::name('mariner')->where(['cid'=>$cid])->value('id');
         if($status) $where['status'] = ['IN',$status];
         if($firstTotal && empty($secondTotal)) $where['total'] = ['EGT',$firstTotal];
@@ -469,11 +457,10 @@ class Expenses extends Base
             $list = Db::name('expense')->where(['mariner_id'=>self::$id])->count();
             $info = Db::name('expense')
                 ->alias('a')
-                ->field('a.id,a.date,b.name,b.duty,c.title shipowner,d.title vessel,a.fleet,a.address,a.reason,a.explain,a.total,a.status,a.warn,e.remark')
+                ->field('a.id,a.date,b.name,b.duty,c.title shipowner,d.title vessel,a.fleet,a.address,a.reason,a.explain,a.total,a.status')
                 ->join('mariner b','a.mariner_id=b.id','LEFT')
                 ->join('shipowner c','a.shipowner_id=c.id','LEFT')
                 ->join('vessel d','a.vessel_id=d.id','LEFT')
-                ->join('expense_option e','e.pid=a.id','LEFT')
                 ->where(['mariner_id'=>self::$id])
                 ->order('date')
                 ->page($page,$listRows)
@@ -481,20 +468,18 @@ class Expenses extends Base
        }else{
            $list = Db::name('expense')
                ->alias('a')
-               ->field('a.id,a.date,b.name,b.duty,c.title shipowner,d.title vessel,a.fleet,a.address,a.reason,a.explain,a.total,a.status,a.warn,e.remark')
+               ->field('a.id,a.date,b.name,b.duty,c.title shipowner,d.title vessel,a.fleet,a.address,a.reason,a.explain,a.total,a.status')
                ->join('mariner b','a.mariner_id=b.id','LEFT')
                ->join('shipowner c','a.shipowner_id=c.id','LEFT')
                ->join('vessel d','a.vessel_id=d.id','LEFT')
-               ->join('expense_option e','e.pid=a.id','LEFT')
                ->where($where)
                ->count();
            $info = Db::name('expense')
                ->alias('a')
-               ->field('a.id,a.date,b.name,b.duty,c.title shipowner,d.title vessel,a.fleet,a.address,a.reason,a.explain,a.total,a.status,a.warn,e.remark')
+               ->field('a.id,a.date,b.name,b.duty,c.title shipowner,d.title vessel,a.fleet,a.address,a.reason,a.explain,a.total,a.status')
                ->join('mariner b','a.mariner_id=b.id','LEFT')
                ->join('shipowner c','a.shipowner_id=c.id','LEFT')
                ->join('vessel d','a.vessel_id=d.id','LEFT')
-               ->join('expense_option e','e.pid=a.id','LEFT')
                ->where($where)
                ->order('date')
                ->page($page,$listRows)
@@ -514,8 +499,7 @@ class Expenses extends Base
         $res = [
             'list'=> $list,
             'data'=> $info,
-            'total'=>$total,
-            'admin'=>self::$is_check_rule?false:true
+            'total'=>$total
         ];
         return json($res);
     }
@@ -531,8 +515,8 @@ class Expenses extends Base
     {
         $id = input('id');
         $fleet = strtolower(input('fleet'));
-        $shipownerId = input('shipownerId/a');
-        $vesselId = input('vesselId/a');
+        $shipownerId = input('shipownerId');
+        $vesselId = input('vesselId');
         $cid = input('cid');
         $status = input('status/a');
         $firstTotal = input('total/a')[0];
@@ -543,8 +527,8 @@ class Expenses extends Base
         $where = [];
         if($id) $where['mariner_id'] = $id;
         if($fleet) $where['a.fleet'] = ['LIKE',"%$fleet%"];
-        if($shipownerId) $where['a.shipowner_id'] = ['IN',$shipownerId];
-        if($vesselId) $where['vessel_id'] = ['IN',$vesselId];
+        if($shipownerId) $where['a.shipowner_id'] = $shipownerId;
+        if($vesselId) $where['vessel_id'] = $vesselId;
         if($cid) $where['mariner_id'] = Db::name('mariner')->where(['cid'=>$cid])->value('id');
         if($status) $where['status'] = ['IN',$status];
         if($firstTotal && empty($secondTotal)) $where['total'] = ['EGT',$firstTotal];
@@ -555,37 +539,15 @@ class Expenses extends Base
         $shipownerIds = Db::name('business')->where(['user_id'=>self::$id])->column('pid');
         $where['shipowner_id'] = ['IN',$shipownerIds];
         if($this->user['duty'] == config('department').config('leader') || !self::$is_check_rule) unset($where['shipowner_id']);
-        if($this->isMariner){
-            $list = Db::name('expense')->where(['mariner_id'=>self::$id])->count();
-            $info = Db::name('expense')
-                ->alias('a')
-                ->field('a.id,a.date,b.name,b.duty,c.title shipowner,d.title vessel,a.fleet,a.address,a.reason,a.explain,a.total,a.status')
-                ->join('mariner b','a.mariner_id=b.id','LEFT')
-                ->join('shipowner c','a.shipowner_id=c.id','LEFT')
-                ->join('vessel d','a.vessel_id=d.id','LEFT')
-                ->where(['mariner_id'=>self::$id])
-                ->order('date')
-                ->page($page,$listRows)
-                ->select();
-        }else{
-            $list = Db::name('expense')
-                ->alias('a')
-                ->field('a.id,a.date,b.name,b.duty,c.title shipowner,d.title vessel,a.fleet,a.address,a.reason,a.explain,a.total,a.status')
-                ->join('mariner b','a.mariner_id=b.id','LEFT')
-                ->join('shipowner c','a.shipowner_id=c.id','LEFT')
-                ->join('vessel d','a.vessel_id=d.id','LEFT')
-                ->where($where)
-                ->count();
-            $info = Db::name('expense')
-                ->alias('a')
-                ->field('a.id,a.date,b.name,b.duty,c.title shipowner,d.title vessel,a.fleet,a.address,a.reason,a.explain,a.total,a.status')
-                ->join('mariner b','a.mariner_id=b.id','LEFT')
-                ->join('shipowner c','a.shipowner_id=c.id','LEFT')
-                ->join('vessel d','a.vessel_id=d.id','LEFT')
-                ->where($where)
-                ->order('date')
-                ->select();
-        }
+        $info = Db::name('expense')
+            ->alias('a')
+            ->field('a.id,a.date,b.name,b.duty,c.title shipowner,d.title vessel,a.fleet,a.address,a.reason,a.explain,a.total,a.status')
+            ->join('mariner b','a.mariner_id=b.id','LEFT')
+            ->join('shipowner c','a.shipowner_id=c.id','LEFT')
+            ->join('vessel d','a.vessel_id=d.id','LEFT')
+            ->where($where)
+            ->order('date')
+            ->select();
         $total = 0;
         foreach ($info as $k=>&$v){
             if($v['status'] == 0){
@@ -597,7 +559,11 @@ class Expenses extends Base
             }
             $total += $v['total'];
         }
-        return json($info);
+        $res = [
+            'data'=> $info,
+            'total'=>$total
+        ];
+        return json($res);
     }
 
     /**
@@ -617,7 +583,7 @@ class Expenses extends Base
         $secondDate = input('date/a')[1];
         $firstTotal = input('total/a')[0];
         $secondTotal = input('total/a')[1];
-        $shipownerId = input('shipownerId/a');
+        $shipownerId = input('shipownerId');
         $address = input('address/a');
         $firstDays = input('days/a')[0];
         $secondDays = input('days/a')[1];
@@ -627,16 +593,15 @@ class Expenses extends Base
         if($firstDate && $secondDate) $where['date'] = ['BETWEEN TIME',[$firstDate,$secondDate]];
         if($firstTotal && empty($secondTotal)) $where['total'] = ['EGT',$firstTotal];
         if($firstTotal && $secondTotal) $where['total'] = ['BETWEEN',[$firstTotal,$secondTotal]];
-        if($shipownerId) $where['shipowner_id'] = ['IN',$shipownerId];
-        if($address) $where['a.address'] = ['IN',$address];
+        if($shipownerId) $where['shipowner_id'] = $shipownerId;
+        if($address) $where['address'] = ['IN',$address];
         if($firstDays && $secondDays) $where['days'] = ['BETWEEN',[$firstDays,$secondDays]];
         $list = Db::name('user_expense')
-            ->alias('a')
             ->where($where)
             ->count();
         $info = Db::name('user_expense')
             ->alias('a')
-            ->field('a.*,b.username,b.department,a.warn')
+            ->field('a.*,b.username,b.department')
             ->join('user b','a.user_id=b.id','LEFT')
             ->where($where)
             ->order('date')
@@ -656,14 +621,13 @@ class Expenses extends Base
         $res = [
             'list'=>$list,
             'data'=>$info,
-            'total'=>$total,
-            'admin'=>self::$is_check_rule?false:true
+            'total'=>$total
         ];
         return json($res);
     }
 
     /**
-     * 导出员工报销记录
+     * 导出船员报销记录
      * @return \think\response\Json
      * @throws \think\db\exception\DataNotFoundException
      * @throws \think\db\exception\ModelNotFoundException
@@ -677,7 +641,7 @@ class Expenses extends Base
         $secondDate = input('date/a')[1];
         $firstTotal = input('total/a')[0];
         $secondTotal = input('total/a')[1];
-        $shipownerId = input('shipownerId/a');
+        $shipownerId = input('shipownerId');
         $address = input('address/a');
         $firstDays = input('days/a')[0];
         $secondDays = input('days/a')[1];
@@ -687,8 +651,8 @@ class Expenses extends Base
         if($firstDate && $secondDate) $where['date'] = ['BETWEEN TIME',[$firstDate,$secondDate]];
         if($firstTotal && empty($secondTotal)) $where['total'] = ['EGT',$firstTotal];
         if($firstTotal && $secondTotal) $where['total'] = ['BETWEEN',[$firstTotal,$secondTotal]];
-        if($shipownerId) $where['shipowner_id'] = ['IN',$shipownerId];
-        if($address) $where['a.address'] = ['IN',$address];
+        if($shipownerId) $where['shipowner_id'] = $shipownerId;
+        if($address) $where['address'] = ['IN',$address];
         if($firstDays && $secondDays) $where['days'] = ['BETWEEN',[$firstDays,$secondDays]];
         $info = Db::name('user_expense')
             ->alias('a')
@@ -725,31 +689,32 @@ class Expenses extends Base
     public function listOffice()
     {
         if($this->isMariner) return error_data('无权限查看');
-        $page = input('page');
+        $page = input('page')?input('page'):1;
         $listRows = input('listRows')?input('listRows'):self::$listRows;
-        $status = input('status');
-        $id = input('id');
-        $department = input('department/a');
+        $status = input('status/a');
+        $username = input('username');
+        $abbreviation = strtolower(input('abbreviation'));
+        $department = input('department');
         $firstTotal = input('expense/a')[0];
         $secondTotal = input('expense/a')[1];
         $startDate = input('date/a')[0];
         $endDate = input('date/a')[1];
         $address = input('address/a');
-        $shipownerId = input('shipowner_id/a');
+        $shipownerId = input('shipowner_id');
         $project = input('project/a');
         $where['user_id'] = self::$id;
-        if($this->user['principal'] == "是" || $this->user['duty'] == $this->user['department'].config('leader')) unset($where['user_id']);
-        if($status) $where['status'] = $status;
-        if($department) {
-            $userId = Db::name('user')->where(['department'=>["IN",$department]])->column('id');
-            $where['user_id'] = ['IN',$userId];
+        if($this->user['principal'] == "是" || $this->user['duty'] == config('department').config('leader')) unset($where['user_id']);
+        if($status[0]) $where['status'] = ['IN',$status];
+        if($username || $abbreviation || $department) {
+            $id = Db::name('user')->where(['username'=>['LIKE',"%$username%"],'abbreviation'=>"%$abbreviation%",'department'=>["%$department%"]])->column('id');
+            $where['id'] = ['IN',$id];
         }
-        if($id) $where['user_id'] = $id;
         if($firstTotal && !$secondTotal) $where['total'] = ['EGT',$firstTotal];
         if($secondTotal && $secondTotal) $where['total'] = ['BETWEEN',[$firstTotal,$secondTotal]];
         if($startDate && $endDate) $where['date'] = ['BETWEEN',[$startDate,$endDate]];
-        if($address[0]) $where['a.address'] = ['IN',$address];
-        if($shipownerId) $where['shipowner_id'] = ['IN',$shipownerId];
+        if($address[0]) $where['address'] = ['IN',$address];
+        if($shipownerId) $where['shipowner_id'] = $shipownerId;
+        if($shipownerId) $where['shipowner_id'] = $shipownerId;
         if($project[0]) {
            $ids = Db::name('office_expense_data')->where(['project'=>['IN',$project]])->column('pid');
            $ids = array_unique($ids);
@@ -761,7 +726,7 @@ class Expenses extends Base
             ->count();
         $info = Db::name('office_expense')
             ->alias('a')
-            ->field("a.*,b.username,a.warn")
+            ->field("a.*,b.username")
             ->join('user b','a.user_id=b.id','LEFT')
             ->where($where)
             ->order('date')
@@ -787,8 +752,7 @@ class Expenses extends Base
             'list'=>$list,
             'data'=>$info,
             'first_total'=>$first_total,
-            'second_total'=>$second_total,
-            'admin'=>self::$is_check_rule?false:true
+            'second_total'=>$second_total
         ];
         return json($res);
     }
@@ -806,27 +770,35 @@ class Expenses extends Base
     public function exportOffice()
     {
         if($this->isMariner) return error_data('无权限查看');
-        $param = input('get.');
-        $where = [];
-        if ($param['id']) $where['user_id'] = $param['id'];
-        if ($param['status']) $where['status'] = $param['status'];
-        if ($param['department']){
-                $userId = Db::name('user')->where(['department'=>["IN",explode(',',$param['department'])]])->column('id');
-                $where['user_id'] = ['IN',$userId];
+        $status = input('status/a');
+        $username = input('username');
+        $abbreviation = strtolower(input('abbreviation'));
+        $department = input('department');
+        $firstTotal = input('expense/a')[0];
+        $secondTotal = input('expense/a')[1];
+        $startDate = input('date/a')[0];
+        $endDate = input('date/a')[1];
+        $address = input('address/a');
+        $shipownerId = input('shipowner_id');
+        $project = input('project/a');
+        $where['user_id'] = self::$id;
+        $where['user_id'] = 1;
+        if($this->user['principal'] == "是" || $this->user['duty'] == $this->user['department'].config('leader')) unset($where['user_id']);
+        if($status[0]) $where['status'] = ['IN',$status];
+        if($username || $abbreviation || $department) {
+            $id = Db::name('user')->where(['username'=>['LIKE',"%$username%"],'abbreviation'=>"%$abbreviation%",'department'=>["%$department%"]])->column('id');
+            $where['id'] = ['IN',$id];
         }
-        if($param['expense']) {
-            if (explode(',', $param['expense'][0]) && !explode(',', $param['expense'][1])) $where['total'] = ['EGT', explode(',', $param['expense'])[0]];
-            if (explode(',', $param['expense'][0]) && explode(',', $param['expense'][1])) $where['total'] = ['BETWEEN', [explode(',', $param['expense'])[0], explode(',', $param['expense'])[1]]];
-        }
-        if($param['date']) {
-            if (explode(',', $param['date'][0]) && explode(',', $param['date'][1])) $where['date'] = ['BETWEEN', [explode(',', $param['date'])[0], explode(',', $param['date'])[1]]];
-        }
-        if ($param['address']) $where['address'] = ['IN',explode(',',$param['status'])];
-        if ($param['shipowner_id']) $where['shipowner_id'] = ['IN',explode(',',$param['shipowner_id'])];
-        if ($param['project']) {
-            $ids = Db::name('office_expense_data')->where(['project'=>['IN',explode(',',$param['project'])]])->column('pid');
+        if($firstTotal && !$secondTotal) $where['total'] = ['EGT',$firstTotal];
+        if($secondTotal && $secondTotal) $where['total'] = ['BETWEEN',[$firstTotal,$secondTotal]];
+        if($startDate && $endDate) $where['date'] = ['BETWEEN',[$startDate,$endDate]];
+        if($address[0]) $where['address'] = ['IN',$address];
+        if($shipownerId) $where['shipowner_id'] = $shipownerId;
+        if($shipownerId) $where['shipowner_id'] = $shipownerId;
+        if($project[0]) {
+            $ids = Db::name('expense_data')->where(['project'=>['IN',$project]])->column('pid');
             $ids = array_unique($ids);
-            $where['a.id'] = ['IN',$ids];
+            $where['id'] = ['IN',$ids];
         }
         $info = Db::name('office_expense')
             ->alias('a')
@@ -964,8 +936,8 @@ class Expenses extends Base
         $listRows = input('listRows')?input('listRows'):self::$listRows;
         $marinerId = input('mariner_id');
         $fleet = input('fleet');
-        $shipownerId = input('shipowner_id/a');
-        $vesselId = input('vessel_id/a');
+        $shipownerId = input('shipowner_id');
+        $vesselId = input('vessel_id');
         $cid = input('cid');
         $status = input('status/a');
         $firstTotal = input('total/a')[0];
@@ -979,8 +951,8 @@ class Expenses extends Base
             $fleet = strtolower($fleet);
             $where['a.fleet'] = ['LIKE',"%$fleet%"];
         }
-        if($shipownerId) $where['a.shipowner_id'] = ['IN',$shipownerId];
-        if($vesselId) $where['a.vessel_id'] = ['IN',$vesselId];
+        if($shipownerId) $where['a.shipowner_id'] = $shipownerId;
+        if($vesselId) $where['a.vessel_id'] = $vesselId;
         if($cid){
             $ids = Db::name('mariner')->where(['cid'=>['LIKE',"%".strtolower($cid)."%"]])->column('id');
             $where['mariner_id'] = ['IN',$ids];
@@ -995,41 +967,7 @@ class Expenses extends Base
         $total = 0;
         $selfInfo = Db::name('agent')->where(['agent_id'=>self::$id,'start_date'=>['LT',formatTime(time(),'Y-m-d')],'end_date'=>['GT',formatTime(time(),'Y-m-d')],'status'=>1])->find();
         if($selfInfo) $this->user = Db::name('user')->find($selfInfo['user_id']);
-        if(!self::$is_check_rule) {
-            //超级管理员
-            if($status[0]){
-                foreach ($status as &$v){
-                    if($v == -1) $v = 2;
-                }
-                $where['status'] = ['IN',$status];
-            }
-            $list = Db::name('expense')
-                ->alias('a')
-                ->field('a.id,a.date,c.name,c.duty,d.title shipowner,e.title vessel,a.fleet,a.address,a.explain,a.reason,a.total,a.status')
-                ->join('sign_mariner b', 'a.id=b.pid', 'LEFT')
-                ->join('mariner c', 'c.id=a.mariner_id', 'LEFT')
-                ->join('shipowner d', 'd.id=a.shipowner_id', 'LEFT')
-                ->join('vessel e', 'e.id=a.vessel_id', 'LEFT')
-                ->where($where)
-                ->count();
-            $info = Db::name('expense')
-                ->alias('a')
-                ->field('a.id,a.date,c.name,c.duty,d.title shipowner,e.title vessel,a.fleet,a.address,a.explain,a.reason,a.total,a.status')
-                ->join('sign_mariner b', 'a.id=b.pid', 'LEFT')
-                ->join('mariner c', 'c.id=a.mariner_id', 'LEFT')
-                ->join('shipowner d', 'd.id=a.shipowner_id', 'LEFT')
-                ->join('vessel e', 'e.id=a.vessel_id', 'LEFT')
-                ->where($where)
-                ->order('date')
-                ->page($page, $listRows)
-                ->select();
-            foreach ($info as $k1 => &$v1) {
-                if($v1['status'] == 0) $v1['status'] = "待签批";
-                if($v1['status'] == 1) $v1['status'] = "已通过";
-                if($v1['status'] == 2) $v1['status'] = "未通过";
-                $total += $v1['total'];
-            }
-        } elseif($shipownerIds){
+        if($shipownerIds){
             //业务主管
             if($status[0]){
                 foreach ($status as &$v){
@@ -1107,6 +1045,40 @@ class Expenses extends Base
                     $v['status'] = "待签批";
                 }
                 $total += $v['total'];
+            }
+        }elseif (!self::$is_check_rule) {
+            //超级管理员
+            if($status[0]){
+                foreach ($status as &$v){
+                    if($v == -1) $v = 2;
+                }
+                $where['status'] = ['IN',$status];
+            }
+            $list = Db::name('expense')
+                ->alias('a')
+                ->field('a.id,a.date,c.name,c.duty,d.title shipowner,e.title vessel,a.fleet,a.address,a.explain,a.reason,a.total,a.status')
+                ->join('sign_mariner b', 'a.id=b.pid', 'LEFT')
+                ->join('mariner c', 'c.id=a.mariner_id', 'LEFT')
+                ->join('shipowner d', 'd.id=a.shipowner_id', 'LEFT')
+                ->join('vessel e', 'e.id=a.vessel_id', 'LEFT')
+                ->where($where)
+                ->count();
+            $info = Db::name('expense')
+                ->alias('a')
+                ->field('a.id,a.date,c.name,c.duty,d.title shipowner,e.title vessel,a.fleet,a.address,a.explain,a.reason,a.total,a.status')
+                ->join('sign_mariner b', 'a.id=b.pid', 'LEFT')
+                ->join('mariner c', 'c.id=a.mariner_id', 'LEFT')
+                ->join('shipowner d', 'd.id=a.shipowner_id', 'LEFT')
+                ->join('vessel e', 'e.id=a.vessel_id', 'LEFT')
+                ->where($where)
+                ->order('date')
+                ->page($page, $listRows)
+                ->select();
+            foreach ($info as $k1 => &$v1) {
+                if($v1['status'] == 0) $v1['status'] = "待签批";
+                if($v1['status'] == 1) $v1['status'] = "已通过";
+                if($v1['status'] == 2) $v1['status'] = "未通过";
+                $total += $v1['total'];
             }
         }elseif($this->user['department'] == config('department') && $this->user['principal'] == "是"){
             //财务
@@ -1225,6 +1197,7 @@ class Expenses extends Base
                 ->join('vessel e','e.id=a.vessel_id','LEFT')
                 ->where($where)
                 ->order('date')
+                ->page($page,$listRows)
                 ->select();
             foreach ($info as $k0=>&$v0){
                 $sign = Db::name('sign_mariner')->field('pid,first_id,first_result')->where(['pid'=>$v0['id']])->find();
@@ -1252,6 +1225,7 @@ class Expenses extends Base
                 ->join('sign_mariner f','f.pid=a.id','LEFT')
                 ->where($where)
                 ->order('date')
+                ->page($page,$listRows)
                 ->select();
             foreach ($info as $k=>&$v){
                 $sign = Db::name('sign_mariner')->field('pid,first_id,second_id')->where(['pid'=>$v['id']])->find();
@@ -1283,6 +1257,7 @@ class Expenses extends Base
                 ->join('vessel e', 'e.id=a.vessel_id', 'LEFT')
                 ->where($where)
                 ->order('date')
+                ->page($page, $listRows)
                 ->select();
             foreach ($info as $k1 => &$v1) {
                 if($v1['status'] == 0) $v1['status'] = "待签批";
@@ -1311,6 +1286,7 @@ class Expenses extends Base
                 ->join('vessel e','e.id=a.vessel_id','LEFT')
                 ->where($where)
                 ->order('date')
+                ->page($page,$listRows)
                 ->select();
             foreach ($info as $k2=>&$v2){
                 $sign = Db::name('sign_mariner')->field('pid,principal')->where(['pid'=>$v2['id']])->find();
@@ -1346,8 +1322,8 @@ class Expenses extends Base
         $listRows = input('listRows') ? input('listRows') : self::$listRows;
         $userId = input('userId');
         $abbreviation = strtolower(input('abbreviation'));
-        $department = input('department/a');
-        $duty = input('duty/a');
+        $department = input('department');
+        $duty = input('duty');
         $status = input('status/a');
         $firstTotal = input('total/a')[0];
         $secondTotal = input('total/a')[1];
@@ -1366,12 +1342,12 @@ class Expenses extends Base
            $ids = Db::name('user')->where(['abbreviation'=>['LIKE',"%$abbreviation%"]])->column('id');
            $where['user_id'] = ['IN',$ids];
         }
-        if ($department[0]) {
-           $ids = Db::name('user')->where(['department'=>['IN',$department]])->column('id');
+        if ($department) {
+           $ids = Db::name('user')->where(['department'=>['LIKE',"%$department%"]])->column('id');
            $where['user_id'] = ['IN',$ids];
         }
-        if ($duty[0]) {
-           $ids = Db::name('user')->where(['duty'=>['IN',$duty]])->column('id');
+        if ($duty) {
+           $ids = Db::name('user')->where(['duty'=>$duty])->column('id');
             $where['user_id'] = ['IN',$ids];
         }
         if ($firstTotal && !$secondTotal) $where['total'] = ['EGT', $firstTotal];
@@ -1387,36 +1363,7 @@ class Expenses extends Base
         $info = [];
         $selfInfo = Db::name('agent')->where(['agent_id'=>self::$id,'start_date'=>['LT',formatTime(time(),'Y-m-d')],'end_date'=>['GT',formatTime(time(),'Y-m-d')],'status'=>1])->find();
         if($selfInfo) $this->user = Db::name('user')->find($selfInfo['user_id']);
-        if(!self::$is_check_rule){
-            //超级管理员
-            if($status[0]){
-                foreach ($status as &$v){
-                    if($v == -1) $v = 2;
-                }
-                $where['status'] = ['IN',$status];
-            }
-            $list = Db::name('user_expense')
-                ->alias('a')
-                ->join('shipowner b','a.shipowner_id=b.id','LEFT')
-                ->join('vessel c','a.vessel_id=c.id','LEFT')
-                ->where($where)
-                ->count();
-            $info = Db::name('user_expense')
-                ->alias('a')
-                ->field('a.id,a.date,d.username,d.duty,d.department,a.address,a.start_date,a.end_date,a.days,a.reason,a.explain,a.total,a.status')
-                ->join('shipowner b','a.shipowner_id=b.id','LEFT')
-                ->join('vessel c','a.vessel_id=c.id','LEFT')
-                ->join('user d','a.user_id=d.id','LEFT')
-                ->where($where)
-                ->page($page,$listRows)
-                ->select();
-            foreach ($info as $k1 => &$v1) {
-                if($v1['status'] == 0) $v1['status'] = "待签批";
-                if($v1['status'] == 1) $v1['status'] = "已通过";
-                if($v1['status'] == 2) $v1['status'] = "未通过";
-                $total += $v1['total'];
-            }
-        }elseif($this->user['duty'] == $this->user['department'] . config('leader')) {
+        if ($this->user['duty'] == $this->user['department'] . config('leader')) {
             //获取部门下的所有员工
             if($status[0]){
                 foreach ($status as &$v){
@@ -1506,6 +1453,35 @@ class Expenses extends Base
                     $v['status'] = "待签批";
                 }
                 $total += $v['total'];
+            }
+        }elseif (!self::$is_check_rule){
+            //超级管理员
+            if($status[0]){
+                foreach ($status as &$v){
+                    if($v == -1) $v = 2;
+                }
+                $where['status'] = ['IN',$status];
+            }
+            $list = Db::name('user_expense')
+                ->alias('a')
+                ->join('shipowner b','a.shipowner_id=b.id','LEFT')
+                ->join('vessel c','a.vessel_id=c.id','LEFT')
+                ->where($where)
+                ->count();
+           $info = Db::name('user_expense')
+                ->alias('a')
+               ->field('a.id,a.date,d.username,d.duty,d.department,a.address,a.start_date,a.end_date,a.days,a.reason,a.explain,a.total,a.status')
+               ->join('shipowner b','a.shipowner_id=b.id','LEFT')
+               ->join('vessel c','a.vessel_id=c.id','LEFT')
+               ->join('user d','a.user_id=d.id','LEFT')
+               ->where($where)
+               ->page($page,$listRows)
+               ->select();
+            foreach ($info as $k1 => &$v1) {
+                if($v1['status'] == 0) $v1['status'] = "待签批";
+                if($v1['status'] == 1) $v1['status'] = "已通过";
+                if($v1['status'] == 2) $v1['status'] = "未通过";
+                $total += $v1['total'];
             }
         }
         $res = [
@@ -1674,8 +1650,8 @@ class Expenses extends Base
         $userId = input('userId');
         $username = input('username');
         $abbreviation = strtolower(input('abbreviation'));
-        $department = input('department/a');
-        $duty = input('duty/a');
+        $department = input('department');
+        $duty = input('duty');
         $status = input('status/a');
         $firstTotal = input('total/a')[0];
         $secondTotal = input('total/a')[1];
@@ -1693,12 +1669,12 @@ class Expenses extends Base
             $ids = Db::name('user')->where(['abbreviation' => ['LIKE', "%$abbreviation%"]])->column('id');
             $where['user_id'] = ['IN', $ids];
         }
-        if ($department[0]) {
-            $ids = Db::name('user')->where(['department' => ['IN',$department]])->column('id');
+        if ($department) {
+            $ids = Db::name('user')->where(['department' => $department])->column('id');
             $where['user_id'] = ['IN', $ids];
         }
-        if ($duty[0]) {
-            $ids = Db::name('user')->where(['duty' => ['IN',$duty]])->column('id');
+        if ($duty) {
+            $ids = Db::name('user')->where(['duty' => $duty])->column('id');
             $where['user_id'] = ['IN', $ids];
         }
         if ($firstTotal && !$secondTotal) $where['total'] = ['EGT', $firstTotal];
@@ -1713,41 +1689,7 @@ class Expenses extends Base
         $second_total = 0;
         $selfInfo = Db::name('agent')->where(['agent_id'=>self::$id,'start_date'=>['LT',formatTime(time(),'Y-m-d')],'end_date'=>['GT',formatTime(time(),'Y-m-d')],'status'=>1])->find();
         if($selfInfo) $this->user = Db::name('user')->find($selfInfo['user_id']);
-        if (!self::$is_check_rule){
-            //超级管理员
-            if($status[0]){
-                foreach ($status as &$v){
-                    if($v == -1) $v = 2;
-                }
-                $where['status'] = ['IN',$status];
-            }
-            $list = Db::name('office_expense')
-                ->alias('a')
-                ->field('a.id,a.date,b.username,b.duty,b.department,a.address,a.total,a.status')
-                ->join('shipowner b','a.shipowner_id=b.id','LEFT')
-                ->join('sign_office c','a.id=c.pid','LEFT')
-                ->where($where)
-                ->count();
-            $info = Db::name('office_expense')
-                ->alias('a')
-                ->field('a.id,a.date,b.username,b.duty,b.department,a.address,a.total,a.status')
-                ->join('user b', 'a.user_id = b.id', 'LEFT')
-                ->join('sign_office c','a.id=c.pid','LEFT')
-                ->where($where)
-                ->order('date')
-                ->page($page,$listRows)
-                ->select();
-            foreach ($info as $k2 => &$v2) {
-                $v2['project'] = Db::name('office_expense_data')->field('project,total sum')->where(['pid' => $v2['id']])->select();
-                foreach ($v2['project'] as $k1 => $v1) {
-                    $first_total += $v1['sum'];
-                }
-                if($v2['status'] == 0) $v2['status'] = "待签批";
-                if($v2['status'] == 1) $v2['status'] = "已通过";
-                if($v2['status'] == 2) $v2['status'] = "未通过";
-                $second_total += $v2['total'];
-            }
-        }elseif($this->user['duty'] == $this->user['department'] . config('leader')) {
+        if ($this->user['duty'] == $this->user['department'] . config('leader')) {
             if($status[0]){
                 foreach ($status as &$v){
                     if($v == -1) $v = 2;
@@ -1828,6 +1770,40 @@ class Expenses extends Base
                     $v['status'] = "待签批";
                 }
             }
+        }elseif (!self::$is_check_rule){
+            //超级管理员
+            if($status[0]){
+                foreach ($status as &$v){
+                    if($v == -1) $v = 2;
+                }
+                $where['status'] = ['IN',$status];
+            }
+            $list = Db::name('office_expense')
+                ->alias('a')
+                ->field('a.id,a.date,b.username,b.duty,b.department,a.address,a.total,a.status')
+                ->join('shipowner b','a.shipowner_id=b.id','LEFT')
+                ->join('sign_office c','a.id=c.pid','LEFT')
+                ->where($where)
+                ->count();
+            $info = Db::name('office_expense')
+                ->alias('a')
+                ->field('a.id,a.date,b.username,b.duty,b.department,a.address,a.total,a.status')
+                ->join('user b', 'a.user_id = b.id', 'LEFT')
+                ->join('sign_office c','a.id=c.pid','LEFT')
+                ->where($where)
+                ->order('date')
+                ->page($page,$listRows)
+                ->select();
+            foreach ($info as $k2 => &$v2) {
+                $v2['project'] = Db::name('office_expense_data')->field('project,total sum')->where(['pid' => $v2['id']])->select();
+                foreach ($v2['project'] as $k1 => $v1) {
+                    $first_total += $v1['sum'];
+                }
+                if($v2['status'] == 0) $v2['status'] = "待签批";
+                if($v2['status'] == 1) $v2['status'] = "已通过";
+                if($v2['status'] == 2) $v2['status'] = "未通过";
+                $second_total += $v2['total'];
+            }
         }else{
             $list = 0;
             $info = [];
@@ -1853,8 +1829,8 @@ class Expenses extends Base
         $userId = input('userId');
         $username = input('username');
         $abbreviation = strtolower(input('abbreviation'));
-        $department = input('department/a');
-        $duty = input('duty/a');
+        $department = input('department');
+        $duty = input('duty');
         $status = input('status/a');
         $firstTotal = input('total/a')[0];
         $secondTotal = input('total/a')[1];
@@ -1872,21 +1848,20 @@ class Expenses extends Base
             $ids = Db::name('user')->where(['abbreviation' => ['LIKE', "%$abbreviation%"]])->column('id');
             $where['user_id'] = ['IN', $ids];
         }
-        if ($department[0]) {
-            $ids = Db::name('user')->where(['department' => ['IN',$department]])->column('id');
+        if ($department) {
+            $ids = Db::name('user')->where(['department' => $department])->column('id');
             $where['user_id'] = ['IN', $ids];
         }
-        if ($duty[0]) {
-            $ids = Db::name('user')->where(['duty' => ['IN',$duty]])->column('id');
+        if ($duty) {
+            $ids = Db::name('user')->where(['duty' => $duty])->column('id');
             $where['user_id'] = ['IN', $ids];
         }
         if ($firstTotal && !$secondTotal) $where['total'] = ['EGT', $firstTotal];
         if ($firstTotal && $secondTotal) $where['total'] = ['BETWEEN', [$firstTotal, $secondTotal]];
         if ($startTime && $endTime) $where['date'] = ['BETWEEN', [$startTime, $endTime]];
         if ($address) $where['address'] = ['IN', $address];
-
         if ($project[0]) {
-            $ids = Db::name('office_expense_data')->where(['project'=>['IN', $project]])->column('pid');
+            $ids = Db::name('office_expense_data')->where(['project', ['IN', $project]])->column('pid');
             $where['user_id'] = $ids;
         }
         $first_total = 0;
@@ -2248,7 +2223,6 @@ class Expenses extends Base
                 if($value == -1){
                     Db::name('expense')->where(['id'=>$id])->update(['status'=>$value]);
                 }
-                //业务主管更新数据
             }elseif ($this->user['duty'] == $this->user['department'].config('leader')){
                 if($sign['second_result']) return error_data('请勿重复签批');
                 if($info['total'] < 2000)  return error_data('未超过2000元无需部门经理签批');
@@ -2420,237 +2394,5 @@ class Expenses extends Base
         $repeat = Db::name('invoice')->where(['number'=>$number])->value('pid');
         if($repeat) return error_data('电子发票编号重复');
         return ok_data();
-    }
-
-    /**
-     *办公费用部门条件查询
-     * @return \think\response\Json
-     */
-    public function dutyList()
-    {
-       $duty = Db::name('office_expense')
-            ->alias('a')
-            ->join('user b','a.user_id=b.id','LEFT')
-            ->group('b.duty')
-            ->column('b.duty');
-       return json($duty);
-    }
-
-    /**
-     * 员工报销-部门查询
-     * @return \think\response\Json
-     */
-    public function dutyUser()
-    {
-        $duty = Db::name('user_expense')
-            ->alias('a')
-            ->join('user b','a.user_id=b.id','LEFT')
-            ->group('b.duty')
-            ->column('b.duty');
-        return json($duty);
-    }
-
-    /**
-     * 获取当前城市
-     * @return \think\response\Json
-     */
-    public function getCity()
-    {
-        $all = ["北京","上海","武汉"];
-        $city = get_city();
-        if($city['city'] && in_array($city['city'],$all)){
-            $result[] = $city['city'];
-        }elseif($city['province'] && in_array($city['province'],$all)){
-            $result[] = $city['province'];
-        }else{
-            $result[] = "北京";
-        }
-        return json($result);
-    }
-
-    /**
-     * 撤销报销
-     * @return \think\response\Json
-     */
-    public function cancel()
-    {
-        $type = input('type');
-        $id = input('id');
-        switch ($type){
-            case 'mariner':
-                Db::startTrans();
-                try{
-                    Db::name('sign_mariner')->where(['pid'=>$id])->update(['principal'=>self::$id,'principal_result'=>2]);
-                    Db::name('expense')->where(['id'=>$id])->update(['status'=>2,'warn'=>0]);
-                    Db::commit();
-                    return ok_data();
-                }catch (\Exception $e){
-                    Db::rollback();
-                    return error_data();
-                }
-                break;
-            case 'user':
-                Db::startTrans();
-                try{
-                    Db::name('sign_user')->where(['pid'=>$id])->update(['principal'=>self::$id,'principal_result'=>2]);
-                    Db::name('user_expense')->where(['id'=>$id])->update(['status'=>2,'warn'=>0]);
-                    Db::commit();
-                    return ok_data();
-                }catch (\Exception $e){
-                    Db::rollback();
-                    return error_data();
-                }
-                break;
-            case 'office':
-                Db::startTrans();
-                try{
-                    Db::name('sign_office')->where(['pid'=>$id])->update(['principal'=>self::$id,'principal_result'=>2]);
-                    Db::name('office_expense')->where(['id'=>$id])->update(['status'=>2,'warn'=>0]);
-                    Db::commit();
-                    return ok_data();
-                }catch (\Exception $e){
-                    Db::rollback();
-                    return error_data();
-                }
-                break;
-            default:
-                return error_data('参数错误');
-        }
-    }
-
-    /**
-     * 批量添加报销
-     * @return \think\response\Json
-     * @throws \PHPExcel_Exception
-     * @throws \PHPExcel_Reader_Exception
-     */
-    public function importExpense()
-    {
-        if (!$_FILES) return error_data('请选择文件');
-        $key = array_keys($_FILES);
-        $file = $_FILES[$key[0]]["tmp_name"];
-        Loader::import('PHPExcel.PHPExcel.Reader.Excel5');
-        $PHPReader = new \PHPExcel_Reader_Excel5();
-        $shared = new \PHPExcel_Shared_Date();
-        if (!$PHPReader->canRead($file)) {
-            $PHPReader = new \PHPExcel_Reader_Excel2007();
-            if (!$PHPReader->canRead($file)) {
-                return error_data('文件类型不符');
-            }
-        }
-        $E = $PHPReader->load($file);
-        $cur = $E->getSheet(0);  // 读取第一个表
-        $end = $cur->getHighestColumn(); // 获得最大的列数
-        $line = $cur->getHighestRow(); // 获得最大总行数
-        //将最大列转换为数字
-        $length = strlen($end);
-        if (strlen($end) > 1) {
-            $single = ord(substr($end, $length - 1)) - 64;
-            $end = ($length - 1) * 26 + $single;
-        } else {
-            $end = ord($end) - 64;
-        }
-        $info = [];
-        $i = 0;
-        for ($row = 2; $row <= $line; $row++) {
-            for ($column = 1; $column < $end; $column++) {
-                $val = $cur->getCellByColumnAndRow($column, $row)->getValue();
-                if(is_object($val)){
-                    $info[$i][] = $val->__toString();
-                }else{
-                    $info[$i][] = $val;
-                }
-            }
-            $i++;
-        }
-        $fail = 0;
-        $success = 0;
-        $traffic = "";
-        $hotel = "";
-        $city = "";
-        $examination = "";
-        $train = "";
-        $subsidy = "";
-        $else = "";
-        try{
-            foreach($info as $k=>&$v) {
-                $marinerInfo = Db::name('mariner')->field('id,vessel,owner_pool,fleet')->where(['name' => $v[2], 'id_number' => $v[3]])->find();
-                if (!$marinerInfo) {
-                    $fail++;
-                    continue;
-                }
-                if ($v[11]) {
-                    $number = Db::name('invoice')->where(['number' => $v[11]])->value('pid');
-                    if ($number) {
-                        $fail++;
-                        continue;
-                    }
-                }
-                if (empty($v[6])) $v[6] = "其他";
-                $id = Db::name('supplier')->where(['title' => $v[8]])->value('id');
-                if ($v[6] == "交通费") {
-                    $traffic = ["", $id];
-                } elseif ($v[6] == "住宿费") {
-                    $hotel = ["", $id];
-                } elseif ($v[6] == "市内交通费") {
-                    $city = ["", $id];
-                } elseif ($v[6] == "体检费") {
-                    $examination = ["", $id];
-                } elseif ($v[6] == "培训费") {
-                    $train = ["", $id];
-                } elseif ($v[6] == "补贴") {
-                    $subsidy = ["", $id];
-                }
-                $insert = [
-                    'mariner_id' => $marinerInfo['id'],
-                    'date' => date('Y-m-d', time()),
-                    'month' => date('Y-m', time()),
-                    'shipowner_id' => $marinerInfo['owner_pool'],
-                    'vessel_id' => $marinerInfo['vessel'],
-                    'fleet' => $marinerInfo['fleet'],
-                    'reason' => in_array($v[4], ['上下船', '签证', '培训', '面试']) ? $v[4] : "",
-                    'address' => in_array($v[1], ['北京', '上海', '武汉']) ? $v[1] : "北京",
-                    'explain' => empty($v[5]) ? "" : $v[5]
-                ];
-                $pid = Db::name('expense')->insertGetId($insert);
-                Db::name('invoice')->insert(['pid' => $pid, 'number' => empty($v[11]) ? "" : $v[11], 'is_mariner' => 1]);
-                $option = [
-                    'pid' => $pid,
-                    'traffic' => empty($traffic) ? "" : implode(',', $traffic),
-                    'hotel' => empty($hotel) ? "" : implode(',', $hotel),
-                    'city' => empty($city) ? "" : implode(',', $city),
-                    'examination' => empty($examination) ? "" : implode(',', $examination),
-                    'train' => empty($train) ? "" : implode(',', $train),
-                    'subsidy' => empty($subsidy) ? "" : implode(',', $subsidy),
-                    'else' => $else,
-                    'remark' => empty($v[9]) ? "" : $v[9],
-                ];
-                Db::name('expense_option')->insert($option);
-                $data = [
-                    'pid' => $pid,
-                    'date' => formatTime($shared->ExcelToPHP($v[0]), 'Y-m-d'),
-                    'traffic_cost' => $v['6'] == "交通费" ? $v[7] : 0,
-                    'hotel_cost' => $v['6'] == "住宿费" ? $v[7] : 0,
-                    'city_cost' => $v['6'] == "市内交通费" ? $v[7] : 0,
-                    'examination_cost' => $v['6'] == "体检费" ? $v[7] : 0,
-                    'train_cost' => $v['6'] == "培训费" ? $v[7] : 0,
-                    'subsidy_cost' => $v['6'] == "补贴" ? $v[7] : 0,
-                    'else_cost' => $v['6'] == "其他" ? $v[7] : 0,
-                    'assume' => empty($v[10]) ? 0 : Db::name('shipowner')->where(['title' => $v[10]])->value('id'),
-                    'number' => empty($v[11]) ? "" : $v[11],
-                ];
-                Db::name('expense_data')->insert($data);
-                $shipowner = [
-                    'pid' => $pid,
-                ];
-                Db::name('expense_assume')->insert($shipowner);
-                $success++;
-            }
-            Db::commit();
-            return ok_data("成功导入".$success."条数据,"."失败".$fail."条");
-        }catch(\Exception $e) {
-            Db::rollback();
-            return error_data("成功导入".$success."条数据,"."失败".$fail."条");
-        }
     }
 }

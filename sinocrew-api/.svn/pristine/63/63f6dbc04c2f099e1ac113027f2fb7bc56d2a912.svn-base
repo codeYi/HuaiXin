@@ -595,6 +595,7 @@ class Mariner extends Base
             ->join('shipowner b','a.owner_pool = b.id','LEFT')
             ->join('vessel c','c.id=a.vessel','LEFT')
             ->where($where)
+            ->order('duty')
             ->count();
         $info = Db::name('mariner')
             ->alias('a')
@@ -647,6 +648,7 @@ class Mariner extends Base
             ->join('shipowner b','a.owner_pool = b.id','LEFT')
             ->join('vessel c','c.id=a.vessel','LEFT')
             ->where($where)
+            ->page($page,$listRows)
             ->select();
         $dutyInfo = Db::name('duty')->order('id asc')->column('duty');
         $data = [];
@@ -1043,11 +1045,11 @@ class Mariner extends Base
         }
         $info = Db::name('mariner')
             ->alias('a')
-            ->field('a.id,a.cid,a.name,a.id_number,a.duty,a.manning_office,a.fleet,a.time,b.title ownerPool,b.alias,c.title vessel,a.is_delete,d.number,d.name_cn,d.line_number,d.bank,d.short_name')
+            ->field('a.id,a.cid,a.name,a.id_number,a.duty,a.manning_office,a.fleet,a.time,b.title ownerPool,c.title vessel,a.is_delete')
             ->join('shipowner b','a.owner_pool = b.id','LEFT')
             ->join('vessel c','c.id=a.vessel','LEFT')
-            ->join('remittance d','d.pid=a.id','LEFT')
             ->where($where)
+            ->page($page,$listRows)
             ->select();
         $dutyInfo = Db::name('duty')->order('id asc')->column('duty');
         $data = [];
@@ -1186,11 +1188,11 @@ class Mariner extends Base
         }
         $info = Db::name('mariner')
             ->alias('a')
-            ->field('a.id,a.cid,a.name,a.id_number,a.duty,a.manning_office,a.fleet,a.time,b.title ownerPool,c.title vessel,a.is_delete,d.name_en,d.english,d.swift,d.number,d.relation,d.telnumber,d.birthday')
+            ->field('a.id,a.cid,a.name,a.id_number,a.duty,a.manning_office,a.fleet,a.time,b.title ownerPool,c.title vessel,a.is_delete')
             ->join('shipowner b','a.owner_pool = b.id','LEFT')
             ->join('vessel c','c.id=a.vessel','LEFT')
-            ->join('remittance d','a.id=d.pid','LEFT')
             ->where($where)
+            ->page($page,$listRows)
             ->select();
         $dutyInfo = Db::name('duty')->order('id asc')->column('duty');
         $data = [];
