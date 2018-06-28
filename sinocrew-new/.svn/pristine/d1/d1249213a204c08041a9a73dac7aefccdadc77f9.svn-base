@@ -1,0 +1,1432 @@
+<template>
+  <div class="chart">
+    <div v-for="(item,index0) in chartList" class="first-box box-size border-common" v-show="item.show">
+      <div v-show="item.showTitle" class="title box-size">
+        <span v-show="item.showTitle">{{item.label}}</span>
+        <div class="is-more" v-if="(item.options&&item.options.length)&&!item.showFirst">
+          <span class="statistics-type">统计方式</span>
+          <el-select v-model="item.params.type" placeholder="请选择" @change="changeSumType(item,index0)">
+            <el-option v-for="(one,index) in item.options" :key="index" :label="one.title||one" :value="one.value||one"></el-option>
+          </el-select>
+        </div>
+        <div class="is-more" v-if="item.options2&&item.options2.length&&!item.showSecond" style="margin-left:20px;">
+          <span class="statistics-type">统计方式</span>
+          <el-select v-model="item.params2.status" placeholder="请选择" style="font-size:12px;" @change="changeChart(item,index0)">
+            <el-option v-for="(one,index) in item.options2" :key="index" :label="one.title||one" :value="one.value||one"></el-option>
+          </el-select>
+        </div>
+
+        <div class="is-more" v-if="item.hasback">
+          <button class="btn my-btn" @click="doBack(index0)">返回</button>
+        </div>
+
+        <div class="month-range fr" v-if="!item.noTime">
+          <el-date-picker v-model="item.params.date[0]" type="month" placeholder="选择月" @change="changeSumTime(item,index0,0)"></el-date-picker>
+          <span class="font-weight">至</span>
+          <el-date-picker v-model="item.params.date[1]" type="month" placeholder="选择月" @change="changeSumTime(item,index0,1)"></el-date-picker>
+        </div>
+      </div>
+      <div class="chart-box" :id="item.id"></div>
+    </div>
+
+    <p style="display:none">{{getChartData}}</p>
+  </div>
+</template>
+
+<script>
+var a="test"
+export default {
+  props:["chartData"],
+  data() {
+    return {
+      chartList: [
+        {
+          label: "船员统计",
+          show:false,
+          showTitle:false,//是否显示自定义标题
+          chart:null,
+          useClick:true,
+          id:"chart1",
+          noTime:true,
+          params:{
+            type:"",
+          },
+          option: {
+            toolbox:{right:"15",feature:{saveAsImage:{type:"png",name:""}}},
+            title:{
+              text:"船东统计",
+              left: 'center',
+              top:"10"
+            },
+            legend: {
+                type:"scroll",
+                x : 'center',
+                y : 'bottom',
+                data:[]
+            },
+            tooltip: {
+              trigger: "item",
+              formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            series:[
+              {
+                name: "船东统计",
+                type: "pie", //类型
+                radius:[30,110],
+                center: ["50%", "50%"],
+                data: [],
+                roseType: "radius",
+                label: {
+                  normal: {
+                    show:true
+                  }
+                },
+                labelLine: {
+                  normal: {
+                    show:true,
+                  }
+                },
+                itemStyle: {},
+
+                animationType: "scale",
+                animationEasing: "elasticOut",
+                animationDelay: function(idx) {
+                  return Math.random() * 200;
+                }
+              }]
+          }
+        },
+        {
+          label: "船员统计",
+          show:false,
+          showTitle:false,//是否显示自定义标题
+          chart:null,
+          useClick:true,
+          id:"chart2",
+          noTime:true,
+          params:{
+            type:"",
+          },
+          option: {
+            toolbox:{right:"15",feature:{saveAsImage:{type:"png",name:""}}},
+            title:{
+              text:"船队统计",
+              left: 'center',
+              top:"10"
+            },
+            // backgroundColor: "#fff",
+            tooltip: {
+              trigger: "item",
+              formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                x : 'center',
+                y : 'bottom',
+                data:[],
+                type:"scroll",
+            },
+            series: [
+              {
+                name: "船队统计",
+                type: "pie",
+                radius: [30,110],
+                center: ["50%", "50%"],
+                data: [
+                ].sort(function(a, b) {
+                  return a.value - b.value;
+                }),
+                roseType: "radius",
+                label: {
+                  normal: {
+                    show:true,
+                  }
+                },
+                labelLine: {
+                  normal: {
+                    show:true
+                  }
+                },
+                itemStyle: {
+                  normal: {
+                    color: "",
+                  }
+                },
+                animationType: "scale",
+                animationEasing: "elasticOut",
+                animationDelay: function(idx) {
+                  return Math.random() * 200;
+                }
+              }
+            ],
+          }
+        },
+        {
+          label: "船员统计",
+          show:false,
+          showTitle:false,//是否显示自定义标题
+          chart:null,
+          useClick:true,
+          id:"chart3",
+          noTime:true,
+          params:{
+            type:"",
+          },
+          option: {
+            toolbox:{right:"15",feature:{saveAsImage:{type:"png",name:""}}},
+            title:{
+              text:"船名统计",
+              left: 'center',
+              top:"10"
+            },
+            legend: {
+                x : 'center',
+                y : 'bottom',
+                data:[],
+                type:"scroll",
+            },
+            tooltip: {
+              trigger: "item",
+              formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            series: [
+              {
+                name: "船名统计",
+                type: "pie",
+                radius: [30,110],
+                center: ["50%", "50%"],
+                data: [].sort(function(a, b) {
+                  return a.value - b.value;
+                }),
+                roseType: "radius",
+                label: {
+                  normal: {
+                    show:true,
+                  }
+                },
+                labelLine: {
+                  normal: {
+                    show:true
+                  }
+                },
+                animationType: "scale",
+                animationEasing: "elasticOut",
+                animationDelay: function(idx) {
+                  return Math.random() * 200;
+                }
+              }
+            ]
+          }
+        },{
+          label: "船员统计",
+          show:true,
+          showTitle:false,//是否显示自定义标题
+          chart:null,
+          useClick:true,
+          id:"chart4",
+          noTime:true,
+          params:{
+            type:"",
+          },
+          option: {
+            toolbox:{right:"15",feature:{saveAsImage:{type:"png",name:""}}},
+            title:{
+              text:"职务统计",
+              left: 'center',
+              top:"10"
+            },
+            legend: {
+                x : 'center',
+                y : 'bottom',
+                data:[],
+                type:"scroll",
+            },
+            tooltip: {
+              trigger: "item",
+              formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            series: [
+              {
+                name: "职务统计",
+                type: "pie",
+                avoidLabelOverlap: false,
+                radius:["30%", "50%"],
+                center: ["50%", "50%"],
+                data: [].sort(function(a, b) {
+                  return a.value - b.value;
+                }),
+                label: {
+                  normal: {
+                    show:true
+                  }
+                },
+                labelLine: {
+                  normal: {
+                    show:true,
+                  },
+                },
+                animationType: "scale",
+                animationEasing: "elasticOut",
+                animationDelay: function(idx) {
+                  return Math.random() * 200;
+                }
+              }
+            ]
+          }
+        },{
+          label: "船员统计",
+          show:true,
+          showTitle:false,//是否显示自定义标题
+          chart:null,
+          useClick:true,
+          id:"chart5",
+          noTime:true,
+          params:{
+            type:"",
+          },
+          option: {
+            toolbox:{right:"15",feature:{saveAsImage:{type:"png",name:""}}},
+            title:{
+              text:"年龄统计",
+              left: 'center',
+              top:"10"
+            },
+            legend: {
+                x : 'center',
+                y : 'bottom',
+                data:[],
+                type:"scroll"
+            },
+            tooltip: {
+              trigger: "item",
+              formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            series: [
+              {
+                name: "年龄统计",
+                type: "pie",
+                // avoidLabelOverlap: false,
+                radius:["30%","50%"],
+                center: ["50%", "55%"],
+                data: [].sort(function(a, b) {
+                  return a.value - b.value;
+                }),
+                label: {
+                  normal: {
+                   show:true
+                  }
+                },
+                labelLine: {
+                  normal: {
+                    show:true,
+
+                  }
+                },
+
+                animationType: "scale",
+                animationEasing: "elasticOut",
+                animationDelay: function(idx) {
+                  return Math.random() * 200;
+                }
+              }
+            ]
+          }
+        },{
+          label: "社保预算",
+          show:true,
+          showTitle:true,//是否显示自定义标题
+          chart:null,
+          CanClick:this.detail_5,
+          useClick:true,//是否使用click
+          hasback:false,
+          CanDobclick:"back_5",
+          url:"index/socialInfo",
+          id:"chart7",
+          params:{
+            type:"1",
+            date:["",""],
+          },
+          options:[
+            {
+              title:"月度",
+              value:"1"
+            },{
+              title:"参保地",
+              value:"2"
+            },{
+              title:"船队",
+              value:"3"
+            },{
+              title:"船东",
+              value:"4"
+            }
+          ],
+          option:{
+              toolbox:{right:"15",feature:{saveAsImage:{type:"png",name:""}}},
+              title:{
+                text:"",
+              },
+              tooltip: {
+                trigger: 'axis',
+                axisPointer : {          
+                  type : 'shadow'   
+                }
+              },
+              grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+              },
+              xAxis : [
+                {
+                  type : 'category',
+                  data : [1,2,3,4,5,6],
+                  axisTick: {
+                    alignWithLabel: true
+                  }
+                }
+              ],
+              legend: {
+                  data:["社保费用","参保人数"],
+                  top:"5"
+              },
+              yAxis : [
+                {
+                  type : 'value',
+                  name:"金额(元)",
+                  nameTextStyle:{
+                    color:"#0099ff"
+                  }
+                },{
+                  type: 'value',
+                  name: '人数(人)',
+                  min: 0,
+                  minInterval:1,
+                  splitLine:{
+                    show:false
+                  }
+                }
+              ],
+              dataZoom: [
+                  {
+                      show: false,
+                  },
+                  {
+                      type: 'inside',
+                  },
+              ],
+              series: [
+                {
+                  name:"社保费用",
+                  type:"bar",
+                  barWidth: '40%',
+                  data:[100,200,300,500,100],
+                  markPoint : {
+                        data : [
+                            {type : 'max', name: '最大值'},
+                            {type : 'min', name: '最小值'}
+                        ]
+                    },
+                },{
+                  name:"参保人数",
+                  type:"line",
+                  yAxisIndex: 1,
+                  data:[10,20,30,50,10],
+                  markPoint : {
+                        data : [
+                            {type : 'max', name: '最大值'},
+                            {type : 'min', name: '最小值'}
+                        ]
+                    },
+                }
+            ]
+          },
+          option2:{
+            title:{
+              text:"",
+              left:"center"
+            },
+            tooltip: {
+              trigger: 'axis',
+              axisPointer : {          
+                type : 'shadow'   
+              }
+            },
+            grid: {
+              left: '3%',
+              right: '4%',
+              bottom: '3%',
+              containLabel: true
+            },
+            dataZoom: [
+                  {
+                      show: false,
+                  },
+                  {
+                      type: 'inside',
+                  },
+              ],
+            xAxis : [
+                {
+                  type : 'category',
+                  data : [],
+                  axisTick: {
+                    alignWithLabel: true
+                  },
+                  axisLabel:{
+                    interval:0
+                  }
+                }
+              ],
+            yAxis : [
+                {
+                  type : 'value',
+                  name:"金额(元)",
+                  nameTextStyle:{
+                    color:"#0099ff"
+                  },
+                  
+                }
+              ],
+              series: [
+                {
+                  type:"bar",
+                  barWidth: '40%',
+                  data:[],
+                  markPoint : {
+                        data : [
+                            {type : 'max', name: '最大值'},
+                            {type : 'min', name: '最小值'}
+                        ]
+                    },
+                }
+            ]
+          }
+        },{
+          label: "报销统计",
+          show:true,
+          showTitle:true,//是否显示自定义标题
+          hasback:false,
+          chart:null,
+          url:"index/expenseInfo",
+          CanClick:this.detail_6,
+          useClick:true,//是否使用click
+          showFirst:false,
+          showSecond:false,
+          id:"chart8",
+          params:{
+            type:"1",
+            date:["",""],
+          },
+          options:[
+            {
+              title:"月度",
+              value:"1"
+            },{
+              title:"客户",
+              value:"2"
+            },{
+              title:"报销地点",
+              value:"3"
+            }
+          ],
+          params2:{
+            status:"",
+          },
+          options2:[],
+          option: {
+            toolbox:{right:"15",feature:{saveAsImage:{type:"png",name:""}}},
+            title:{
+                text:"",
+                left:"center"
+            },
+            legend:{
+              data:["船员差旅","员工差旅","办公费用","报销总额"],
+              top:"5"
+            },
+            tooltip:{
+              trigger: 'axis',
+              axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                  type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+              },
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+              },
+            xAxis: [{
+                type: 'category',
+                data: [],
+                axisTick: {
+                    alignWithLabel: true
+                  }
+            }],
+            yAxis: {
+                type: 'value',
+                name:"金额(元)",
+                nameTextStyle:{
+                  color:"#0099ff"
+                }
+            },
+            dataZoom: [
+                {
+                    show: false,
+                },
+                {
+                    type: 'inside',
+                },
+            ],
+            series: [
+              {
+                data: [],
+                name:"船员差旅",
+                type: 'bar',
+              },
+              {
+                data: [],
+                name:"员工差旅",
+                type: 'bar',
+              },
+              {
+                data: [],
+                name:"办公费用",
+                type: 'bar',
+              },
+              {
+                data: [],
+                name:"报销总额",
+                type: 'bar',
+              },
+            ]
+          },
+          option2:{
+            toolbox:{right:"15",feature:{saveAsImage:{type:"png",name:""}}},
+            title:{
+                text:"",
+                left:"center"
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c} ({d}%)"
+            },
+            legend: {
+                x : 'center',
+                y : 'bottom',
+                data:[]
+            },
+            series: [
+                {
+                    name:'报销费用',
+                    type:'pie',
+                    selectedMode: 'single',
+                    radius: [0, '30%'],
+
+                    label: {
+                        normal: {
+                            position: 'inner'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                    data:[]
+                },
+                {
+                    name:'报销费用',
+                    type:'pie',
+                    radius: ['40%', '55%'],
+                    label: {
+                    },
+                    data:[]
+                }
+            ]
+          }
+        },{
+          label: "供应商统计",
+          chart:null,
+          show:true,
+          showTitle:true,//是否显示自定义标题
+          useClick:true,
+          id:"chart9",
+          url:"index/supplierInfo",//请求的数据的地址
+          params:{
+            type:"全部",
+            date:["",""],
+          },
+          options:[],
+          option: {
+            toolbox:{right:"15",feature:{saveAsImage:{type:"png",name:""}}},
+            title:{
+              text:"",
+              // left:"center"
+            },
+            tooltip : {
+                trigger: 'axis',
+                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    data : [],
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+                }
+            ],
+            legend: {
+                data:['实付金额','应付金额'],
+                top:"5"
+            },
+            yAxis : [
+                {
+                    type : 'value',
+                    name:"金额(元)",
+                    nameTextStyle:{
+                      color:"#0099ff"
+                    }
+                }
+            ],
+            itemStyle:{
+              color:"",
+            },
+            series : [
+                {
+                    name:'实付金额',
+                    type:'bar',
+                    barWidth: '40%',
+                    data:[],
+                    markPoint : {
+                        data : [
+                            {type : 'max', name: '最大值'},
+                            {type : 'min', name: '最小值'}
+                        ]
+                    },
+                    markLine : {
+                        data : [
+                            {type : 'average', name: '平均值'}
+                        ]
+                    }
+                },{
+                    name:'应付金额',
+                    type:'bar',
+                    barWidth: '40%',
+                    data:[],
+                    markPoint : {
+                        data : [
+                            {type : 'max', name: '最大值'},
+                            {type : 'min', name: '最小值'}
+                        ]
+                    },
+                    markLine : {
+                        data : [
+                            {type : 'average', name: '平均值'}
+                        ]
+                    }
+                },
+            ]
+          }
+        },{
+          label: "借还款统计",
+          chart:null,
+          show:true,
+          showTitle:true,//是否显示自定义标题
+          useClick:true,
+          id:"chart10",
+          url:"index/borrowInfo",//请求的数据的地址
+          params:{
+            type:"人民币",
+            date:["",""],
+          },
+          options:[ "美元","人民币"],
+          option: {
+            toolbox:{right:"15",feature:{saveAsImage:{type:"png",name:""}}},
+            title:{
+              // text:"借还款统计",
+            },
+            tooltip : {
+                trigger: 'axis',
+                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    data : [],
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+                }
+            ],
+            legend: {
+                data:["实付金额",'应付金额'],
+                top:"5"
+            },
+            yAxis : [
+                {
+                    type : 'value'
+                }
+            ],
+            itemStyle:{
+              color:"",
+            },
+            series : [
+                {
+                    name:'实付金额',
+                    type:'bar',
+                    barWidth: '40%',
+                    data:[],
+                    markPoint : {
+                        data : [
+                            {type : 'max', name: '最大值'},
+                            {type : 'min', name: '最小值'}
+                        ]
+                    },
+                    markLine : {
+                        data : [
+                            {type : 'average', name: '平均值'}
+                        ]
+                    }
+                },{
+                    name:'应付金额',
+                    type:'bar',
+                    barWidth: '40%',
+                    data:[],
+                    markPoint : {
+                        data : [
+                            {type : 'max', name: '最大值'},
+                            {type : 'min', name: '最小值'}
+                        ]
+                    },
+                    markLine : {
+                        data : [
+                            {type : 'average', name: '平均值'}
+                        ]
+                    }
+                },
+            ]
+          }
+        },{
+          label: "收费统计",
+          chart:null,
+          show:true,
+          showTitle:true,//是否显示自定义标题
+          useClick:true,
+          id:"chart11",
+          url:"index/chargeInfo",//请求的数据的地址
+          params:{
+            type:"",
+            date:["",""],
+          },
+          options:[],
+          option: {
+            toolbox:{right:"15",feature:{saveAsImage:{type:"png",name:""}}},
+            title:{
+              // text:"收费统计",
+            },
+            tooltip : {
+                trigger: 'axis',
+                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    data : [],
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+                }
+            ],
+            legend: {
+                data:["收费",'余额'],
+                top:"5"
+            },
+            yAxis : [
+                {
+                    type : 'value'
+                }
+            ],
+            itemStyle:{
+              color:"",
+            },
+            series : [
+                {
+                    name:'收费',
+                    type:'bar',
+                    barWidth: '40%',
+                    data:[],
+                    markPoint : {data : [{type : 'max', name: '最大值'},{type : 'min', name: '最小值'}]},
+                    markLine : {
+                        data : [
+                            {type : 'average', name: '平均值'}
+                        ]
+                    }
+                },{
+                    name:'余额',
+                    type:'bar',
+                    barWidth: '40%',
+                    data:[],
+                    markPoint : {
+                        data : [
+                            {type : 'max', name: '最大值'},
+                            {type : 'min', name: '最小值'}
+                        ]
+                    },
+                    markLine : {
+                        data : [
+                            {type : 'average', name: '平均值'}
+                        ]
+                    }
+                },
+            ]
+          }
+        }
+      ]
+    };
+  },
+
+  computed:{
+    getChartData(){
+      if(Object.keys(this.chartData).length>0){
+        var array1=["shipowner","vessel","fleet","duty","age"]
+        var array2=["船东统计","船队统计","船名统计","职务统计","年龄统计"]
+        var typeArray=[] //图表类型
+
+        this.chartList.forEach((ele,index)=>{
+          if(ele.option.title&&ele.option.title.text&&array2.includes(ele.option.title.text)){
+            var listdata=this.chartData[array1[index]]
+            ele.option.series[0].data=[]
+            ele.option.legend.data=[]
+            if(listdata.length==0){
+              ele.show=false
+            }
+            listdata.forEach(ele1=>{
+              ele.option.series[0].data.push({
+                name:ele1.title||ele1.fleet||ele1.duty,
+                value:ele1.number
+              })
+              ele.option.legend.data=ele.option.legend.data||[]
+              ele.option.legend.data.push(ele1.title||ele1.fleet||ele1.duty)
+              if(ele1.number==0){
+                ele.option.legend.selected=ele.option.legend.selected||{}
+                ele.option.legend.selected[ele1.title||ele1.fleet||ele1.duty]=false
+              }
+            })
+          }
+        })
+        this.showChart()
+      }
+      return true
+    }
+  },
+  methods:{
+    detail_5(params){
+      this.doDetails(5,params)
+    },
+
+    back_5(params){
+      var goal=this.chartList[5]
+      this.getOtherData(5)
+      goal.CanClick=this.detail_5
+    },
+
+    detail_6(params){
+      var goal=this.chartList[6]
+      if(params.seriesName!=="报销总额"&&goal.params.type==1){
+        this.doDetails(6,params)
+      }
+    },
+
+
+    doDetails(index,params){
+      var goal=this.chartList[index]
+      goal.hasback=true
+      if(index==5){
+        if(goal.params.type==1){
+          goal.option2.title.text=params.name+"--社保费用统计"
+          goal.params.month=params.name
+          this.getOtherDetail(5)
+          goal.useClick=false
+        }
+      }else if(index==6){
+        this.$set(goal,"showFirst",true)
+        if(params.seriesName=="船员差旅"||goal.params2.type=="mariner"){
+          goal.options2=[{title:"职务",value:"duty"},{title:"客户",value:"shipowner"},{title:"报销地点",value:"address"},{title:"船名",value:"vessel"},{title:"船队",value:"fleet"}]
+          goal.params2={
+            month:goal.params2.month||params.name,
+            status:goal.params2.status||"duty",
+            type:"mariner"
+          }
+        }else if(params.seriesName=="员工差旅"||goal.params2.type=="user"){
+          goal.options2=[{title:"部门",value:"department"},{title:"客户",value:"shipowner"},{title:"报销地点",value:"address"}],//,{title:"船名",value:"vessel"}
+          goal.params2={
+            month:goal.params2.month||params.name,
+            status:goal.params2.status||"department",
+            type:"user"
+          }
+        }else if(params.seriesName=="办公费用"||goal.params2.type=="office"){
+          goal.options2=[{title:"部门",value:"department"},{title:"客户",value:"shipowner"},{title:"报销地点",value:"address"}]
+          goal.params2={
+            month:goal.params2.month||params.name,
+            status:goal.params2.status||"department",
+            type:"office"
+          }
+        }
+        var name=params.seriesName
+        if(goal.params2.type=="mariner"){
+          name="船员差旅"
+        }else if(goal.params2.type=="user"){
+          name="员工差旅"
+        }else if(goal.params2.type=="office"){
+          name="办公费用"
+        }
+        goal.option2.title.text=name+"--报销统计"
+        
+        this.apiPost("index/expenseType",goal.params2).then(res=>{
+          goal.option2.series[0].data=[]
+          goal.option2.series[1].data=[]
+          goal.option2.legend.data=[]
+          // return
+          if(goal.params2.type=="mariner"){//船员
+            var array1=["市内交通费","住宿费","交通费","体检费","培训费","补贴","其他"]
+            var array2=["city","hotel","traffic","examination","train","subsidy","rests"]
+            res.forEach(ele=>{
+              goal.option2.legend.data.push(ele.duty||ele.shipowner||ele.vessel||ele.fleet||ele.address)
+              goal.option2.series[0].data.push({name:ele.duty||ele.shipowner||ele.vessel||ele.fleet,value:ele.total||ele.address})
+
+              array1.forEach((ele1,index1)=>{
+                goal.option2.series[1].data.push({
+                  name:ele1,
+                  value:ele[array2[index1]]
+                })
+                goal.option2.legend.selected= goal.option2.legend.selected||{}
+                if(ele[array2[index1]]>0){
+                  goal.option2.legend.selected[ele1]=true
+                }else if(!goal.option2.legend.selected[ele1]){
+                  goal.option2.legend.selected[ele1]=false
+                }
+              })
+            })
+            goal.option2.series[0].data.forEach(ele3=>{
+              if(!ele3.value){
+                goal.option2.legend.selected[ele3.name]=false
+              }
+            })
+
+            goal.option2.legend.data=goal.option2.legend.data.concat(array1)
+          }else if(goal.params2.type=="office"){
+            res.forEach(ele0 =>{
+              goal.option2.legend.data.push(ele0.department||ele0.shipowner||ele0.address)
+              goal.option2.series[0].data.push({name:ele0.department||ele0.shipowner||ele0.address,value:ele0.total})
+            })
+            res.forEach(ele0 =>{
+              var second=ele0.result
+              second.forEach((ele1,index1)=>{
+                  if(!goal.option2.legend.data.includes(ele1.project))goal.option2.legend.data.push(ele1.project)
+                  goal.option2.series[1].data.push({
+                    name:ele1.project,
+                    value:ele1.money
+                  })
+              })
+            })
+            goal.option2.series[0].data.forEach(ele3=>{
+              if(!ele3.value){
+                goal.option2.legend.selected[ele3.name]=false
+              }else{
+                // goal.option2.legend.selected[ele3.name]=true
+              }
+            })
+            goal.option2.series[1].data.forEach(ele3=>{
+              if(!ele3.value){
+                goal.option2.legend.selected[ele3.name]=false
+              }else{
+                // goal.option2.legend.selected[ele3.name]=true
+              }
+            })
+            console.log(goal.option2.series[1].data)
+
+            // goal.option2.legend.data=goal.option2.legend.data.concat(array1)
+          }else if(goal.params2.type=="user"){
+            var array1=["市内交通费","住宿费","交通费","差旅补贴","招待餐费","其他交际费","办公杂费","通讯费","邮递费","同行人","其他"]
+            var array2=["city","hotel","traffic","travel","meal","exchange","office","communication","post","partner","rests"]
+            res.forEach(ele=>{
+              goal.option2.legend.data.push(ele.department||ele.shipowner||ele.address||ele.vessel)
+              goal.option2.series[0].data.push({name:ele.department||ele.shipowner||ele.address||ele.vessel,value:ele.total})
+
+
+              array1.forEach((ele1,index1)=>{
+                goal.option2.series[1].data.push({
+                  name:ele1,
+                  value:ele[array2[index1]]
+                })
+
+                goal.option2.legend.selected= goal.option2.legend.selected||{}
+                if(ele[array2[index1]]>0){
+                  goal.option2.legend.selected[ele1]=true
+                }else if(!goal.option2.legend.selected[ele1]){
+                  goal.option2.legend.selected[ele1]=false
+                }
+              })
+            })
+            goal.option2.series[0].data.forEach(ele3=>{
+              if(!ele3.value){
+                goal.option2.legend.selected[ele3.name]=false
+              }
+            })
+            goal.option2.legend.data=goal.option2.legend.data.concat(array1)
+          }
+          try{
+            goal.chart.clear()
+            goal.chart._$handlers.click.shift() //删除click方法
+            // console.log(goal.chart._$handlers)
+            goal.chart.setOption(goal.option2)
+          }catch(error){
+            
+          }
+        })
+        
+      }
+    },
+
+    changeChart(item,index){
+      this.doDetails(6,{})
+    },
+
+    doBack(index){
+      var goal=this.chartList[index]
+      goal.useClick=true
+      goal.hasback=false
+      goal.options2=[]
+      if(index==6){
+        goal.params2.type=""
+        goal.params2.status=""
+
+        goal.showFirst=false
+      }
+      goal.chart.clear()
+      goal.chart.on("click",goal.CanClick)
+      goal.chart.setOption(goal.option)
+    },
+
+  
+
+    changeSumType(item,index){
+      if(item.label=="供应商统计"){
+        item.params.supplier=item.params.type
+      }else if(item.label=="借还款统计"){
+        item.params.currency=item.params.type
+      }
+      this.getOtherData(index)
+    },
+    changeSumTime(item,index,index1){
+      if(item.params.date[index1]){
+        if(item.params.date[0]&&item.params.date[1]){
+          if(new Date(item.params.date[0]).getTime()<=new Date(item.params.date[1]).getTime()){
+            item.params.date=[_g.formatTime(new Date(item.params.date[0]),"month"),_g.formatTime(new Date(item.params.date[1]),"month")]
+          }else{
+            _g.toMessage(this,"warning","截止时间不能早于开始时间")
+            this.$set(item.params.date,index1,"")
+          }
+        }
+      }else{
+        this.$set(item.params.date,index1,"")
+      }
+
+      this.getOtherData(index)
+      
+    },
+
+    // 渲染chart(简单的不用发请求的)
+    showChart(){
+      var that=this
+      for(let i=0; i<this.chartList.length;i++){
+        this.chartList[i].params.date=_g.getLastYear()
+        this.chartList[i].option.toolbox.feature.saveAsImage.name=this.chartList[i].label
+        if(this.chartList[i].show&&!this.chartList[i].url){
+          if(this.echarts){ 
+            this.chartList[i].chart=this.echarts.init(document.getElementById(this.chartList[i].id))
+          }else{
+            this.chartList[i].chart=echarts.init(document.getElementById(this.chartList[i].id))
+          }
+          
+          
+          if(this.chartList[i].CanClick){
+            this.chartList[i].chart.on("click",that[this.chartList[i].CanClick]) //Canclick是图表点击方法名
+          }
+          setTimeout(()=>{this.chartList[i].chart.setOption(this.chartList[i].option)},300*i)
+        }
+      }
+    },
+
+    // 获取供应商列表
+    getSupplierList(){
+      try{
+        this.apiPost("Expenses/supplierList").then(res=>{
+          if(res.error){
+            _g.toMessage(this,"error","供应商获取失败,请检查网络")
+          }else{
+            var goal = _g.getMyItem(this.chartList,"label","供应商统计")
+            res.data.forEach(ele=>{
+              goal.options.push({
+                title:ele.title,
+                value:ele.id
+              })
+            })
+            goal.options.unshift({title:"全部",value:""})
+          }
+        })
+      }
+      catch(err){
+         _g.toMessage(this,"error","供应商获取失败,请检查网络")
+      }
+      
+    },
+
+    // 获取chart数据,传入index时，刷新index的图表
+    getOtherData(index){
+      var that=this
+      var array=index?[this.chartList[index]]:this.chartList
+      array.forEach((ele,index_time)=>{
+        if(ele.url&&ele.show){
+          this.apiPost(ele.url,ele.params).then(res=>{
+            // console.log(res)
+            if(res.length==0){
+              ele.show=false
+            }
+            ele.option.xAxis[0].data=[]
+            ele.option.series[0].data=[]
+            ele.option.series[1].data=[]
+            if(ele.id=="chart8"&&(ele.params.type==1||ele.params.type==3)){
+              ele.option.legend.data=["船员差旅","员工差旅","办公费用","报销总额"]
+              ele.option.series=[{
+                data: [],
+                name:"船员差旅",
+                type: 'bar',
+                // label: {
+                // normal: {
+                //     show: true,
+                //     position: 'top'
+                //   }
+                // },
+                markPoint : {data : [{type : 'max', name: '最大值'},{type : 'min', name: '最小值'}]},
+              },
+              {
+                data: [],
+                name:"员工差旅",
+                type: 'bar',
+                // label: {
+                // normal: {
+                //     show: true,
+                //     position: 'top'
+                //   }
+                // },
+                markPoint : {data : [{type : 'max', name: '最大值'},{type : 'min', name: '最小值'}]},
+              },
+              {
+                data: [],
+                name:"办公费用",
+                type: 'bar',
+                // label: {
+                // normal: {
+                //     show: true,
+                //     position: 'top'
+                //   }
+                // },
+                markPoint : {data : [{type : 'max', name: '最大值'},{type : 'min', name: '最小值'}]},
+              },
+              {
+                data: [],
+                name:"报销总额",
+                type: 'bar',
+                // label: {
+                // normal: {
+                //     show: true,
+                //     position: 'top'
+                //   }
+                // },
+                markPoint : {data : [{type : 'max', name: '最大值'},{type : 'min', name: '最小值'}]},
+              }]
+
+            }else if(ele.id=="chart8"&&ele.params.type==2){
+              ele.option.legend.data=["船员差旅","员工差旅","报销总额"]
+              ele.option.series=[
+                {
+                  data: [],
+                  name:"船员差旅",
+                  type: 'bar',
+                  markPoint : {data : [{type : 'max', name: '最大值'},{type : 'min', name: '最小值'}]},
+                },
+                {
+                  data: [],
+                  name:"员工差旅",
+                  type: 'bar',
+                  markPoint : {data : [{type : 'max', name: '最大值'},{type : 'min', name: '最小值'}]},
+                },
+                {
+                  data: [],
+                  name:"报销总额",
+                  type: 'bar',
+                  
+                  markPoint : {data : [{type : 'max', name: '最大值'},{type : 'min', name: '最小值'}]},
+                },
+              ]
+            }
+            res.forEach(ele1=>{
+              ele.option.xAxis[0].data.push(ele1.month||ele1.area||ele1.title||ele1.address||"暂无")
+              if(ele.id!="chart8"){
+                ele.option.series[0].data.push(ele1.pay_after||ele1.amount||ele1.total||ele1.users||0)
+                ele.option.series[1].data.push(ele1.pay_before||ele1.repayment||ele1.surplus||ele1.list||0)
+              }else{
+                ele.option.series[0].data.push(ele1.mariner)
+                ele.option.series[1].data.push(ele1.user)
+                if(ele.params.type==2){
+                  ele.option.series[2].data.push(ele1.total)
+                }else if(ele.params.type==1||ele.params.type==3){
+                  ele.option.series[2].data.push(ele1.office)
+                }
+                
+                if(ele.option.series[3])ele.option.series[3].data.push(ele1.total||0)
+              }
+            })
+          }).then(()=>{
+            ele.chart=ele.chart
+            if(!ele.chart){
+              if(this.echarts){
+                ele.chart=this.echarts.init(document.getElementById(ele.id))
+              }else{
+                ele.chart=echarts.init(document.getElementById(ele.id))
+              }
+            }
+            if(ele.CanClick){
+              ele.chart.on("click",ele.CanClick) //Canclick是图表点击方法名
+            }
+            setTimeout(()=>{ele.chart.clear();ele.chart.setOption(ele.option)},10*index_time)
+          })
+        }
+      })
+    },
+
+    // 获取详情
+    getOtherDetail(index){
+      var obj=this.chartList[index]
+      if(index==5){
+        var array1=["五险合计(个人)","个人其他","合计(个人)","个人承担","添加项个人","实际个人","五险合计(公司)","公司其他","合计(公司)","添加下(公司)","实际公司"]
+        var array2=["social_person","else_person","final_person","assume_person","add_person","amount_person","socail_company","else_company","final_company","add_company","amount_company"]
+      }
+
+      this.apiPost(obj.url,{type:5,month:obj.params.month}).then(res=>{
+        obj.option2.xAxis[0].data=array1
+        array2.forEach(ele2=>{
+          obj.option2.series[0].data.push(res[0][ele2])
+        })
+      }).then(()=>{
+        obj.chart._$handlers.click.shift()
+        setTimeout(()=>{
+          obj.chart.clear();obj.chart.setOption(obj.option2)
+        },100)
+      })
+    },
+
+  },
+  components: {},
+  created(){
+    this.getSupplierList()
+    this.getOtherData()
+  },
+  mounted() {
+
+  }
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.chart {
+  display: flex;
+  justify-content:flex-start;
+  margin: 10px 0;
+  flex-wrap: wrap
+}
+.chart > div {
+  flex-grow: 1;
+  width: 48%;
+  margin-top: 10px;
+}
+.chart > div:nth-child(2n+1){
+  margin-right: 5px;
+}
+.chart > div:nth-child(2n){
+  margin-left: 5px;
+}
+.chart > div:nth-child(5),.chart > div:nth-child(6),.chart > div:nth-child(7),.chart > div:nth-child(8),.chart > div:nth-child(9),.chart > div:nth-child(10),.chart > div:nth-child(11){
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.chart-box{
+  width: 100%;
+  overflow: hidden;
+  height: 400px;
+}
+.title{
+  font-size: 14px;
+  text-align: left;
+  font-weight: 600;
+  padding: 0;
+  height: 45px;
+  line-height: 45px;
+  border-bottom: 1px solid #E4E4E4;
+}
+.title>span{
+  margin: 0 10px 0 15px;
+}
+.is-more,.month-range{
+  display: inline-block;
+}
+.month-range{
+  margin-right: 10px;
+}
+.statistics-type,.type-select,.font-weight{
+  font-weight: 500;
+  font-size: 12px;
+}
+.first-box{
+  min-height: 400px;
+}
+.my-btn{
+  color: #333;
+  font-weight: 400;
+  line-height: 0;
+  /* margin-left: 50px; */
+  position: relative;
+  top: -1px;
+  font-size: 12px;
+}
+</style>

@@ -1,0 +1,1284 @@
+<template>
+  <el-dialog title="编辑" :visible.sync="$store.state.allDialog.editShow" :width="addType==21?'900px':'600px'" class="border-common edit-box">
+    <!-- 船东 -->
+    <div class="overflow-y" v-if="addType==2">
+      <el-form label-width="100px" :model="formData.shipOwnerData" class="my-form" ref="my-form">
+        <el-form-item label="客户名称" prop="title" :rules="[{ required: true, message: '请输入客户名称', trigger: 'blur' }]">
+          <el-input v-model="formData.shipOwnerData.title"></el-input>
+        </el-form-item>
+
+        <el-form-item label="属性" class="allwidth">
+          <el-select v-model="formData.shipOwnerData.attribute" placeholder="请选择">
+            <el-option v-for="item in attrArray" :key="item" :label="item" :value="item">
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="简称">
+          <el-input v-model="formData.shipOwnerData.alias"></el-input>
+        </el-form-item>
+        <el-form-item label="业务分组" class="allwidth">
+          <el-input v-model="formData.shipOwnerData.group"></el-input>
+          <!-- <el-select v-model="formData.shipOwnerData.group" placeholder="请选择">
+            <el-option v-for="item in jobArray" :key="item.value" :label="item.label" :value="item.value">
+            </el-option>
+          </el-select> -->
+        </el-form-item>
+        <el-form-item label="发展日期" class="allwidth">
+          <el-date-picker v-model="formData.shipOwnerData.developDate" type="date" placeholder="选择日期">
+          </el-date-picker>
+        </el-form-item>
+        <el-form-item label="业务主管" class="allwidth" :rules="[{required: true, message: '业务主管为空', trigger: 'blur' }]">
+          <el-select v-model="formData.shipOwnerData.business" @change="changeBusiness(formData.shipOwnerData.business)" filterable multiple placeholder="请选择" class="mul-box" :title="'已选择'+formData.shipOwnerData.business.length+'个'">
+            <el-option v-for="(item,index) in businessArray" :key="index" :label="item.title" :value="item.id">
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="财务负责人" class="allwidth float-none" prop="principal" :rules="[{required: true, message: '负责人为空', trigger: 'blur' }]" >
+          <el-select v-model="formData.shipOwnerData.principal" filterable multiple placeholder="请选择" class="mul-box" title="可搜索">
+            <el-option v-for="(item,index) in financeList" :key="index" :label="item.username" :value="item.id">
+            </el-option>
+          </el-select>
+        </el-form-item>
+      </el-form>
+    </div>
+
+    <div class="overflow-y" v-else-if="addType==3">
+      <el-form label-width="100px" :model="formData.shipNameData" class="my-form">
+        <el-form-item label="船名" prop="title" :rules="[{ required: true, message: '请输入船名', trigger: 'blur' }]">
+          <el-input v-model="formData.shipNameData.title"></el-input>
+        </el-form-item>
+
+        <el-form-item label="属性" class="allwidth">
+          <el-select v-model="formData.shipNameData.attribute" placeholder="请选择">
+            <el-option v-for="item in shipnamesattrArray" :key="item" :label="item" :value="item">
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="FLEET">
+          <el-input v-model="formData.shipNameData.fleet"></el-input>
+        </el-form-item>
+        <el-form-item label="发展日期" class="allwidth">
+          <el-date-picker v-model="formData.shipNameData.developDate" type="date" placeholder="选择日期">
+          </el-date-picker>
+        </el-form-item>
+      </el-form>
+    </div>
+
+
+    <!-- 报销设置 -->
+    <div class="overflow-y" v-else-if="addType=='14-1'">
+      <el-form label-width="100px" class="my-form">
+        <el-form-item label="客户名称" class="allwidth">
+          <el-select v-model="formData.refundSet.name" placeholder="请选择">
+            <el-option v-for="(item,index) in owners" :key="index" :label="item.title" :value="item.id">
+            </el-option>
+          </el-select>
+        </el-form-item>
+      </el-form>
+      <div>
+        <el-upload class="upload-demo" ref="upload" accept=".xls,.xlsx" :auto-upload="false" :action="urls.importUrl" :on-preview="handlePreview" :on-remove="handleRemove" :before-remove="beforeRemove" @on-success="uploadResult('success')" @on-error="uploadResult('error')" :limit="1" :on-exceed="handleExceed">
+          <el-button size="small" type="primary">点击上传</el-button>
+          <div slot="tip" class="el-upload__tip">按模板导入</div>
+        </el-upload>
+       </div>
+    </div>
+
+    <!-- 还款编辑-->
+    <div class="overflow-y" v-else-if="addType==15">
+      <el-form label-width="100px" class="my-form">
+        <el-form-item label="借款日期" class="allwidth">
+          <el-date-picker v-model="formData.repay.date" type="date" placeholder="选择日期">
+          </el-date-picker>
+        </el-form-item>
+        <el-form-item label="记账年月" class="allwidth">
+          <el-date-picker v-model="formData.repay.tally" type="month" placeholder="">
+          </el-date-picker>
+        </el-form-item>
+
+        <el-form-item label="姓名" prop="name">
+          <el-input v-model="formData.repay.name"></el-input>
+        </el-form-item>
+
+        <el-form-item label="身份证号" class="allwidth">
+          <el-input v-model="formData.repay.id_number"></el-input>
+        </el-form-item>
+        <el-form-item label="借款金额">
+          <el-input v-model="formData.repay.amount">
+            <el-select v-model="formData.repay.currency" slot="prepend" placeholder="请选择" style="width:83px">
+              <el-option label="人民币" value="人民币"></el-option>
+              <el-option label="美元" value="美元"></el-option>
+            </el-select>
+          </el-input>
+        </el-form-item>
+        <el-form-item label="借款原因">
+          <!-- <el-select v-model="formData.repay.reason" placeholder="请选择">
+            <el-option v-for="item in reason" :key="item" :label="item" :value="item">
+            </el-option>
+          </el-select> -->
+          <el-input v-model="formData.repay.reason"></el-input>
+
+        </el-form-item>
+        <el-form-item label="变更人">
+          <el-input v-model="formData.repay.changer" :readonly="true"></el-input>
+        </el-form-item>
+        <el-form-item label="变更时间">
+          <el-input v-model="formData.repay.change_date" :readonly="true"></el-input>
+        </el-form-item>
+      </el-form>
+    </div>
+
+    <!-- 意外险编辑 -->
+    <div class="overflow-y" v-else-if="addType==16">
+      <el-form label-width="100px" :model="formData.accident" class="my-form">
+
+        <!-- <el-form-item label="姓名" prop="name">
+          <el-input v-model="formData.accident.name"></el-input>
+        </el-form-item> -->
+        <el-form-item label="姓名" title="使用姓名进行搜索" prop="name" :rules="[{ required: true, message: '请输入姓名', trigger: 'blur' }]">
+          <el-autocomplete v-model="formData.accident.name" :fetch-suggestions="querySearchAsync" placeholder="请输入内容" @select="handleSelect"></el-autocomplete>
+        </el-form-item>
+
+        <el-form-item label="身份证号" class="allwidth">
+          <el-input v-model="formData.accident.id_number" :readonly="true"></el-input>
+        </el-form-item>
+
+        <el-form-item label="投保单位">
+          <el-select v-model="formData.accident.supplier" placeholder="请选择">
+            <el-option v-for="(item,index) in suplieArray" :key="index" :label="item.title" :value="item.id">
+            </el-option>
+          </el-select>
+        </el-form-item>
+
+        <el-form-item label="生效时间" class="allwidth">
+          <el-date-picker v-model="formData.accident.starttime" type="date" placeholder="选择日期">
+          </el-date-picker>
+        </el-form-item>
+
+        <el-form-item label="到期时间" class="allwidth">
+          <el-date-picker v-model="formData.accident.endtime" type="date" placeholder="选择日期">
+          </el-date-picker>
+        </el-form-item>
+
+        <el-form-item label="个人承担金额">
+          <el-input v-model="formData.accident.person"></el-input>
+        </el-form-item>
+        <el-form-item label="公司承担金额">
+          <el-input v-model="formData.accident.company"></el-input>
+        </el-form-item>
+      </el-form>
+    </div>
+
+    <!-- 收费信息 -->
+    <div class="overflow-y" v-else-if="addType==18">
+      <el-form label-width="100px" :model="formData.chargeInfo" class="my-form">
+
+        <!-- <el-form-item label="姓名" prop="name">
+          <el-input v-model="formData.accident.name"></el-input>
+        </el-form-item> -->
+        <el-form-item label="姓名" prop="name" :rules="[{ required: true, message: '请输入姓名', trigger: 'blur' }]">
+          <el-autocomplete v-model="formData.chargeInfo.name" :fetch-suggestions="querySearchAsync" placeholder="请输入内容" @select="handleSelect"></el-autocomplete>
+        </el-form-item>
+
+        <el-form-item label="身份证号" class="allwidth">
+          <el-input v-model="formData.chargeInfo.id_number" :readonly="true"></el-input>
+        </el-form-item>
+
+        <el-form-item label="收费日期" class="allwidth">
+          <el-date-picker v-model="formData.chargeInfo.time" type="date" placeholder="选择日期">
+          </el-date-picker>
+        </el-form-item>
+
+        <el-form-item label="收费金额">
+          <el-input v-model="formData.chargeInfo.money"></el-input>
+        </el-form-item>
+        <el-form-item label="变更人">
+          <el-input v-model="formData.chargeInfo.changer" :readonly="true"></el-input>
+        </el-form-item>
+         <el-form-item label="变更时间">
+          <el-input v-model="formData.chargeInfo.changer_date" :readonly="true"></el-input>
+        </el-form-item>
+      </el-form>
+    </div>
+
+    <!--供应商信息 -->
+    <div class="overflow-y" v-else-if="addType==20">
+      <el-form label-width="100px" :model="formData.supplierInfo" class="my-form">
+
+        <el-form-item label="供应商名称" prop="title">
+          <el-input v-model="formData.supplierInfo.title"></el-input>
+        </el-form-item>
+        <!-- <el-form-item label="姓名" prop="name" :rules="[{ required: true, message: '请输入姓名', trigger: 'blur' }]">
+          <el-autocomplete v-model="formData.chargeInfo.name" :fetch-suggestions="querySearchAsync" placeholder="请输入内容" @select="handleSelect"></el-autocomplete>
+        </el-form-item> -->
+
+        <el-form-item label="属性" class="allwidth">
+          <el-input v-model="formData.supplierInfo.attribute"></el-input>
+        </el-form-item>
+
+        <el-form-item label="发展日期" class="allwidth">
+          <el-date-picker v-model="formData.supplierInfo.developDate" type="date" @change="editTime('supplierInfo','developDate',formData.supplierInfo.developDate)" placeholder="选择日期">
+          </el-date-picker>
+        </el-form-item>
+
+        <el-form-item label="备注">
+          <el-input v-model="formData.supplierInfo.remark"></el-input>
+        </el-form-item>
+      </el-form>
+    </div>
+
+    <!-- 员工信息 -->
+    <div class="overflow-y" v-else-if="addType==21">
+      <el-form label-width="100px" :model="formData.staffInfo" :rules="staffRule" class="my-form staff-form">
+        <div class="head">
+          <div class="left-content">
+            <el-form-item v-for="(item,index) in formData.staffData.head"  v-if="!item.hidden" :key="index" :prop="item.special" :label="item.label" :class="item.class">
+              <el-input v-if="item.type=='input'" v-model="item.value" @change="editStaff(item)"></el-input>
+              <el-select v-else-if="item.type=='select'&&!item.isSpecial" class="select" v-model="item.value" placeholder="请选择" @change="editStaff(item,index)">
+                <el-option v-for="(item,index) in item.array" :key="index" :label="item" :value="item">
+                </el-option>
+              </el-select>
+              <el-select v-else-if="item.type=='select'&&item.isSpecial" :filterable="item.filterable" class="select" v-model="item.value" placeholder="请选择" @change="editStaff(item)">
+                <el-option v-for="(item,index) in item.array" :key="index" :label="item.title" :value="item.id">
+                </el-option>
+              </el-select>
+
+              <el-date-picker v-else-if="item.type=='time'" v-model="item.value" type="date" placeholder="选择日期" @change="editStaff(item)"></el-date-picker>
+              
+              <el-radio-group v-else-if="item.type=='check'" v-model="item.value" @change="editStaff(item)">
+                <el-radio v-for="(one,index1) in item.array" :label="one" :key="index1">{{one}}</el-radio>
+              </el-radio-group>
+            </el-form-item>
+          </div>
+          <div class="img-box right-content" title="上传图片">
+            <el-upload
+              class="avatar-uploader"
+              :action="imgs.action"
+              :show-file-list="false"
+              :on-success="handleAvatarSuccess"
+              accept="image/*"
+              :on-change="changeImg"
+              ref="uploadImg"
+              :auto-upload="true"
+              >
+              <img v-if="imgs.loadImg" :src="imgs.loadImg" class="avatar">
+              <img v-else :src="imgs.default" alt="">
+            </el-upload>
+          </div>
+        </div>
+        <div class="body">
+          <el-form-item v-for="(item,index) in formData.staffData.body" :key="index" :label="item.label" :class="item.isLong?item.class+' long-hide':item.class">
+            <el-input v-if="item.type=='input'" v-model="item.value" :readonly="item.readonly" @change="editStaff(item)"></el-input>
+            <el-select v-else-if="item.type=='select'" class="select" v-model="item.value" placeholder="请选择" @change="editStaff(item)">
+              <el-option v-for="(item,index) in item.array" :key="index" :label="item" :value="item">
+                </el-option>
+            </el-select>
+            <el-date-picker v-else-if="item.type=='time'" v-model="item.value" type="date" placeholder="选择日期" @change="editStaff(item)"></el-date-picker>
+          </el-form-item>
+        </div>
+      </el-form>
+    </div>
+
+    <!-- 角色管理 -->
+    <div class="overflow-y" v-else-if="addType==22">
+      <el-form label-width="90px" :model="formData.permissionsAgent" class="my-form" ref="addForm" >
+        <el-form-item label="代理人" prop="name" :rules="[{ required: true, message: '代理人姓名必填', trigger: 'blur' }]">
+          <el-autocomplete
+            v-model="formData.permissionsAgent.name"
+            :fetch-suggestions="querySearchAsync"
+            placeholder="搜索代理人姓名简写"
+            @select="handleSelect"
+          ></el-autocomplete>
+        </el-form-item>
+
+        <el-form-item class="job-describle" label="代理时间" prop="date" :rules="[{ required: true, message: '请选择代理时间', trigger: 'change' }]">
+          <el-date-picker range-separator="至" start-placeholder="代理开始日期" end-placeholder="代理结束日期" v-model="formData.permissionsAgent.date" type="daterange" placeholder="选择日期" @change="changtime"></el-date-picker>
+        </el-form-item>
+      </el-form>
+    </div>
+
+
+    <div class="overflow-y" v-else-if="addType==23">
+      <el-form label-width="100px" :model="formData.roleManager" class="my-form">
+        <el-form-item label="角色名称" prop="roleName" :rules="[{ required: true, message: '请输入角色名称', trigger: 'blur' }]">
+          <el-input v-model="formData.roleManager.roleName"></el-input>
+        </el-form-item>
+
+        <el-form-item class="job-describle" label="职能描述" prop="remark" :rules="[{ required: true, message: '请输入职能描述', trigger: 'blur' }]">
+          <el-input type="textarea" :rows="6" v-model="formData.roleManager.remark"></el-input>
+        </el-form-item>
+        
+      </el-form>
+    </div>
+
+    <!-- 账号 -->
+    <div class="overflow-y" v-else-if="addType==24">
+      <el-form label-width="100px" :model="formData.accountManage" class="my-form">
+        <el-form-item label="角色名称" prop="roleName" :rules="[{ required: true, message: '请输入角色名称', trigger: 'blur' }]">
+          <el-select class="select" v-model="formData.accountManage.roleId" placeholder="请选择">
+              <el-option v-for="(item,index) in roles" :key="index" :label="item.name" :value="item.id">
+              </el-option>
+            </el-select>
+        </el-form-item>
+
+        <!-- <el-form-item class="job-describle" label="职能描述" prop="remark" :rules="[{ required: true, message: '请输入职能描述', trigger: 'blur' }]">
+          <el-input type="textarea" :rows="6" v-model="formData.roleManager.remark"></el-input>
+        </el-form-item> -->
+        
+      </el-form>
+    </div>
+
+
+    <span slot="footer" class="dialog-footer">
+      <el-button @click="closeThis('cancel')">取 消</el-button>
+      <el-button type="primary" @click="closeThis('save')">确 定</el-button>
+    </span>
+  </el-dialog>
+</template>
+
+<script>
+export default {
+  data() {
+    var idrules = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('身份证号不能为空'));
+        } else if (!/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/.test(value)) {
+          callback(new Error('身份证号格式不正确!'));
+        } else {
+          var bir_time=_g.getMyItem(this.formData.staffData.body,"label","出生日期")
+          var age=_g.getMyItem(this.formData.staffData.body,"label","年龄")
+          var idNumber=_g.getMyItem(this.formData.staffData.head,"label","身份证号")
+          bir_time.value=idNumber.value.slice(6,10)+"-"+idNumber.value.slice(10,12)+"-"+idNumber.value.slice(12,14)
+          age.value=new Date().getFullYear()-idNumber.value.slice(6,10)
+          this.formData.staffInfo.birthday=bir_time.value
+          this.formData.staffInfo.age=age.value
+        }
+      };
+    return {
+      formData: {
+        shipOwnerData: {
+          title: "",
+          attribute: "",
+          alias: "",
+          group: "", //分组
+          developDate: "",
+          business:"",
+          principal:[],
+        },
+        shipNameData: {
+          title: "",
+          attribute: "",
+          fleet: "",
+          developDate: ""
+        },
+
+        refundSet:{
+          name:"123"
+        },
+
+        repay: {
+          date: "",
+          tally: "",
+          amount: "",
+          current: "",
+          reason: "临时借用",
+          name: "",
+          id_number: "",
+          changer: "",
+          changer_date: ""
+        },
+        accident: {
+          name: "",
+          id_number: "",
+          supplier: "",
+          starttime: "",
+          endtime: "",
+          person: "",
+          company: "",
+          marinerId:""
+        },
+        chargeInfo:{
+          date:"",
+          amount:"",
+          id_number:"",
+          name:"",
+          id:"",
+          time:"",
+          marinerId:"",
+          money:"",
+          changer:"",
+          changer_date:"",
+        },
+        supplierInfo:{
+          attribute:"",
+          developDate:"",
+          id:"",
+          remark:"",
+          title:"",
+        },
+
+        staffInfo:{
+          id:"",
+          fn:"",
+          username:"",
+          idNumber:"",
+          gender:"",//性别
+          department:"",
+          duty:"",
+          shipowner:"",
+          appoint_duty:"",
+          appoint_date:"",
+          working_date:"",
+          dimission_date:"",
+          assume_office_date:"",
+          birthday:"",
+          age:"",
+          edu_background:"",
+          degree:"",
+          major:"",
+          school:"",
+          graduation_date:"",
+          sign_start:"",
+          sign_end:"",
+          professional_skill:"",
+          qualification:"",
+          residence:"",
+          political_status:"",
+          marry:"",
+          work_date:"",
+          birthplace:"",
+          regular_date:"",
+          phone_number:"",
+          telnumber:"",
+          email:"",
+          address:"",
+          remark:"",
+          url:"",
+          principal:""
+
+        },
+        staffData:{
+          head:[
+            {
+              label:"档案号",
+              type:"input",
+              value:"",
+              class:"width_2",
+              special:"fn",
+            },{
+              label:"姓名",
+              type:"input",
+              value:"",
+              class:"width_2",
+              special:"username",
+            },{
+              label:"身份证号",
+              type:"input",
+              value:"",
+              class:"width_2",
+              special:"idNumber",
+            },{
+              label:"部门",
+              type:"select",
+              array:[],
+              arrayName:"department",
+              value:"",
+              class:"width_2",
+              special:"department",
+            },{
+              label:"财务负责人",
+              type:"check",
+              array:["是","否"],
+              value:"",
+              class:"width_2",
+              special:"principal",
+              hidden:true
+            },{
+              label:"职务",
+              type:"input",
+              value:"",
+              class:"width_2",
+              special:"duty",
+            },{
+              label:"船东",
+              type:"select",
+              array:[],
+              isSpecial:true,//是否是对象形式
+              arrayName:"owners",
+              value:"",
+              class:"width_2",
+              special:"shipowner",
+              filterable:true,
+            },{
+              label:"性别",
+              type:"select",
+              array:['男',"女"],
+              arrayName:"",
+              value:"",
+              class:"width_2",
+              special:"gender",
+            },{
+              label:"任命职务",
+              type:"input",
+              value:"",
+              class:"width_2",
+              special:"appoint_duty",
+            },{
+              label:"任命时间",
+              type:"time",
+              value:"",
+              class:"width_2",
+              special:"appoint_date",
+            }
+          ],
+          body:[
+            {
+              label:"到司日期",
+              type:"time",
+              value:"",
+              class:"width_4",
+              special:"working_date",
+            },{
+              label:"离职日期",
+              type:"time",
+              value:"",
+              class:"width_4",
+               special:"dimission_date",
+            },{
+              label:"司龄",
+              type:"input",
+              value:"",
+              class:"width_4",
+              special:"assume_office_date",
+              readonly:true,
+            },{
+              label:"出生日期",
+              type:"time",
+              value:"",
+              class:"width_4",
+              special:"birthday",
+            },{
+              label:"年龄",
+              type:"input",
+              value:"",
+              class:"width_4",
+              special:"age",
+              readonly:true,
+            },{
+              label:"学历",
+              type:"input",
+              value:"",
+              class:"width_4",
+               special:"edu_background",
+            },{
+              label:"学位",
+              type:"input",
+              value:"",
+              class:"width_4",
+               special:"degree",
+            },{
+              label:"专业",
+              type:"input",
+              value:"",
+              class:"width_4",
+               special:"major",
+            },{
+              label:"毕业院校",
+              type:"input",
+              value:"",
+              class:"width_4",
+               special:"school",
+            },{
+              label:"毕业时间",
+              type:"time",
+              value:"",
+              class:"width_4",
+               special:"graduation_date",
+            },{
+              label:"劳动合同开始日期",
+              type:"time",
+              isLong:true,
+              value:"",
+              class:"width_4",
+               special:"sign_start",
+            },{
+              label:"劳动合同结束日期",
+              type:"time",
+              isLong:true,
+              value:"",
+              class:"width_4",
+               special:"sign_end",
+            },{
+              label:"专业技术职称",
+              type:"input",
+              value:"",
+              class:"width_4",
+               special:"professional_skill",
+            },{
+              label:"船上任职资格",
+              type:"input",
+              value:"",
+              class:"width_4",
+               special:"qualification",
+            },{
+              label:"户口地",
+              type:"input",
+              value:"",
+              class:"width_4",
+               special:"residence",
+            },{
+              label:"政治面貌",
+              type:"input",
+              value:"",
+              class:"width_4",
+              special:"political_status",
+            },{
+              label:"婚否",
+              type:"select",
+              array:["是","否"],
+              arrayName:"",
+              value:"",
+              class:"width_4",
+               special:"marry",
+            },{
+              label:"参加工作日期",
+              type:"time",
+              value:"",
+              class:"width_4",
+               special:"work_date",
+            },{
+              label:"出生地",
+              type:"input",
+              value:"",
+              class:"width_4",
+              special:"birthplace",
+            },{
+              label:"转正日期",
+              type:"time",
+              value:"",
+              class:"width_4",
+              special:"regular_date",
+            },{
+              label:"手机",
+              type:"input",
+              value:"",
+              class:"width_4",
+               special:"phone_number",
+            },{
+              label:"电话",
+              type:"input",
+              value:"",
+              class:"width_4",
+               special:"telnumber",
+            },{
+              label:"邮箱",
+              type:"input",
+              value:"",
+              class:"width_5",
+               special:"email",
+            },{
+              label:"住址",
+              type:"input",
+              value:"",
+              class:"width_5",
+               special:"address",
+            },{
+              label:"备注",
+              type:"input",
+              value:"",
+              class:"width_6",
+               special:"remark",
+            }
+          ]
+        },
+
+        permissionsAgent:{
+          id:"",
+          agentId:"",
+          date:[],
+          name:""
+        },
+        
+        roleManager:{
+          id:"",
+          roleName:"",
+          remark:""
+        },
+
+        accountManage:{
+          id:"",
+          roleName:"",
+          roleId:"",
+        }
+      },
+      attrArray: ["境内客户", "境外客户"],
+      shipnamesattrArray: ["整船", "单派"],
+      businessArray: [],
+      jobArray: [],
+      reason: [],
+      suplieArray: [], //供应商
+      department:[],
+      owners:[],
+      roles:[],
+      financeList:[], //负责人
+
+      staffRule:{
+        idNumber:[{ validator: idrules, trigger: 'blur',required:true}],
+        fn:[{trigger: 'blur',required:true,message:"档案号不能空"}],
+        username:[{trigger: 'blur',required:true,message:"姓名不能为空"}],
+        department:[{trigger: 'blur',required:true,message:"部门不能为空"}],
+        duty:[{trigger: 'blur',required:true,message:"职务不能为空"}],
+        // appoint_date:[{trigger: 'blur',required:true,message:"任命日期不能为空"}],
+        working_date:[{trigger: 'blur',required:true,message:"到司日期不能为空"}],
+      },
+      imgs:{
+        action:PATH+"staff/uploadImg",
+        default:require("../../../assets/imgs/staff/default.png"),
+        loadImg:"",
+      },
+      urls: {
+        shipOwnersDetial: "Mariner/detailShipowner", //船东详情
+        updateShipOwner: "Mariner/editShipowner", //更新船东
+
+        shipNameDetail:"Mariner/detailVessel", //船名详情
+        updateShipName:"Mariner/editVessel",   //更新船名
+
+        repayDetail: "borrow/detailBorrow", //借款详情
+        updateRepay: "borrow/editBorrow", //更新借还款
+
+        accidentDetail: "borrow/detailInsurance", //意外险详情
+        updateAccident: "borrow/editInsurance",
+
+        changerInfoDetail:"charge/detailCharge",//
+        updateChangerInfo:"charge/editCharge",
+
+        supplierDetail:"supplier/detailSupplier",
+        updateSupplier:"supplier/editSupplier",
+
+
+        staffInfoDetail:"staff/detailStaff",
+        updateStaffInfo:"staff/editStaff",
+
+
+
+        managerRoleDetail:"privilege/detailRole",//角色管理
+        updateManagerRole:"privilege/editRole",
+
+        accountManageDetail:"privilege/detailUser",//账号管理
+        updateAccountManage:"privilege/bindRole",
+
+        updateAgent:"privilege/agentEdit",
+
+
+        importUrl:""
+      },
+
+      addType: 2
+    };
+  },
+  methods: {
+    changtime(value){
+      if(value){
+        if((new Date(value[1]).getTime()+3600*1000*24)<new Date().getTime()){
+          _g.toMessage(this,"warning","结束时间不能小于当前时间")
+          this.formData.permissionsAgent.date=null
+        }else{
+          this.formData.permissionsAgent.date=[_g.formatTime(value[0]),_g.formatTime(value[1])]
+        }
+      }else{
+        this.formData.permissionsAgent.date=null
+      }
+    },
+    closeThis(str) {
+      var params = {};
+      var key = "";
+      var url = "";
+      switch (this.addType) {
+        case 2:
+          url = this.urls.updateShipOwner;
+          key = "shipOwnerData";
+          break;
+        case 3:
+          url = this.urls.updateShipName;
+          key = "shipNameData";
+          break;
+        case 15:
+          url = this.urls.updateRepay;
+          key = "repay";
+          break;
+        case 16:
+          url = this.urls.updateAccident;
+          key = "accident";
+          break;
+        case 18:
+          url = this.urls.updateChangerInfo;
+          key = "chargeInfo";
+          break;
+        case 20:
+          url=this.urls.updateSupplier;
+          key="supplierInfo";
+          break;
+        case 21:
+          url = this.urls.updateStaffInfo;
+          key = "staffInfo";
+          break;
+        case 22:
+          url=this.urls.updateAgent;
+          key="permissionsAgent";
+          break;
+        case 23:
+          url=this.urls.updateManagerRole;
+          key = "roleManager";
+          break;
+        case 24:
+          url=this.urls.updateAccountManage;
+          key= "accountManage";
+      }
+
+      if (str == "save") {
+        if(this.addType!=21){
+          params = this.formData[key];
+          if(params.tally)params.tally=params.tally.length==7?params.tally:_g.formatTime(params.tally,"month")
+
+          if(params.developDate&&params.developDate.length>10)params.developDate=_g.formatTime(params.developDate)
+
+          this.formData[key].id=this.formData[key].userId=this.$store.state.editData.editId
+
+          this.apiPost(url, params).then(res => {
+            _g.toMessage(this, res && !res.error ? "success" : "error", res.msg);
+            if (!res.error) {
+
+              this.$store.state.allDialog.editShow = false;
+              this.$store.state.reflash.tableReflash=false
+              setTimeout(()=>{
+                this.$store.state.reflash.tableReflash=true
+              },100)
+              if(this.addType==20){
+                bus.$emit("get_new_attr")
+              }
+            }
+          });
+        }else{
+          params = this.formData[key];
+          params.id=this.$store.state.editData.editId
+
+          this.apiPost(url, params).then(res => {
+            _g.toMessage(this, res && !res.error ? "success" : "error", res.msg);
+            if (!res.error) {
+              // return
+              this.$store.state.allDialog.editShow = false;
+              this.$store.state.reflash.tableReflash=false
+              setTimeout(()=>{
+                this.$store.state.reflash.tableReflash=true
+              },100)
+            }
+          });
+        }
+      } else {
+        this.$store.state.allDialog.editShow = false;
+      }
+    },
+    editTime(one,two,time){
+      if(time){
+        this.formData[one][two]=_g.formatTime(time)
+      }else{
+        this.formData[one][two]=null
+      }
+    },
+    querySearchAsync(queryString, cb) {
+      if (queryString) {
+        if(this.addType==22){
+          this.apiPost("staff/getUser",{abbreviation:queryString}).then(res=>{
+            if(res.error){
+              _g.toMessage(this,"error",res.msg)
+              return
+            }
+            var results=[]
+            res.forEach(ele=>{
+              results.push({
+                id:ele.id,
+                value:ele.info,
+                id_number:ele.id_number
+              })
+            })
+            if(this.timeSet)clearTimeout(this.timeSet)
+            this.timeSet=setTimeout(()=>{
+              cb(results)
+            },600)
+          })
+        }else{
+          this.apiPost("borrow/nameSearch", { name: queryString }).then(res => {  
+            if(res.error){
+              _g.toMessage(this,"error",res.msg)
+              return
+            }
+            var results = [];
+            res.forEach(ele => {
+              results.push({
+                id: ele.id,
+                value: ele.info,
+                id_number: ele.id_number
+              });
+            });
+            if (this.timeSet) clearTimeout(this.timeSet);
+            this.timeSet = setTimeout(() => {
+              cb(results);
+            }, 600);
+          });
+        }
+        
+      }
+    },
+
+    changeBusiness(value){
+      console.log(value)
+    },
+
+    handleSelect(item) {
+      if(this.addType==16){
+        this.formData.accident.name = item.value.slice(0,item.value.indexOf("+"));
+        this.formData.accident.id_number = item.id_number;
+        this.formData.accident.marinerId = item.id;
+      }else if(this.addType==18){
+        this.formData.chargeInfo.name = item.value.slice(0,item.value.indexOf("+"));
+        this.formData.chargeInfo.id_number = item.id_number;
+        this.formData.chargeInfo.marinerId = item.id;
+      }else if(this.addType==22){
+        this.formData.permissionsAgent.agentId=item.id
+      }
+    },
+    handleRemove(file, fileList) {
+      // console.log(file, fileList);
+    },
+    handlePreview(file) {
+      // console.log(file);
+    },
+    uploadResult(str){
+      _g.toMessage(this,str,str=="success"?"上传成功":"上传失败，请检查网络")
+      this.$store.state.allDialog.add =str!=="sucess"
+    },
+    // 选多了提示
+    handleExceed(files, fileList) {
+      this.$message.warning(
+        `当前限制选择 1 个文件，本次选择了 ${
+          files.length
+        } 个文件，共选择了 ${files.length + fileList.length} 个文件`
+      );
+    },
+    beforeRemove(file, fileList) {
+      return this.$confirm(`确定移除 ${file.name}？`);
+    },
+
+
+    editStaff(item,index){
+      if(index==3){
+        if(item.value=="财务部"){
+          this.formData.staffData.head[4].hidden=false
+        }else{
+          this.formData.staffData.head[4].hidden=true
+          this.formData.staffInfo.principal="否"
+          this.formData.staffData.head[4].value="否"
+        }
+      }
+      if(item.type!="time"){
+        this.formData.staffInfo[item.special]=item.value
+      }else if(item.special=="working_date"||item.special=="dimission_date"){
+        this.formData.staffInfo[item.special]=item.value?_g.formatTime(item.value):""
+        var c_age=_g.getMyItem(this.formData.staffData.body,"label","司龄")
+        var b_age=_g.getMyItem(this.formData.staffData.body,"label","离职日期")
+        var a_age=_g.getMyItem(this.formData.staffData.body,"label","到司日期")
+        var toYear= new Date().getFullYear()
+        if(new Date(this.formData.staffInfo.dimission_date).getTime()<new Date(this.formData.staffInfo.working_date).getTime()){
+          _g.toMessage(this,"warning","离职日期必须大于到司日期")
+          c_age.value=0
+          if(item.special=="dimission_date"){
+            b_age.value=""
+          }else if(item.special="working_date"){
+            a_age.value=""
+          }
+        }else if(this.formData.staffInfo.working_date){
+          c_age.value=(this.formData.staffInfo.dimission_date.slice(0,4)?this.formData.staffInfo.dimission_date.slice(0,4):toYear)-this.formData.staffInfo.working_date.slice(0,4)
+        }else if(!this.formData.staffInfo.working_date){
+          _g.toMessage(this,"warning","到司日期不能为空")
+        }
+      }else if(item.special=="birthday"){
+        // 联动bir
+        var toYear= new Date().getFullYear()
+        var bir_time=_g.getMyItem(this.formData.staffData.body,"label","出生日期")
+        var age=_g.getMyItem(this.formData.staffData.body,"label","年龄")
+        if(bir_time.value){
+          age.value=toYear-_g.formatTime(bir_time.value).slice(0,toYear.toString().length)
+        }else{
+          age.value=55555
+        }
+        this.formData.staffInfo.birthday=bir_time.value
+        this.formData.staffInfo.age=age.value
+      }else if(item.type=="time"){
+        this.formData.staffInfo[item.special]=item.value?_g.formatTime(item.value):""
+      }
+    },
+
+    // 上传图片成功
+    handleAvatarSuccess(res,file){
+      if(res.status==200){
+        this.formData.staffInfo.url=res.msg
+        return true
+      }else{
+        return false
+      }
+      
+    },
+    changeImg(file,fileList){
+      this.imgs.loadImg=file.url
+    }
+  },
+  components: {},
+  created() {
+    this.financeList=[...this.$store.state.tableListData.financeList]
+    var routerpath = _g.getRouterPath(this);
+    if (routerpath == "/shipowners") {
+      this.addType = 2;
+      this.businessArray=[...this.$store.state.tableListData.business]
+      this.apiPost(this.urls.shipOwnersDetial, {
+        id: this.$store.state.editData.editId
+      }).then(res => {
+        this.formData.shipOwnerData.title=res.data.title
+        this.formData.shipOwnerData.attribute=res.data.attribute
+        this.formData.shipOwnerData.alias=res.data.alias
+        this.formData.shipOwnerData.group=res.data.group
+        this.formData.shipOwnerData.developDate=res.data.develop_date
+        
+        res.principal.forEach(ele=>{
+          this.formData.shipOwnerData.principal.push(ele.id)
+        })
+
+        var goal=[]
+        res.business.forEach(ele=>{
+          goal.push(ele.id)
+        })
+        this.formData.shipOwnerData.business=goal
+      });
+      
+    } else if (routerpath == "/shipnames") {
+      this.addType = 3;
+      this.apiPost(this.urls.shipNameDetail,{id: this.$store.state.editData.editId}).then(res=>{
+        this.formData.shipNameData.title=res.info.title
+        this.formData.shipNameData.fleet=res.info.fleet
+        this.formData.shipNameData.developDate=res.info.develop_date
+        this.formData.shipNameData.attribute=res.info.attribute
+      })
+    }else if(routerpath=="/refundSet"){
+      this.addType ="14-1";
+      this.owners=this.$store.state.tableListData.owners.slice(1)
+    }
+    
+    else if (routerpath == "/repayMoney") {
+      this.addType = 15;
+      this.apiPost(this.urls.repayDetail, {
+        id: this.$store.state.editData.editId
+      }).then(res => {
+        this.formData.repay = res.data;
+
+      });
+    } else if (routerpath == "/accident") {
+      this.addType = 16;
+      this.apiPost(this.urls.accidentDetail, {
+        id: this.$store.state.editData.editId
+      }).then(res => {
+        this.formData.accident.starttime = res.data.effect_time;
+        this.formData.accident.endtime = res.data.finish_time;
+        this.formData.accident.supplier = res.data.supplier_id;
+        this.formData.accident.name = res.data.name;
+        this.formData.accident.id_number = res.data.id_number;
+        this.formData.accident.person = res.data.person;
+        this.formData.accident.company = res.data.company;
+        this.formData.accident.marinerId=res.data.mariner_id
+
+        this.suplieArray = this.$store.state.tableListData.Insure;
+
+      });
+    }else if(routerpath == "/chargeInfo"){
+      this.addType=18
+      this.apiPost(this.urls.changerInfoDetail, {
+        id: this.$store.state.editData.editId
+      }).then(res=>{
+        // this.formData.chargeInfo=res.data
+        this.formData.chargeInfo.id_number=res.data.id_number
+        this.formData.chargeInfo.name=res.data.name
+        this.formData.chargeInfo.id=this.$store.state.editData.editId
+        this.formData.chargeInfo.time=res.data.date
+        this.formData.chargeInfo.marinerId=res.data.marinerId
+        this.formData.chargeInfo.money=res.data.amount
+        this.formData.chargeInfo.changer=res.data.changer
+        this.formData.chargeInfo.changer_date=res.data.change_date
+      })
+    }else if(routerpath == "/supplierInfo"){
+      this.addType=20
+      this.apiPost(this.urls.supplierDetail, {
+        id: this.$store.state.editData.editId
+      }).then(res=>{
+        this.formData.supplierInfo.attribute=res.data.attribute
+        this.formData.supplierInfo.developDate=res.data.develop_date
+        this.formData.supplierInfo.id=res.data.id
+        this.formData.supplierInfo.remark=res.data.remark
+        this.formData.supplierInfo.title=res.data.title
+      })
+    }else if(routerpath=="/staffInfo"){
+      this.addType=21
+      // this.jobArray=this.$store.state.tableListData.jobs.slice(1)
+      this.department=this.$store.state.tableListData.department.slice(1)
+      this.owners=this.$store.state.tableListData.owners.slice(1)
+      this.apiPost(this.urls.staffInfoDetail, {
+        id: this.$store.state.editData.editId
+      }).then(res=>{
+        this.formData.staffData.head.forEach(ele=>{
+          ele.value=res.data[ele.special]
+          if(ele.special=="idNumber")ele.value=res.data["id_number"]
+          if(ele.type=="select"){
+            if(ele.array.length==0){
+              ele.array=this[ele.arrayName]
+            }
+          }
+          this.imgs.loadImg=res.data.url
+        })
+         this.formData.staffData.body.forEach(ele=>{
+          ele.value=res.data[ele.special]
+        })
+        for(var key in this.formData.staffInfo){
+          this.formData.staffInfo[key]=res.data[key]
+          if(key=="idNumber")this.formData.staffInfo[key]=res.data["id_number"]
+        }
+        this.formData.staffInfo.principal=res.data.principal||"否"
+        if(this.formData.staffInfo.department=="财务部"){
+          // console.log("show")
+          this.formData.staffData.head[4].hidden=false
+          this.formData.staffData.head[4].value=this.formData.staffInfo.principal
+        }
+      })
+    }else if(routerpath=="/permissionsAgent"){
+        // console.log(this.$store.state.editData)
+        this.addType=22
+        this.formData.permissionsAgent.name=this.$store.state.editData.info.agentName
+        this.formData.permissionsAgent.id=this.$store.state.editData.info.id
+        this.formData.permissionsAgent.agentId=this.$store.state.editData.info.agent_id
+        this.formData.permissionsAgent.date=[this.$store.state.editData.info.start_date,this.$store.state.editData.info.end_date]
+    }else if(routerpath=="/roleManager"){
+        this.addType=23
+        this.apiPost(this.urls.managerRoleDetail, {
+          id: this.$store.state.editData.editId
+        }).then(res=>{
+          this.formData.roleManager.id=res.data.id
+          this.formData.roleManager.roleName=res.data.name
+          this.formData.roleManager.remark=res.data.remark
+        })
+      }else if(routerpath=="/accountManager"){
+        this.addType=24
+        
+
+        this.apiPost(this.urls.accountManageDetail, {
+          userId: this.$store.state.editData.editId
+        }).then(res=>{
+          this.formData.accountManage.roleId=res.roleInfo?res.roleInfo.role_id:null
+          console.log(res.info)
+          this.roles=res.info
+        })
+
+      }
+  }
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.my-form > div {
+  float: left;
+  width: 47%;
+}
+.my-form > div .el-input {
+  width: 100%;
+}
+.double-blank > label {
+  line-height: 15px;
+  height: 15px;
+}
+.add-set {
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.staff-form>div{
+  /* width: 100px; */
+  float: none;
+  width: 250px;
+  float: left;
+}
+.staff-form>img{
+  margin-left: 10px;
+}
+.head,.body{
+  width: 100%!important;
+  display: flex;
+}
+.body{
+  flex-wrap: wrap
+}
+.left-content{
+  width: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+.img-box{
+  width: 120px;
+  height: 140px;
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+  margin-left: 20px;
+  position: relative
+}
+.img-box img{
+  width: 100%;
+  position: absolute;
+  max-height: 100%;
+  top: 50%;
+  transform: translateY(-50%)
+}
+
+.width_1{
+  width: 25%;
+}
+.width_2{
+  width: 33%;
+}
+.width_3{
+  width: 40%;
+}
+.width_4{
+  width: 25%;
+}
+.width_5{
+  width: 50%;
+}
+.width_6{
+  width: 100%
+}
+.avatar-uploader{
+  overflow: hidden;
+  height: 100%;
+}
+.my-form>.job-describle{
+  width: 100%;
+}
+.upload-demo {
+  display: inline-block;
+  width: 400px;
+  margin-left: 40px;
+  vertical-align: top;
+}
+.el-upload__tip::before {
+  content: "*";
+  color: #f56c6c;
+  margin-right: 4px;
+}
+.mul-box{
+  height: 40px!important;
+}
+</style>

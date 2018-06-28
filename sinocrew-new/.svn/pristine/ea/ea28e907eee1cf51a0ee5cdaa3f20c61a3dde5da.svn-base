@@ -1,0 +1,188 @@
+<template>
+  <div class="left-menu-box">
+    <ul class="first-nav">
+      <li v-for="(item,index) in data" @click="showNext(index)">
+        <p v-show="item.show" :class="item.isactive?'triangle selected':''">{{item.label}}</p>
+      </li>
+    </ul>
+    <ul class="second-nav">
+      <li v-for="(item,index) in secondData">
+        <p class="second-title" v-show="item.show">{{item.label}}</p>
+        <ul :class="secItem.isactive?'second-color list-style':'list-style'" v-for="(secItem,index1) in item.data"  v-show="secItem.show" @click="selectThis(index,index1,secItem)">
+          <li>
+            <p>{{secItem.label}}</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      data: [],
+      secondData: [],
+      index0: "0", //一级导航的索引
+      index1: "0", //二级导航的索引
+      index2: "0", //三级导航的索引
+      index4: "0", //保存的一级索引
+
+      falsh:true,
+    };
+  },
+  methods: {
+    showNext(index) {
+      this.index4 = index;
+      this.data.forEach((ele, index0) => {
+        if (index0 == index) {
+          ele.isactive = true;
+          this.secondData = ele.children;
+        } else {
+          ele.isactive = false;
+        }
+      });
+    },
+
+    selectThis(index1, index2, item) {
+       this.data.forEach((ele1,index_1) => {
+        ele1.children.forEach((ele2,index_2)=>{
+          ele2.data.forEach((ele3,index_3)=>{
+            if(this.index4==index_1&&index1==index_2&&index_3==index2){
+                this.data[index_1].children[index_2].data[index_3].isactive = true;
+            }else{
+              this.data[index_1].children[index_2].data[index_3].isactive = false;
+            }
+          })
+        })
+      });
+      setTimeout(()=>{
+        this.$store.state.infoNotice.showList = false;
+        this.$store.commit("changeTimebar", { str: item.label });
+        this.$router.push(item.url);
+      },100)
+    },
+    
+    // 刷新时侧栏保持不变
+    frashThis(){
+      var path=this.$router.history.current.path
+      var next=""
+      this.data.forEach((ele1,index1) => {
+        ele1.children.forEach((ele2,index2)=>{
+          ele2.data.forEach((ele3,index3)=>{
+            if(ele3.url==path){
+              this.index4=index1
+              this.index1=index2
+              this.index2=index3
+              // this.showNext(index1)
+              ele1.isactive=true
+              ele3.isactive=true
+              next=index1
+              this.secondData = ele1.children;
+              this.$store.commit("changeTimebar", {str: ele1.children[index2].data[index3].label})
+            }else if((ele3.url&&path.indexOf(ele3.url)>-1)||(ele3.url=="/roleManager"&&path.indexOf("/permisionSettings")>-1)){
+              this.index4=index1
+              this.index1=index2
+              this.index2=index3
+              // this.showNext(index1)
+              ele1.isactive=true
+              ele3.isactive=true
+              next=index1
+              this.secondData = ele1.children;
+              
+              if(ele3.label=="船员信息"){
+                this.$store.commit("changeTimebar", {str:"船员详情"})
+                this.$store.state.theader.showback=true
+              }else if(ele3.label=="角色管理"){
+                this.$store.commit("changeTimebar", {str:"权限设置"})
+                this.$store.state.theader.showback=true
+              }
+            }else{
+              ele3.isactive=false
+              ele1.isactive=false
+            }
+          })
+        })
+      });
+      this.data[next].isactive=true
+    },
+  },
+  mounted() {
+    this.data = this.$store.state.leftmenuData;
+    this.frashThis()
+  }
+};
+</script>
+<style scoped>
+p {
+  padding: 5px 0;
+  height: 30px;
+  font-size: 12px;
+  text-align: center;
+}
+li {
+  cursor: pointer;
+}
+.selected {
+  color: #fff;
+}
+.left-menu-box {
+  display: flex;
+  height: 100%;
+}
+.first-nav,
+.second-nav {
+  display: inline-block;
+  width: 60px;
+  padding: 10px 0;
+  background: rgba(70, 76, 91, 1);
+  height: 100%;
+  color: #CCCCCC;
+}
+.second-nav {
+  width: 140px;
+  background-color: #eaedf1;
+  padding-top: 0;
+  color: #333;
+}
+.first-nav li:hover {
+  color: #fff;
+}
+
+.second-title {
+  background-color: #f3f3f3;
+  height: 40px;
+  line-height: 40px;
+  cursor: text;
+  text-align: left;
+  text-indent: 30px;
+  font-size: 13px;
+  color: #999
+}
+.second-title:nth-child(1){
+  box-sizing: border-box;
+  height: 50px;
+  border-bottom: 1px solid#E4E4E4
+}
+.list-style {
+  padding-left: 30px;
+  height: 40px;
+  line-height: 30px;
+  border-bottom: 1px solid #fff;
+}
+.list-style li {
+  position: relative;
+  list-style: disc;
+}
+.list-style li p {
+  text-align: left;
+}
+.list-style:hover {
+  /* background-color: #fff; */
+  color: #0099ff;
+}
+.second-color {
+  color: #0099ff;
+  background-color: #fff;
+}
+</style>

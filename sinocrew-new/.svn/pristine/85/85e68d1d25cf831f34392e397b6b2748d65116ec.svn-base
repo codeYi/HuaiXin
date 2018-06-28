@@ -1,0 +1,977 @@
+<template>
+  <div class="table">
+    <Thead :url="imgs.img" :btns="btns"></Thead>
+
+    <el-table v-if="tableShow!=4&&tableShow!=5&&tableShow!=6&&tableShow!=23"  @select="selectThis" @select-all="selectThis" :data="tableData.data" border style="width: 100%" :class="hasSpecial&&(tableShow==17||tableShow==19)?'special-table-com special-table':hasSpecial?'special-table':''">
+      
+      <el-table-column v-for="(item,index) in listRules" v-if="item.isShow&&!item.notOne&&!item.isLink" :key="index" :type="item.type" :prop="item.prop" :label="item.label" :min-width="item.width" :fixed="item.fixed" :show-overflow-tooltip="item.showOverflowTooltip"></el-table-column>
+      
+      <!-- <el-table-column v-else-if="item.isShow&&item.type=='selection'" type="selection" width="50" fixed="left">
+      </el-table-column>
+      <el-table-column v-else-if="item.isShow&&item.type=='index'" label="序号" prop="index"  width="50" fixed="left">
+      </el-table-column> -->
+
+      <el-table-column v-else-if="item.isShow&&item.notOne&&!item.isLink" :key="index" :type="item.type" :prop="item.prop" :label="item.label" :min-width="item.width" :fixed="item.fixed" :show-overflow-tooltip="item.showOverflowTooltip">
+        <template slot-scope="scope">
+          <p v-for="(item0,indexfee) in scope.row[item.childrenArrayName]" :class="scope.row[item.childrenArrayName].length>(indexfee+1)?'border-bottom':''">{{item0[item.childrenKey]}}</p>
+        </template>
+      </el-table-column>
+
+      <el-table-column v-else-if="item.isShow&&!item.notOne&&item.isLink" :key="index" :type="item.type" :prop="item.prop" :label="item.label" :min-width="item.width" :fixed="item.fixed" :show-overflow-tooltip="item.showOverflowTooltip">
+        <template slot-scope="scope">
+          <a href="#">***模板</a>
+        </template>
+      </el-table-column>
+
+
+      <el-table-column label="操作" width="130" v-if="tableShow==1">
+        <template slot-scope="scope">
+          <span class="color-blue cursor" @click="showDetail(scope)">详情</span>
+          <span v-if="scope.row.is_delete==0" class="color-red cursor" @click="doTogether(scope,1)" title="已启用">禁用</span>
+          <span v-else class="color-blue cursor" @click="doTogether(scope,2)" title="已禁用">启用</span>
+          <span class="color-blue cursor" @click="doTogether(scope,3)">重置密码</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" width="60" v-else-if="tableShow==2||tableShow==3||tableShow=='14-1'||tableShow==16">
+        <template slot-scope="scope">
+          <span  class="color-blue cursor" @click="edit(scope)">编辑</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" width="60" fixed="right" v-else-if="tableShow==21">
+        <template slot-scope="scope">
+          <span  class="color-blue cursor" @click="edit(scope)">编辑</span>
+        </template>
+      </el-table-column>
+
+      <el-table-column label="操作" width="90" fixed="right" v-else-if="tableShow==22">
+        <template slot-scope="scope">
+          <span  class="color-blue cursor" @click="edit(scope)">编辑</span>
+          <span v-if="scope.row.status=='代理中'" class="color-blue cursor" @click="revoke(scope)">撤销</span>
+        </template>
+      </el-table-column>
+      
+      <el-table-column label="操作" width="60" v-else-if="tableShow==7">
+        <template slot-scope="scope">
+          <span class="color-blue cursor" v-if="scope.row.sure==0" @click="showEdit(scope,'sure')">确认</span>
+          <span v-else-if="scope.row.sure==1" class="color-green no-cursor">已确认</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" width="60" v-else-if="tableShow==8||tableShow==9||tableShow==10||tableShow==11||tableShow==13">
+        <template slot-scope="scope">
+          <span class="color-blue cursor" @click="showDetail(scope)">查看</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" width="60" fixed="right" v-else-if="tableShow==12">
+        <template slot-scope="scope">
+          <span class="color-blue cursor" @click="showDetail(scope)">查看</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" width="90"  v-else-if="tableShow==15">
+        <template slot-scope="scope">
+          <span class="color-blue cursor" @click="edit(scope)">编辑</span>
+          <span v-if="scope.row.amount-scope.row.repayment>0"  class="color-blue cursor marging-left10" @click="edit(scope,'dopay')">还款</span>
+          <span v-else class="color-green marging-left10">已还清</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" width="90"  v-else-if="tableShow==18">
+        <template slot-scope="scope">
+          <span class="color-blue cursor" @click="edit(scope)">编辑</span>
+          <span v-if="scope.row.surplus>0"  class="color-blue cursor marging-left10" @click="edit(scope,'dopay')">还款</span>
+          <span v-else class="color-green marging-left10">已还清</span>
+        </template>
+      </el-table-column>
+
+      <el-table-column label="操作" width="80" v-else-if="tableShow==17">
+        <template slot-scope="scope">
+          <span class="color-blue cursor" v-if="scope.row.sure==0" @click="showEdit(scope,'repay')">确定</span>
+          <span class="color-green no-cursor" v-if="scope.row.sure==1">已确定</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" width="80" v-else-if="tableShow==19">
+        <template slot-scope="scope">
+          <span class="color-blue cursor" v-if="scope.row.sure==0" @click="showEdit(scope,'sure')">确定</span>
+          <span class="color-green no-cursor" v-if="scope.row.sure==1">已确定</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" width="100" v-else-if="tableShow==20">
+        <template slot-scope="scope">
+          <span class="color-blue cursor" @click="edit(scope)">编辑</span>
+          <span class="color-blue cursor" @click="edit(scope,'fee')">费用明细</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" width="90" v-else-if="tableShow==24">
+        <template slot-scope="scope">
+          <!-- <span class="color-blue cursor">权限设置</span> -->
+          <span v-show="scope.row.role_id!==1" class="color-blue cursor marging-left10" @click="edit(scope)">编辑</span>
+          <span v-show="scope.row.role_id!==1" :title="scope.row.is_delete==1?'单机启用':'单击禁用'" :class="scope.row.is_delete==1?'cursor marging-left10 color-red':'cursor marging-left10 color-blue' " @click="disableThis(scope)">{{scope.row.is_delete==1?"已禁用":"已启用"}}</span>
+        </template>
+      </el-table-column>
+    </el-table>
+
+    <el-table v-else-if="tableShow==4" :data="tableData.data" border style="width: 100%" class="special-table">
+
+      <el-table-column label="参保地" prop="area" fixed>
+      </el-table-column>
+      <el-table-column label="开始日期" prop="starttime" fixed>
+      </el-table-column>
+      <el-table-column label="结束日期" prop="endtime" fixed>
+      </el-table-column>
+
+      <el-table-column v-for="(item,index) in listRules" :key="index" v-if="item.isShow" :label="item.label" :prop="item.prop" :width="item.width">
+        <template slot-scope="scope">
+          <!-- edit state -->
+          <input v-if="editArray.includes(scope.row.id)" type="text" v-model="scope.row[item.prop]" class="edit-input">
+          <span v-else>{{scope.row[item.prop]}}</span>
+        </template>
+      </el-table-column>
+
+      <el-table-column label="操作" fixed="right" width="80">
+        <template slot-scope="scope">
+          <span class="color-blue cursor" @click="copy(scope)">复制</span>
+          <span class="fr color-blue cursor" v-if="!editArray.includes(scope.row.id)" @click="showEdit(scope)">编辑</span>
+        </template>
+      </el-table-column>
+    </el-table>
+
+    <el-table v-else-if="tableShow==5" @expand-change="expandThis" :data="tableData.data" border style="width: 100%" class="pr">
+      <el-table-column type="expand" fixed>
+        <template slot-scope="scope">
+            <table v-if="scope.row.children.length>0" class="hide-talbe border-top border-left">
+              <tr>
+                <td>参保地</td>
+                <td>参保时间</td>
+                <td>停保时间</td>
+              </tr>
+              <tr v-for="one in scope.row.children">
+                <td>{{one.area}}</td>
+                <td>{{one.starttime}}</td>
+                <td>{{one.endtime}}</td>
+              </tr>
+            </table>
+            <p v-else class="no-data">暂时没有数据</p>
+            <!-- 123 -->
+            <!-- <el-pagination :current-page="1" class="fr page-box" :page-size="5" layout="total , prev, pager, next, jumper" :total="10"></el-pagination> -->
+        </template>
+      </el-table-column>
+      <el-table-column label="CID" prop="cid" fixed min-width="100">
+      </el-table-column>
+      <el-table-column label="姓名" prop="name" fixed>
+      </el-table-column>
+      <el-table-column label="身份证/护照" prop="id_number" fixed min-width="180">
+      </el-table-column>
+      <el-table-column v-for="(item,index) in listRules" :key="index" v-if="item.isShow" :label="item.label" :prop="item.prop" :min-width="item.width" :fixed="item.fixed"></el-table-column>
+
+    </el-table>
+
+    <el-table v-else-if="tableShow==6"  @select="selectThis" @select-all="selectThis" class="special-table" :data="tableData.data" border style="width: 100%" >
+      <el-table-column type="selection" width="50" fixed="left">
+      </el-table-column>
+      <el-table-column  label="序号" prop="index"  width="50" fixed="left">
+      </el-table-column>
+      <el-table-column label="缴费年月" prop="pay_month"  fixed="left">
+      </el-table-column>
+      <el-table-column label="CID" prop="cid"  min-width="100" fixed="left">
+      </el-table-column>
+      <el-table-column label="姓名" prop="name"  fixed="left">
+      </el-table-column>
+      <!-- <el-table-column label="身份证号" prop="id_number"  min-width="180" fixed="left">
+      </el-table-column> -->
+
+      <el-table-column v-for="(item,index) in listRules" :key="index" v-if="item.isShow" :label="item.label" :prop="item.prop" :min-width="item.width">
+        <template slot-scope="scope">
+          <input v-if="editArray.includes(scope.row.id)&&item.editHere" type="text" v-model="scope.row[item.prop]" class="edit-input">
+          <span v-else>{{scope.row[item.prop]}}</span>
+        </template>
+      </el-table-column>
+
+      <el-table-column label="操作" fixed="right" width="60">
+        <template slot-scope="scope">
+          <span class="color-blue cursor" v-if="(!editArray.includes(scope.row.id))&&scope.row.id!=-1" @click="showEdit(scope,'editHere')">编辑</span>
+          <span class="color-blue cursor" v-else-if="(editArray.includes(scope.row.id))&&scope.row.id!=-1" @click="saveThis(scope)">完成</span>
+        </template>
+      </el-table-column>
+    </el-table>
+
+    <el-table v-else-if="tableShow==23" :show-summary="false" :data="tableData.data" border style="width: 100%">
+
+      <el-table-column label="角色名称" prop="name">
+      </el-table-column>
+      <el-table-column label="职能描述" prop="remark">
+      </el-table-column>
+      <el-table-column label="成员数量" prop="number">
+      </el-table-column>
+      <el-table-column label="添加时间" prop="time">
+      </el-table-column>
+      <el-table-column label="是否启用" prop="status">
+        <template slot-scope="scope">
+          <el-switch
+            v-model="scope.row.status"
+            :active-value="1"
+            :inactive-value="0"
+            active-color="#13ce66"
+            inactive-color="#ff4949"
+            @change="changeAble(scope)"
+            :disabled="scope.row.id==1"
+            >
+            
+          </el-switch>
+        </template>
+      </el-table-column>
+
+      <el-table-column label="操作" width="130">
+        <template slot-scope="scope">
+          <span class="color-blue cursor" v-if="scope.row.id!==1" @click="permisionSet(scope)">权限设置</span>
+          <span class="color-blue cursor marging-left10" v-if="scope.row.id!==1" @click="edit(scope)">编辑</span>
+          <span class="color-red cursor marging-left10" v-if="scope.row.id!==1" title="删除" @click="deleteThis(scope)">删除</span>
+        </template>
+      </el-table-column>
+    </el-table>
+
+    <div class="paging-box border-common box-size">
+      <section class="fl btn-box" v-if="tableShow==1">
+        <span class="my-btn" @click="doTogether('all',1)">批量禁用</span>
+        <span class="my-btn" @click="doTogether('all',2)">批量启用</span>
+        <span class="my-btn" @click="doTogether('all',3)">批量重置</span>
+        <!-- <span class="my-btn" @click="saveEdit('editTogether')">确定</span> -->
+      </section>
+      <section class="fl btn-box" v-if="tableShow==6">
+        <span class="my-btn" @click="editTogether">批量修改</span>
+        <span class="my-btn" @click="saveEdit('editTogether')">确定</span>
+      </section>
+      <el-pagination :current-page="page" @current-change="changePage" @size-change="changeSize" :page-size="10" layout="total, sizes , prev, pager, next, jumper" :total="$store.state.tableListData.total">
+      </el-pagination>
+    </div>
+  </div>
+</template>
+
+<script>
+import Thead from "../tableHead.vue";
+export default {
+  props: ["btns"],
+  data() {
+    return {
+      tableData: {
+        staffInfoListRule:[],
+        data: [{fee:[1,2],id:1},{fee:[1],id:2}],
+        xialaData:[],//下拉数据
+      },
+      listRules:[], //本地列表
+      imgs: {
+        img: require("../../../assets/imgs/boaters/icon-datalist@2x.png")
+      },
+      tableShow: 1,
+      page:1,
+      isEditIndex:-1,
+      editArray:[],
+      selectArray:[],//选中的id集合
+      urls: {
+        compare:"",//对账
+        boaters: {
+          list: "Mariner/listMariner",//船员列表
+          isDisable:"mariner/forbidden",
+          resetPassword:"mariner/restPassword"
+          
+        },
+        shipowners:{
+          list:"Mariner/listShipowner",//船东列表
+        },
+        shipnames:{
+          list:"Mariner/listVessel",//船名
+        },
+        securityset:{
+          list:"Social/listArea",//社保设置
+          edit:"Social/editArea",//编辑社保
+        },
+        securityinsurance:{
+          list:"social/listInsured",
+          detail:"social/areaInsured",//社保时间段
+        },
+        securityinfo:{
+          list:"Social/infoInsured",
+          edit:"social/editInsured",//编辑社保信息
+        },
+        securitycompare:{
+          list:"social/checkInsured",//对账
+          sure:"social/sureInsured",//确认对账
+        },
+
+        repayMoney:{
+          list:"borrow/listBorrow",//借还款
+        },
+        accident:{
+          list:"borrow/listInsurance",
+        },
+        repaycompare:{
+          list:"borrow/infoBorrow",
+          sure:"borrow/sureBorrow"
+        },
+        chargeInfo:{
+          list:"charge/listCharge",
+        },
+        chargeCompare:{
+          list:"charge/infoCharge",
+          sure:"charge/sureCharge"
+        },
+
+        supplierInfo:{
+          list:"supplier/listSupplier",
+        },
+
+        staffInfo:{
+          list:"staff/listStaff"
+        },
+
+        permissionsAgent:{
+          list:"privilege/agentList"
+        },
+        roleManager:{
+          list:"privilege/listRole",//角色管理列表
+          able:"privilege/forbiddenRole",//是否禁用
+        },
+
+        accountManager:{
+          list:"privilege/accountList",
+        },
+
+        refundRecordBoaters:{
+          list:"Expenses/listMariner",
+        },
+        refundRecordStaff:{
+          list:"expenses/listUser",
+        },
+        refundRecordOffice:{
+          list:"expenses/listOffice",
+        },
+        refundSignBoater:{
+          list:"expenses/signMariner",
+        },
+        refundSignStaff:{
+          list:"expenses/signUser",
+        },
+        refundSignOffice:{
+          list:"expenses/signOffice",
+        },
+        refundStastics:{
+          list:"",
+        },
+      },
+
+      hasSpecial:false,//是否带有合计
+
+      allKeysArray:["","boaters","shipowners","shipnames","securityset","securityinsurance","securityInfo","securityCompare","refundRecordBoaters","refundRecordStaff","refundRecordOffice","refundSignBoater","refundSignStaff","refundSignOffice","refundStastics","repayMoney","accident","repaycompare","chargeInfo","chargeCompare","supplierInfo","staffInfo","","","accountManager"]
+    };
+  },
+  watch:{
+    
+  },
+  methods: {
+    showDetail(scope) {
+      var path = this.$router.history.current.path;
+      switch (path) {
+        case "/boaters":
+          this.$store.state.theader.label = "船员详情";
+          break;
+      }
+      this.$store.state.theader.showback = true;
+      this.$store.state.theader.showfrash = true;
+      
+      var arrayRouter=["/refundRecordBoaters","/refundRecordStaff","/refundRecordOffice","/refundSignBoater","/refundSignStaff","/refundSignOffice"]
+      if(arrayRouter.includes(path)){
+        localStorage.setItem("isPassed",scope.row.status)
+        localStorage.setItem("isPassedName",scope.row.name||scope.row.username)
+        localStorage.setItem("isPassedDuty",scope.row.duty)
+        localStorage.setItem("isPassedCustomer",scope.row.shipowner)
+        localStorage.setItem("isPassedVessel",scope.row.vessel)
+        
+        if(path=="/refundSignStaff"||path=="/refundRecordStaff"){
+          localStorage.setItem("isPassedName",scope.row.username)
+          localStorage.setItem("isPassedDepartment",scope.row.department)
+        }else if(path=="/refundSignOffice"){
+          localStorage.setItem("isPassedName",scope.row.username)
+        }else if(path=="/refundRecordOffice"){
+          // localStorage.setItem("isPassedName",scope.row.name)
+        }
+      }
+      this.$router.push(path + "/info/" + scope.row.id);
+    },
+    
+    // 复制
+    copy(scope){
+      this.$store.state.allDialog.extendShow=false
+      this.$store.state.editData.isCopy=true
+      this.$store.state.editData.editId=scope.row.id
+      this.$store.state.addData.extendTitle=`正在复制 ${scope.row.area} 的设置`
+      setTimeout(()=>{this.$store.state.allDialog.extendShow=true},0)
+    },
+
+    // 撤销
+    revoke(scope){
+      this.$store.state.allDialog.sure=true
+      this.$store.state.sureData.title="提示"
+      this.$store.state.sureData.content="确认撤销当前权限代理!"
+      this.$store.state.sureData.OK=()=>{
+        var params={id:scope.row.id}
+        this.apiPost("privilege/agentStop",params).then(res=>{
+          _g.toMessage(this,res.error?"error":"success",res.msg)
+          if(!res.error){
+            this.$store.state.allDialog.sure=false
+            bus.$emit("search_new_result")
+          }
+        })
+      }
+    },
+
+    // 禁启用，重置密码
+    doTogether(type,str){
+      var params={}
+      if(type=='all'){
+        params.id=this.selectArray
+      }else{
+        params.id=[type.row.id]
+      }
+      if(params.id.length==0){
+        _g.toMessage(this,"warning","至少选中一个")
+        return;
+      }
+      var url=this.urls.boaters.isDisable
+      if(str==1){
+        params.value=1
+      }else if(str==2){
+        params.value=0
+      }else if(str==3){
+        url=this.urls.boaters.resetPassword
+      }
+      this.apiPost(url,params).then(res=>{
+        _g.toMessage(this,res.error?"error":"success",res.msg)
+        
+        if(!res.error){
+          this.showList()
+          this.selectArray=[]
+        }
+      })
+    },
+    // 编辑
+    edit(scope,str) {
+      if(str=="dopay"||str=='fee'){
+        this.$store.state.allDialog.repay = true;
+      }else{
+        this.$store.state.allDialog.editShow = true;
+      }
+      // 将编辑的详情保存
+      // this.$store.state.editData.isCopy=false
+      this.$store.state.editData.editId=scope.row.id
+      this.$store.state.editData.info=scope.row
+    },
+
+    // 删除角色
+    deleteThis(scope){
+      this.apiPost("privilege/delRole",{id:scope.row.id}).then(res=>{
+        _g.toMessage(this,(res&&!res.error)?"success":"error",res.msg)
+        if(!res.error)bus.$emit("search_new_result")
+      })
+    },
+
+    showEdit(scope,str){
+      this.$store.state.editData.isCopy=false
+      if(!str){
+        this.$store.state.allDialog.extendShow=false
+        this.$store.state.editData.editId=scope.row.id
+        setTimeout(()=>{
+          this.$store.state.allDialog.extendShow=true
+          this.$store.state.addData.extendTitle="编辑设置"
+        },10)
+      }else if(str=="editHere"){
+        this.editArray.push(scope.row.id)
+      }else if(str=="sure"){
+        this.$store.state.allDialog.sure=true
+        this.$store.state.sureData.title="提示"
+        this.$store.state.sureData.content="确认提交对账信息(提交后不可修改)"
+        this.$store.state.sureData.OK=()=>{
+          var params={
+            // id:scope.row.id,
+            area:scope.row.area,
+            month:scope.row.pay_month||scope.row.month,
+            amount:scope.row.amount,
+            repayment:scope.row.repayment,
+            receipt:scope.row.receipt,
+            debt:scope.row.debt
+          }
+          this.apiPost(this.urls.compare,params).then(res=>{
+            _g.toMessage(this,(res&&!res.error)?"success":"error",res.msg)
+            if(!res.error){this.$store.state.allDialog.sure=false;scope.row.sure=1}
+          })
+        }
+      }else if(str=='repay'){
+        // 借还款对账信息还未完成-----后台
+        this.$store.state.allDialog.sure=true
+        this.$store.state.sureData.title="提示"
+        this.$store.state.sureData.content="确认提交借还款对账信息(提交后不可修改)"
+        this.$store.state.sureData.OK=()=>{
+          var params={
+            month:scope.row.tally,
+            rmb_amount:scope.row.rmb_amount,
+            rmb_repayment:scope.row.rmb_repayment,
+            usd_repayment:scope.row.usd_repayment,
+            usd_amount:scope.row.usd_amount
+          }
+          this.apiPost(this.urls.repaycompare.sure,params).then(res=>{
+            _g.toMessage(this,(res&&!res.error)?"success":"error",res.msg)
+            if(!res.error)this.$store.state.allDialog.sure=false;scope.row.sure=1
+          })
+        }
+      }
+    },
+
+
+    expandThis(row,expandedRows){
+      
+    },
+
+    editTogether(){
+      if(this.selectArray.length>0){
+        this.editArray=this.selectArray
+      }else{
+        _g.toMessage(this,"warning","至少选中一个")
+      }
+    },
+
+    saveEdit(str){
+      if(str=="editTogether"){
+        this.editArray=this.selectArray
+        if(this.editArray.length>0){
+          var paramsArray=[]
+          this.tableData.data.forEach(ele=>{
+            if(this.editArray.includes(ele.id)){
+              var params={
+                id:ele.id,
+                assume_person:ele.assume_person,
+                else_person:ele.else_person,
+                else_company:ele.else_company,
+                add_company:ele.add_company,
+                add_person:ele.add_person,
+              }
+              paramsArray.push(params)
+            }
+          })
+          this.apiPost(this.urls.securityinfo.edit,paramsArray).then(res=>{
+            _g.toMessage(this,(res&&!res.error)?"success":"error",res.msg)
+            if(!res.error){
+              this.editArray=[]
+              this.showList()
+            }
+          })
+        }else{
+          _g.toMessage(this,"warning","至少选中一项")
+        }
+      }
+    },
+
+    selectThis(selection){
+      var idArray=[]
+      selection.forEach(ele=>{
+        if(ele.id>-1){
+          idArray.push(ele.id)
+        }
+      })
+      this.selectArray=idArray
+    },
+
+    changeAble(scope){
+      var params={
+        id:scope.row.id,
+        value:scope.row.status
+      }
+      this.apiPost(this.urls.roleManager.able,params).then(res=>{
+        _g.toMessage(this,res.error?"error":"success",res.msg)
+      })
+    },
+
+    saveThis(scope){
+      var params={
+        id:scope.row.id,
+        assume_person:scope.row.assume_person,
+        else_person:scope.row.else_person,
+        else_company:scope.row.else_company,
+        add_company:scope.row.add_company,
+        add_person:scope.row.add_person,
+      }
+      this.apiPost(this.urls.securityinfo.edit,[params]).then(res=>{
+        _g.toMessage(this,(res&&!res.error)?"success":"error",res.msg)
+        if(!res.error){
+          this.editArray.splice(this.editArray.indexOf(scope.row.id),1)
+          this.showList()
+        }
+      })
+    },
+
+    // 修改分页
+    changeSize(val) {
+      // this.$store.state.searchData.boaters.page=1
+      // this.$store.state.searchData.boaters.listRows = val;
+      this.$store.state.searchData[this.allKeysArray[this.tableShow]].page=1
+      this.$store.state.searchData[this.allKeysArray[this.tableShow]].listRows=val
+      this.showList()
+    },
+
+    // 翻页
+    changePage(val) {
+      // this.$store.state.searchData.boaters.page = val;
+      this.$store.state.searchData[this.allKeysArray[this.tableShow]].page=val
+      this.showList()
+    },
+
+    showList() {
+      var length_this = this.tableData.data.length
+      for(var i=0 ;i<length_this;i++){
+        this.tableData.data.splice(0,1)
+      }
+      var routerpath = _g.getRouterPath(this);
+      var array1=["/boaters","/shipowners","/shipnames","/securityset","/securityinsurance","/securityinfo","/securitycompare","/refundRecordBoaters","/refundRecordStaff","/refundRecordOffice","/refundSignBoater","/refundSignStaff","/refundSignOffice","/refundStastics","/repayMoney","/accident","/repaycompare","/chargeInfo","/chargeCompare","/supplierInfo","/staffInfo","/permissionsAgent","/roleManager","/accountManager"]//路由,url,search保存的相对位置字段
+      var array2=["/boaters","/shipowners","/shipnames","/securityset","/securityinsurance","/securityinfo","/securitycompare","/refundRecordBoaters","/refundRecordStaff","/refundRecordOffice","/refundSignBoater","/refundSignStaff","/refundSignOffice","/refundStastics","/repayMoney","/accident","/repaycompare","/chargeInfo","/chargeCompare","/supplierInfo","/staffInfo","/permissionsAgent","/accountManager"]//需要本地保存列表的路由
+      var array3=[]//直接跳过的路由，不进入操作
+      var array4=["/securityset","/securityinsurance","/securityinfo","/securitycompare","/repaycompare","/refundStastics","/chargeCompare","/refundRecordBoaters","/refundRecordStaff","/refundRecordBoaters","/refundRecordOffice","/refundSignBoater","/refundSignStaff","/refundSignOffice"]//带有合计的
+      
+      array1.forEach((ele,index)=>{
+        if(ele==routerpath){
+          this.page=this.$store.state.searchData[routerpath.slice(1)].page
+          // console.log(this.$store.state.searchData[routerpath.slice(1)].page)
+
+          this.tableShow = index+1
+          if(array3.includes(routerpath))return
+          var realurl=ele.slice(1)
+          if(array2.includes(routerpath)){
+            this.listRules=[]
+            var realRules=localStorage.getItem(routerpath.slice(1)+"WordsArray")?JSON.parse(localStorage.getItem(routerpath.slice(1)+"WordsArray")):[]
+            if(routerpath!="/securityset"){
+              if(realRules.length==0){
+              this.listRules=this.$store.state.tableListData[realurl+"List"];
+              }else{
+                realRules.forEach(ele2=>{
+                  this.$store.state.tableListData[realurl+"List"].forEach(ele3=>{
+                    if(ele2===ele3.label){
+                      this.listRules.push(ele3)
+                    }
+                  })
+                })
+
+                this.$store.state.tableListData[realurl+"List"].forEach(ele3=>{
+                  if(ele3.type=="index"||ele3.type=="selection"){
+                    this.listRules.unshift(ele3)
+                  }
+                })
+              }
+            }else{
+              if(realRules.length==0){
+                  this.$store.state.tableListData.securitysetList.forEach(ele0=>{
+                  this.listRules=this.listRules.concat(ele0.children)
+                })
+              }else{
+                realRules.forEach(ele0=>{
+                  this.$store.state.tableListData.securitysetList.forEach(ele1=>{
+                    ele1.children.forEach(ele2=>{
+                      if(ele0==ele2.label){
+                        this.listRules.push(ele2)
+                      }
+                    })
+                  })
+                })
+              }
+            }
+
+            this.$store.state.downExcell.rule=[...this.listRules]
+
+          }
+          if(array4.includes(routerpath))this.hasSpecial=true
+          // console.log(this.urls[realurl].list)
+          if(this.urls[realurl].sure)this.urls.compare=this.urls[realurl].sure
+          if(this.urls[realurl].list){
+            this.apiPost(this.urls[realurl].list,this.$store.state.searchData[realurl]).then(res=>{
+              this.$store.state.tableListData.total = res.list;
+              this.$store.state.tableListData.listData=res.data
+              this.tableData.data=this.tableData.data.concat(res.data)
+            if(routerpath=="/securityset"){
+              var array_t=["养老保险","医疗保险","失业保险","工伤保险","生育保险"]
+              res.data.forEach(ele=>{
+                ele.project.forEach((ele1,index)=>{
+                  for(var p=0;p<array_t.length;p++){
+                    if(ele1.title==array_t[p]){
+                      ele["base_company"+p]=ele1.base_company||"0.00"
+                      ele["rate_company"+p]=ele1.rate_company||"0.00"
+                      ele["amount_company"+p]=ele1.amount_company||"0.00"
+                      ele["total_company"+p]=ele1.total_company||"0.00"
+                      ele["base_person"+p]=ele1.base_person||"0.00"
+                      ele["rate_person"+p]=ele1.rate_person||"0.00"
+                      ele["amount_person"+p]=ele1.amount_person||"0.00"
+                      ele["total_person"+p]=ele1.total_person||"0.00"
+                    }
+                  }
+                })
+              })
+
+              if(res.data.length>0)this.tableData.data.push({
+                endtime:"总计",
+                totalCompany:res.totalCompany,
+                totalPerson:res.totalPerson,
+                company:res.fiveCompany,
+                person:res.fivePerson,
+                companyElse:res.addCompany,
+                personElse:res.addPerson,
+                total_company0:res.yanglaoCompany,
+                total_person0:res.yanglaoPerson,
+                total_company1:res.yiliaoCompany,
+                total_person1:res.yiliaoPerson,
+                total_company2:res.shiyeCompany,
+                total_person2:res.shiyePerson,
+                total_company3:res.gongshangCompany,
+                total_person3:res.gongshangPerson,
+                total_company4:res.shengyuCompany,
+                total_person4:res.shengyuPerson,
+              })
+            }else if(routerpath=="/securityinsurance"){
+              res.data.forEach(ele=>{
+                this.apiPost(this.urls.securityinsurance.detail,{marinerId:ele.id}).then(res=>{
+                    ele.children=res
+                })
+              })
+            }else if(routerpath=="/securityinfo"&&res.data.length>0){
+              res.data.forEach((ele,index)=>{
+                ele.index=index+1
+              })
+              this.tableData.data.push({
+                  "name":"合计",
+                  id:-1,
+                  first_date:res.first_date,
+                  yanglao_company:res.yanglao_company,
+                  yiliao_company:res.yiliao_company,
+                  shiye_company:res.shiye_company,
+                  gongshang_company:res.gongshang_company,
+                  shengyu_company:res.shengyu_company,
+                  else_company:res.else_company,
+                  amount_company:res.amount_company,
+                  yanglao_person:res.yanglao_person,
+                  yiliao_person:res.yiliao_person,
+                  shiye_person:res.shiye_person,
+                  gongshang_person:res.gongshang_person,
+                  shengyu_person:res.shengyu_person,
+                  else_person:res.else_person,
+                  amount_person:res.amount_person,
+                  assume_person:res.assume_person,
+                  add_company:res.add_company,
+                  add_person:res.add_person,
+                  final_company:res.final_company,
+                  final_person:res.final_person,
+                  social_total:res.social_total,
+                  final:res.final,
+                  receipt:res.receipt,
+                  debt:res.debt,
+              })
+            }else if(routerpath=="/securitycompare"&&res.data.length>0){
+              this.tableData.data.push({
+                "area":"合计",
+                "pay_month":"",
+                "debt":res.debtTotal,
+                "receipt":res.receipt,
+                "sure":-1
+              })
+
+            }else if(routerpath=="/repaycompare"&&res.data.length>0){
+              this.tableData.data.push({
+                tally:"合计",
+                rmb_amount:res.rmb_amount,
+                rmb_repayment:res.rmb_repayment,
+                usd_amount:res.usd_amount,
+                usd_repayment:res.usd_repayment,
+                sure:-1
+              })
+            }else if(routerpath=="/chargeCompare"&&res.data.length>0){
+              this.tableData.data.push({
+                month:"合计",
+                amount:res.amount,
+                repayment:res.repayment,
+              })
+            }else if(routerpath=="/refundRecordBoaters"&&res.data.length>0){
+              this.tableData.data.push({
+                explain:"合计",
+                total:res.total
+              })
+            }else if(routerpath=="/refundRecordStaff"&&res.data.length>0){
+              // this.tableData.data.forEach(ele=>{
+              //   ele.status=ele.status===1?"已通过":ele.status===-1?"不通过":"待审批"
+              // })
+              this.tableData.data.push({
+                explain:"合计",
+                total:res.total
+              })
+            }else if(routerpath=="/refundRecordOffice"&&res.data.length>0){
+              // this.tableData.data.forEach(ele=>{
+              //   ele.status=ele.status===1?"已通过":ele.status===-1?"不通过":"待审批"
+              // })
+              this.tableData.data.push({
+                project:[{
+                  project:"合计",
+                  sum:res.first_total
+                }],
+                total:res.second_total
+              })
+            }else if(routerpath=="/refundSignBoater"&&res.data.length>0){
+              this.tableData.data.push({
+                explain:"合计",
+                total:res.total,
+              })
+            }else if(routerpath=="/refundSignStaff"&&res.data.length>0){
+              // this.tableData.data.forEach(ele=>{
+              //   ele.status=ele.status===1?"通过":ele.status===-1?"不通过":"待审批"
+              // })
+              this.tableData.data.push({
+                explain:"合计",
+                total:res.total,
+              })
+            }else if(routerpath=="/refundSignOffice"&&res.data.length>0){
+              // this.tableData.data.forEach(ele=>{
+              //   ele.status=ele.status===1?"通过":ele.status===-1?"不通过":"待审批"
+              // })
+              this.tableData.data.push({
+                project:[
+                  {
+                    project:"合计",
+                    sum:res.first_total
+                  }
+                ],
+                total:res.second_total,
+              })
+            }else if(routerpath=="/refundStastics"){
+              this.tableData.data.push({
+
+              })
+            }else if(routerpath=="/permissionsAgent"){
+              res.data.forEach(ele=>{
+                ele.agenttime=ele.start_date+" -- "+ele.end_date
+              })
+            }
+            this.$store.state.downExcell.data=[...this.tableData.data]//保存需要下载的数据
+          })
+          
+          }
+        }else if(routerpath=="/refundSet"){
+          this.tableShow="14-1"
+          this.listRules=(this.$store.state.tableListData["refundSetList"]);
+          return
+        }
+      })
+    },
+
+    // 权限设置
+    permisionSet(scope){
+      this.$store.state.theader.showback=true
+      localStorage.setItem("permisionSettings",scope.row.name)
+      this.$router.push("/permisionSettings/"+scope.row.id)
+    },
+
+    busOn(){
+      if(!bus._events.search_result){
+        bus.$on("search_result",(value)=>{
+          this.showList()
+        })
+      }
+    },
+
+    // 禁用
+    disableThis(scope){
+      this.apiPost("privilege/forbidden",{id:scope.row.id,value:scope.row.is_delete==0?1:0}).then(res=>{
+        _g.toMessage(this,res.error?"error":"success",res.msg)
+        if(!res.error)
+        this.$set(scope.row,"is_delete",scope.row.is_delete==0?1:0)
+      })
+    },
+    busOff(){
+      bus.$off("search_result")
+    }
+  },
+  components: { Thead },
+  created() {
+    this.showList();
+    this.busOn()
+  },
+  beforeDestroy(){
+    
+  }
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.table {
+  margin-top: 20px;
+  transition: all 0.8s;
+}
+p {
+  padding: 0;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  color: #333;
+  background-color: #f3f3f3;
+}
+
+.title > img {
+  display: inline-block;
+  width: 20px;
+  margin: 0px 10px;
+}
+.right-btn {
+  height: 45px;
+}
+.my-btn {
+  display: inline-block;
+  padding: 0;
+  text-align: center;
+  margin-right: 10px;
+  margin-top: 8px;
+}
+.title .my-btn:last-child {
+  margin-right: 20px;
+}
+
+.paging-box {
+  border-top: none;
+  background-color: rgba(253, 253, 254, 1);
+  text-align: center;
+  height: 50px;
+}
+.paging-box > div {
+  padding-top: 9px;
+  color: #999;
+  float: right;
+  margin-right: 20px;
+}
+.color-blue:hover,.color-red:hover{
+  text-decoration: underline;
+}
+.edit-input{
+  width: 100%;
+  height: 16px;
+  border: none;
+  border: 1px solid #E4E4E4;
+  text-indent: 3px;
+}
+.hide-talbe{
+  width: 30%;
+  height: 100px;
+  overflow: hidden;
+}
+.hide-talbe tr{
+  height: 30px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.btn-box{
+  margin-left: 20px;
+}
+.border-bottom{
+  border-bottom: 1px solid #ebeef5;
+  text-align: center
+}
+.marging-left10{
+  margin-left: 5px;
+}
+</style>

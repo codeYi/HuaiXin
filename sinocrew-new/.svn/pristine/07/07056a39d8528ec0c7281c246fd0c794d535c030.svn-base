@@ -1,0 +1,55 @@
+<template>
+  <div class="news-list" v-if="$store.state.infoNotice.infoNum>0" @mouseleave="$store.state.infoNotice.showList=false">
+      <p class="title box-size">系统消息</p>
+      <ul>
+        <li v-for="item in $store.state.infoNotice.warningData" v-show="item.count>0" @click="$router.push(item.url)">
+          <p class="box-size"><span>{{item.label}}</span><span class="fr">( <span class="color-red">{{item.count}}</span> )</span></p>
+        </li>
+      </ul>
+  </div>
+  <div v-else class="news-list" @mouseleave="$store.state.infoNotice.showList=false">
+      <p class="title">暂时没有需要处理的消息</p>
+  </div>
+</template>
+
+<script>
+export default {
+  props:["listData"],
+  data () {
+    return {
+      
+    }
+  },
+  components: {
+    
+  },
+  computed:{
+    
+  },
+  created(){
+
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+p.title{
+  height: 45px;
+  line-height: 45px;
+  color: #999;
+}
+p{
+  padding: 0;
+  text-align: left;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #E4E4E4;
+  padding: 0 20px;
+  color: #333;
+}
+li:hover{
+  cursor: pointer;
+  background-color: #E4E4E4;
+}
+</style>

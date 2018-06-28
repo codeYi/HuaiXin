@@ -1,0 +1,644 @@
+<template>
+  <div class="boat-details">
+    <div class="head">
+      <p class="title box-size border-common">
+        <img class="ver-middle" :src="imgs.img" alt="">
+        <span class="ver-middle">基础信息</span>
+        <span class="fr box-size right-btn">
+          <span class="my-btn box-size" v-if="edit.baseInfo" @click="edit.baseInfo=!edit.baseInfo">编辑</span>
+          <span class="my-btn box-size" v-else @click="saveThis('base')">完成</span>
+        </span>
+      </p>
+      <div class="border-common head-content">
+        <el-row class="my-row">
+          <el-col :span="2"><label for=""><p>CID</p></label></el-col>
+          <el-col :span="3"><input type="text" v-model="list.cid" :readonly="edit.baseInfo?true:false" :class="edit.baseInfo?'':'border'"></el-col>
+          <el-col :span="2"><label for=""><p>名称</p></label></el-col>
+          <el-col :span="3"><input type="text" v-model="list.name" :readonly="edit.baseInfo?true:false" :class="edit.baseInfo?'':'border'"></el-col>
+          <el-col :span="2"><label for=""><p>英文名</p></label></el-col>
+          <el-col :span="3"><input title="英文名不能修改" type="text" v-model="list.english" :readonly="true" :class="edit.baseInfo?'':'border'"></el-col>
+          <el-col :span="2"><label for=""><p>身份证/护照</p></label></el-col>
+          <el-col :span="3"><input type="text"  v-model="list.id_number" :readonly="edit.baseInfo?true:false" :class="edit.baseInfo?'':'border'"></el-col>
+          <el-col :span="2"><label for=""><p>职务</p></label></el-col>
+          <el-col :span="2">
+            <el-select class="select" clearable filterable v-model="list.duty" placeholder="请选择" :disabled="edit.baseInfo" :class="edit.baseInfo?'':'border'">
+              <el-option v-for="(item,index) in selectData.duty" :key="index" :label="item" :value="item">
+              </el-option>
+            </el-select>
+          </el-col>
+        </el-row>
+        <el-row class="my-row">
+          <el-col :span="2"><label for=""><p><span>MANNING</span><span>OFFICE</span></p></label></el-col>
+          <el-col :span="3">
+            <el-select clearable filterable class="select" v-model="list.manning_office" placeholder="请选择" :disabled="edit.baseInfo" :class="edit.baseInfo?'':'border'">
+              <el-option v-for="(item,index) in selectData.manning_office" :key="index" :label="item" :value="item">
+              </el-option>
+            </el-select>
+          </el-col>
+          <el-col :span="2"><label for=""><p>FLEET</p></label></el-col>
+          <el-col :span="3"><input type="text"  v-model="list.fleet" :readonly="edit.baseInfo?true:false" :class="edit.baseInfo?'':'border'"></el-col>
+          <el-col :span="2"><label for=""><p>VESSEL</p></label></el-col>
+          <el-col :span="3">
+            <el-select clearable filterable class="select" v-model="list.vessel" placeholder="请选择" :disabled="edit.baseInfo" :class="edit.baseInfo?'':'border'">
+              <el-option v-for="(item,index) in selectData.shipnames" :key="index" :label="item.title" :value="item.id">
+              </el-option>
+            </el-select>
+          </el-col>
+          <el-col :span="2"><label for=""><p><span>OWNER</span><span>POOL</span></p></label></el-col>
+          <el-col :span="7">
+            <el-select clearable filterable class="select" v-model="list.owner_pool" placeholder="请选择" :disabled="edit.baseInfo" :class="edit.baseInfo?'':'border'">
+              <el-option v-for="(item,index) in selectData.ownerPool" :key="index" :label="item.title" :value="item.id">
+              </el-option>
+            </el-select>
+          </el-col>
+        </el-row>
+      </div>
+    </div>
+
+    <div class="body">
+      <p class="title box-size border-common">
+        <img class="ver-middle" :src="imgs.img" alt="">
+        <span class="ver-middle">家汇信息</span>
+        <span class="fr box-size right-btn">
+          <span class="my-btn box-size" @click="exportThis('rmb')">导出人民币汇款单</span>
+          <span class="my-btn box-size" @click="exportThis('wb')">导出外币汇款单</span>
+          <span class="my-btn box-size" v-if="edit.bodyInfo" @click="edit.bodyInfo=!edit.bodyInfo">编辑</span>
+          <span class="my-btn box-size" v-else @click="saveThis('homeInfo')">完成</span>
+        </span>
+      </p>
+      <div class="border-common head-content">
+        <el-row class="my-row">
+          <el-col :span="2"><label for=""><p>Bank(CN)</p></label></el-col>
+          <el-col :span="3"><input type="text" v-model="homeData.bank" :readonly="edit.bodyInfo?true:false" :class="edit.bodyInfo?'':'border'"></el-col>
+          <el-col :span="3"><label for=""><p>Bank(ShortName)</p></label></el-col>
+          <el-col :span="4"><input type="text" v-model="homeData.short_name" :readonly="edit.bodyInfo?true:false" :class="edit.bodyInfo?'':'border'"></el-col>
+          <el-col :span="2"><label for=""><p>Bank(EN)</p></label></el-col>
+          <el-col :span="4"><input type="text" v-model="homeData.english" :readonly="edit.bodyInfo?true:false" :class="edit.bodyInfo?'':'border'"></el-col>
+          <el-col :span="2"><label for=""><p>Bank NO</p></label></el-col>
+          <el-col :span="4"><input type="text"  v-model="homeData.number" :readonly="edit.bodyInfo?true:false" :class="edit.bodyInfo?'':'border'"></el-col>
+          <!-- <el-col :span="2"><label for=""><p>职务</p></label></el-col>
+          <el-col :span="2"><input type="text" v-model="list.duty" :readonly="edit.baseInfo?true:false" :class="edit.baseInfo?'':'border'"></el-col> -->
+        </el-row>
+        <el-row class="my-row">
+          <el-col :span="2"><label for=""><p><span>ACCount</span><span>Name(CN)</span></p></label></el-col>
+          <el-col :span="3"><input type="text"  v-model="homeData.name_cn" :readonly="edit.bodyInfo?true:false" :class="edit.bodyInfo?'':'border'"></el-col>
+          <el-col :span="3"><label for=""><p>Account Name(EN)</p></label></el-col>
+          <el-col :span="4"><input type="text"  v-model="homeData.name_en" :readonly="edit.bodyInfo?true:false" :class="edit.bodyInfo?'':'border'"></el-col>
+          <el-col :span="2"><label for=""><p>D.O.B</p></label></el-col>
+          <el-col :span="4"><input type="text" v-model="homeData.birthday" :readonly="edit.bodyInfo?true:false" :class="edit.bodyInfo?'':'border'"></el-col>
+          <el-col :span="2"><label for=""><p>Relation</p></label></el-col>
+          <el-col :span="4"><input type="text" v-model="homeData.relation" :readonly="edit.bodyInfo?true:false" :class="edit.bodyInfo?'':'border'"></el-col>
+        </el-row>
+        <el-row class="my-row">
+          <el-col :span="2"><label for=""><p>TEL</p></label></el-col>
+          <el-col :span="3"><input type="text"  v-model="homeData.telnumber" :readonly="edit.bodyInfo?true:false" :class="edit.bodyInfo?'':'border'"></el-col>
+          <el-col :span="3"><label for=""><p>Swift</p></label></el-col>
+          <el-col :span="4"><input type="text"  v-model="homeData.swift" :readonly="edit.bodyInfo?true:false" :class="edit.bodyInfo?'':'border'"></el-col>
+          <el-col :span="2"><label for=""><p>联行号</p></label></el-col>
+          <el-col :span="4"><input type="text" v-model="homeData.line_number" :readonly="edit.bodyInfo?true:false" :class="edit.bodyInfo?'':'border'"></el-col>
+          <el-col :span="2"><label for=""><p>变更人/时间</p></label></el-col>
+          <el-col :span="4"><span class="white-space" style="line-height:40px;display:inline-block;width:100%;height:100%;background:#fff;text-indent:10px;height:36px;" v-show="homeData.changer||homeData.change_time" :title="homeData.changer+'/'+homeData.change_time">{{homeData.changer}}/{{homeData.change_time}}</span></el-col>
+        </el-row>
+      </div>
+    </div>
+
+    <div class="foot">
+      <p class="title box-size border-common">
+        <img class="ver-middle" :src="imgs.img" alt="">
+        <span class="ver-middle">费用信息</span>
+        <span class="fr box-size right-btn">
+          <span>时间范围：</span>
+          <el-date-picker
+            class="time-choose"
+            v-model="tfoot.time[0]"
+            type="month"
+            @change="getFee"
+            placeholder="开始月份"
+            >
+          </el-date-picker><span>--</span>
+          <el-date-picker
+            class="time-choose"
+            v-model="tfoot.time[1]"
+            type="month"
+            @change="getFee"
+            placeholder="结束月份"
+            >
+          </el-date-picker>
+        </span>
+      </p>
+      <div>
+        <el-table
+          :data="tfoot.data"
+          border
+          :show-summary="true"
+          class="boaters-detail-table"
+          style="width: 100%">
+          <el-table-column type="expand" v-if="tfoot.data.length>0">
+            <template slot-scope="props">
+                <table class="select-tem" v-if="props.row.data.length>0">
+                  <tr>
+                    <td v-for="one in props.row.title">{{one}}</td>
+                  </tr>
+                  <tr v-for="(item,index0) in props.row.data">
+                    <td v-for="(key,index) in props.row.dataKey" v-if="index!=props.row.title.length-2">{{item[key]}}</td>
+                    <td v-else><input class="canEdit-input" :ref="'repay_'+index0" type="text" v-model="item[key]" :readonly="item.readonly"></td>
+                    <td>
+                      <span v-if="item.if_settle==1" class="color-green">已还</span>
+                      <span v-else-if="item.if_settle==0&&item.readonly" class="doRepayment color-blue cursor" @click="payMoney(item,index0)" title="">还款</span>
+                      <span v-else-if="item.if_settle==0&&!item.readonly" class="doRepayment color-blue cursor" @click="sureThis(item,'refund')" title="修改还款再点击确定">确定</span>
+                      
+                      <span v-else-if="item.charge_solve==1" class="color-green">已还</span>
+                      <span v-else-if="item.charge_solve==0&&item.readonly" class="doRepayment color-blue cursor" @click="payMoney(item,index0)" title="">还款</span>
+                      <span v-else-if="item.charge_solve==0&&!item.readonly" class="doRepayment color-blue cursor" @click="sureThis(item,'charger')" title="修改还款再点击确定">确定</span>
+                      
+                      <span v-else-if="item.securi_solve==1" class="color-green">已还</span>
+                      <span v-else-if="item.securi_solve==0&&item.readonly" class="doRepayment color-blue cursor" @click="payMoney(item,index0)">还款</span>
+                      <span v-else-if="item.securi_solve==0&&!item.readonly" class="doRepayment color-blue cursor" @click="sureThis(item,'security')" title="修改还款再点击确定">确定</span>
+                      
+                    </td>
+                  </tr>
+                </table>
+                <el-pagination v-if="props.row.data.length>0" :current-page.sync="props.row.param.page" class="fr page-box" @current-change="changeThisPage(props.row.param.page,props)"  :page-size="5" layout="total , prev, pager, next, jumper" :total="props.row.list">
+                </el-pagination>
+
+                <p v-if="props.row.data.length==0" style="text-indent:20px">暂无相关信息</p>
+              </template>
+            </el-table-column>
+          <el-table-column
+            label="费用项">
+            <template slot-scope="props">
+              <span>{{props.row.costItem||0}}</span>
+            </template>
+          </el-table-column>
+          <el-table-column
+            label="欠款合计">
+            <template slot-scope="props">
+              <span>{{props.row.arrears||0}}</span>
+            </template>
+          </el-table-column>
+          <el-table-column
+            label="还款合计">
+            <template slot-scope="props">
+              <span>{{props.row.repayment||0}}</span>
+            </template>
+          </el-table-column>
+        </el-table>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+// import Thead from "../common/tableHead.vue";
+export default {
+  data() {
+    return {
+      list:{
+        cid:"",
+        name:"",
+        english:"",
+        id_number:"",
+        duty:"",//职务
+        fleet:"",
+        ownerPool:"",
+        owner_pool:"",
+        vessel:"",
+        manning_office:"",
+        id:"",
+      },
+      homeData:{ //家汇信息
+        swift:""
+      },
+      tfoot:{
+        time:["",""],
+        data:[
+          {
+            costItem:"借款",
+            arrears:"1510",
+            repayment:"1000",
+            readonly:true,
+            title:["借款原因","借款时间","币种","借款金额","还款金额","操作"],
+            dataKey:["reason","date","currency","amount","repayment"],
+            list:1,
+            param:{
+              page:1,
+              listRows:5,
+              type:2,
+              time:[],
+              marinerId:null,
+            },
+            data:[]
+          },
+          {
+            costItem:"收费",
+            arrears:"520",
+            repayment:"520",
+            readonly:true,
+            title:["收款金额","还款金额","操作"],
+            dataKey:["amount","repayment"],
+            list:1,
+            param:{
+              page:1,
+              listRows:5,
+              type:3,
+              time:[],
+              marinerId:null,
+            },
+            data:[]
+          },
+          {
+            costItem:"社保",
+            arrears:"520",
+            repayment:"520",
+            readonly:true,
+            title:["时间","参保地","欠款","还款","操作"],
+            dataKey:["pay_month","area","debt","receipt"],
+            list:1,
+            param:{
+              page:1,
+              listRows:5,
+              type:1,
+              time:[],
+              marinerId:null,
+            },
+            data:[]
+          }
+        ],
+      },
+
+      selectData:{
+        ownerPool:[],
+        duty:[],
+        shipnames:[],
+        manning_office:["自有船员","分包方船员"],
+      },
+
+      imgs: {
+        img: require("../../assets/imgs/boaters/icon-datalist@2x.png")
+      },
+      edit:{
+        baseInfo:true, //不能基础信息
+        bodyInfo:true,
+      },
+
+      urls:{
+        details:"Mariner/detailMariner",//船员详情
+        boaterEdit:"Mariner/editMariner",//船员编辑
+        homeInfo:"Mariner/detailRemittance",//家汇信息
+        homeInfoEdit:"Mariner/editRemittance",//家汇编辑
+        exportRmb:"Mariner/exportRemittanceCn",//导出人民币
+        exportWb:"Mariner/exportRemittanceEn",//导出外币
+        toEN:"privilege/zw2py",//转英文
+
+        fee:"mariner/chargeInfo",//船员费用信息
+      }
+    };
+  },
+  methods:{
+    payMoney(item,index0){
+      item.readonly=false
+      this.$refs["repay_"+index0][0].focus()
+    },
+    sureThis(item,str){
+      var urls={
+        refund:"borrow/receiptBorrow",
+        security:"social/refund",
+        charger:"charge/repayment",//收费
+      }
+      if(item.repayment)item.money=item.repayment
+      item.time=_g.getToday()
+      item.date=_g.getToday()
+      this.apiPost(urls[str],item).then(res=>{
+        _g.toMessage(this,res.error?"error":"success",res.msg)
+        if(!res.error){
+          this.getFee()
+        }
+      })
+    },
+    getDetail(){
+      var id=_g.getRouterParams(this,id)
+      this.list.id=id.id
+      this.apiPost(this.urls.homeInfo,{id:this.list.id}).then(res2=>{
+        this.homeData=res2.data
+      })
+      this.apiPost(this.urls.details,id).then(res=>{
+        this.list.cid=res.data.cid
+        this.list.name=res.data.name
+        this.list.english=res.data.english
+        this.list.id_number=res.data.id_number
+        this.list.duty=res.data.duty
+        this.list.fleet=res.data.fleet
+        this.list.owner_pool=res.data.owner_pool
+        this.list.vessel=res.data.vessel
+        this.list.manning_office=res.data.manning_office
+        if(res.data.name){
+          this.apiPost(this.urls.toEN,{chinese:res.data.name}).then(res1=>{
+            this.list.english=res1.english
+          })
+        }
+      })
+      this.getFee()
+    },
+
+    changeThisPage(page,item){
+      this.getFee()
+    },
+
+    saveThis(str){
+      if(str=="base"){
+        this.list.idNumber=this.list.id_number
+        this.apiPost(this.urls.boaterEdit,this.list).then(res=>{
+             _g.toMessage(this,res.error?'error':'success',res.msg)
+            if(!res.error){
+              this.edit.baseInfo=!this.edit.baseInfo
+            }
+        })
+      }else if(str=="homeInfo"){
+      
+        var params={
+          id:this.list.id,
+          bank:this.homeData.bank,
+          shortName:this.homeData.short_name,
+          english:this.homeData.english,
+          number:this.homeData.number,
+          nameCn:this.homeData.name_cn,
+          nameEn:this.homeData.name_en,
+          birthday:this.homeData.birthday,
+          relation:this.homeData.relation,
+          telnumber:this.homeData.telnumber,
+          swift:this.homeData.swift,
+          lineNumber:this.homeData.line_number,
+        }
+        this.apiPost(this.urls.homeInfoEdit,params).then(res=>{
+             _g.toMessage(this,res.error?'error':'success',res.msg)
+            if(!res.error){
+              this.edit.bodyInfo=!this.edit.bodyInfo
+            }
+        })
+      }
+    },
+    // 导出
+    exportThis(str){
+      var params={
+        id:this.list.id
+        // idNumber:this.list.id_number,
+        // cid:this.list.cid,
+        // fleet:this.list.fleet,
+        // ownerPool:this.list.ownerPool,
+        // vessel:this.list.vessel,
+        // manningOffice:this.list.manning_office
+      }
+      var url=""
+      switch(str){
+        case "rmb":url=this.urls.exportRmb;break;
+        case "wb" : url=this.urls.exportWb;break;
+      }
+
+      this.apiPost(url+"?"+str).then(res=>{
+        if(!res.error){
+          location.href=PATH+url+"?"+"id="+params.id
+          // console.log(location.href)
+        }else{
+          _g.toMessage(this,res.error?"error":"success",res.msg)
+        }
+      })
+    },
+
+
+    getFee(){
+      var id=_g.getRouterParams(this,id)
+      var params={
+        marinerId:id.id,
+        time:["",""],
+      }
+      
+      params.time[0]=(this.tfoot.time&&this.tfoot.time[0])?_g.formatTime(this.tfoot.time[0],"month"):"",
+      params.time[1]=(this.tfoot.time&&this.tfoot.time[1])?_g.formatTime(this.tfoot.time[1],"month"):"",
+      this.tfoot.data.forEach(ele=>{
+        ele.param.time=params.time
+      })
+
+      this.apiPost(this.urls.fee,params).then(res=>{
+        this.tfoot.data[0].arrears=res.borrow.amount
+        this.tfoot.data[0].repayment=res.borrow.repayment
+        this.tfoot.data[1].arrears=res.charge.amount
+        this.tfoot.data[1].repayment=res.charge.repayment
+        this.tfoot.data[2].arrears=res.social.debt
+        this.tfoot.data[2].repayment=res.social.receipt
+      }).then(()=>{
+        var urls=["mariner/chargeDetail","mariner/chargeDetail","mariner/chargeDetail"]
+        this.tfoot.data.forEach((ele,index)=>{
+          ele.param.marinerId=id.id
+          this.apiPost(urls[index],ele.param).then(res=>{
+            res.data.forEach(ele4=>{
+              ele4.readonly=true
+              if(ele4.amount&&ele4.amount==ele4.repayment){
+                ele4.charge_solve=1
+              }else if(ele4.amount){
+                ele4.charge_solve=0
+              }
+              if(ele4.area&&ele4.debt==ele4.receipt){
+                ele4.securi_solve=1
+              }else if(ele4.area){
+                ele4.securi_solve=0
+              }
+            })
+            ele.data=[...res.data]
+            ele.list=res.list
+          })
+        })
+      })
+    }
+  },
+  components: {
+    // Thead
+  },
+  created() {
+    // this.selectData.ownerPool=this.$store.state.tableListData.owners?this.$store.state.tableListData.owners.slice(1):[]
+    if(this.$store.state.tableListData.jobs.length==0){
+      this.apiPost("Mariner/dutyMariner").then(res=>{
+          res.data.forEach(ele => {
+          this.selectData.duty.push(ele)
+        });
+        this.$store.state.tableListData.jobs=["全部"].concat(this.selectData.duty)
+      })
+    }else{
+      this.selectData.duty=this.$store.state.tableListData.jobs
+    }
+
+    if(this.$store.state.tableListData.owners.length==0){
+      this.apiPost("mariner/shipowner").then(res=>{
+          res.data.forEach(ele => {
+          this.selectData.ownerPool.push({
+            title:ele.title,
+            id:ele.id
+          })
+        });
+        this.$store.state.tableListData.owners=[{title:"全部",id:"全部"}].concat(this.selectData.ownerPool)
+      })
+    }else{
+      this.selectData.ownerPool=this.$store.state.tableListData.owners
+    }
+    if(this.$store.state.tableListData.shipnames.length==0){
+      this.apiPost("mariner/searchVessel").then(res=>{
+          res.data.forEach(ele => {
+          this.selectData.shipnames.push({
+            title:ele.title,
+            id:ele.id
+          })
+        });
+        this.$store.state.tableListData.shipnames=[{title:"全部",id:"全部"}].concat(this.selectData.shipnames)
+      })
+    }else{
+      this.selectData.shipnames=this.$store.state.tableListData.shipnames
+    }
+
+    
+    this.getDetail()
+  }
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+p {
+  padding: 0;
+  height: 50px;
+  line-height: 50px;
+  text-align: left;
+  color: #333;
+  background-color: #f3f3f3;
+  border-bottom: none;
+}
+
+.title > img {
+  display: inline-block;
+  width: 20px;
+  margin: 0px 10px;
+}
+.right-btn {
+  height: 50px;
+}
+.my-btn {
+  display: inline-block;
+  text-align: center;
+  margin-right: 10px;
+  line-height: 20px;
+  margin-top: 6px;
+}
+.title .my-btn:last-child {
+  margin-right: 20px;
+}
+label {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid #E4E4E4;
+
+}
+label>p{
+  text-align: right;
+  height: 40px;
+  line-height: 40px;
+  padding-right: 10px;
+  border: 1px solid #E4E4E4;
+  border-top: none;
+  border-bottom: none;
+}
+label>p>span{
+  display: block;
+  height: 20px;
+  line-height: 20px;
+}
+input {
+  display: inline-block;
+  border: none;
+  height: 40px;
+  text-indent: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.border{
+  border: 1px solid rgba(204, 204, 204, 1);
+}
+.head-content{
+  /* border-left: none; */
+  border-bottom: none;
+}
+.my-row{
+  border-bottom: 1px solid #E4E4E4;
+}
+.my-row label{
+  border: none;
+}
+.select{
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+}
+.select>div>input{
+  height: 40px;
+}
+.body,.foot{
+  margin-top: 20px;
+  transition: all 1s
+}
+.foot{
+  margin-bottom: 20px;
+  
+}
+.foot p.title{
+border-bottom: 1px solid #E4E4E4;
+}
+.time-choose{
+  width: 120px;
+  margin-right: 5px;
+}
+.time-choose:nth-of-type(2){
+  margin-right: 20px;
+  margin-left: 5px;
+}
+
+.for-more{
+  opacity: .8;
+}
+
+.select-tem{
+  width: 90%;
+  margin-top: 10px;
+}
+.select-tem tr{
+  display: flex;
+  justify-content: flex-end;
+}
+.select-tem tr td{
+  width: 150px;
+  text-align: center;
+  line-height: 40px;
+  border: 1px solid #E4E4E4;
+  border-left: none;
+  border-bottom: none;
+}
+.select-tem tr td:nth-child(1){
+  border-left:  1px solid #E4E4E4;
+}
+.select-tem tr:nth-child(1) td{
+  background-color: #f3f3f3;
+}
+.select-tem tr:nth-last-child(1) td{
+  border-bottom: 1px solid #E4E4E4;
+}
+.page-box{
+  margin: 5px 10% 10px 0;
+}
+
+.doRepayment:hover{
+  text-decoration: underline;
+}
+
+.canEdit-input{
+  height: 37px;
+  position: relative;
+  top: -3px;
+  text-align: center;
+}
+</style>

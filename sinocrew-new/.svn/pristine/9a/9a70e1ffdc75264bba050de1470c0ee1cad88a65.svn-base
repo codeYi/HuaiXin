@@ -1,0 +1,171 @@
+<template>
+  <div class="add-staff-box" v-show="!$store.state.allDialog.showNoRight">
+    <Search style="display:none"></Search>
+    <addTable :headData="headData" :btns="btns"  :bodyData="bodyData" :isPassed="isPassed" :addBtnShow="addBtnShow" :footMoreData="footMoreData" :canEdit="canEdit" :footData="footData" :amountData="amount" :shipProjectData="shipData"></addTable>
+  </div>
+</template>
+
+<script>
+import Search from '../../common/search/search'
+import addTable from './common/addtable'
+export default {
+  data () {
+    return {
+      headData:["报销时间","姓名","部门","客户","报销地点"],
+      bodyData:["报销项目","说明","费用说明","电子发票_1","合计"],
+      footData:[
+        {
+          type:"select",
+          array:['招待餐费',"通讯费","室内通讯费","办公用品","办公费","资产购置","其他交际费","邮递费","车辆运营费","其他"],
+          arrayName:"",
+          value:"",
+          key:"project",
+          label:"报销项目"
+        },{
+          type:"input",
+          value:"",
+          key:"explain",
+          label:"说明"
+        },{
+          type:"input",
+          value:"",
+          key:"explain_cost",
+          label:"费用说明"
+        },{
+          type:"input",
+          value:"",
+          key:"number",
+          // label:"电子发票"
+        },{
+          type:"number",
+          value:"0.00",
+          key:"total",
+          label:"合计"
+        }
+      ],
+      amount:["","","报销合计","0.00"],
+      shipData:[
+        [
+          {
+            label:"",
+            class:"blank-label"
+          },{
+            label:"",
+            class:"blank-label"
+          },{
+            type:"label",
+            label:"借款",
+            class:"fund"
+          },{
+            type:"number",
+            value:"",
+            key:"borrow",
+          }
+        ],[
+          {
+            label:"报销合计(大写)",
+            type:"label",
+            class:"width25"
+          },
+          {
+            type:"input",
+            value:"",
+            key:"",
+            readonly:true,
+            class:"flex-grow-3",
+          }
+        ],[
+          {
+            label:"",
+            class:"blank-label"
+          },{
+            label:"",
+            class:"blank-label"
+          },{
+            type:"label",
+            label:"应补金额",
+            class:"fund",
+          },{
+            type:"input",
+            value:"",
+            key:"",
+            readonly:true
+          }
+        ]
+      ],
+
+      footMoreData:[
+        [
+          {
+            label:"付款方式",
+            type:"label",
+            class:"blank-label"
+          },{
+            type:"radio",
+            value:"",
+            data:[
+              {
+                label:"现金",
+                value:"现金"
+              },{
+                label:"转账",
+                value:"转账"
+              }
+            ],
+            class:"flex-grow-3 padding-left"
+          }
+        ]
+      ],
+
+      btns:1,
+      isPassed:false,
+      addBtnShow:true,
+      canEdit:false, //false可编辑
+
+      dataUrl:[
+        {
+          label:"/refundSignOffice/info",
+          url:"",//获取详情的地址
+          btns:2,
+          addBtnShow:false,
+        },{
+          label:"/refundRecordOffice/info",
+          url:"",//获取详情的地址
+          btns:2,
+          addBtnShow:false,
+        }
+      ]
+    }
+  },
+  methods:{
+    getData(){
+      var routerpath=_g.getRouterPath(this)
+      var id=_g.getRouterParams(this).id
+      this.dataUrl.forEach(ele=>{
+        if(routerpath.indexOf(ele.label)>-1){
+          // 获取详情之后才能判断按钮等的显示情况
+          this.addBtnShow=ele.addBtnShow
+          this.canEdit=true
+          this.btns=2
+          return
+        }
+      })
+      var pathArray=["/refundAddOffice","/refundAddStaffs","/refundAddBoaters",]
+      if(pathArray.includes(routerpath)){
+        this.footMoreData=[]
+      }
+    }
+  },
+  components: {
+    addTable,Search
+  },
+  created(){
+    this.getData()
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+
+</style>

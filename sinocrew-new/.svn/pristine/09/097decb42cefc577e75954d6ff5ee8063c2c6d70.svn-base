@@ -1,0 +1,189 @@
+<template>
+  <div class="head pr">
+    <img class="logo fl" :src="headData.leftTitle.img" alt="pic">
+    <span class="fl">{{headData.leftTitle.label}}</span>
+    <ul class="right-content" v-if="showRightContent">
+      <li v-for="(item,index) in headData.rightContent" class="pr" :title="item.label" @click="item.click(item)">
+        <img class="img ver-middle" :src="item.img" alt="">
+        <span class="pa count" v-if="item.count&&$store.state.infoNotice.infoNum">{{$store.state.infoNotice.infoNum}}</span>
+        <!-- <span class="ver-middle">{{item.label}}</span> -->
+      </li>
+    </ul>
+
+    <div class="pa news-list-box" v-if="$store.state.infoNotice.showList">
+      <NewsList></NewsList>
+    </div>
+  </div>
+</template>
+
+<script>
+import NewsList from './myNewsList'
+export default {
+  data() {
+    return {
+      headData: {
+        leftTitle: {
+          img: require("../../assets/imgs/login/logo@2x.png"),
+          label: "费用管理系统"
+        },
+        rightContent: [
+          {
+            img: require("../../assets/imgs/homepageImg/icon-account@2x.png"),
+            label: "个人设置",
+            class: "",
+            click: this.gotoMySetting,
+          },
+          {
+            img: require("../../assets/imgs/homepageImg/icon-msg@2x.png"),
+            label: "信息通知",
+            class: "",
+            data: [],
+            count:true,
+            click: this.showNewsList,
+          },
+          {
+            img: require("../../assets/imgs/homepageImg/icon-exit@2x.png"),
+            label: "退出登录",
+            class: "",
+            click: this.loadout
+          }
+        ]
+      },
+
+      showRightContent:true,//是否显示头部邮编内容
+
+      checkThisLogin:null,
+    };
+  },
+  methods: {
+    // 个人设置的跳转
+    gotoMySetting(item){
+      this.$router.push("/settings")
+      this.$store.state.infoNotice.showList=false
+      this.$store.commit("changeTimebar",{str:item.label,showback:true,showfrash:false})
+    },
+
+    // 显示消息的列表
+    showNewsList(){
+      this.$store.state.infoNotice.showList=!this.$store.state.infoNotice.showList
+    },
+
+    // 退出登录
+    loadout() {
+      this.$store.state.infoNotice.showList=false
+
+      this.$store.state.allDialog.sure=true
+      this.$store.state.sureData.title="提示"
+      this.$store.state.sureData.content="是否注销当前用户?"
+      this.$store.state.sureData.OK=()=>{
+        this.$store.state.allDialog.sure=false
+        if(this.checkThisLogin)clearInterval(this.checkThisLogin)
+        localStorage.setItem("my_loginTime","");
+        localStorage.setItem("my_userInfo","");
+        this.$router.push("/login")
+      }
+
+    },
+    // 是否显示邮编的内容
+    showRightC(){
+      if(this.$router.history.current.path=="/forgetPassword"){
+        this.showRightContent=false
+      }
+    },
+
+    checkLogin(){
+      if(!localStorage.getItem("my_loginTime")){
+        
+      }else{
+        this.checkThisLogin=setInterval(()=>{
+            if(new Date().getTime()-localStorage.getItem("my_loginTime")>60*1000*60*24*3){
+              localStorage.setItem("my_loginTime","");
+              localStorage.setItem("my_userInfo","");
+              _g.toMessage(this,"warning","用户信息失效,请重新登录。")
+              this.$router.push("/login")
+              clearInterval(this.checkThisLogin)
+            }else{
+              console.log("正在等待")
+            }
+          },1000)
+        }
+      }
+      
+  },
+  components: {NewsList},
+  created(){
+   this.showRightC()
+   this.checkLogin()
+  },
+  beforeDestroy(){
+    if(this.checkThisLogin)clearInterval(this.checkThisLogin)
+  }
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.head {
+  width: 100%;
+  background-color: #0099ff;
+  height: 50px;
+}
+.logo {
+  display: inline-block;
+  width: 143px;
+  height: 30px;
+  margin: 10px 11px 10px 9px;
+}
+.right-content {
+  display: flex;
+  justify-content: flex-end;
+}
+.iconfont {
+  font-size: 25px;
+  color: #fff;
+}
+img {
+  display: inline-block;
+  width: 28px;
+}
+li {
+  padding: 0 25px;
+  height: 100%;
+  line-height: 50px;
+}
+li:hover {
+  background-color: #068ae1;
+}
+span {
+  font-size: 16px;
+  line-height: 50px;
+  color: #fff;
+}
+.head > span {
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.count {
+  top: 5px;
+  right: 15px;
+  background-color: red;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  line-height: 13px;
+  padding: 4px;
+  text-align: center;
+  font-size: 12px;
+}
+.news-list-box{
+  width: 420px;
+  max-height: 300px;
+  background-color: #fff;
+  top: 100%;
+  right: 30px;
+  z-index: 100;
+  box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
+  overflow-y: auto;
+}
+</style>

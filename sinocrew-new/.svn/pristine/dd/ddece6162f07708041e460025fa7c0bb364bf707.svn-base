@@ -1,0 +1,1967 @@
+<template>
+  <div class="addtable-box pr">
+    <table class="noprint">
+      <tr class="my-info">
+        <td v-for="item in tableModel" :class="item.isBig?'is-big':''">
+            <span class="add-table-label label-title" :title="item.label">{{item.label}}</span>
+            <span :class="item.grow||'grow_2_5'">
+              <el-autocomplete
+                v-if="item.type=='input'&&item.search"
+                v-model="item.value"
+                :fetch-suggestions="querySearchAsync"
+                placeholder="请输入船员姓名"
+                :trigger-on-focus="false"
+                @select="chooseThis"
+                @change="isBlank(item.value)"
+                :disabled="canEdit"
+              ></el-autocomplete>
+              <el-select clearable filterable v-else-if="item.type=='select'" v-model="item.value" placeholder="" @change="changeAddParams(item)" :disabled="canEdit">
+                <el-option v-for="(one,index) in item.array" :key="index" :label="one.title||one" :value="one.id||one"></el-option>
+              </el-select>
+              
+              <el-date-picker v-if="item.type=='time'" @change="ChangeTime(item)" v-model="item.value" type="date" placeholder="选择日期" :readonly="canEdit" :disabled="item.label=='报销时间'||canEdit"></el-date-picker>
+              <el-input v-if="item.type=='input'" v-model="item.value" placeholder="" :title="item.value" :readonly="item.label=='姓名'" @change="changeAddParams(item)" :disabled="canEdit"></el-input>
+              <el-input v-if="item.type=='label'" :readonly="true" v-model="item.value" :title="item.value" placeholder="" :disabled="canEdit"></el-input>
+            </span>
+        </td>
+      </tr>
+
+      <!-- 表头 -->
+      <tr :class="bodyClassName" v-if="bodyTableModel.length>0">
+        <td v-for="(item,index) in bodyTableModel" :class="item.isSpecial?'special-bac':''">
+          <span :class="lh120?'line-height120 add-table-label font-height700':' add-table-label font-height700'" v-if="!item.canEdit&&!item.isSpecial">{{item.label|slice4}}</span>
+          <span :class="lh120?'line-height120 add-table-label special-label pr':'add-table-label special-label pr'" v-else-if="!item.canEdit&&item.isSpecial"><span class="pa end-place">结束地点</span><span class="pa gys">供应商</span></span>
+          <span v-else>
+            <div class="canEdit-box">
+              <span :title="one.label" class="add-table-label font-height700"  v-for="(one,index1) in item.children" v-if="one.type=='label'">{{one.label}}</span>
+              
+              <span v-else-if="one.type=='input'">
+                <el-input v-model="one.value" placeholder="" @change="changeAddParams(one,index1,'fee')" :disabled="canEdit"></el-input>
+              </span>
+              <span v-else-if="one.type=='span'" style="background:#f3f3f3;color:transparent;">
+                <input type="text" :readonly="true" style="visibility: hidden;">
+              </span>
+              <span v-else-if="one.type=='select'">
+                <el-select clearable filterable v-model="one.value" placeholder="" filterable :title="one.value" @change="changeAddParams(one,index1,'fee')" :disabled="canEdit">
+                  <el-option v-for="(two,index2) in one.array" :key="index2" :label="two.title||two" :value="two.id>-100?two.id:two"></el-option>
+                </el-select>
+              </span>
+            </div>
+          </span>
+        </td>
+      </tr>
+      
+      <tr :class="footClassName?footClassName+' candelete':''" v-if="footTableModel.length>0" v-for="(item,index) in footTableModel" :title="canDelete?'双击可以删除这一行':''" @dblclick="deleteThis(index)">
+        <td v-for="(one,index1) in item" :class="one.class">
+          <el-date-picker v-if="one.type=='time'" v-model="one.value" type="date" :title="one.value" :disabled="canEdit" @change="changeAddParams(one,index,'data')"></el-date-picker>
+          <el-input v-else-if="one.type=='input'" v-model="one.value" placeholder="" :disabled="canEdit"  @change="changeAddParams(one,index,'data')"></el-input>
+          <!-- <el-input v-else-if="one.type=='number'" type="number" v-model="one.value" placeholder=""></el-input> -->
+          <el-input-number v-else-if="one.type=='number'" :disabled="canEdit" :controls="false" v-model="one.value" :min="0" :step="0.01" @change="countAll(one.value);changeAddParams(one,index,'data')"></el-input-number>
+          
+          <el-select clearable filterable v-else-if="one.type=='select'" filterable v-model="one.value" @change="changeThis(one,item);changeAddParams(one,index,'data')" :disabled="canEdit">
+              <el-option v-for="(two,index2) in one.array" :key="index2" :label="two.title||two" :value="two.id>-100?two.id:two"></el-option>
+          </el-select>
+
+          <span v-else-if="one.type=='label'" class="count-here">{{one.value}}</span>
+        </td>
+      </tr>
+
+      <tr class="add-btn-box">
+        <td><span class="my-btn" v-if="addBtnShow" @click="addAnother">添加</span></td>
+      </tr>
+
+      <!-- 合计 -->
+      <tr :class="amountClassName">
+        <td v-for="item in amount">
+          <span class="count-here font-height700">{{item}}</span>
+        </td>
+      </tr>
+
+      <tr :class="footClassName" v-for="item in shipProject" v-show="showOffice">
+        <td v-for="one in item" :class="one.class">
+          <span v-if="one.type=='label'" class="count-here font-height700">{{one.label}}</span>
+          <span v-else-if="one.type=='count'" class="count-here font-height700">{{one.value}}</span>
+          <span v-else-if="one.type=='input'"><el-input v-model="one.value" :placeholder="one.readonly?'':'请填写'" :readonly="one.readonly" :disabled="canEdit"></el-input></span>
+          <span v-else-if="one.type=='number'"><el-input-number :controls="false" @change="countAllShip(item,one);changeAddParams(one)" v-model="one.value" :min="0" :step="0.01" :disabled="officeMoney"></el-input-number></span>
+          <!-- <span v-if="one.type=='label'&&"></span> -->
+        </td>
+      </tr>
+
+      <!-- 报销多出的-->
+      <div class="for-refund-box" v-if="showMore">
+        <div v-if="footMoreData.length>0">
+          <tr class="for-refund" v-for="(item,index) in footMoreData" v-show="showArray.length==0?true:!showArray.includes(index)">
+            <td v-for="one in item" :class="one.class" :colspan="one.colspan">
+              <span v-if="one.type=='label'" class="count-here font-height700">{{one.label}}</span>
+
+              <el-radio v-if="one.type=='radio'" v-model="one.value" v-for="(two,index) in one.data" :key="index" :label="two.value" @change="changeType(one.value)" :disabled="chooseType">{{two.label}}</el-radio>
+
+              <el-date-picker v-if="one.type=='time'" v-model="one.value" type="date" placeholder="选择日期" :readonly="staffEditMoney"> </el-date-picker>
+              <el-input v-if="one.type=='input'" v-model="one.value" :placeholder="one.readonly?'':'请填写'" :readonly="staffEditMoney" @change="changeMoney"></el-input>
+              <span v-if="one.type=='span'" :class="one.class">{{one.label}}</span>
+            </td>
+          </tr>
+        </div>
+      </div>
+
+      <tr class="foot-info sumbit-box" v-if="showBtnBox">
+        <td>
+          <span v-if="btns==1||showSubmitBtn" :class="canSaveSuccess?'my-btn submit-btn':'my-btn submit-btn bac-grey'" @click="saveThis(0)">提交</span>
+          <span v-if="btns==2&&showPassBtns" :class="canSaveSuccess?'my-btn no-pass-btn':'my-btn no-pass-btn bac-grey'" @click="saveThis(2)">不通过</span>
+          <span v-if="btns==2&&showPassBtns" :class="canSaveSuccess?'my-btn submit-btn':'my-btn submit-btn bac-grey'" @click="saveThis(1)">通过</span>
+          <span v-if="editAgainBtn" class="my-btn submit-btn" @click="editThisAgain">重新编辑</span>
+        </td>
+      </tr>
+      <tr class="foot-info sumbit-box" v-show="ShowPrintint">
+        <td>
+          <button v-show="showPassedImg&&canPrint" class="my-btn submit-btn print-btn" @click="Printint">打印</button>
+          <button v-show="!canPrint" class="my-btn submit-btn wait-btn" disabled="disabled">请稍后!</button>
+        </td>
+      </tr>
+    </table>
+    <img v-if="showPassedImg" class="passed-img pa" :src="passedImg" alt="">
+    <img v-if="showNoPassedImg" class="passed-img pa" :src="noPassedImg" alt="">
+
+    <Print :printData="printData" :amount="amount" :shipProject="shipProject" :footMoreData="footMoreData" :tableModel="tableModel" v-show="false"></Print>
+  </div>
+</template>
+
+<script>
+import Print from './print'
+export default {
+  props:["headData","bodyData","footData","amountData","shipProjectData","lh120","btns","isPassed","footMoreData"],
+  data() {
+    return {
+      tableModel:[],//头
+      bodyTableModel:[],//身体
+      footTableModel:[],//尾部
+
+      printData:[],//打印的数据
+      
+      tableModelData: [
+        {
+          label: "报销时间",
+          type: "time",
+          isToday:true,
+          value:"",
+          grow:"",
+          special:""
+        },{
+          label:"出发日期",
+          type:"time",
+          value:"",
+          grow:"",
+          key:"start_date"
+        },{
+          label:"返程日期",
+          type:"time",
+          value:"",
+          grow:"",
+          key:"end_date"
+        },
+        {
+          label:"差旅天数",
+          type:"label",
+          value:"",
+          special:""
+        },
+        {
+          label:"姓名",
+          type:"input",
+          search:true,
+          value:"",
+          grow:"",
+          special:"username",
+        },{
+          label:"部门",
+          type:"label",
+          value:"",
+          grow:"",
+          special:"department"
+        },
+        {
+          label:"职务",
+          type:"label",
+          value:"",
+          grow:"",
+          special:"duty"
+        },{
+          label:"客户",
+          type:"select",
+          arrayName:"customs",
+          array:[],
+          value:"",
+          grow:"",
+          key:"shipowner_id"
+        },{
+          label:"船名",
+          type:"select",
+          arrayName:"shipNames",
+          array:[],
+          value:"",
+          grow:"",
+          key:"vessel_id",
+        },{
+          label:"报销地点",
+          type:"select",
+          arrayName:"areas",
+          array:[],
+          value:"",
+          grow:"",
+          key:"address",
+        },{
+          label:"船队",
+          type:"input",
+          value:"",
+          grow:"",
+          key:"fleet"
+        },{
+          label:"出差事由",
+          type:"select",
+          arrayName:"reasons",
+          array:[],
+          value:"",
+          grow:"",
+          key:"reason"
+        },{
+          label:"差旅事由",
+          type:"select",
+          arrayName:"reasons2",
+          array:[],
+          value:"",
+          grow:"",
+          key:"reason"
+        },{
+          label:"事由说明",
+          type:"input",
+          isBig:true,
+          value:"",
+          grow:"grow_6_2",
+          key:"explain"
+        }
+      ],
+      bodyTableModelData:[
+        {
+          label:"日期",
+        },{
+          label:"起始地点",
+        },{
+          label:"报销项目",
+        },{
+          label:"说明",
+        },{
+          label:"费用说明",
+        },{
+          label:"我去",
+          isSpecial:true,
+        },{
+          label:"交通费",
+          canEdit:true,
+          children:[
+            {
+              label:"交通费",
+              type:"label"
+            },{
+              type:"select",
+              value:"",
+              array:["火车","飞机"],
+              key:"traffic"
+            },{
+              type:"select",
+              array:[],
+              arrayName:"supplier",
+              value:"",
+              key:"traffic"
+            }
+          ]
+        },{
+          label:"住宿费",
+          canEdit:true,
+          children:[
+            {
+              label:"住宿费",
+              type:"label"
+            },{
+              type:"select",
+              array:["北京","上海","广州","武汉","其他"],
+              arrayName:"",
+              value:"",
+              key:"hotel",
+            },{
+              type:"select",
+              array:[],
+              arrayName:"",
+              value:"",
+              key:"hotel",
+            }
+          ]
+        },{
+          label:"市内交通费",
+          canEdit:true,
+          children:[
+            {
+              label:"市内交通费",
+              type:"label"
+            },{
+              type:"input",
+              value:"",
+              key:"city"
+            },{
+              type:"select",
+              array:[],
+              arrayName:"",
+              value:"",
+              key:"city"
+            }
+          ]
+        },{
+          label:"体检费",
+          canEdit:true,
+          children:[
+            {
+              label:"体检费",
+              type:"label"
+            },{
+              type:"input",
+              value:"",
+              key:"examination"
+
+            },{
+              type:"select",
+              array:[],
+              arrayName:"",
+              value:"",
+              key:"examination"
+
+            }
+          ]
+        },{
+          label:"培训费",
+          canEdit:true,
+          children:[
+            {
+              label:"培训费",
+              type:"label"
+            },{
+              type:"input",
+              value:"",
+              key:"train"
+            },{
+              type:"select",
+              array:[],
+              arrayName:"",
+              value:"",
+              key:"train"
+            }
+          ]
+        },{
+          label:"补贴",
+          canEdit:true,
+          children:[
+            {
+              label:"补贴",
+              type:"label"
+            },{
+              type:"input",
+              value:"",
+              key:"subsidy"
+            },{
+              type:"select",
+              array:[],
+              arrayName:"",
+              value:"",
+              key:"subsidy"
+            }
+          ]
+        },{
+          label:"其他",
+          canEdit:true,
+          children:[
+            {
+              label:"其他",
+              type:"label"
+            },{
+              type:"input",
+              array:[],
+              arrayName:"",
+              value:"",
+              key:"else"
+            },{
+              type:"span",
+              array:[],
+              arrayName:"",
+              value:"",
+              key:"else"
+            }
+          ]
+        },{
+          label:"费用承担方",
+          canEdit:true,
+          children:[
+            {
+              label:"费用承担方",
+              type:"label"
+            },{
+              type:"input",
+              value:"",
+              key:"assume"
+            },
+            {
+              type:"span",
+              array:[],
+              arrayName:"",
+              value:"",
+              key:"assume"
+            }
+          ]
+        },{
+          label:"备注说明",
+          canEdit:true,
+          children:[
+            {
+              label:"备注说明",
+              type:"label"
+            },{
+              type:"input",
+              value:"",
+              key:"remark"
+            },{
+              type:"span"
+            }
+          ]
+        },{
+          label:"差旅补贴",
+          canEdit:true,
+          children:[
+            {
+              label:"差旅补贴",
+              type:"label"
+            },{
+              type:"select",
+              array:["节假日","工作日"],
+              arrayName:"",
+              value:"",
+              key:"travel",
+              money:true,
+
+            },{
+              type:"select",
+              array:[],
+              arrayName:"",
+              value:"",
+              key:"travel"
+            }
+          ]
+        },{
+          label:"招待餐费",
+          canEdit:true,
+          children:[
+            {
+              label:"招待餐费",
+              type:"label"
+            },{
+              type:"input",
+              value:"",
+              key:"meal"
+            },{
+              type:"select",
+              array:[],
+              arrayName:"",
+              value:"",
+              key:"meal"
+            }
+          ]
+        },{
+          label:"其他交际费",
+          canEdit:true,
+          children:[
+            {
+              label:"其他交际费",
+              type:"label"
+            },{
+              type:"input",
+              value:"",
+              key:"exchange"
+            },{
+              type:"select",
+              array:[],
+              arrayName:"",
+              value:"",
+              key:"exchange"
+            }
+          ]
+        },{
+          label:"办公杂费",
+          canEdit:true,
+          children:[
+            {
+              label:"办公杂费",
+              type:"label"
+            },{
+              type:"input",
+              value:"",
+              key:"office",
+            },{
+              type:"select",
+              array:[],
+              arrayName:"",
+              value:"",
+              key:"office",
+            }
+          ]
+        },{
+          label:"通讯费",
+          canEdit:true,
+          children:[
+            {
+              label:"通讯费",
+              type:"label"
+            },{
+              type:"input",
+              value:"",
+              key:"communication",
+            },{
+              type:"select",
+              array:[],
+              arrayName:"",
+              value:"",
+              key:"communication",
+            }
+          ]
+        },{
+          label:"邮递费",
+          canEdit:true,
+          children:[
+            {
+              label:"邮递费",
+              type:"label"
+            },{
+              type:"input",
+              value:"",
+              key:"post"
+            },{
+              type:"select",
+              array:[],
+              arrayName:"",
+              value:"",
+              key:"post"
+            }
+          ]
+        },{
+          label:"同行人",
+          canEdit:true,
+          children:[
+            {
+              label:"同行人",
+              type:"label"
+            },{
+              type:"input",
+              value:"",
+              key:"partner"
+            },{
+              type:"span"
+            }
+          ]
+        },{
+          label:"电子发票",
+          canEdit:true,
+          children:[
+            {
+              label:"电子发票",
+              type:"label"
+            },{
+              type:"span",
+            },{
+              type:"span"
+            }
+          ]
+        },{
+          label:"电子发票_1",
+          isSpecial:false,
+        },{
+          label:"合计",
+        }
+      ],
+      footTableModelData:"",
+      amount:[],
+      
+      shipProject:[],
+      canSaveSuccess:true,//是否可以提交
+
+      names:[],//姓名
+      dutys:[],//职务
+      customs:[],//客户
+      shipNames:[],//船名
+      areas:[], //报销地点
+      reasons:["上下船","签证","培训","面试"],
+      reasons2:["访船","培训","招生","拜访客户","拜访船员","参会","其他"],
+      supplier:[],
+      shiperList:[],
+
+      footClassName:"",
+      bodyClassName:"",
+      amountClassName:"",
+
+      passedImg:require("../../../../assets/imgs/common/pass.png"),
+      noPassedImg:require("../../../../assets/imgs/common/nopass.png"),
+
+      urls:{
+        detail:"",
+        addUrl:"",
+        sign:"",
+        submit:"",
+        edit:"",//编辑数据
+        boaters:{
+          detail:"Expenses/marinerDetail",
+          add:"Expenses/marinerAdd",
+          sign:"expenses/detailMariner",//签批详情
+          submit:"Expenses/sureMariner",//提交
+          edit:"",
+        },
+        office:{
+          detail:"Expenses/userDetail",
+          add:"Expenses/officeAdd",
+          sign:"expenses/detailOffice",
+          submit:"Expenses/sureOffice",
+          edit:"",
+        },
+        staff:{
+          detail:"Expenses/userDetail",
+          add:"Expenses/userAdd",
+          sign:"Expenses/detailUser",
+          submit:"Expenses/sureUser",
+          edit:"",
+        }
+      },
+      AddParams:{
+        user_id:"",
+        id:"",
+        date:"",
+        data:[]
+      },
+      canEdit:false,
+      canDelete:true,//双击是否可以删除相关内容
+      showPassedImg:false,//显示通过的img
+      showNoPassedImg:false,//显示不通过img
+      showMore:true, //多出的部分
+      showBtnBox:true,//是否显示按钮
+      showPassBtns:true,//是否显示通过不通过按钮
+      editAgainBtn:false,//重复编辑的按钮
+      showSubmitBtn:false,//提交按钮
+      staffEditMoney:false,//多出部分编辑
+      addBtnShow:false,
+      showOffice:true,//显示office下面的内容
+
+      officeMoney:false,//
+
+      chooseType:false,
+      testEdit:false,//员工编辑的行数
+
+      ShowPrintint:false,//显示打印补
+
+      toPrint:false,//打印
+      canPrint:true,//打印是否可用
+
+      showArray:[],
+
+
+      submitParams:{
+        id:"",
+        sure:"",
+        type:"",
+        really:"",
+      },
+
+      mariner_id:"",
+      user_id:""
+
+    };
+  },
+  methods:{
+    editThisAgain(){
+      this.editAgainBtn=false;
+      this.showSubmitBtn=true;
+      this.canEdit=false;
+      this.showNoPassedImg=false;
+      this.chooseType=false;
+      this.addBtnShow=true;
+      this.showMore=false;
+      this.canDelete=true;
+      this.officeMoney=false
+      
+      var routerpath=_g.getRouterPath(this)
+      this.AddParams.id=_g.getRouterParams(this).id
+      this.tableModel[0].value=_g.getToday()
+      this.AddParams.number=[]
+
+
+      if(routerpath.indexOf("/refundRecordBoaters/info/")>-1){
+        this.AddParams.mariner_id=this.mariner_id
+        this.urls.addUrl=this.urls.boaters.add
+
+        var specialA=["else","assume","remark"]
+
+  
+
+      }else if(routerpath.indexOf("/refundRecordStaff/info/")>-1){
+        this.urls.addUrl=this.urls.staff.add
+        this.AddParams.user_id=this.user_id
+
+        var specialA=["else","partner"]
+        this.AddParams.days=this.tableModelData[3].value
+       
+
+      }else if(routerpath.indexOf("/refundRecordOffice/info/")>-1){
+        this.urls.addUrl=this.urls.office.add
+        this.AddParams.user_id=this.user_id
+
+        this.showOffice=false
+        this.showMore=false
+
+        // console.log(this.footTableModel)
+
+      }
+
+      for(var item of this.tableModel){
+          if(item.key)this.AddParams[item.key]=item.value
+        }
+      for(var item of this.footTableModel){
+        var obj={}
+        for(var item1 of item){
+           if(item1.key)obj[item1.key]=item1.value
+           if(item1.key=="number")this.AddParams.number.push(item1.value)
+        }
+        this.AddParams.data.push(obj)
+      }
+      for(var item of this.bodyTableModel){
+        if(item.children&&item.children[1].key){
+          this.AddParams[item.children[1].key]=specialA.includes(item.children[1].key)?(item.children[1].value||""):[item.children[1].value,item.children[2].value]
+        }
+      }
+      for(var item of this.shipProject[0]){
+        if(item.key)this.AddParams[item.key]=item.value
+      }
+    },
+
+    Printint(){
+      var routerpath=_g.getRouterPath(this)
+      if(routerpath.indexOf("/refundRecordBoaters/info/")>-1||routerpath.indexOf("/refundRecordStaff/info/")>-1||routerpath.indexOf("/refundRecordOffice/info/")>-1){
+        if(this.canPrint){
+          this.canPrint=false
+          bus.$emit("print_this")
+          setTimeout(()=>{this.canPrint=true},4000)
+        }
+      }
+      
+    },
+
+    changeType(value){
+      this.submitParams.type=value=="现金"?1:2
+    },
+    ChangeTime(item){
+      if(this.tableModel[1].value&&this.tableModel[2].value){
+        if(this.tableModel[1].value<this.tableModel[2].value||this.tableModel[1].value==this.tableModel[2].value){
+          this.tableModel[3].value=(this.tableModel[2].value.getTime()-this.tableModel[1].value.getTime())/1000/60/60/24
+          this.AddParams.days=this.tableModel[3].value
+        }else{
+          _g.toMessage(this,"warning","出发日期不能晚于返程日期")
+          item.value=""
+        }
+      }
+      this.changeAddParams(item)
+    },
+
+    //str判断生成数组的位置
+    changeAddParams(item,index,str){
+      if(item.key=="number"){
+        // 请求电子发票是否重复
+        if(item.value){
+          this.apiPost("expenses/repeatNumber",{number:item.value}).then(res=>{
+            _g.toMessage(this,res.error?"warning":"success",res.error?"电子发票编号重复":"电子发票编号可用")
+            if(!res.error){
+              // 校验发票编号是否已填
+              if(!this.AddParams.number.includes(item.value)){
+                this.AddParams.number[index]=item.value
+              }else{
+                _g.toMessage(this,"warning","电子发票编号重复")
+                item.value=""
+                return
+              }
+            }else{
+              item.value=""
+            }
+          })
+        }
+      }
+      // if(item.type=="select"&&item.key=="travel"){
+      //   // 判断补贴方式
+      //   if(item.value=="节假日"){
+          
+      //   }
+      // }else 
+      if(str=="data"){
+        this.AddParams.data[index]=this.AddParams.data[index]||{}
+        this.AddParams.data[index][item.key]=item.type=="time"?_g.formatTime(item.value):item.value//修改报销时间
+      }else if(str=="fee"){
+        if(item.key=="partner"||item.key=="else"||item.key=="remark"||item.key=="assume"){
+          this.AddParams[item.key]=item.value
+        }else{
+          this.AddParams[item.key]=this.AddParams[item.key]||["",0]
+          this.AddParams[item.key][index-1]=item.value
+        }
+      }else{
+        this.AddParams[item.key]=item.type=="time"?_g.formatTime(item.value):item.value//修改报销时间
+      }
+    },
+
+    chooseThis(item){
+      this.AddParams.mariner_id=item.id
+      this.$set(this.tableModel[2],"value",item.duty)
+    },
+    isBlank(val){
+      if(!val){
+        this.AddParams.mariner_id=""
+        this.$set(this.tableModel[2],"value","")
+      }
+    },
+
+    // 船员远程所搜
+    querySearchAsync(queryString, cb) {
+        var results=[]
+        this.apiPost("Expenses/listStaff",{search:queryString}).then(res=>{
+          res.forEach(ele=>{
+            results.push({
+              value:ele.name,
+              id:ele.id,//船员id
+              duty:ele.duty
+            })
+          })
+        }).then(()=>{
+          cb(results);
+        })
+        
+      },
+    // 改变了值同变化
+    countAll(value){
+      var routerpath=_g.getRouterPath(this)
+      this.amount=[...this.amountData]
+      this.amount[this.amountData.length-1]=0
+
+      this.footTableModel.forEach((ele,index)=>{
+        if(routerpath!="/refundAddOffice"&&!(routerpath.indexOf("/refundRecordOffice/info/")>-1)){
+          ele[ele.length-1].value=0
+          ele.forEach((ele2,index2)=>{
+            if(ele2.type=="number"&&index2<ele.length-1){
+              ele[ele.length-1].value+=Number(ele2.value)
+            }
+            if(routerpath.indexOf("/refundSignBoater/info/")>-1||routerpath=="/refundAddBoaters"||routerpath.indexOf("/refundRecordBoaters/info/")>-1){
+              if(index2>2&&index2<ele.length-3&&index2!=10){
+                var num=Number(this.amount[index2])+Number(ele2.value)
+                this.$set(this.amount,index2,num)
+              }
+            }else if(routerpath.indexOf("/refundSignStaff/info/")>-1||routerpath=="/refundAddStaffs"||routerpath.indexOf("/refundRecordStaff/info/")>-1){
+              if(index2>2&&index2<ele.length-2){
+                var num=Number(this.amount[index2])+Number(ele2.value)
+                this.$set(this.amount,index2,num)
+              }
+            }
+          })
+          this.amount[this.amountData.length-1]+=Number(ele[ele.length-1].value)
+        }else{
+          this.amount[this.amountData.length-1]+=Number(ele[ele.length-1].value)
+          
+        }
+      })
+      if(routerpath=="/refundAddOffice"){
+        this.AddParams.total=this.amount[this.amountData.length-1]
+      }else if(routerpath.indexOf("/refundSignStaff/info/")>-1||routerpath.indexOf("/refundRecordStaff/info/")>-1){
+        this.footMoreData[4][3].value=this.amount[this.amount.length-1]
+        this.submitParams.really=this.footMoreData[5][3].value||0
+        this.changeMoney()
+      }else if(routerpath.indexOf("/refundSignBoater/info/")>-1||routerpath.indexOf("/refundRecordBoaters/info/")>-1){
+        this.footMoreData[5][2].value=Number(this.footMoreData[4][2].value)-Number(this.footMoreData[1][4].value)-Number(this.footMoreData[2][4].value)-Number(this.footMoreData[3][4].value)+(Number(this.footMoreData[1][5].value)+Number(this.footMoreData[2][5].value)+Number(this.footMoreData[3][5].value))
+        if(this.footMoreData[5][2].value<0)this.footMoreData[5][2].value=0
+        this.submitParams.really=this.footMoreData[5][2].value
+        this.footMoreData[6][2].value=this.footMoreData[5][2].value==0?"零":_g.Arabia_To_SimplifiedChinese(this.footMoreData[5][2].value)
+      }
+
+    },
+
+    countAllShip(item,one){
+      var routerpath=_g.getRouterPath(this)
+      if(routerpath!=="/refundAddOffice"){
+        if(!(routerpath.indexOf("/refundSignOffice/info/")>-1)){
+          item[item.length-1].value=0
+          item.forEach((ele2,index2)=>{
+            if(ele2.type=="number"&&index2<item.length-1){
+              item[item.length-1].value+=Number(ele2.value)
+            }
+          })
+        }else{
+          this.shipProject[2][3].value=this.amount[this.amount.length-1]-one.value
+          this.submitParams.borrow=one.value
+          this.submitParams.really=this.shipProject[2][3].value
+        }
+      }
+      // this.$set(this.shipProject[2][this.shipProject[2].length-1],"value",this.amount[this.amountData.length-1]-this.shipProject[0][this.shipProject[0].length-1].value)
+    },
+
+    // 双击删除
+    deleteThis(index){
+      if(this.canDelete){
+        this.footTableModel.splice(index,1)
+        this.countAll()
+        this.AddParams.number.splice(index,1)
+      }
+    },
+    changeData(){
+      var routerpath=_g.getRouterPath(this)
+      var id=_g.getRouterParams(this).id
+      var status=localStorage.getItem("isPassed")
+      
+      this.tableModel.forEach(ele=>{
+        if(ele.isToday){
+          ele.value=_g.getToday()
+          this.AddParams.date=ele.value//将报销日期添加到参数
+        }
+        ele.array=this[ele.arrayName]
+      })
+      
+      // 获取查查看数据
+      if(routerpath=="/refundAddBoaters"){
+        this.AddParams={
+          mariner_id:"",
+          id:"",
+          date:"",
+          data:[
+            {
+              date:"",
+              start_address:"",
+              traffic_cost:0,
+              end_address:"",
+              hotel_cost:0,
+              city_cost:0,
+              examination_cost:0,
+              train_cost:0,
+              subsidy_cost:0,
+              else_cost:0,
+              assume:"",
+              number:"",
+              remark:""
+            }
+          ],
+          shipowner_id:"",
+          address:"",
+          fleet:"",
+          reason:"",
+          explain:"",
+          vessel_id:"",
+          traffic:[],
+          hotel:[],
+          city:[],
+          examination:[],
+          train:[],
+          subsidy:[],
+          else:"",
+          assume:"",
+          remark:"",
+          shiper_traffic:0,
+          shiper_hotel:0,
+          shiper_city:0,
+          shiper_examination:0,
+          shiper_train:0,
+          shiper_subsidy:0,
+          shiper_else:0,
+          number:[]
+        }
+        this.AddParams.date=_g.getToday()
+        this.tableModel[0].value=_g.getToday()
+        this.urls.addUrl=this.urls.boaters.add
+        this.tableModelData[4].search=true
+        this.urls.detail=this.urls.boaters.detail
+        this.addBtnShow=true
+        this.apiPost(this.urls.detail).then(res=>{
+          if(res.length==0){
+
+          }else{
+            this.tableModel[1].type="label"
+            this.tableModel[1].value=res.name
+            this.tableModel[2].value=res.duty
+
+            this.AddParams.mariner_id=res.id
+            
+          }
+        })
+        
+      }else if(routerpath=="/refundAddStaffs"){
+        this.AddParams={
+          user_id:"",
+          id:"",
+          date:"",
+          data:[
+            {
+              date:"",
+              start_address:"",
+              traffic_cost:0,
+              end_address:"",
+              hotel_cost:0,
+              city_cost:0,
+              meal_cost:0,
+              exchange_cost:0,
+              office_cost:0,
+              communication_cost:0,
+              post_cost:0,
+              else_cost:0,
+              partner_cost:0,
+              number:""
+            }
+          ],
+          start_date:"",
+          end_date:"",
+          days:"",
+          explain:"",
+          shipowner_id:"",
+          vessel_id:"",
+          address:"",
+          reason:"",
+          traffic:[],
+          hotel:[],
+          city:[],
+          travel:[],
+          meal:[],
+          exchange:[],
+          else:"",
+          office:[],
+          communication:[],
+          post:[],
+          partner:"",
+          shiper_traffic:0,
+          shiper_hotel:0,
+          shiper_city:0,
+          shiper_travel:0,
+          shiper_meal:0,
+          shiper_exchange:0,
+          shiper_office:0,
+          shiper_communication:0,
+          shiper_post:0,
+          shiper_partner:0,
+          shiper_else:0,
+          number:[]
+        }
+        this.urls.detail=this.urls.staff.detail
+        this.AddParams.date=_g.getToday()
+        this.tableModel[0].value=_g.getToday()
+        this.urls.addUrl=this.urls.staff.add
+        this.tableModelData[4].search=false
+        this.addBtnShow=true
+        this.apiPost(this.urls.detail).then(res=>{
+          // console.log(res)
+          this.tableModel[4].value=res.username
+          this.tableModel[5].value=res.department
+          this.AddParams.user_id=res.id
+        })
+        
+      }else if(routerpath=="/refundAddOffice"){
+        this.AddParams={
+          user_id:"",
+          date:"",
+          shipowner_id:"",
+          address:"",
+          total:0,
+          borrow:0,
+          data:[
+            {
+              project:"",
+              explain:"",
+              explain_cost:0,
+              total:0,
+              number:""
+            }
+          ],
+          number:[]
+        }
+        this.urls.detail=this.urls.office.detail
+        this.AddParams.date=_g.getToday()
+        this.tableModel[0].value=_g.getToday()
+        this.urls.addUrl=this.urls.office.add
+        this.addBtnShow=true
+        this.showOffice=false
+        this.tableModelData[4].search=false
+
+        this.apiPost(this.urls.detail).then(res=>{
+          _g.getMyItem(this.tableModelData,"label","姓名").value=res.username
+          _g.getMyItem(this.tableModelData,"label","部门").value=res.department
+          this.AddParams.user_id=res.id
+        })
+      }else if(routerpath.indexOf("/refundSignBoater/info/")>-1||routerpath.indexOf("/refundRecordBoaters/info")>-1){
+        // 船员签批详情
+        this.urls.sign=this.urls.boaters.sign
+        this.urls.submit=this.urls.boaters.submit
+
+        this.urls.addUrl=this.urls.boaters.edit
+
+
+        this.apiPost(this.urls.sign,{id}).then(res=>{
+          this.submitParams.id=res.main.id
+          this.mariner_id=res.main.mariner_id
+
+          this.printData=res
+
+          var array1=["报销时间","客户","船名","报销地点","船队","出差事由","事由说明"]
+          var array2=["date","shipowner_id","vessel_id","address","fleet","reason","explain"]
+          array1.forEach((ele,index)=>{
+            _g.getMyItem(this.tableModelData,"label",ele).value=res.main[array2[index]]
+          })
+
+          if(routerpath.indexOf("/refundRecordBoaters/info")>-1){
+             this.editAgainBtn=(status=="未通过"&&res.checkin.is_self==1)?true:false
+          }
+
+          var array3=["交通费","住宿费","市内交通费","体检费","培训费","补贴","费用承担方","其他","备注说明"]
+          var array4=["traffic","hotel","city","examination","train","subsidy","assume","else","remark"]
+
+          if(res.option){array3.forEach((ele,index)=>{
+            
+            if(_g.getMyItem(this.bodyTableModelData,"label",ele).children&&_g.getMyItem(this.bodyTableModelData,"label",ele).children.length==3){
+              _g.getMyItem(this.bodyTableModelData,"label",ele).children[1].value=res.option[array4[index]][0]
+              _g.getMyItem(this.bodyTableModelData,"label",ele).children[2].value=res.option[array4[index]][1]?Number(res.option[array4[index]][1]):""
+            }else{
+              _g.getMyItem(this.bodyTableModelData,"label",ele).children[1].value=res.option[array4[index]]
+            }
+          })}
+
+          var array5=["date","start_address","end_address","traffic_cost","hotel_cost","city_cost","examination_cost","train_cost","subsidy_cost","else_cost","assume","remark"]
+          
+          if(res.data.length>0){
+            for(var i=1;i<res.data.length;i++){
+              this.footTableModel.push(this.footData) //有待商榷
+            }
+            // console.log(this.footTableModel)
+
+            this.footTableModel.forEach((ele,index)=>{
+              ele.forEach((ele1,index1)=>{
+                ele1.value=array5[index1]=="assume"?(res.data[index][array5[index1]]?Number(res.data[index][array5[index1]]):""):res.data[index][array5[index1]]
+              })
+            })
+          }
+
+          var array6=["shiper_traffic","shiper_hotel","shiper_city","shiper_examination","shiper_train","shiper_subsidy","shiper_else"]
+          if(res.assume.length>0){
+            this.shipProject.forEach((ele,index)=>{
+              var results=0
+              ele.forEach((ele2,index2)=>{
+                if(true){
+                  // console.log(ele[index].label)
+                  ele[index2].value=res.assume[0][array6[index2-3]]
+                  if(ele2.type=="number"){
+                    results=results+Number(ele2.value)
+                  }
+                }
+              })
+              ele[13].value=results
+            })
+          }
+
+          this.footMoreData.forEach((ele,index)=>{
+            if(index>0&&index<4){
+              ele[0].value=res.main.overdate
+              ele[2].value=0
+              ele[3].value=0
+              ele[4].value=0
+              ele[5].value=0
+            }
+          })
+          this.footMoreData[1][0].value=res.borrow.date||_g.getToday()
+          this.footMoreData[2][0].value=res.social.date||_g.getToday()
+          this.footMoreData[3][0].value=res.surance.date||_g.getToday()
+
+          this.footMoreData[1][2].value=res.borrow.us_debt||0
+          this.footMoreData[2][2].value=res.social.us_debt||0
+          this.footMoreData[3][2].value=res.surance.us_debt||0
+
+          this.footMoreData[1][3].value=res.borrow.us_receipt||0
+          this.footMoreData[2][3].value=res.social.us_receipt||0
+          this.footMoreData[3][3].value=res.surance.us_receipt||0
+
+          this.footMoreData[1][4].value=res.borrow.rmb_debt||0
+          this.footMoreData[2][4].value=res.social.rmb_debt||0
+          this.footMoreData[3][4].value=res.surance.rmb_debt||0
+
+          this.footMoreData[1][5].value=res.borrow.rmb_receipt||0
+          this.footMoreData[2][5].value=res.social.rmb_receipt||0
+          this.footMoreData[3][5].value=res.surance.rmb_receipt||0
+
+          this.footMoreData[4][2].value=res.main.total||0
+          
+          
+          this.footMoreData[7][1].value=res.main.type==1?"现金":"转账"
+          this.submitParams.type=res.main.type
+
+          this.canEdit=res.editor==0?true:false
+          this.showMore=res.show==1?true:false
+          this.countAll()
+
+          return
+        })
+      }else if(routerpath.indexOf("/refundSignStaff/info/")>-1||routerpath.indexOf("/refundRecordStaff/info/")>-1){
+        this.urls.sign=this.urls.staff.sign
+        this.urls.submit=this.urls.staff.submit
+        
+
+        this.apiPost(this.urls.sign,{id}).then(res=>{
+          this.submitParams.id=res.main.id
+          this.user_id=res.main.user_id
+          this.printData=res
+
+          var array1=["报销时间","出发日期","返程日期","差旅天数","客户","报销地点","船名","出差事由","事由说明"]
+          var array2=["date","start_date","end_date","days","shipowner_id","address","vessel_id","reason","explain"]
+          array1.forEach((ele,index)=>{
+            _g.getMyItem(this.tableModelData,"label",ele).value=res.main[array2[index]]
+          })
+
+          var array3=["交通费","住宿费","市内交通费","差旅补贴","招待餐费","其他交际费","办公杂费","通讯费","邮递费","同行人","其他"]
+          var array4=["traffic","hotel","city","travel","meal","exchange","office","communication","post","partner","else"]
+          if(res.option)array3.forEach((ele,index)=>{
+            if(_g.getMyItem(this.bodyTableModelData,"label",ele).children&&_g.getMyItem(this.bodyTableModelData,"label",ele).children.length==3){
+              _g.getMyItem(this.bodyTableModelData,"label",ele).children[1].value=res.option[array4[index]][0]
+              _g.getMyItem(this.bodyTableModelData,"label",ele).children[2].value=res.option[array4[index]][1]?Number(res.option[array4[index]][1]):""
+            }else{
+              _g.getMyItem(this.bodyTableModelData,"label",ele).children[1].value=res.option[array4[index]]
+            }
+          })
+
+          var array5=["date","start_address","end_address","traffic_cost","hotel_cost","city_cost","travel_cost","meal_cost","exchange_cost","office_cost","communication_cost","post_cost","partner_cost","else_cost"]
+          if(res.data.length>0)this.footTableModel.forEach((ele,index)=>{
+            ele.forEach((ele1,index1)=>{
+              ele1.value=array5[index1]=="assume"?(res.data[index][array5[index1]]?Number(res.data[index][array5[index1]]):""):res.data[index][array5[index1]]
+            })
+          })
+
+          var array6=["shiper_traffic","shiper_hotel","shiper_city","shiper_travel","shiper_meal","shiper_exchange","shiper_office","shiper_communication","shiper_post","shiper_partner","shiper_else"]
+          if(res.assume.length>0){
+            this.shipProject.forEach((ele,index)=>{
+              if(!index<3){
+                ele.value=res.assume[0][array6[index-3]]
+              }
+            })
+          }else{
+            this.shipProject.forEach((ele,index)=>{
+              if(!index<3){
+                ele.value=res.assume[array6[index-3]]
+              }
+            })
+          }
+
+          if(routerpath.indexOf("/refundRecordStaff/info")>-1){
+             this.editAgainBtn=(status=="未通过"&&res.checkin.is_self==1)?true:false
+          }
+          
+          if(routerpath.indexOf("/refundRecordStaff/info/")>-1||this.testEdit){
+            for(var i=res.principal.length;i<3;i++){
+              this.showArray.push(i+1)
+            }
+          }
+          
+
+          this.footMoreData[1][0].value=_g.getToday()
+          this.footMoreData[2][0].value=_g.getToday()
+          this.footMoreData[3][0].value=_g.getToday()
+          this.footMoreData[1][2].value=0
+          this.footMoreData[2][2].value=0
+          this.footMoreData[3][2].value=0
+          this.footMoreData[1][3].value=0
+          this.footMoreData[2][3].value=0
+          this.footMoreData[3][3].value=0
+
+          res.principal.forEach((ele3,index3)=>{
+            this.footMoreData[index3+1][0].value=ele3.date
+            this.footMoreData[index3+1][2].value=ele3.currency
+            this.footMoreData[index3+1][3].value=ele3.rmb
+          })
+
+          this.footMoreData[7][1].value=res.main.type==1?"现金":"转账"
+          this.submitParams.type=res.main.type||2
+          this.showMore=res.show==1?true:false
+          this.countAll()
+        })
+      }else if(routerpath.indexOf("/refundRecordOffice/info/")>-1||routerpath.indexOf("/refundSignOffice/info/")>-1){
+          this.urls.sign=this.urls.office.sign
+          this.urls.submit=this.urls.office.submit
+          
+          
+          this.apiPost(this.urls.sign,{id}).then(res=>{
+
+            this.printData=res
+            this.showOffice=res.show==1?true:false
+            this.submitParams.id=res.main.id
+            this.user_id=res.main.user_id
+            this.submitParams.type=res.main.type
+
+            var array1=["报销时间","客户","报销地点"]
+            var array2=["date","shipowner_id","address"]
+            array1.forEach((ele,index)=>{
+              _g.getMyItem(this.tableModelData,"label",ele).value=res.main[array2[index]]
+            })
+
+
+            var array5=["project","explain","explain_cost","number","total"]
+            var result=0
+
+            if(res.data.length>0){
+              for(var i=1;i<res.data.length;i++){
+                var strTest=JSON.stringify(this.footData)
+                this.footTableModel.push(JSON.parse(strTest)) //有待商榷
+              }
+
+              this.footTableModel.forEach((ele,index)=>{
+                ele.forEach((ele1,index1)=>{
+                  if(array5[index1]=="total"){
+                    result+=Number(res.data[index][array5[index1]])
+                  }
+                  ele1.value=res.data[index][array5[index1]]
+                })
+              })
+            }
+
+             if(routerpath.indexOf("/refundRecordOffice/info")>-1){
+                this.editAgainBtn=(status=="未通过"&&res.checkin.is_self==1)?true:false
+              }
+
+            
+
+            this.showMore=res.show==1?true:false
+            this.showOffice=res.show==1?true:false
+            
+            this.amount[this.amount.length-1]=result
+
+            this.shipProject[0][3].value=res.main.borrow
+            this.shipProject[1][1].value=_g.Arabia_To_SimplifiedChinese(result)
+            this.shipProject[2][3].value=result-res.main.borrow
+
+            this.submitParams.borrow=res.main.borrow
+            this.submitParams.really=result-res.main.borrow
+
+            this.footMoreData[0][1].value=res.main.type==1?"现金":"转账"
+
+          })
+      }
+    },
+
+
+    // 保存
+    saveThis(index){
+      var routerpath=_g.getRouterPath(this)
+      if(!this.canSaveSuccess)return;
+      if(index==0){
+        if(this.checkInfo(this.tableModel)&&this.checkFootInfo(this.footTableModel)){
+          this.apiPost(this.urls.addUrl,this.AddParams).then(res=>{
+            _g.toMessage(this,res.error?"error":"success",res.msg)
+            if(!res.error){
+              // 提交成功
+              this.canSaveSuccess=false
+              setTimeout(()=>{
+                this.canSaveSuccess=true
+              },3000)
+
+              if(routerpath=="/refundAddBoaters"||routerpath=="/refundAddStaffs"||routerpath=="/refundAddOffice"){
+                this.$store.state.reflash.contentReflash=false
+                setTimeout(()=>{
+                  this.$store.state.reflash.contentReflash=true
+                },500)
+              }else{
+                this.$router.go(-2)
+                localStorage.setItem("isPassed","待签批")
+              }
+              
+            }
+          })
+        }
+      }else{
+        // 审批
+        this.submitParams.sure=index
+        if(routerpath.indexOf("/refundSignBoater/info/")>-1){
+          var data=[]
+          this.footMoreData.forEach((ele,index)=>{
+            if(index==1||index==2||index==3){
+              data.push({
+                date:ele[0].value,
+                project:ele[1].value,
+                us_debt:ele[2].value,
+                us_receipt:ele[3].value,
+                rmb_debt:ele[4].value,
+                rmb_receipt:ele[5].value
+              })
+            }
+          })
+
+          this.submitParams.data=data
+
+        }else if(routerpath.indexOf("/refundSignStaff/info/")>-1){
+          this.submitParams.data=[]
+          this.footMoreData.forEach((ele,index)=>{
+            if(index>0&&index<4){
+              if(ele[0].value){
+                this.submitParams.data.push({
+                  date:_g.formatTime(ele[0].value),
+                  project:"借款",
+                  currency:ele[2].value,
+                  rmb:ele[3].value,
+                })
+              }
+            }
+          })
+        }
+
+
+        this.apiPost(this.urls.submit,this.submitParams).then(res=>{
+           _g.toMessage(this,res.error?"error":"success",res.msg)
+           if(!res.error){
+             // 提交成功
+              this.canSaveSuccess=false
+              setTimeout(()=>{
+                this.canSaveSuccess=true
+              },3000)
+
+             this.$router.go(-1)
+           }
+        })
+      }
+    },
+    changeMoney(){
+      this.footMoreData[5][3].value=this.footMoreData[4][3].value-(this.footMoreData[3][3].value||0)-(this.footMoreData[2][3].value||0)-(this.footMoreData[1][3].value||0)
+      this.footMoreData[6][1].value=_g.Arabia_To_SimplifiedChinese(this.footMoreData[5][3].value)
+    },
+    checkInfo(array){
+      var router=_g.getRouterPath(this)
+
+      for(let i=0 ; i<array.length;i++){
+        if(array[i].value||(router=="/refundAddStaffs"&&array[i].label=="船名")){
+          continue 
+        }else{
+          _g.toMessage(this,"warning",array[i].label+"不能为空")
+          return false
+        }
+      }
+      return true
+    },
+    checkFootInfo(array){
+      for(var i=0;i<array.length;i++){
+        for(var l=0;l<array[i].length;l++){
+          if((!array[i][l].value&&array[i][l].key!=="number")&&array[i][l].label){
+            _g.toMessage(this,"warning",array[i][l].label+"不能为空")
+            return false
+          }
+        }
+      }
+      return true
+    },
+
+    // 是否选择了其他
+    changeThis(one,item){
+      var routerpath=_g.getRouterPath(this)
+      if(routerpath=="/refundAddOffice"&&one.value=="其他"){
+        one.isOthers=true
+        item.splice(1,1,{
+          type:"label",
+          class:"display-none",
+          value:"",
+          key:""
+        })
+      }else{
+        one.isOthers=false
+      }
+    },
+
+    // 点击添加
+    addAnother(){
+      this.footTableModel.push(JSON.parse(this.footTableModelData))
+      this.footTableModel.forEach(ele=>{
+        ele.forEach(ele1=>{
+          if(ele1.arrayName)ele1.array=this[ele1.arrayName]
+        })
+      })
+
+      var routerpath=_g.getRouterPath(this)
+      if(routerpath=="/refundAddBoaters"){
+        this.AddParams.data.push(
+                {
+                  date:"",
+                  start_address:"",
+                  traffic_cost:0,
+                  end_address:"",
+                  hotel_cost:0,
+                  city_cost:0,
+                  examination_cost:0,
+                  train_cost:0,
+                  subsidy_cost:0,
+                  else_cost:0,
+                  assume:"",
+                  number:"",
+                  remark:"",
+                }
+              )
+      }else if(routerpath=="/refundAddStaffs"){
+        this.AddParams.data.push({
+              date:"",
+              start_address:"",
+              traffic_cost:0,
+              end_address:"",
+              hotel_cost:0,
+              city_cost:0,
+              meal_cost:0,
+              exchange_cost:0,
+              office_cost:0,
+              communication_cost:0,
+              post_cost:0,
+              else_cost:0,
+              partner_cost:0,
+              number:""
+            })
+      }else if(routerpath=="/refundAddOffice"){
+        this.AddParams.data.push({
+              project:"",
+              explain:"",
+              explain_cost:0,
+              total:0,
+              number:""
+            })
+      }
+
+      this.countAll()
+    },
+
+    // 修改下拉选择的数据
+    getSelectdata(){
+      var count=0
+      if(a)clearInterval(a)
+      var a= setInterval(()=>{
+        this.customs=this.$store.state.tableListData.owners
+        // console.log(this.$store.state.tableListData.owners)
+        this.areas=this.$store.state.tableListData.allareaArray
+        this.shipNames=this.$store.state.tableListData.shipnames
+        if(this.customs.length==0||this.areas.length==0||this.shipNames.length==0){
+          count++
+          if(count==10){
+            clearInterval(a)
+            _g.toMessage(this,"error","出错了,请尝试重新刷新")
+          }
+        }else{
+          this.tableModelData.forEach(ele=>{
+            if(ele.type=="select"){
+              ele.array=this[ele.arrayName]
+            }
+          })
+          clearInterval(a)
+        }
+        
+      },1000)
+
+
+      this.apiPost("Expenses/supplierList").then(res=>{
+        res.data.forEach(ele=>{
+          this.supplier.push(ele)
+        })
+      })
+
+      this.apiPost("expenses/shiperList").then(res=>{
+        res.forEach(ele=>{
+          this.shiperList.push(ele)
+        })
+      })
+
+
+      this.bodyTableModelData.forEach(ele=>{
+        if(ele.children)ele.children.forEach((ele1,index1)=>{
+          if(ele1.type=="select"&&index1==2){
+            ele1.array=this.supplier
+          }
+        })
+      })
+    },
+
+    // 通过传过来的参数，判断表格数据
+    getTableData(){
+      var routerpath=_g.getRouterPath(this)
+      if(routerpath=="/refundAddOffice"){
+        this.footClassName="foot-info-office foot-info"
+        this.bodyClassName="foot-info-office body-info"
+        this.amountClassName="foot-info-office foot-info amount-office"
+      }else{
+        this.footClassName="foot-info"
+        this.bodyClassName="body-info"
+        this.amountClassName="foot-info"
+      }
+      if(this.headData){
+        this.headData.forEach(ele0=>{
+          this.tableModelData.forEach(ele=>{
+            if(ele.label==ele0){
+              this.tableModel.push(ele)
+            }
+          })
+        })
+      }else{
+        this.tableModel=this.tableModelData
+      }
+      if(this.bodyData){
+        this.bodyData.forEach(ele0=>{
+          this.bodyTableModelData.forEach(ele=>{
+            if(ele.label==ele0){
+              this.bodyTableModel.push(ele)
+            }
+          })
+        })
+        
+      }else{
+        this.bodyTableModel=this.bodyTableModelData
+      }
+      if(this.footData){
+        this.footTableModelData=JSON.stringify(this.footData)
+        this.footTableModel=[JSON.parse(this.footTableModelData)]
+        this.footTableModel.forEach(ele=>{
+          ele.forEach(ele1=>{
+            if(ele1.arrayName)ele1.array=this[ele1.arrayName]
+          })
+        })
+       
+      }
+
+      if(this.amountData)this.amount=[...this.amountData]
+      if(this.shipProjectData)this.shipProject=[...this.shipProjectData]
+
+      this.changeData()
+      
+    },
+
+    // 判断的是否可以删除
+    checkDelete(){
+      var router=_g.getRouterPath(this)
+      var canDeleteArray=["/refundAddBoaters","/refundAddStaffs","/refundAddOffice"]
+      if(canDeleteArray.includes(router)){
+        this.canDelete=true
+      }else{
+        this.canDelete=false
+      }
+    },
+    getIsPassed(){
+      var router=_g.getRouterPath(this)
+      var status=localStorage.getItem("isPassed")
+      if(router.indexOf("/refundSignBoater/info/")>-1||router.indexOf("/refundRecordBoaters/info")>-1||router.indexOf("/refundSignStaff/info/")>-1||router.indexOf("/refundRecordStaff/info/")>-1||router.indexOf("/refundRecordOffice/info/")>-1||router.indexOf("/refundSignOffice/info/")>-1){
+        this.showPassedImg=status=="已通过"?true:false
+        this.chooseType=status=="待签批"?false:true //付款类型
+        this.showBtnBox=status=="待签批"?true:false 
+        this.showNoPassedImg=status=="未通过"?true:false
+        this.testEdit=status=="待签批"?false:true
+
+        this.officeMoney=true
+        
+        this.canEdit=true
+        _g.getMyItem(this.tableModelData,"label","姓名").value=localStorage.getItem("isPassedName")
+        _g.getMyItem(this.tableModelData,"label","职务").value=localStorage.getItem("isPassedDuty")
+        _g.getMyItem(this.tableModelData,"label","部门").value=localStorage.getItem("isPassedDepartment")
+        
+        this.staffEditMoney=true
+      }
+      // 记录
+      if(router.indexOf("/refundRecordBoaters/info")>-1){
+        this.showBtnBox=status=="未通过"?true:false
+        this.chooseType=true
+        // this.editAgainBtn=(status=="未通过")?true:false
+        this.showPassBtns=false
+        this.ShowPrintint=status=="已通过"?true:false
+
+      }else if(router.indexOf("/refundRecordStaff/info/")>-1){
+        this.showBtnBox=status=="未通过"?true:false
+        // this.editAgainBtn=status=="待签批"?false:true
+        this.showPassBtns=false
+        this.ShowPrintint=status=="已通过"?true:false
+        this.chooseType=true
+      }else if(router.indexOf("/refundRecordOffice/info/")>-1){
+        this.ShowPrintint=status=="已通过"?true:false
+        this.showBtnBox=status=="未通过"?true:false
+        // this.editAgainBtn=status=="待签批"?false:true
+        this.showPassBtns=false
+        this.chooseType=true
+      }else if(router.indexOf("/refundSignStaff/info/")>-1){
+        this.staffEditMoney=status=="待签批"?false:true
+      }else if(router.indexOf("/refundSignBoater/info")>-1){
+        this.staffEditMoney=true
+      }else if(router.indexOf("/refundSignOffice/info/")>-1){
+        this.staffEditMoney=false
+        this.staffEditMoney=status=="待签批"?false:true
+        this.officeMoney=status=="待签批"?false:true
+
+      }
+      
+    }
+  },
+  filters:{
+    slice4(value){
+      return value.slice(0,4)
+    }
+  },
+  components: {Print},
+  created() {
+    this.getTableData()
+    this.getSelectdata()
+    this.countAll()
+    this.checkDelete()
+    this.getIsPassed()
+  }
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.addtable-box {
+  height: 100%;
+}
+table{
+  width: 100%;
+}
+tr{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 40px;
+  line-height: 40px;
+  border-top: 1px solid #E4E4E4;
+  border-left: 1px solid #E4E4E4;
+}
+.foot-info{
+  border-top: none;
+}
+.my-info td{
+  width: 25%;
+  display: flex;
+  justify-content: flex-start;
+}
+tr.my-info .is-big{
+  width: 50%;
+}
+tr.my-info td:nth-child(2){
+  overflow: hidden;
+}
+tr.my-info td:nth-child(n+9) span,tr.my-info td:last-child span{
+  border-bottom: none;
+}
+tr.my-info td span{
+  height: 40px;
+  width: 0;
+  vertical-align: middle;
+  flex-grow: 1;
+  border-bottom: 1px solid #E4E4E4;
+  border-right: 1px solid #E4E4E4;
+}
+
+.body-info td,.foot-info td,.add-btn-box td{
+  width: 60px;
+  border-bottom: 1px solid #E4E4E4;
+  border-right: 1px solid #E4E4E4;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.body-info span{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  /* line-height: 120px; */
+}
+.body-info .canEdit-box{
+  height: 120px;
+}
+.body-info .canEdit-box span{
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  width: 100%;
+}
+.body-info .canEdit-box span:nth-child(2){
+  border-bottom: 1px solid #E4E4E4;
+  border-top: 1px solid #E4E4E4;
+}
+
+
+.label-title{
+  text-align: right;
+  padding-right: 10px;
+}
+.add-table-label{
+  background-color: #f3f3f3;
+  /* overflow: hidden;
+  height: 40px; */
+}
+.my-info .grow_2_5{
+  flex-grow: 2.5;
+}
+.my-info .grow_3{
+  flex-grow: 3
+}
+.my-info .grow_6_2{
+  flex-grow: 6.2
+}
+.line-height120{
+  line-height: 120px;
+}
+.line-height{
+  line-height: 40px;
+}
+.body-info td.special-bac span{
+  background-color: transparent;
+}
+.body-info td.special-bac{
+  background: url(../../../../assets/imgs/refund/table.png);
+  background-size: 100% 100%;
+}
+.end-place{
+  left: 10px;
+  line-height: 20px;
+  bottom: 15px;
+  height: 40px!important;
+  width: 30px!important;
+}
+.gys{
+  right: 10px;
+  top: 15px;
+  line-height: 20px;
+  height: 40px!important;
+  width: 30px!important;
+}
+.count-here{
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background-color: #f3f3f3;
+  /* border-right: 1px solid #E4E4E4; */
+}
+.add-btn-box{
+  border-top: none;
+  display: flex;
+}
+.add-btn-box td{
+  text-align: left;
+}
+.my-btn{
+  display: inline-block;
+  margin: 10px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  width: 60px;
+  min-width: 40px;
+}
+.font-height700{
+  font-weight: 700;
+  color: #666
+}
+.sumbit-box{
+  height: 100px;
+}
+.submit-btn{
+  margin-top: 55px;
+}
+
+.foot-info-office td:nth-child(1),.foot-info-office td:nth-child(2),.foot-info-office td:nth-child(4){
+  width: 25%;
+  width: 0;
+  /* flex-grow: 1 */
+}
+
+
+
+.width25{
+  width: 25%!important;
+  flex-grow: 0!important
+}
+
+.flex-grow-3{
+  width: 0!important;
+  flex-grow: 3!important
+}
+
+.flex-grow-1{
+  width: 0!important;
+  flex-grow: 1!important
+}
+.flex-grow-4{
+  width: 0!important;
+  flex-grow: 4!important
+}
+
+.blank-label{
+  background-color: #f3f3f3;
+  border-right: none!important;
+}
+.amount-office td:nth-child(1),.amount-office td:nth-child(2){
+  display: none;
+}
+.amount-office,.fund{
+  background-color: #f3f3f3
+}
+.amount-office td:nth-child(3) span,.fund span{
+  width: 50px;
+  float: right;
+  padding-right: 20px;
+}
+.padding-left{
+  padding-left: 10px;
+}
+.passed-img{
+  top: 0;
+  right: 0;
+  width: 150px;
+}
+.for-refund-box{
+  margin-top: 10px;
+  border-top: 1px solid #E4E4E4;
+}
+.for-refund{
+  /* margin-top: 10px; */
+  flex-wrap: nowrap;
+  border-top: none;
+}
+.for-refund td{
+  width: 25%;
+  border-right: 1px solid #E4E4E4!important;
+  border-bottom: 1px solid #E4E4E4;
+  text-align: center;
+}
+.for-refund td.flex-grow-3.padding-left{
+  text-align: left;
+}
+.for-refund>td>span{
+  /* text-align: center; */
+}
+.for-refund .no-border-right{
+  border-right-color: transparent!important;
+}
+/* .for-refund  .width16{
+  width: 16.666%;
+
+}
+.for-refund .width66{
+  width: 66.6%;
+} */
+
+.canflexgrew{
+  width: 0;
+  flex-flow: 1!important
+}
+
+.candelete:hover{
+  background-color: #f4f4f4;
+  
+}
+.print-btn{
+  height: 35px;
+}
+.wait-btn{
+  /* width: 100px; */
+  height: 35px;
+  background-color: gray
+}
+.bac-grey{
+  background-color: gray
+}
+</style>

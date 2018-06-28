@@ -1,0 +1,342 @@
+<template>
+  <div class="add-staff-box" v-show="!$store.state.allDialog.showNoRight">
+    <Search style="display:none"></Search>
+    <addTable :headData="headData" lh120="true" :btns="btns" :isPassed="isPassed" :addBtnShow="addBtnShow" :footMoreData="footMoreData" :canEdit="canEdit" :bodyData="bodyData" :footData="footData" :amountData="amount" :shipProjectData="shipData"></addTable>
+  </div>
+</template>
+
+<script>
+import Search from '../../common/search/search'
+import addTable from './common/addtable'
+export default {
+  data () {
+    return {
+      headData:["报销时间","出发日期","返程日期","差旅天数","姓名","部门","客户","报销地点","船名","差旅事由","事由说明"],
+      bodyData:["日期","起始地点","我去","交通费","住宿费","市内交通费","差旅补贴","招待餐费","其他交际费","办公杂费","通讯费","邮递费","同行人","其他","电子发票","合计"],
+      footData:[
+            {
+              type:"time",
+              value:"",
+              key:"date",
+              label:"费用发生日期"
+            },{
+              type:"input",
+              value:"",
+              label:"开始地点",
+              key:"start_address"
+            },{
+              type:"input",
+              value:"",
+              label:"结束地点",
+              key:"end_address",
+            },{
+              type:"number",
+              value:"0.00",
+              key:"traffic_cost"
+            },{
+              type:"number",
+              value:"0.00",
+              key:"hotel_cost"
+            },{
+              type:"number",
+              value:"0.00",
+              key:"city_cost"
+            },{
+              type:"number",
+              value:"0.00",
+              key:"travel_cost",
+            },{
+              type:"number",
+              value:"0.00",
+              key:"meal_cost"
+            },{
+              type:"number",
+              value:"0.00",
+              key:"exchange_cost"
+            },{
+              type:"number",
+              value:"0.00",
+              key:"office_cost"
+            },{
+              type:"number",
+              value:"0.00",
+              key:"communication_cost"
+            },{
+              type:"number",
+              value:"0.00",
+              key:"post_cost"
+            },{
+              type:"number",
+              value:"0.00",
+              key:"partner_cost"
+            },{
+              type:"number",
+              value:"0.00",
+              key:"else_cost",
+            },{
+              type:"input",
+              value:"",
+              key:"number",
+              // label:"电子发票编号"
+            },{
+              type:"label", //
+              value:"0.00",
+              key:""
+            }],
+        amount:["","","分项合计",0,0,0,0,0,0,0,0,0,0,0,"",0],//合计
+        shipData:[[//船东项目
+        {
+          type:"label",
+          label:"",
+        },{
+          type:"label",
+          label:"",
+        },{
+          type:"label",
+          label:"收船东项目"
+        },{
+          type:"number",
+          value:"",
+          key:"shiper_traffic",
+        },{
+          type:"number",
+          value:"",
+          key:"shiper_hotel",
+        },{
+          type:"number",
+          value:"",
+          key:"shiper_city",
+        },{
+          type:"number",
+          value:"",
+          key:"shiper_travel",
+        },{
+          type:"number",
+          value:"",
+          key:"shiper_meal",
+        },{
+          type:"number",
+          value:"",
+          key:"shiper_exchange",
+        },{
+          type:"number",
+          value:"",
+          key:"shiper_office",
+        },{
+          type:"number",
+          value:"",
+          key:"shiper_communication",
+        },{
+          type:"number",
+          value:"",
+          key:"shiper_post",
+        },{
+          type:"number",
+          value:"",
+          key:"shiper_partner",
+        },{
+          type:"number",
+          value:"",
+          key:"shiper_else",
+        },{
+          type:"label",
+          value:"",
+          key:"",
+        },{
+          type:"count",
+          value:"0.00",
+          key:"",
+        }
+      ]],
+      btns:1,
+      isPassed:false,
+      addBtnShow:true,
+      canEdit:false,
+
+      footMoreData:[
+        [ 
+          {
+            label:"日期",
+            type:"label",
+            class:"blank-label canflexgrew"
+          },{
+            label:"预支抵扣项目",
+            type:"label",
+            class:"blank-label canflexgrew"
+          },
+          {
+            label:"外汇及汇率(CURRENCY)",
+            type:"label",
+            class:"blank-label canflexgrew"
+          },
+          {
+            label:"折合人民币(RMB)",
+            type:"label",
+            class:"blank-label canflexgrew"
+          }
+        ],[
+          {
+            type:"time",
+            value:""
+          },{
+            type:"input",
+            readonly:true,
+            value:"借款"
+          },{
+            type:"input",
+            readonly:false,
+            value:""
+          },{
+            type:"input",
+            readonly:false,
+            value:""
+          }
+        ],[
+          {
+            type:"time",
+            value:""
+          },{
+            type:"input",
+            readonly:true,
+            value:"借款"
+          },{
+            type:"input",
+            readonly:false,
+            value:""
+          },{
+            type:"input",
+            readonly:false,
+            value:""
+          }
+        ],[
+          {
+            type:"time",
+            value:""
+          },{
+            type:"input",
+            readonly:true,
+            value:"借款"
+          },{
+            type:"input",
+            readonly:false,
+            value:""
+          },{
+            type:"input",
+            readonly:false,
+            value:""
+          }
+        ],[
+          {
+            type:"span",
+            label:"",
+            class:"no-border-right"
+          },{
+            type:"span",
+            label:"所有差旅费总计"
+          },{
+            type:"input",
+            value:"",
+            readonly:true,
+          },{
+            type:"input",
+            value:"",
+            readonly:true,
+          }
+        ],[
+          {
+            type:"span",
+            label:"",
+            class:"no-border-right"
+          },{
+            type:"span",
+            label:"应补差旅费金额"
+          },{
+            type:"input",
+            value:"",
+            readonly:true,
+          },{
+            type:"input",
+            value:"",
+            readonly:true,
+          },
+        ],[
+          {
+            type:"span",
+            label:"所有差旅费总计(大写)",
+            class:"flex-grow-1"
+          },{
+            type:"input",
+            value:"",
+            readonly:true,
+            class:"flex-grow-3",
+          }
+        ],[
+          {
+            label:"付款方式",
+            type:"label",
+            class:"blank-label"
+          },{
+            type:"radio",
+            value:"",
+            data:[
+              {
+                label:"现金",
+                value:"现金"
+              },{
+                label:"转账",
+                value:"转账"
+              }
+            ],
+            class:"flex-grow-3 padding-left"
+          }
+        ]
+      ],
+
+      dataUrl:[
+        {
+          label:"/refundSignStaff/info",
+          url:"",//获取详情的地址
+          btns:2,
+          addBtnShow:false,
+        },,{
+          label:"/refundRecordStaff/info",
+          url:"",//获取详情的地址
+          btns:2,
+          addBtnShow:false,
+        }
+      ]
+    }
+  },
+  methods:{
+    getData(){
+      var routerpath=_g.getRouterPath(this)
+      var id=_g.getRouterParams(this).id
+      this.dataUrl.forEach(ele=>{
+        if(routerpath.indexOf(ele.label)>-1){
+          // 获取详情之后才能判断按钮等的显示情况
+          this.addBtnShow=ele.addBtnShow
+          this.canEdit=true
+          this.btns=2
+          return
+        }
+      })
+      var pathArray=["/refundAddOffice","/refundAddStaffs","/refundAddBoaters",]
+      if(pathArray.includes(routerpath)){
+        this.footMoreData=[]
+      }
+    }
+  },
+  components: {
+    addTable,Search
+  },
+  created(){
+    this.getData()
+
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+
+</style>

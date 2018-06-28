@@ -1,0 +1,18 @@
+td{
+  width: 0;
+  /* flex-grow: 1; */
+  display: flex;
+  width: 25%;
+  box-sizing: border-box;
+}
+span{
+  display: inline-block;
+  height: 30px;
+  flex-flow: 1;
+  line-height: 30px;
+  /* border: 1px solid #333;
+  border-right: 0;
+  border-bottom: 0; */
+  box-sizing: border-box;
+  text-align: center;
+}

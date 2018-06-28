@@ -1,0 +1,380 @@
+// import { Loading } from 'element-ui';
+// import store from '../../vuex/store'
+
+var functions = {
+  /**
+   * @name 判断传入地址的图片是否加载成功
+   * @param {str} imgurl 
+   * @param {function} callback 
+   */
+  imgLoad(imgurl, callback) {
+    var img = new Image()
+    img.src = imgurl
+    if (callback) {
+      callback()
+    }
+    return img.complete
+  },
+
+  /**
+   * @name 倒计时
+   * @param {int} time 
+   * @param {function} callback 
+   */
+  countDown(time, callback) {
+    var timeDown = setInterval(() => {
+      // return time
+      if (time == 0) {
+        clearInterval(timeDown)
+        if (callback) callback()
+      } else {
+        time--
+      }
+    }, 1000)
+  },
+
+  /**
+   * @name 获取当前路由path
+   * @param {*} vue 
+   */
+  getRouterPath(vue) {
+    var routerPath = vue.$router.history.current.path
+    return routerPath
+  },
+
+  /**
+   * @name 获取当前路由中携带的参数，返回param或者返回全部的参数
+   * @param {*} vue 
+   * @param {str} param 
+   */
+  getRouterParams(vue, param) {
+    if (param) {
+      return vue.$router.history.current.params[param]
+    } else {
+      return vue.$router.history.current.params
+    }
+  },
+
+  /**
+   * @name elementUi 中的信息提示窗口
+   * @param {*} vue 
+   * @param {*} type 包括 success/warning/info/error
+   * @param {*} str 
+   */
+  toMessage(vue, type, str) {
+    vue.$message({
+      showClose: true,
+      message: str || "没有提示消息",//添加默认值
+      type: type || "warning",//添加默认值
+      duration: "2500"
+    })
+  },
+
+  showloading(str) {
+    if (store.state.loading.loadingEnable) store.state.loading.load = Loading.service({ fullscreen: true, text: str || "拼命加载中" })
+  },
+  closeloading(vue, str) {
+    if (store.state.loading.loadingEnable&&store.state.loading.load) store.state.loading.load.close()
+    if (vue) {
+      _g.toMessage(vue, "success", str || "设置成功")
+    }
+  },
+
+  /**
+   * @name get请求
+   * @param {*} url 
+   * @param {*} data 
+   */
+  apiGet(url, data) {
+    url = PATH + url
+    _g.showloading()
+    return new Promise((resolve, reject) => {
+      $axios.get(url, data).then((response) => {
+        setTimeout(() => {
+          _g.closeloading()
+        }, 1000)
+        resolve(response.data)
+      }, (response) => {
+        _g.closeloading()
+        reject(response)
+        _g.toMessage(vue, "error", "请求超时,请检查项目")
+      })
+    })
+  },
+  /**
+   * @name post请求
+   * @param {*} url 
+   * @param {*} data 
+   */
+  apiPost(url, data) {
+    var pagesControlUrls=[
+      "Mariner/listMariner",
+      "Mariner/listShipowner",
+      "Mariner/listVessel",
+      "Social/listArea",
+      "social/listInsured",
+      "Social/infoInsured",
+      "social/checkInsured",
+
+      "Expenses/listMariner",
+      "expenses/listUser",
+      "expenses/listOffice",
+      "expenses/signMariner",
+      "expenses/signUser",
+      "expenses/signOffice",
+
+      "borrow/listBorrow",
+      "borrow/listInsurance",
+      "borrow/infoBorrow",
+
+      "charge/listCharge",
+      "charge/infoCharge",
+
+      "supplier/listSupplier",
+
+      "staff/listStaff",
+
+      "privilege/agentList",
+      "privilege/listRole",
+      "privilege/accountList"
+    ]
+
+    var passControlUrl=[
+      "Mariner/dutyMariner",
+      "mariner/shipowner",
+      "login/department",
+      "staff/education",
+      "staff/degree",
+      "staff/organization",
+      "privilege/allRole",
+      "mariner/searchVessel",
+      "mariner/staffData",
+      "Social/searchArea",
+      "supplier/attributeSupplier",
+      "borrow/reasonAll",
+      "mariner/financeList"
+    ]
+
+    var passUrls=[
+      "login/staff",
+      "login/sendMessage",
+      "login/checkVerity",
+      "Mariner/getMariner",
+    ]
+    
+    if(url.indexOf("/export")>-1||passUrls.includes(url)){
+
+    }else if(pagesControlUrls.includes(url)){
+      _g.showloading()
+    }
+
+    return new Promise((resolve, reject) => {
+      $axios.post(PATH + url, data).then((response) => {
+        if(pagesControlUrls.includes(url)){
+          if(response.data.error==2){
+            store.state.allDialog.showNoRight=true
+            setTimeout(() => {
+              _g.closeloading()
+            }, 500)
+            return
+          }else{
+            store.state.allDialog.showNoRight=false
+          }
+        }else if(passControlUrl.includes(url)){
+          
+        }else{
+          store.state.allDialog.showNoRight=false
+        }
+        setTimeout(() => {
+          _g.closeloading()
+        }, 1000)
+        resolve(response.data)
+        
+      }).catch((response) => {
+        _g.closeloading()
+        resolve(response)
+        _g.toMessage(vue, "error", "请求超时,请检查网络")
+      })
+    })
+  },
+
+  objToStr(obj) {
+    // JSON.stringify(obj).slice(1, JSON.stringify(obj).length - 1).replace(/,/g, "&").replace(/:/g, "=").replace(/"/g, "")
+    var str00=JSON.stringify(obj)
+    var obj1=JSON.parse(str00)
+    var array=["duty","ownerPool","vessel","project","address"]
+    var str=""
+    for(var key in obj1){
+      if(array.includes(key)&&obj1[key]&&Array.isArray(obj1[key])){
+        obj1[key]=obj1[key].join(",")
+      }
+      if(obj1[key]&&key!="listRows"&&key!="page")str+="&"+key+"="+obj1[key]
+    }
+    return str.slice(1)
+  },
+
+  /**
+   * @name 找出符合条件的值合并成新的数组并且返回,如果条件为空，则返回目标数组
+   * @param {*} goalArray  基础数组
+   * @param {*} conditionArray  条件数组
+   */
+  getRightItem(vue, goalArray, conditionArray) {
+    var goalArray = [...goalArray]
+    if (!conditionArray.length) {
+      goalArray.forEach(ele1 => {
+        if (ele1.type == "select") {
+          ele1.array = vue[ele1.arrayName]
+        }
+      })
+      return goalArray
+    } else {
+      var results = []
+      conditionArray.forEach(ele => {
+        goalArray.forEach(ele1 => {
+          if (ele1.label === ele) {
+            results.push(ele1)
+            if (ele1.type == "select") {
+              ele1.array = vue[ele1.arrayName]
+            }
+          }
+        })
+      });
+      return results
+      // return []
+    }
+  },
+
+
+  /**
+   * @name 格式化时间
+   * @param {*} time 
+   * @param {str} str
+   */
+  formatTime(time, str) {
+    if (!time) {
+      return null
+    }
+    if(time.length==10||time.length==7){return time}
+    if (str == "month") {return time.getFullYear() + '-' + ((time.getMonth() + 1)<10?"0"+(time.getMonth() + 1):(time.getMonth() + 1))}
+    // + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds(); 
+    return time.getFullYear() + '-' + ((time.getMonth() + 1)<10?"0"+(time.getMonth() + 1):(time.getMonth() + 1)) + '-' +( time.getDate()<10?"0"+time.getDate():time.getDate())
+    
+  },
+
+
+  getToday() {
+    return new Date().getFullYear() + '-' + ((new Date().getMonth() + 1)>9?(new Date().getMonth() + 1):"0"+(new Date().getMonth() + 1)) + '-' + (new Date().getDate()>9?new Date().getDate():"0"+new Date().getDate())
+  },
+
+
+  getLastYear(){
+    return[(new Date().getMonth()==11?new Date().getFullYear():(new Date().getFullYear()-1))+"-"+(new Date().getMonth()==11?"01":((new Date().getMonth() + 2)>9?(new Date().getMonth() + 2):"0"+(new Date().getMonth() + 2))),new Date().getFullYear() + '-' + ((new Date().getMonth() + 1)>9?(new Date().getMonth() + 1):"0"+(new Date().getMonth() + 1))]
+  },
+
+  /**
+   * @name 获取数组中key=val对用的元素
+   * @param {*} array 
+   * @param {*} key 
+   * @param {*} val 
+   */
+  getMyItem(array, key, val) {
+    var obj={}
+    if(!array.length)return {}
+    array.forEach((ele,index) => {
+      if (ele[key] == val) {
+        obj = ele
+      }
+    })
+    return obj
+  },
+
+  /**
+   * @name 金额转换称汉字
+   * @param {*} Num 
+   */
+  Arabia_To_SimplifiedChinese(Num) {
+    for (var i = Num.length - 1; i >= 0; i--) {
+      Num = Num.replace(",", "")//替换Num中的“,”
+      Num = Num.replace(" ", "")//替换Num中的空格
+    }
+    if (isNaN(Num)) { //验证输入的字符是否为数字
+      //alert("请检查小写金额是否正确");
+      return;
+    }
+    //字符处理完毕后开始转换，采用前后两部分分别转换
+    var part = String(Num).split(".");
+    var newchar = "";
+    //小数点前进行转化
+    for (var i = part[0].length - 1; i >= 0; i--) {
+      if (part[0].length > 10) {
+        //alert("位数过大，无法计算");
+        return "";
+      }//若数量超过拾亿单位，提示
+      var tmpnewchar = ""
+      var perchar = part[0].charAt(i);
+      switch (perchar) {
+        case "0": tmpnewchar = "零" + tmpnewchar; break;
+        case "1": tmpnewchar = "壹" + tmpnewchar; break;
+        case "2": tmpnewchar = "贰" + tmpnewchar; break;
+        case "3": tmpnewchar = "叁" + tmpnewchar; break;
+        case "4": tmpnewchar = "肆" + tmpnewchar; break;
+        case "5": tmpnewchar = "伍" + tmpnewchar; break;
+        case "6": tmpnewchar = "陆" + tmpnewchar; break;
+        case "7": tmpnewchar = "柒" + tmpnewchar; break;
+        case "8": tmpnewchar = "捌" + tmpnewchar; break;
+        case "9": tmpnewchar = "玖" + tmpnewchar; break;
+      }
+      switch (part[0].length - i - 1) {
+        case 0: tmpnewchar = tmpnewchar; break;
+        case 1: if (perchar != 0) tmpnewchar = tmpnewchar + "拾"; break;
+        case 2: if (perchar != 0) tmpnewchar = tmpnewchar + "佰"; break;
+        case 3: if (perchar != 0) tmpnewchar = tmpnewchar + "仟"; break;
+        case 4: tmpnewchar = tmpnewchar + "万"; break;
+        case 5: if (perchar != 0) tmpnewchar = tmpnewchar + "拾"; break;
+        case 6: if (perchar != 0) tmpnewchar = tmpnewchar + "佰"; break;
+        case 7: if (perchar != 0) tmpnewchar = tmpnewchar + "仟"; break;
+        case 8: tmpnewchar = tmpnewchar + "亿"; break;
+        case 9: tmpnewchar = tmpnewchar + "拾"; break;
+      }
+      newchar = tmpnewchar + newchar;
+    }
+    //替换所有无用汉字，直到没有此类无用的数字为止
+    while (newchar.search("零零") != -1 || newchar.search("零亿") != -1 || newchar.search("亿万") != -1 || newchar.search("零万") != -1) {
+      newchar = newchar.replace("零亿", "亿");
+      newchar = newchar.replace("亿万", "亿");
+      newchar = newchar.replace("零万", "万");
+      newchar = newchar.replace("零零", "零");
+    }
+    //替换以“一十”开头的，为“十”
+    if (newchar.indexOf("一十") == 0) {
+      newchar = newchar.substr(1);
+    }
+    //替换以“零”结尾的，为“”
+    if (newchar.lastIndexOf("零") == newchar.length - 1) {
+      newchar = newchar.substr(0, newchar.length - 1);
+    }
+
+    if(!part[1]||part[1].length==0){
+      return newchar+"圆整"
+    }else{
+      return newchar+"圆"+this.toUp(part[1].slice(0,1))+"角"+this.toUp(part[1].slice(1,2))+"分"
+    }
+  },
+
+  toUp(word){
+    switch (word) {
+      case "0": return "零"
+      case "1": return "壹"
+      case "2": return "贰"
+      case "3": return "叁"
+      case "4": return "肆"
+      case "5": return "伍"
+      case "6": return "陆"
+      case "7": return "柒"
+      case "8": return "捌"
+      case "9": return "玖"
+    }
+  }
+}
+
+export default functions

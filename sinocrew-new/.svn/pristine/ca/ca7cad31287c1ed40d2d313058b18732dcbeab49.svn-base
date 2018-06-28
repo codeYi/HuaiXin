@@ -1,0 +1,560 @@
+<template>
+  <div class="search" v-if="isReflash">
+    <Thead :url="isDetail!==true?imgs.imgS:imgs.imgD" type="search" :btns="btns"></Thead>
+    <div v-show="!showNext">
+      <div class="search-content search-test box-size">
+        <div v-for="(item,index) in allList" :class="item.width_50&&item.isBig?'search-box box-size is-big width_50':item.isBig?'search-box box-size is-big':'search-box box-size'">
+          <span :class="(item.label=='MANNING OFFICE'||item.label=='OWNER POOL')?'no-line-height':'white-space'" :title="item.label" style="height:40px;">{{item.label}}</span>
+          <input type="text" v-if="item.type=='input'" v-model="item.value" :title="item.title" @change="changeSearch(item.value,item.special)">
+
+          <el-select v-if="item.type=='select'&&item.isSpecial" :filterable="item.filterable" :class="item.isMul?'select mul-box':'select'" :multiple="item.isMul" v-model="item.value" placeholder="请选择" :disabled="isDetail" @change="changeThis(item.value,item.special)">
+              <el-option v-for="(item,index) in item.array" :key="index" :label="item.title" :value="item.id">
+              </el-option>
+          </el-select>
+
+          <el-select v-else-if="item.type=='select'&&item.special=='name'" class="select" v-model="item.value" placeholder="请选择" :disabled="isDetail" @change="changeName(item.value)">
+              <el-option v-for="(item,index) in item.array" :key="index" :label="item.name" :value="item.value">
+              </el-option>
+          </el-select>
+          
+          <el-select v-else-if="item.type=='select'&&item.special!='name'&&item.orderGroup" :class="item.isMul?'select mul-box':'select'" v-model="item.value" :filterable="item.filterable" :multiple="item.isMul" placeholder="请选择" :disabled="isDetail" @change="changeThis(item.value,item.special)">
+              
+              <el-option-group v-if="item.orderGroup"
+                v-for="(group,index0) in item.array"
+                :key="group.label"
+                :label="group.label">
+                <el-option
+                  v-for="(option,index1) in group.options"
+                  :label="option"
+                  :key="option"
+                  :value="option">
+                </el-option>
+              </el-option-group>
+          </el-select>
+
+          <el-select v-else-if="item.type=='select'&&item.special!='name'" :class="item.isMul?'select mul-box':'select'" v-model="item.value" :filterable="item.filterable" :multiple="item.isMul" placeholder="请选择" :disabled="isDetail" @change="changeThis(item.value,item.special)">
+              <el-option v-for="(item,index) in item.array" :key="index" :label="item" :value="item">
+              </el-option>
+          </el-select>
+
+          <input type="number" v-else-if="item.type=='number'" name="" v-model="item.value"  @change="changeThis(item.value,item.special)">
+          <div v-else-if="item.type=='number_2'" class="select number_2">
+            <input type="number" v-model="item.start" @change="getCountNum(item.special,item)">
+            <span style="padding:0">至</span>
+            <input type="number" style="border:none" v-model="item.end" @change="getCountNum(item.special,item)">
+          </div>
+          <el-date-picker v-else-if="item.type=='time'" @change="changeThisTime(item.value,item.special,item.formal?'month':'')" :format="item.formal?'yyyy-MM':''" class="time-choose select" v-model="item.value" type="daterange" range-separator="至" start-placeholder="开始时间" end-placeholder="结束时间"> </el-date-picker>
+
+          <div v-else-if="item.type=='month'" class="select month-range">
+            <el-date-picker :title="item.title" placeholder="开始时间" v-model="item.startTime" type="month" class="month-select" @change="changeThisTime(item.startTime,item.special,item.formal?'month':'',item)"></el-date-picker>
+            <span style="padding:0;line-height:32px;" class="a-word">至</span>
+            <el-date-picker :title="item.title" placeholder="结束时间" v-model="item.endTime" type="month" class="month-select" @change="changeThisTime(item.endTime,item.special,item.formal?'month':'',item)"></el-date-picker>
+          </div>
+        
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>
+
+<script>
+import Thead from '../tableHead.vue'
+export default {
+  props:["isDetail","btns","showNext"],
+  data() {
+    return {
+      allList:[],
+      isReflash:true,//重载
+
+      // 下拉的相关数据
+      nameData:[],
+      jobs:[],//职务
+      attributes:["全部","境内客户","境外客户"],//属性
+      attrArray:["全部","整船","单派"],
+      owners:[],
+      offices:["全部","自有船员","分包方船员"], //
+      shipnames:[],
+
+      groups:[],//分组
+      insuranceState:["全部","缴纳","停缴"],//社保状态
+      allareaArray:[],  //地区社保
+      stopArray:["全部","是","否"],//是否停过保
+      isMarried:["全部","已婚","未婚"],
+      payType:["全部","单位承担部分","个人全额自负","公司全额自负"], //缴费类型
+      
+      Insure:[],//投保单位
+      state:["已通过","未通过","待签批"],
+      stateR:[{title:"全部",id:""},{title:"已通过",id:1},{title:"待审批",id:0},{title:"未通过",id:-1}],
+
+      currencyData:["全部","人民币","美元"],//币种
+      reasonData:[],
+      project:["招待餐费","通讯费","市内交通费","办公用品","办公费","船员","资产购置","其他交际费","加班餐费","邮递费","车辆运营费","其他"],//报销项目
+      
+      settleArray:[{title:"全部",id:""},{title:"是",id:1},{title:"否",id:2}],
+      supplierAttr:[],
+      sexData:["全部","男","女"],
+      department:[],//部门
+      education:[],//学历
+      degree:[],//学位
+      organization:[],//政治面貌
+      attributesArray:[],
+      roles:[],
+      shiperList:[],//费用承担方
+
+      financeList:[],
+
+      flashThis:true,//属性刷新
+
+      imgs:{
+        imgS:require("../../../assets/imgs/boaters/icon-search@2x.png"),
+        imgD:require("../../../assets/imgs/boaters/icon-datalist@2x.png")
+      },
+      
+      searchShow:1, //1船员信息 2船东信息 3船名信息 4社保设置 5参保人员 6社保信息 7社保对账
+
+      urls:{
+        jc:"Mariner/getMariner",
+        jc_b:"staff/getUser",
+
+        jobs:"Mariner/dutyMariner",//船员职务
+        owners:"mariner/shipowner",//船东列表
+        shipnames:"mariner/searchVessel",
+
+        Insure:"supplier/listSupplier",//投保单位
+
+
+        department:"login/department",//部门
+        education:"staff/education",//学历
+        degree:"staff/degree",//学位
+        organization:"staff/organization",//面貌
+        business:"mariner/staffData",
+        allareaArray:"Social/searchArea",
+        shipOwner:"mariner/shipowner",
+
+        reasonData:"borrow/reasonAll",
+
+        shiperList:"expenses/shiperList",
+
+        attributesArray:"supplier/attributeSupplier" ,
+
+        roles:"privilege/allRole",
+      },
+
+      inputSetTime:null,//获取搜索内容的定时
+      
+      allKeysArray:["","boaters","shipowners","shipnames","securityset","securityinsurance","securityinfo","securitycompare","refundRecordBoaters","refundRecordStaff","refundRecordOffice","refundSignBoater","refundSignStaff","refundSignOffice","refundStastics","repayMoney","accident","repaycompare","chargeInfo","chargeCompare","supplierInfo","staffInfo","","","accountManager"]
+    };
+  },
+  methods:{
+    // 获取搜索的参数
+    changeSearch(value,key){
+      var routerpath=_g.getRouterPath(this)
+      if(key!=="jc"&&key!=="jc_b"){
+        // var goalArray=["","boaters","owners","ships","securitySet","insurance","securityInfo","securityCompare","refundRecordBoaters","refundRecordStaff","refundRecordOffice","","","","","repay","accident","repaycompare"]
+        this.$store.state.searchData[this.allKeysArray[this.searchShow]][key]=value
+        // console.log(this.$store.state.searchData[this.allKeysArray[this.searchShow]])
+        return
+      }else if(key=="jc"){
+        var length=this.nameData.length
+        for(var i=0;i<length;i++){
+          this.nameData.splice(0,1)
+        }
+        this.apiPost(this.urls.jc,{abbreviation:value}).then(res=>{
+          if(!res.error){
+            this.nameData.push({
+              name:"全部",
+              value:"全部",
+              id:""
+          })
+            res.forEach(ele => {
+              this.nameData.push({
+                name:ele.info,
+                value:ele.info,
+                id:ele.id
+              })
+            });
+          }else{
+            // _g.toMessage(this,res.error?"warning":"success",res.msg)
+          }
+        })
+        if(!value){
+          
+          if(this.searchShow==24){
+            this.$store.state.searchData[this.allKeysArray[this.searchShow]].userId=""
+          }else{
+            this.$store.state.searchData[this.allKeysArray[this.searchShow]].id=""
+            this.$store.state.searchData[this.allKeysArray[this.searchShow]].mariner_id=""
+          }
+          this.$store.state.searchSetData[routerpath.slice(1)][1].value=""
+        }
+      }else if(key=="jc_b"){
+        var length=this.nameData.length
+        for(var i=0;i<length;i++){
+          this.nameData.splice(0,1)
+        }
+        this.apiPost(this.urls.jc_b,{abbreviation:value}).then(res=>{
+          if(!res.error){
+            res.forEach(ele => {
+              this.nameData.push({
+                name:ele.info,
+                value:ele.info,
+                id:ele.id
+              })
+            });
+          }
+        })
+        if(!value){
+          this.$store.state.searchSetData[routerpath.slice(1)][1].value=""
+          this.$store.state.searchData[this.allKeysArray[this.searchShow]].userId=""
+        }
+      }
+    },
+
+    changeThis(val,key){  //下拉
+      // var goalArray=["","boaters","owners","ships","securitySet","insurance","securityInfo","securityCompare","refundRecordBoaters","refundRecordStaff","refundRecordOffice","","","","","repay","accident","repaycompare"]
+      
+      if(key=="area"){
+        this.$store.state.searchData[this.allKeysArray[this.searchShow]][key]=val
+      }else{
+        this.$store.state.searchData[this.allKeysArray[this.searchShow]][key]=val=="全部"?"":val
+      }
+    },
+
+    // 得到num范围
+    getCountNum(special,item){
+      this.$store.state.searchData[this.allKeysArray[this.searchShow]][special]=[item.start,item.end]
+      // if(item.start&&item.end){
+      //   this.$store.state.searchData[this.allKeysArray[this.searchShow]][special]=[item.start,item.end]
+      // }else{
+      //   this.$store.state.searchData[this.allKeysArray[this.searchShow]][special]=[]
+      // }
+    },
+
+    changeThisTime(time,special,str,item){ //时间选择
+      var key=this.allKeysArray[this.searchShow]
+      var timeArray=special?special:"time"
+      if(!time&&item){
+        item.startTime=""
+        item.endTime=""
+        this.$store.state.searchData[key][timeArray]=[]
+        return
+      }
+      this.$store.state.searchData[key][timeArray]=this.$store.state.searchData[key][timeArray]||[]
+      if(item&&item.startTime&&item.endTime){
+        this.$store.state.searchData[key][timeArray]=time?_g.formatTime(time,str):"";
+        this.$store.state.searchData[key][timeArray]=[_g.formatTime(item.startTime,"month"),_g.formatTime(item.endTime,"month")]
+      }else if(item&&(item.startTime||item.endTime)){
+        this.$store.state.searchData[key][timeArray]=[] //月份只有一个时，不传时间
+      } else if(!item){
+        if(time){
+          this.$store.state.searchData[key][timeArray]=[_g.formatTime(time[0]),_g.formatTime(time[1])]
+        }else{
+          this.$store.state.searchData[key][timeArray]=[]
+        }
+      }
+    },
+
+    // 搜索框改变名称的值
+    changeName(val){
+      if(val){
+        var array=this.allKeysArray
+        this.nameData.forEach(ele=>{
+          if(ele.value===val||val===ele.info){
+            var key=array[this.searchShow]
+              if(this.searchShow==24){
+                this.$store.state.searchData[key].userId="全部"?"":ele.id
+                 return;
+              }else if(this.searchShow==11){
+                this.$store.state.searchData[key].mariner_id=val=="全部"?"":ele.id
+                 return;
+              }else{
+                this.$store.state.searchData[key].id=val=="全部"?"":ele.id
+                 return;
+              }
+          }
+        })
+        
+      }
+    },
+
+    // 获取全局数据
+    getAllData(routerPath){
+      var routerpath=_g.getRouterPath(this)
+      var array=["jobs","owners","department","education","degree","organization","roles","shipnames","Insure"]//所有下拉
+      var specialArray=["owners","roles","shipnames","Insure"]// 需要使用[{}]的形式
+      var specialRouter=[]//路由跳过{title:"全部",id:""}
+      for(let i=0;i<array.length;i++){
+        this[array[i]]=[]
+        if(this.$store.state.tableListData[array[i]].length==0){
+          // console.log(this.urls[array[i]])
+          this.apiPost(this.urls[array[i]]).then(res=>{
+            if(!specialArray.includes(array[i])){
+              this[array[i]].push("全部")
+              res.data.forEach(ele=>{
+                this[array[i]].push(ele)
+              })
+
+            }else{
+              if(!specialRouter.includes(routerPath))this[array[i]].push({title:"全部",id:"全部"})
+              var goal=res.data?res.data:res
+              goal.forEach(ele=>{
+                  this[array[i]].push({
+                    title:ele.title?ele.title:ele.name,
+                    id:ele.id
+                  })
+                })
+            }
+            this.$store.state.tableListData[array[i]]=this[array[i]]
+          })
+        }else{
+          this[array[i]]=this.$store.state.tableListData[array[i]]
+        }
+      }
+
+      // return
+      if(this.$store.state.tableListData.business.length==0){
+        this.apiPost("mariner/staffData").then(res=>{
+          var business=[]
+          res.data.forEach(ele=>{
+            business.push({
+              title:ele.username,
+              id:ele.id
+            })
+          })
+          this.$store.state.tableListData.business=[...business]
+        })
+      }
+      if(this.$store.state.tableListData.allareaArray.length==0){
+        this.apiPost("Social/searchArea").then(res=>{
+          // console.log(res,"area")
+          if(!res.error){
+            res.data.forEach(ele=>{
+              this.allareaArray.push(ele)
+            })
+            this.$store.state.tableListData.allareaArray=[...this.allareaArray]
+          }
+        })
+      }else{
+        this.allareaArray=[].concat(this.$store.state.tableListData.allareaArray)
+      }
+
+      if(routerPath=="/supplierInfo"){
+        this.apiPost("supplier/attributeSupplier").then(res=>{
+          this.attributesArray.push("全部")
+          Object.values(res.attribute).forEach(ele=>{
+            this.attributesArray.push(ele)
+          })
+        })
+      }
+      
+
+      // if(this.$store.state.tableListData.reasonData.length==0){
+      //   this.apiPost("borrow/reasonAll").then(res=>{
+      //     res.data.forEach(ele=>{
+      //       this.reasonData.push(ele)
+      //     })
+      //     this.$store.state.tableListData.reasonData=[...this.reasonData]
+      //   })
+      // }else{
+      //   this.reasonData=[].concat(this.$store.state.tableListData.reasonData)
+      // }
+      
+
+      if(this.$store.state.tableListData.financeList.length==0){
+        this.apiPost("mariner/financeList").then(res=>{
+          // this.financeList.push("全部")
+          res.forEach(ele=>{
+            this.financeList.push(ele)
+          })
+          // console.log(this.allareaArray)
+          this.$store.state.tableListData.financeList=[...this.financeList]
+        })
+      }else{
+        // this.financeList=[].concat(this.$store.state.tableListData.financeList)
+      }
+    },
+    
+    
+    // 刷新
+    showNewSet(){
+      var routerpath=_g.getRouterPath(this)
+      this.getAllData(routerpath)
+      this.allList=[]
+      var array=["boaters","shipowners","shipnames","securityset","securityinsurance","securityinfo","securitycompare","refundRecordBoaters","refundRecordStaff","refundRecordOffice","refundSignBoater","refundSignStaff","refundSignOffice","refundStastics","repayMoney","accident","repaycompare","chargeInfo","chargeCompare","supplierInfo","staffInfo","","","accountManager"] 
+      var localSave=["boaters","shipowners","shipnames","securityset","securityinsurance","securityinfo","securitycompare","refundRecordBoaters","refundRecordStaff","refundRecordOffice","refundSignBoater","refundSignStaff","refundSignOffice","refundStastics","repayMoney","accident","repaycompare","chargeInfo","chargeCompare","supplierInfo","staffInfo","","","accountManager"] //本地存储的数组
+      var passArray=[] //本地存储跳过的数组
+      array.forEach((ele,index)=>{
+        if(routerpath.slice(1)==ele){
+          this.searchShow=index+1
+          var content=localStorage.getItem(localSave[index])?JSON.parse(localStorage.getItem(localSave[index])):[]
+          if(!passArray.includes(routerpath.slice(1)))this.allList=_g.getRightItem(this,this.$store.state.searchSetData[localSave[index]],content)
+
+          // 保存简称搜索
+          if(this.$store.state.searchSetData[routerpath.slice(1)][0].special=="jc"&&this.$store.state.searchSetData[routerpath.slice(1)][0].value){
+            
+            this.apiPost(this.urls.jc,{abbreviation:this.$store.state.searchSetData[routerpath.slice(1)][0].value}).then(res=>{
+              this.nameData.push({
+                  name:"全部",
+                  value:"全部",
+                  id:""
+              })
+              if(!res.error){
+                res.forEach(ele => {
+                  this.nameData.push({
+                    name:ele.info,
+                    value:ele.info,
+                    id:ele.id
+                  })
+                });
+              }
+            })
+          }
+          return
+        }
+      })
+      
+    },
+    busOn(){
+      
+    }
+  },
+  components: {Thead},
+  created() {
+    this.showNewSet()
+    
+  },
+  mounted(){
+    var that=this
+    document.getElementsByClassName("search-content")[0].onkeyup=function(node){
+      if(node.keyCode==13&&node.key=="Enter"){
+        bus.$emit("search_new_result")
+      }
+    }
+  },
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+
+p {
+  padding: 0;
+  height: 45px;
+  line-height: 45px;
+  text-align: left;
+  color: #333;
+  background-color: #f3f3f3;
+}
+
+
+label {
+  display: inline-block;
+  width: 100%;
+  /* border-right: 1px solid #E4E4E4; */
+
+}
+label>p{
+  text-align: right;
+  height: 40px;
+  line-height: 40px;
+  padding-right: 10px;
+}
+label>p>span{
+  display: block;
+  height: 20px;
+  line-height: 20px;
+}
+.search-content{
+  margin-bottom: 20px;
+  /* border-top: 1px solid #e4e4e4 */
+}
+.search-content input {
+  display: inline-block;
+  border: none;
+  height: 40px;
+  text-indent: 10px;
+  width: 100%;
+}
+.time-choose{
+  width: 100%;
+}
+.search-test{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  border-left: 1px solid #e4e4e4;
+  /* border-top: 1px solid #e4e4e4; */
+}
+.search-box{
+  width: 25%;
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 1px solid #e4e4e4;
+}
+.width_50{
+  width: 40%
+}
+@media screen and (min-width: 1700px) {
+  /* .search-box{
+    width: 20%;
+  } */
+}
+.search-box span{
+  width: 0;
+  flex-grow: 1;
+  max-width: 80px;;
+  line-height: 40px;
+  text-align: center;
+  border-right: 1px solid #e4e4e4;
+  box-sizing: border-box;
+  padding:0 2px;
+  background-color: #f3f3f3
+}
+.search-box input,.search-box .select{
+  width: 0;
+  flex-grow:3;
+  border-right: 1px solid #e4e4e4;
+  box-sizing: border-box;
+  z-index: 10;
+}
+.search-box .no-line-height{
+  line-height: 15px;
+  padding-top: 5px;
+}
+.search-content .is-big{
+  /* width: 50%; */
+}
+.search-content .is-big>div{
+  flex-grow: 2.9;
+  padding-left: 6px;
+  padding-right: 1px;
+}
+.number_2{
+  display: flex;
+  justify-content: space-around;
+  border-right: none;
+}
+.month-select{
+  width: 40%!important;
+}
+.search-box span.a-word{
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 5px!important;
+  background: transparent;
+  border-right: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+.mul-box{
+  height: 40px!important;
+}
+</style>

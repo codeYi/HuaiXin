@@ -1,0 +1,257 @@
+<template>
+  <div class="login spread-out pr">
+    <div class="login-box pa">
+      <div class="title">
+        <img src="../../assets/imgs/login/logo@2x.png" alt="">
+        <p class="color-white">{{title}}</p>
+      </div>
+      <div class="pr">
+        <img class="logo pa" src="../../assets/imgs/login/icon-division@2x.png" alt="">
+        <el-select v-model="userInfo.deparment" :filterable="true" placeholder="选择部门" :clearable="true" class="color" @change="changeThis('dep',userInfo.deparment)">
+          <el-option v-for="(item,index) in tableData.departments" :key="index" :label="item" :value="item">
+          </el-option>
+        </el-select>
+      </div>
+      <div class="pr" v-if="userInfo.deparment!='crew'">
+        <img class="logo pa" src="../../assets/imgs/login/icon-name@2x.png" alt="">
+        <el-select v-model="userInfo.id" placeholder="选择姓名" :filterable="true" :clearable="true"  class="color">
+          <el-option v-for="(item,index) in tableData.username" :key="index" :label="item.username" :value="item.id">
+          </el-option>
+        </el-select>
+      </div>
+      <div class="pr" v-else>
+        <img class="logo pa" src="../../assets/imgs/login/icon-name@2x.png" alt="">
+        <el-input v-model="userInfo.idNumber" placeholder="请输入身份证号码" class="color"></el-input>
+      </div>
+      <div class="pr password">
+        <img class="logo pa" src="../../assets/imgs/login/icon-password@2x.png" alt="">
+        <el-input type="password" auto-complete="new-password" v-model="userInfo.password" placeholder="请输入密码"  class="color"></el-input>
+      </div>
+      <div>
+        <el-checkbox label="是否记住密码" :checked="userInfo.remeberP" @change="userInfo.remeberP=!userInfo.remeberP"></el-checkbox>
+        <router-link to="/forgetPassword" class="fr">忘记密码</router-link>
+      </div>
+      <el-button type="primary" @click="login" :class="loginError?'login-hover':'login-hover animated shake'">登录</el-button>
+    </div>
+
+    <!-- 版权 -->
+    <div class="copyright-box pa">
+      <Copyright></Copyright>
+    </div>
+  </div>
+</template>
+
+<script>
+import Copyright from '../common/footer'
+export default {
+  data() {
+    var testID=(rule, value, callback)=>{
+        if (value === '') {
+          callback(new Error('请输入身份证号码'));
+        }else if(! /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/.test(value)){
+          callback(new Error('身份证号码格式不正确'));
+        }else{
+          callback()
+        }
+    }
+    return {
+      userInfo: {
+        deparment: "", //部门
+        id: "",
+        password: "",
+        idNumber:"",
+        remeberP:false,//是否记住密码
+      },
+
+      title: "费用管理系统",
+      copyright: "Copyright © www.ambcon.cn, All Rights Reserved.",
+      email: "Email : z.zou@ambcon.cn",
+
+      idRule:[{ validator: testID, trigger: 'blur',required: true}],
+
+      tableData: {
+        departments: [],
+        username:[]
+      },
+      imgs: {
+        bac: require("../../assets/imgs/login/timg.png")
+      },
+      urls: {
+        login: "login/login",
+
+        department:"login/department",//所有部门
+
+        staff:"login/staff",
+      },
+      loginError: true //登录失败
+    };
+  },
+  methods: {
+    login() {
+      // 正确与否添加button类名
+      var params={
+        id:this.userInfo.id,
+        department:this.userInfo.deparment,
+        password:this.userInfo.password,
+        idNumber:this.userInfo.idNumber
+      }
+      var str=JSON.stringify(this.userInfo)
+      if(!params.department){
+        _g.toMessage(this,"warning","请选择部门")
+         this.loginError = false;
+          setTimeout(() => {
+            this.loginError = true;
+          }, 500);
+        return
+      }
+      this.apiPost(this.urls.login,params).then(res=>{
+        _g.toMessage(this,res.error?"error":"success",res.msg)
+        if(res.error){
+          this.loginError = false;
+          setTimeout(() => {
+            this.loginError = true;
+          }, 500);
+        }else{
+          var loginTime=new Date().getTime()
+          if(this.userInfo.remeberP){
+           localStorage.setItem("my_userInfo",str);
+          }else{
+            localStorage.setItem("my_userInfo","");
+          }
+
+          localStorage.setItem("my_loginTime",loginTime)
+          sessionStorage.setItem("logined",true)
+
+          if(params.idNumber){
+            setTimeout(()=>{this.$router.push("/refundAddBoaters")},200)
+          }else{
+            setTimeout(()=>{this.$router.push("/homepage")},200)
+          } 
+        }
+      })
+    },
+
+    changeThis(str,val){
+      this.userInfo.idNumber=""
+      this.tableData.username=[]
+      if(str=="dep"&&val!="crew"&&val){
+        this.apiPost(this.urls.staff,{department:val}).then(res=>{
+          this.tableData.username=res
+          if(res.length==0){
+            _g.toMessage(this,"warning","没有数据")
+          }
+        })
+      }
+    },
+
+    getData(){
+      this.userInfo=localStorage.getItem("my_userInfo")?JSON.parse(localStorage.getItem("my_userInfo")):{ deparment: "",id: "",password: "",idNumber:"",remeberP:false,}
+      if(localStorage.getItem("my_loginTime")&&(new Date().getTime()-localStorage.getItem("my_loginTime"))>60*1000*60*24*3){
+        localStorage.setItem("my_loginTime","");
+        localStorage.setItem("my_userInfo","");
+      }else if(localStorage.getItem("my_loginTime")){
+        // this.$router.push("/homepage")
+      }
+
+      if(this.$store.state.tableListData.department.length>0){
+        this.tableData.departments=this.$store.state.tableListData.department.slice(1)
+      }else{
+        this.apiPost(this.urls.department).then(res=>{
+          res.data.forEach(ele => {
+            this.tableData.departments.push(ele)
+          });
+          var speical=[...this.tableData.departments]
+          this.$store.state.tableListData.department=["全部"].concat(speical)
+        })
+      }
+      if(this.userInfo.deparment){
+          if(this.userInfo.deparment!="crew"&&this.userInfo.deparment){
+            this.apiPost(this.urls.staff,{department:this.userInfo.deparment}).then(res=>{
+              this.tableData.username=res
+            })
+          }
+      }
+    },
+
+  },
+  components: {Copyright},
+  created() {
+    this.getData()
+  },
+  mounted(){
+    var that=this
+    document.getElementsByClassName("login")[0].onkeyup=function(node){
+      if(node.keyCode==13&&node.key=="Enter"){
+        that.login()
+      }
+    }
+  }
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.login {
+  background: url(../../assets/imgs/login/timg.png);
+  /* background-color: blue; */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  /* color: #fff; */
+}
+.title img {
+  width: 190px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+p {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 48px;
+  /* color: #fff; */
+  text-align: center;
+}
+.login-box,
+.copyright-box {
+  width: 350px;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+.copyright-box {
+  width: 100%;
+  height: 100px;
+  top: 95%;
+}
+.login-box > div {
+  margin-bottom: 20px;
+}
+.login-box > div.password {
+  margin-bottom: 10px;
+}
+.login-box > button {
+  width: 100%;
+}
+a.fr {
+  text-decoration: underline;
+  color: #fff;
+}
+.logo {
+  z-index: 1;
+  width: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+}
+#remeber{
+  background: url(../../assets/imgs/login/icon-name@2x.png)
+}
+.color{
+  color: rebeccapurple
+}
+.login-hover:hover{
+  opacity: .8;
+}
+.login-hover:active{
+  opacity: 1;
+}
+</style>

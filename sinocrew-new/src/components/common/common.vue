@@ -1,0 +1,118 @@
+
+<template>
+  <div class="common spread-out pr">
+    <div class="head-box">
+      <headForAll></headForAll>
+    </div>
+    <div class="pa left-menu">
+      <leftMenu v-if="$store.state.reflash.leftmenu"></leftMenu>
+    </div>
+    <div class="pa right-table">
+      <rightTime></rightTime>
+      <div class="pa right-table-content overflow-y" v-if="$store.state.reflash.contentReflash">
+        <router-view></router-view>
+        <Noright v-show="$store.state.allDialog.showNoRight"></Noright>
+      </div>
+      <footer class="pa right-copyright"><Copyright></Copyright></footer>
+    </div>
+
+    <AddDialog v-if="$store.state.allDialog.add"></AddDialog>
+    <QueryDialog v-if="$store.state.allDialog.query"></QueryDialog>
+    <WordsSetDialog v-if="$store.state.allDialog.wordsSet"></WordsSetDialog>
+    <EditDialog v-if="$store.state.allDialog.editShow"></EditDialog>
+    <ImportDataDialog v-if="$store.state.allDialog.batch"></ImportDataDialog>
+    <SureDialog></SureDialog>
+    <DoPayDialog v-if="$store.state.allDialog.repay"></DoPayDialog>
+
+    <ExportExcell v-if="$store.state.allDialog.download" ></ExportExcell>
+  </div>
+</template>
+
+<script>
+// import headForAll from './head'
+// import leftMenu from './leftmenu'
+// import rightTime from './timebar'
+// import Copyright from './footer.vue'
+// import Noright from './noRight'
+
+// import AddDialog from './dialogs/add'
+// import QueryDialog from './dialogs/query'
+// import EditDialog from './dialogs/edit.vue'
+// import WordsSetDialog from './dialogs/wordsSet'
+// import ImportDataDialog from './dialogs/importData'
+// import importDataVue from './dialogs/importData.vue';
+// import DoPayDialog from './dialogs/repay' 
+
+import SureDialog from './dialogs/sure'
+
+// import ExportExcell from './exportExcell.vue'
+
+export default {
+  data () {
+    return {
+      showThis:true
+    }
+  },
+  methods:{
+    
+  },
+  components: {
+    headForAll:resolve => {require(['./head.vue'],resolve)} ,
+    leftMenu:resolve => {require(['./leftmenu.vue'],resolve)} ,
+    rightTime:resolve => {require(['./timebar.vue'],resolve)} ,
+    Copyright:resolve => {require(['./footer.vue'],resolve)} ,
+    AddDialog:resolve => {require(['./dialogs/add.vue'],resolve)} ,
+    QueryDialog:resolve => {require(['./dialogs/query.vue'],resolve)} ,
+    WordsSetDialog:resolve => {require(['./dialogs/wordsSet.vue'],resolve)} ,
+    EditDialog:resolve => {require(['./dialogs/edit.vue'],resolve)} ,
+    ImportDataDialog:resolve => {require(['./dialogs/importData.vue'],resolve)} ,
+    SureDialog,
+    DoPayDialog:resolve => {require(['./dialogs/repay.vue'],resolve)} ,
+    ExportExcell:resolve => {require(['./exportExcell.vue'],resolve)} ,
+    Noright:resolve => {require(['./noRight.vue'],resolve)} ,
+  },
+  created(){
+    
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.head-box{
+  height: 50px;
+}
+.left-menu{
+  top: 50px;
+  left: 0;
+  width: 200px;
+  bottom: 0;
+}
+.right-table{
+  top: 50px;
+  bottom: 0;
+  left: 200px;
+  right: 0;
+}
+.right-copyright{
+  width: 100%;
+  height: 100px;
+  bottom: 0;
+  /* background-color: #F3F3F3 */
+}
+.right-table-content{
+  top: 50px;
+  bottom: 100px;
+  left: 0; right: 0;
+  padding: 21px 48px 0 48px;
+  /* background-color: #F3F3F3 */
+}
+.right-table-content>div{
+  min-width: 1080px;
+  /* width: 1080px; */
+  width: 85%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+}
+</style>

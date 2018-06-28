@@ -1,0 +1,363 @@
+<template>
+  <div class="add-boaters-box" v-show="!$store.state.allDialog.showNoRight">
+    <Search style="display:none"></Search>
+    <addTable :headData="headData" lh120="true" :btns="btns" :footMoreData="footMoreData" :isPassed="isPassed" :addBtnShow="addBtnShow" :canEdit="canEdit" :bodyData="bodyData" :footData="footData" :amountData="amount" :shipProjectData="shipData"></addTable>
+  </div>
+</template>
+
+<script>
+import Search from '../../common/search/search'
+import addTable from './common/addtable'
+export default {
+  data () {
+    return {
+      headData:["报销时间","姓名","职务","客户","船名","报销地点","船队","出差事由","事由说明"],
+      bodyData:["日期","起始地点","我去","交通费","住宿费","市内交通费","体检费","培训费","补贴","其他","费用承担方","备注说明","电子发票","合计"],
+      footData:[
+          {
+            type:"time",
+            label:"费用发生日期",
+            value:"",
+            key:"date"
+          },{
+            type:"input",
+            label:"起始地点",
+            value:"",
+            key:"start_address"
+          },{
+            type:"input",
+            value:"",
+            label:"结束地点",
+            key:"end_address"
+          },{
+            type:"number",
+            value:"0.00",
+            key:"traffic_cost"
+          },{
+            type:"number",
+            value:"0.00",
+            key:"hotel_cost"
+          },{
+            type:"number",
+            value:"0.00",
+            key:"city_cost"
+          },{
+            type:"number",
+            value:"0.00",
+            key:"examination_cost"
+          },{
+            type:"number",
+            value:"0.00",
+            key:"train_cost"
+          },{
+            type:"number",
+            value:"0.00",
+            key:"subsidy_cost"
+          },{
+            type:"number",
+            value:"0.00",
+            key:"else_cost"
+          },{
+            type:"select",
+            array:[],
+            arrayName:"shiperList",
+            value:"",
+            key:"assume"
+          },{
+            type:"input",
+            value:"",
+            key:"remark"
+          },{
+            type:"input",
+            value:"",
+            key:"number",
+            // label:"电子发票编号"
+          },{
+            type:"label", //
+            value:"0.00",
+            key:""
+          }
+        ],
+
+      amount:["","","分项合计","0.00","0.00","0.00","0.00","0.00","0.00",""," ","","","0.00"],//合计
+      shipData:[[//船东项目
+        {
+          type:"label",
+          label:"",
+        },{
+          type:"label",
+          label:"",
+        },{
+          type:"label",
+          label:"收船东项目"
+        },{
+          type:"number",
+          value:"",
+          key:"shiper_traffic",
+        },{
+          type:"number",
+          value:"",
+          key:"shiper_hotel",
+        },{
+          type:"number",
+          value:"",
+          key:"shiper_city",
+        },{
+          type:"number",
+          value:"",
+          key:"shiper_examination",
+        },{
+          type:"number",
+          value:"",
+          key:"shiper_train",
+        },{
+          type:"number",
+          value:"",
+          key:"shiper_else",
+        },{
+          type:"number",
+          value:"",
+          key:"shiper_subsidy",
+        },{
+          type:"label",
+          value:"",
+          key:"",
+        },{
+          type:"label",
+          value:"",
+          key:"",
+        },{
+          type:"label",
+          value:"",
+          key:"",
+        },{
+          type:"count",
+          value:"0.00",
+          key:"0",
+        }
+      ]],
+
+
+      footMoreData:[
+        [
+          {
+            label:"日期",
+            type:"label",
+            class:"blank-label canflexgrew"
+          },{
+            label:"预支抵扣项目",
+            type:"label",
+            class:"blank-label canflexgrew"
+          },{
+            label:"外汇欠款",
+            type:"label",
+            class:"blank-label canflexgrew"
+          },{
+            label:"外汇还款",
+            type:"label",
+            class:"blank-label canflexgrew"
+          },{
+            label:"人民币欠款",
+            type:"label",
+            class:"blank-label canflexgrew"
+          },{
+            label:"人民币还款",
+            type:"label",
+            class:"blank-label canflexgrew"
+          }
+        ],[
+          {
+            type:"time",
+            value:""
+          },{
+            type:"input",
+            readonly:true,
+            value:"借款"
+          },{
+            type:"input",
+            readonly:true,
+            value:""
+          },{
+            type:"input",
+            readonly:true,
+            value:""
+          },{
+            type:"input",
+            readonly:true,
+            value:""
+          },{
+            type:"input",
+            readonly:true,
+            value:""
+          }
+        ],[
+          {
+            type:"time",
+            value:""
+          },{
+            type:"input",
+            readonly:true,
+            value:"社保欠款"
+          },{
+            type:"input",
+            readonly:true,
+            value:""
+          },{
+            type:"input",
+            readonly:true,
+            value:""
+          },{
+            type:"input",
+            readonly:true,
+            value:""
+          },{
+            type:"input",
+            readonly:true,
+            value:""
+          }
+        ],[
+          {
+            type:"time",
+            value:""
+          },{
+            type:"input",
+            readonly:true,
+            value:"意外险欠款"
+          },{
+            type:"input",
+            readonly:true,
+            value:""
+          },{
+            type:"input",
+            readonly:true,
+            value:""
+          },{
+            type:"input",
+            readonly:true,
+            value:""
+          },{
+            type:"input",
+            readonly:true,
+            value:""
+          }
+        ],[
+          {
+            type:"span",
+            label:"",
+            class:"no-border-right flex-grow-1"
+          },{
+            type:"span",
+            label:"所有差旅费总计",
+            class:"flex-grow-1"
+          },{
+            type:"input",
+            value:"",
+            readonly:true,
+            class:"flex-grow-4",
+          }
+        ],[{
+            type:"span",
+            label:"",
+            class:"no-border-right flex-grow-1"
+          },{
+            type:"span",
+            label:"应补差旅费金额",
+            class:"flex-grow-1"
+          },{
+            type:"input",
+            value:"",
+            readonly:true,
+            class:"flex-grow-4",
+          }
+        ],[
+          {
+            type:"span",
+            label:"",
+            class:"no-border-right flex-grow-1"
+          },{
+            type:"span",
+            label:"所有差旅费总计(大写)",
+            class:"flex-grow-1"
+          },{
+            type:"input",
+            value:"",
+            readonly:true,
+            class:"flex-grow-4",
+          }
+        ],
+        [
+          {
+            label:"付款方式",
+            type:"label",
+            class:"blank-label"
+          },{
+            type:"radio",
+            value:"",
+            data:[
+              {
+                label:"现金",
+                value:"现金"
+              },{
+                label:"转账",
+                value:"转账"
+              }
+            ],
+            class:"flex-grow-3 padding-left"
+          }
+        ]
+      ],
+      btns:1,
+      isPassed:false, //显示通过图片
+      addBtnShow:true,//显示添加按钮
+      canEdit:false,
+
+      dataUrl:[
+        {
+          label:"/refundSignBoater/info",
+          url:"",//获取详情的地址
+          btns:2,
+          addBtnShow:false,
+        },{
+          label:"/refundRecordBoaters/info",
+          url:"",//获取详情的地址
+          btns:2,
+          addBtnShow:false,
+        }
+      ]
+    }
+  },
+  methods:{
+    getData(){
+      var routerpath=_g.getRouterPath(this)
+      var id=_g.getRouterParams(this).id
+      this.dataUrl.forEach(ele=>{
+        if(routerpath.indexOf(ele.label)>-1){
+
+          // 获取详情之后才能判断按钮等的显示情况
+          this.addBtnShow=ele.addBtnShow
+          this.canEdit=true
+          this.btns=2
+          return
+        }
+      })
+      var pathArray=["/refundAddOffice","/refundAddStaffs","/refundAddBoaters",]
+      if(pathArray.includes(routerpath)){
+        this.footMoreData=[]
+      }
+    }
+  },
+  components: {
+    addTable,Search
+  },
+  created(){
+    this.getData()
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+span{
+  vertical-align: middle
+}
+</style>

@@ -1,0 +1,106 @@
+<template>
+  <div class="time-box box-size">
+    <div class="time box-size">
+      <span class="title-head">{{$store.state.theader.label}}</span>
+      <span @click="backThis" v-show="$store.state.theader.showback" class="fr box-size my-btn"><img :src="imgs.back" alt="" class="ver-middle back-img"><span class="ver-middle">返回</span></span>
+      <span @click="frashThis" v-show="$store.state.theader.showfrash" class="fr box-size my-btn refrash"><img :src="imgs.load" alt="" class="ver-middle"><span class="ver-middle">刷新</span></span>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      imgs:{
+        load:require("../../assets/imgs/homepageImg/icon-refresh@2x.png"),
+        back:require("../../assets/imgs/homepageImg/arrow-left@2x.png")
+      },
+
+      hasBackArray:["/refundSignOffice/info/","/refundSignBoater/info/","/refundSignStaff/info/","/permisionSettings/"]
+    };
+  },
+  methods:{
+    backThis(){
+      this.$store.state.theader.showback=false
+      this.$store.state.theader.showfrash=true
+      var path=this.$router.history.current.path
+      if(path.indexOf("/boaters/info/")>-1){
+        this.$store.state.theader.label="船员信息"
+      }
+
+      this.$router.go(-1)
+    },
+    frashThis(){
+      var routerpath = _g.getRouterPath(this);
+      _g.showloading("用力刷新中")
+      this.$store.state.reflash.contentReflash=false
+      if (this.$store.state.searchData[routerpath.slice(1)]) this.$store.state.searchData[routerpath.slice(1)] = { page: 1, listRows: 10, time: [] }
+      if (this.$store.state.searchSetData[routerpath.slice(1)]) this.$store.state.searchSetData[routerpath.slice(1)].forEach(ele => {
+        ele.value = ""
+        ele.start = ""
+        ele.end = ""
+        if(ele.startTime)ele.startTime=""
+        if(ele.endTime)ele.endTime=""
+      });
+      setTimeout(()=>{
+        this.$store.state.reflash.contentReflash=true
+        _g.closeloading(this,"刷新成功")
+      },500)
+    }
+  },
+  components: {},
+  created() {
+    var routerpath = _g.getRouterPath(this);
+    this.hasBackArray.forEach(ele=>{
+      if(routerpath.indexOf(ele)>-1){
+        this.$store.state.theader.showback=true
+      }
+    })
+  }
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.time-box{
+  background-color: #F3F3F3;
+  border-bottom: 1px solid #E4E4E4;
+  height: 50px;
+}
+.time {
+  line-height: 50px;
+  min-width: 1066px;
+  /* width: 1066px; */
+  width: 85%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+.title-head {
+  /* display: inline-block; */
+  font-size: 13px;
+  /* margin-left: 28px; */
+  padding-left: 10px;
+  color: #999;
+  border-left: 4px solid #0099FF;
+}
+.fr{
+  /* margin-right: 28px; */
+  line-height: 19px;
+  width: 80px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.refrash:hover img{
+  transform: rotateZ(-180deg)
+}
+img{
+  display: inline-block;
+  width: 17px;
+  margin: 0 13px 0 10px;
+  transition: all 1s
+}
+.back-img{
+  width: 10px;
+}
+</style>

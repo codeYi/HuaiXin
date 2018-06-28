@@ -1,0 +1,497 @@
+<template>
+  <div class="print-box">
+    <div id="print-content" style="position:relative;">
+      <p style="text-align:center;font-size:15px;font-weight:600;" >{{title||"我是title"}}</p>
+      <table style="width:100%;border-collapse:collapse;font-size:14px;">
+        <tr style="font-size:14px;display: flex;flex-wrap: wrap;border-top:1px solid #333;border-left:1px solid #333;box-size:border-box;">
+          <td v-for="item in list1" style="border-right:1px solid #333;flex-grow: 1;display: flex;width: 20%; ">
+            <span style="width:90px;border-bottom:1px solid #333;border-right:1px solid #333;;display:inline-block;height: 24px;text-align: center;line-height: 24px;box-sizing: border-box;font-weight:600;">{{item.label}}</span><span style="display:inline-block;width:0%;text-align:center;line-height:24px;border-bottom:1px solid #333;height:24px;box-sizing:border-box;flex-grow: 1">{{item.value}}</span>
+          </td>
+        </tr>
+        <tr v-for="one in list2" class="body" style="font-size:14px;display:flex;flex-wrap:wrap;border-left:1px solid #333;;box-sizing:border-box;width:100%;min-height:24px;">
+          <td v-for="item in one" v-if="item.children" style="display:inline-block;width:50px;flex-grow:1;text-align:center;box-sizing:border-box;height:72px;min-width:20px;">
+            <span v-if="item.children.length!==2" v-for="(child,index2) in item.children"  :style="item.children.length==3?(index2==0?'font-weight:600;display:block;height:24px;line-height:24px;box-sizing: border-box;border-right:1px solid #333;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;border-bottom:1px solid #333':'display:block;height:24px;line-height:24px;box-sizing: border-box;border-right:1px solid #333;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;border-bottom:1px solid #333'):'display:inline-block;width:100%;height:72px;line-height:72px;box-sizing: border-box;border-right:1px solid #333;font-weight:600;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;border-bottom:1px solid #333'">{{child}}</span>
+            <span v-if="item.children.length===2" style="display:inline-block;width:100%;height:72px;line-height:72px;box-sizing: border-box;border-right:1px solid #333;position:relative;border-bottom:1px solid #333">
+              <span style="position:absolute;right:5px;top:5px;line-height:24px;font-weight:600;">供应商</span>
+              <span style="position:absolute;left:5px;bottom:5px;line-height:24px;font-weight:600;">结束地点</span>
+            </span>
+          </td>
+
+          <td v-else style="display:inline-block;width:50px;flex-grow:1;text-align:center;box-sizing:border-box;line-height:24px;font-weight:600">
+            <span style="display:block;height:24px;border-bottom:1px solid #333;box-sizing: border-box;border-right:1px solid #333;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;vertical-align: middle">{{item}}</span>
+          </td>
+        </tr>
+
+        <tr style="font-size:14px;display: flex;flex-wrap: wrap;border-left:1px solid #333;box-size:border-box;">
+          <td v-for="item in list3" style="border-right:1px solid #333;flex-grow: 1;display: flex;width: 24%;box-size:border-box; ">
+            <span style="width:120px;border-bottom:1px solid #333;border-right:1px solid #333;;display:inline-block;height: 30px;text-align: center;line-height: 30px;box-sizing: border-box;font-weight:600;">{{item.label}}</span><span style="display:inline-block;width:0%;text-align:center;line-height:30px;border-bottom:1px solid #333;height:30px;box-sizing:border-box;flex-grow: 1;box-size:border-box;">{{item.value}}</span>
+          </td>
+        </tr>
+      </table>
+
+      <img :src="passedImg" alt="" style="position:absolute;right:0;top:30px;width:150px">
+    </div>
+
+    <!-- <p style="display:none">{{getPrintData}}</p> -->
+  </div>
+</template>
+
+<script>
+export default {
+  props:["printData","amount","shipProject","footMoreData","tableModel"],
+  data () {
+    return {
+      onceDetail:false,
+      title:"",
+      passedImg:require("../../../../assets/imgs/common/pass.png"),
+
+
+      urls:{
+        list1:"Mariner/detailMariner",//id
+      },
+      list1:[],
+
+
+      list2:[],
+
+      list3:[
+        {
+          label:"业务主管签批",
+          key:"manager",
+          value:""
+        },{
+          label:"上一级部门经理签批",
+          key:"lastManager",
+          value:""
+        },{
+          label:"财务负责人签批",
+          key:"financeManager",
+          value:""
+        },{
+          label:"出纳签章",
+          value:""
+        },{
+          label:"领款人签字",
+          value:""
+        }
+      ]
+
+    }
+  },
+  computed:{
+    
+    doneThis(){
+
+    }
+  },
+  filters:{
+
+  },
+  methods:{
+    // 刷新数据
+    getPrintData(){
+      var routerpath=_g.getRouterPath(this)
+      var localArray=["mariner_id","duty","vessel_id","shipowner_id","deparment"]
+      var savedArray=["isPassedName","isPassedDuty","isPassedVessel","isPassedCustomer","isPassedDepartment"]
+
+      if(routerpath.indexOf("/refundRecordBoaters/info/")>-1){
+        this.title="船员差旅报销单"
+        
+        this.list1=[
+          {
+            label:"报销时间",
+            key:"date",
+            value:"2018-06-20"
+          },{
+            label:"姓名",
+            key:"mariner_id",
+            value:"",
+            special:true,
+            urlKey:"list1",
+            params:"id",
+          },{
+            label:"职务",
+            key:"duty",
+            value:""
+          },{
+            label:"客户",
+            key:"shipowner_id",
+            value:"",
+          },{
+            label:"船名",
+            key:"vessel_id",
+            value:"",
+          },{
+            label:"报销地点",
+            key:"address",
+            value:"2018-06-20"
+          },{
+            label:"船队",
+            key:"fleet",
+            value:""
+          },{
+            label:"出差事由",
+            key:"reason",
+            value:""
+          },{
+            label:"事由说明",
+            key:"explain",
+            value:""
+          }
+        ]
+        this.list2=[
+          [
+            {
+              label:"日期",
+              children:["日期"],
+            },{
+              label:"出发地点",
+              children:["出发地点"],
+            },{
+              label:"结束地点",
+              children:["供应商","结束地点"],
+            },{
+              label:"交通费",
+              children:["交通费","",""],
+              key:"traffic"
+            },{
+              label:"住宿费",
+              children:["住宿费","",""],
+              key:"hotel"
+            },{
+              label:"市内交通费",
+              children:["市内交通费","",""],
+              key:"city"
+            },{
+              label:"体检费",
+              children:["体检费","",""],
+              key:"examination"
+            },{
+              label:"培训费",
+              children:["培训费","",""],
+              key:"train"
+            },{
+              label:"补贴",
+              children:["补贴","",""],
+              key:"subsidy"
+            },{
+              label:"其他",
+              children:["其他","",""],
+              key:"else"
+            },{
+              label:"费用承担方",
+              children:["费用承担方","",""],
+              key:"assume"
+            },{
+              label:"备注说明",
+              children:["备注说明","",""],
+              key:"remark"
+            },{
+              label:"电子发票",
+              children:["电子发票","",""],
+            },{
+              label:"合计",
+              children:["合计"],
+            }
+          ],
+        ]
+        var stringArray=["assume","else","remark"]
+        var dataOrder=["date","start_address","end_address","traffic_cost","hotel_cost","city_cost","examination_cost","train_cost","subsidy_cost","else_cost","assume","remark","number"]
+      }else if(routerpath.indexOf("/refundRecordStaff/info/")>-1){
+        this.title="员工差旅报销单"
+
+        var localArray=["mariner_id","deparment"]
+        var savedArray=["isPassedName","isPassedDepartment"]
+
+        this.list1=[
+          {
+            label:"报销时间",
+            key:"date",
+            value:""
+          },{
+            label:"出发日期",
+            key:"start_date",
+            value:""
+          },{
+            label:"返程日期",
+            key:"end_date",
+            value:""
+          },{
+            label:"差旅天数",
+            key:"days",
+            value:""
+          },{
+            label:"姓名",
+            key:"mariner_id",
+            value:"",
+            special:true,
+            urlKey:"list1",
+            params:"id",
+          },{
+            label:"部门",
+            key:"deparment",
+            value:""
+          },{
+            label:"客户",
+            key:"shipowner_id",
+            arrayName:"owners",
+            value:"",
+          },{
+            label:"报销地点",
+            key:"address",
+            value:"2018-06-20"
+          },{
+            label:"船名",
+            key:"vessel_id",
+            arrayName:"shipnames",
+            value:"",
+          },{
+            label:"出差事由",
+            key:"reason",
+            value:""
+          },{
+            label:"事由说明",
+            key:"explain",
+            value:""
+          }
+        ]
+        this.list2=[
+          [
+            {
+              label:"日期",
+              children:["日期"],
+            },{
+              label:"出发地点",
+              children:["出发地点"],
+            },{
+              label:"结束地点",
+              children:["供应商","结束地点"],
+            },{
+              label:"交通费",
+              children:["交通费","",""],
+              key:"traffic"
+            },{
+              label:"住宿费",
+              children:["住宿费","",""],
+              key:"hotel"
+            },{
+              label:"市内交通费",
+              children:["市内交通费","",""],
+              key:"city"
+            },{
+              label:"差旅补贴", //change
+              children:["差旅补贴","",""],
+              key:"travel"
+            },{
+              label:"招待餐费",
+              children:["招待餐费","",""],
+              key:"meal"
+            },{
+              label:"其他交际费",
+              children:["其他交际费","",""],
+              key:"exchange"
+            },{
+              label:"办公杂费",
+              children:["办公杂费","",""],
+              key:"office"
+            },{
+              label:"通讯费",
+              children:["通讯费","",""],
+              key:"communication"
+            },{
+              label:"邮递费",
+              children:["邮递费","",""],
+              key:"post"
+            },{
+              label:"同行人",
+              children:["同行人","",""],
+              key:"partner"
+            },{
+              label:"其他",
+              children:["其他","",""],
+              key:"else"
+            },{
+              label:"电子发票",
+              children:["电子发票","",""],
+            },{
+              label:"合计",
+              children:["合计"],
+            }
+          ],
+        ]
+
+        var stringArray=["partner","else"]
+        var dataOrder=["date","start_address","end_address","traffic_cost","hotel_cost","city_cost","travel_cost","meal_cost","exchange_cost","office_cost","communication_cost","post_cost","partner","else_cost","number"]
+      }else if(routerpath.indexOf("/refundRecordOffice/info/")>-1){
+        this.title="办公费用报销单"
+        var localArray=["mariner_id","deparment"]
+        this.list1=[
+          {
+            label:"报销时间",
+            key:"date",
+            value:"",
+          },{
+            label:"姓名",
+            key:"mariner_id",
+            value:"",
+            special:true,
+            urlKey:"list1",
+            params:"id",
+          },{
+            label:"部门",
+            key:"deparment",
+            value:""
+          },{
+            label:"客户",
+            key:"shipowner_id",
+            arrayName:"owners",
+            value:"",
+          },{
+            label:"报销地点",
+            key:"address",
+            value:"2018-06-20"
+          }
+        ]
+
+        this.list2=[["报销项目","说明","费用说明","电子发票","合计"]]
+        var dataOrder=["project","explain","explain_cost","number","total"]
+      }
+      
+      if(Object.keys(this.printData).length>0){
+          // 基本信息
+          this.list1.forEach(ele=>{
+            if(ele.key&&localArray.includes(ele.key)){
+              ele.value=localStorage.getItem(savedArray[localArray.indexOf(ele.key)])||"无"
+            }else if(ele.key&&!ele.arrayName){
+              ele.value=this.printData.main[ele.key]||""
+              
+            }else if(ele.arrayName){
+              ele.value=_g.getMyItem(this.$store.state.tableListData[ele.arrayName],"id",this.printData.main[ele.key]).title
+            }
+          })
+
+          // 费用
+          this.list2.forEach((ele1,index1)=>{
+            if(index1==0){
+              ele1.forEach((ele2,index2)=>{
+                if(ele2.key&&!stringArray.includes(ele2.key)){
+                  ele2.children[1]=this.printData.else_option[ele2.key][0]||"--"
+                  ele2.children[2]=this.printData.else_option[ele2.key][1]||"--"
+                }else if(ele2.key){
+                  ele2.children[1]=this.printData.option[ele2.key]||"--"
+                }
+              })
+            }
+          })
+          
+
+          this.printData.data.forEach(ele=>{
+            var goal=[]
+            var count=0
+            dataOrder.forEach((ele1,index1)=>{
+              goal.push(ele[ele1]||"")
+              if(2<index1&&index1<dataOrder.length-3){
+                count+=Number(ele[ele1])
+              }
+            })
+            if(routerpath.indexOf("/refundRecordBoaters/info/")>-1||routerpath.indexOf("/refundRecordStaff/info/")>-1){
+              goal.push(count)
+            }
+            this.list2.push(goal)
+          })
+          this.list2.push([""])//空格
+
+
+          this.list2.push(this.amount)// 合计
+
+
+          var ship_print=[]   //船东
+          this.shipProject[0].forEach((ele,index)=>{
+            if(index<2||index==this.shipProject[0].length-2){ship_print.push("")}
+            else if(index==2){ship_print.push("船东项目")}
+            else{ship_print.push(ele.value||0)}
+          })
+
+          
+          if(routerpath.indexOf("/refundRecordOffice/info/")>-1){
+            ship_print[2]="借款"
+          }
+          this.list2.push(ship_print)
+
+          if(routerpath.indexOf("/refundRecordOffice/info/")>-1){
+            this.list2.push(["","","应补金额(大写)",_g.Arabia_To_SimplifiedChinese(this.amount[this.amount.length-1]-ship_print[ship_print.length-1])])
+            this.list2.push(["","","应补金额",this.amount[this.amount.length-1]-ship_print[ship_print.length-1]])
+          }
+
+          this.list2.push([""])//空格
+
+
+          // 船员财务
+          this.footMoreData.forEach((ele,index)=>{
+            var morePring=[]
+            if(index<14){
+              ele.forEach((ele1,index1)=>{
+                morePring.push(ele1.label||ele1.value||(index1==0?"":0))
+                if(ele.length==2&&ele1.label=="付款方式"){
+                  morePring.unshift("")
+                }
+              })
+              this.list2.push(morePring)
+            }
+          })
+
+          // 负责人签批
+          this.list3.forEach(ele=>{
+            if(this.printData.checkin.roleId==1){
+              if(ele.key){
+                ele.value="系统管理员"
+              }
+            }else{
+              // 非系统管理员
+              if(ele.key){
+                ele.value=this.printData.checkin?(this.printData.checkin[ele.key]?this.printData.checkin[ele.key]:"无"):"无"
+              }
+            }
+          })
+
+
+
+          setTimeout(()=>{
+            // var printHtml = document.getElementById("print-content").innerHTML;
+            // var wind = window.open("",'newwindow');
+
+            // wind.document.body.innerHTML = printHtml;
+
+            // wind.print();
+            // return false; 
+            $("#print-content").jqprint({})
+          },2000)
+      }
+      return true
+    },
+
+    listenPrint(){
+      bus.$on("print_this",()=>{
+        _g.toMessage(this,"success","即将进入打印页面，请稍后！")
+        this.getPrintData()
+      })
+    }
+  },
+  created(){
+     
+  },
+  mounted(){
+    this.listenPrint()
+  },
+  beforeDestroy(){
+    bus.$off("print_this")
+  }
+  
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+
+</style>
+
